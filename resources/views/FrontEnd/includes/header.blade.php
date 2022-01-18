@@ -19,38 +19,26 @@
 							</a>
 							<ul class="main-menu d-flex align-items-center">
 								<li class="active">
-									<a href="#">Home</a>
+									<a href="#">Accueil</a>
+									
+								</li>
+								<li><a href="about.html">Services</a>
 									<ul class="submenu">
-										<li><a href="index.html">home page one</a></li>
-										<li><a href="index-2.html">home page two</a></li>
-										<li class="active"><a href="index-3.html">home page three</a></li>
+										<li><a href="registation.html">publication</a></li>
+										<li><a href="event-sidebar.html">événement</a></li>
+										<li><a href="event-single.html">homme d'affaire</a></li>
+			                           
 									</ul>
 								</li>
-								<li><a href="about.html">about</a></li>
-								<li><a href="speaker-profile.html">speaker</a></li>
+								<li><a href="speaker-profile.html">Apropos</a></li>
 								<li><a href="#">pages</a>
-									<ul class="submenu">
-										<li><a href="registation.html">registation</a></li>
-										<li><a href="event-sidebar.html">event sidebar</a></li>
-										<li><a href="event-single.html">event single</a></li>
-			                            <li><a href="event-timeline.html">Event timeline</a></li>
-			                            <li><a href="masonary.html">Event masonary</a></li>
-										<li><a href="contact-page.html">contact us</a></li>
-										<li><a href="404.html">404</a></li>
-									</ul>
+									
 								</li>
-								<li><a href="sponsor-reg.html">sponsors</a></li>
-								<li><a href="#">vanus</a>
-									<ul class="submenu">
-			                            <li><a href="event-venue.html">Event venues</a></li>
-			                            <li><a href="eventvenus-details.html">Event vanus details</a></li>
-			                        </ul>
-								</li>
-								<li><a href="#">blog</a>
-									<ul class="submenu">
-										<li><a href="blog-page.html">Blog Page</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-									</ul>
+								<li><a href="sponsor-reg.html">Contatez-nous</a></li>
+								
+								<li><a href="#">S'inscrire</a>
+									<li><a href="#">Se connecter</a></li>
+									
 								</li>
 								<li class="head-contact d-none d-xl-block"><a href="#"><i class="fas fa-phone"></i> +8801619-139091</a></li>
 							</ul>

@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
+
 Route::view('/visiteur','FrontEnd.home');
-=======
+
 Route::get('/admin/dashboard', function () {
     return view('dashboard.dashboard');
 });
->>>>>>> 0a71b7f431e5b255f3c7fda4fc540a21c5a50a0d
+
