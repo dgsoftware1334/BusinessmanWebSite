@@ -35,9 +35,9 @@ class UserController extends Controller
         $save = $user->save();
 
         if( $save ){
-            return redirect()->back()->with('success','You are now registered successfully');
+            return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
         }else{
-            return redirect()->back()->with('fail','Something went wrong, failed to register');
+            return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
         }
   }
 

@@ -36,10 +36,7 @@
 								</li>
 								<li><a href="sponsor-reg.html">Contatez-nous</a></li>
 								
-								<li><a href="#">S'inscrire</a>
-									<li><a href="#">Se connecter</a></li>
-									
-								</li>
+							
 								<li class="head-contact d-none d-xl-block">
 								@if (Route::has('user.login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -51,10 +48,10 @@
 										
 									</ul></li>
                     @else
-                        <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">S'inscrire</a>
                         @endif
                     @endauth
                 </div>
