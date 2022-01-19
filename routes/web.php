@@ -19,11 +19,14 @@ use App\Http\Controllers\Admin\AdminController;
 
 
 Auth::routes();
-
+Route::get('/', function () {
+    return view('FrontEnd.accueil');
+});
 
 //-----------------------route pour user------------
 Route::prefix('user')->name('user.')->group(function(){
     route::middleware(['guest:web','PreventBackHistory'])->group(function(){
+       
         Route::view('/login','FrontEnd.user.login')->name('login');
         Route::view('/register','FrontEnd.user.register')->name('register');
         Route::post('create',[UserController::class,'create'])->name('create');
