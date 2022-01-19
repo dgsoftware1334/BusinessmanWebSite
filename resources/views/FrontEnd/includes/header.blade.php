@@ -40,7 +40,26 @@
 									<li><a href="#">Se connecter</a></li>
 									
 								</li>
-								<li class="head-contact d-none d-xl-block"><a href="#"><i class="fas fa-phone"></i> +8801619-139091</a></li>
+								<li class="head-contact d-none d-xl-block">
+								@if (Route::has('user.login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+					<li>  <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::guard('web')->user()->name }}</a>
+					<ul class="submenu">
+										<li><a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                     <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form></li>
+										
+									</ul></li>
+                    @else
+                        <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+								</li>
 							</ul>
 						</div>
 					</div>
