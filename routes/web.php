@@ -19,9 +19,13 @@ use App\Http\Controllers\Admin\AdminController;
 
 
 Auth::routes();
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('FrontEnd.accueil');
 });
+=======
+  Route::view('/','FrontEnd.accueil')->name('home');
+>>>>>>> 06d4436c47923d386e65027dce4ad3b95ce0f03b
 
 //-----------------------route pour user------------
 Route::prefix('user')->name('user.')->group(function(){
@@ -40,6 +44,7 @@ Route::prefix('user')->name('user.')->group(function(){
     });
 
 });
+
 //-------------------------route pour l'admin-----------------------
 Route::prefix('admin')->name('admin.')->group(function(){
        
@@ -48,6 +53,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/check',[AdminController::class,'check'])->name('check');
     });
 
+
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
         Route::view('/home','dashboard.admin.dashboard')->name('home');
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
@@ -55,6 +61,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 });
 
+
+
+Route::get('/admin/dashboard', function () {
+    return view('dashboard.dashboard');
+});
 
 
 

@@ -1,40 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-</head>
-<body style="background-color:#c8d9e8 !important">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4" style="margin-top: 45px">
-                 <h4>Admin Login</h4><hr>
-                 <form action="{{ route('admin.check') }}" method="post">
+ @extends('layouts.visiteur')
+
+@section('content')
+ 
+ <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/3.jpg') }})">
+
+  
+        <div class="page-header-content">
+            <div class="container container-1310">
+        <div class="page-header-content-inner">
+          <div class="col-lg-7">
+            <div class="register-title" >
+              <h2>connexion administrateur</h2>
+              <p>This is the largest conference in the world for business development </p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="register-border">
+            <div class="register-form">
+              <div class="form-title">
+                <h5>Se connecter  maintenant</h5>
+                <!--p>Complete Our Registration Process and Join This Event</p-->
+              </div>
+               <form action="{{ route('admin.check') }}" method="post">
                     @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
                         </div>
                     @endif
                     @csrf
-                     <div class="form-group">
-                         <label for="email">Email</label>
-                         <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
+          <div class="form-inner">
+           <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
                          <span class="text-danger">@error('email'){{ $message }}@enderror</span>
-                     </div>
-                     <div class="form-group">
-                         <label for="password">Password</label>
-                         <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
+           <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
                          <span class="text-danger">@error('password'){{ $message }}@enderror</span>
-                     </div>
-                     <div class="form-group">
-                         <button type="submit" class="btn btn-primary">Login</button>
-                     </div>
-                 </form>
+           <button type="submit"  name="submit">Se connecter</button>
+                </div>
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+    </section>
+    @endsection
