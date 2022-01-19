@@ -17,6 +17,7 @@ use App\Http\Controllers\User\UserController;
 Route::get('/', function () {
     return view('FrontEnd.accueil');
 });
+<<<<<<< HEAD
 /*Route::get('/admin/dashboard', function () {
     return view('dashboard.dashboard');
 });
@@ -41,3 +42,12 @@ Route::prefix('user')->name('user.')->group(function(){
 
 });
 //--
+=======
+
+Route::view('/visiteur','FrontEnd.home');
+
+Route::get('/admin/dashboard', function () {
+    return view('dashboard.dashboard');
+});
+
+>>>>>>> 2df97615733be0cc86f8f3d522b86ec5697298af
