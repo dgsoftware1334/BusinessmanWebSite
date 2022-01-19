@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\AdminController;
 
 
 Auth::routes();
-
+  Route::view('/','FrontEnd.accueil')->name('home');
 
 //-----------------------route pour user------------
 Route::prefix('user')->name('user.')->group(function(){
