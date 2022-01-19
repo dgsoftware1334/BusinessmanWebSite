@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +15,12 @@ use App\Http\Controllers\User\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('FrontEnd.accueil');
-});
 
-/*Route::get('/admin/dashboard', function () {
-    return view('dashboard.dashboard');
-});
-Route::view('/visiteur','FrontEnd.home');*/
+
+
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 //-----------------------route pour user------------
 Route::prefix('user')->name('user.')->group(function(){
     route::middleware(['guest:web','PreventBackHistory'])->group(function(){
@@ -42,11 +38,27 @@ Route::prefix('user')->name('user.')->group(function(){
 
 });
 
+//-------------------------route pour l'admin-----------------------
+Route::prefix('admin')->name('admin.')->group(function(){
+       
+    Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
+        Route::view('/login','dashboard.admin.login')->name('login');
+        Route::post('/check',[AdminController::class,'check'])->name('check');
+    });
 
-Route::view('/visiteur','FrontEnd.home');
 
-Route::view('/contactez-nous','FrontEnd.contact_us');
+    Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
+        Route::view('/home','dashboard.admin.dashboard')->name('home');
+        Route::post('/logout',[AdminController::class,'logout'])->name('logout');
+    });
+
+});
+
+
 
 Route::get('/admin/dashboard', function () {
     return view('dashboard.dashboard');
 });
+
+
+
