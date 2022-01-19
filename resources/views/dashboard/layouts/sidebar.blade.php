@@ -72,6 +72,7 @@
           </form>
         </div>
       </li>
+    
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -169,6 +170,7 @@
         </a>
       </li>
     </ul>
+   
   </nav>
   <!-- /.navbar -->
 
@@ -188,7 +190,7 @@
           <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="{{ url('/admin/home') }}" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
         </div>
       </div>
 
@@ -840,6 +842,14 @@
               <p>Informational</p>
             </a>
           </li>
+          <li>  
+					<ul class="submenu">
+										<li><a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                 
+                    Logout</a>
+                                     <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form></li>
+										
+									</ul></li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
