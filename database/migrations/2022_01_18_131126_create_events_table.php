@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->string('image');
             $table->string('type');
             $table->string('lien');
+             $table->tinyInteger('status')->default('0');
             $table->timestamps();
         })
         ;

@@ -46,6 +46,8 @@ Route::prefix('user')->name('user.')->group(function(){
 
 Route::view('/visiteur','FrontEnd.home');
 
+Route::view('/contactez-nous','FrontEnd.contact_us');
+
 Route::get('/admin/dashboard', function () {
     return view('dashboard.dashboard');
 });
