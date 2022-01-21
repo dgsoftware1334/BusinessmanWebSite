@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+
+class User   extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -34,7 +35,9 @@ class User extends Authenticatable
         'email',
         'password',
         'status',
-        'admin_id'
+        'photo',
+      // 'admin_id',
+        'sacteur_id'
     ];
 
     /**
@@ -55,7 +58,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+//public function admin(){
 
-
+//      return $this->belongsTo('App\Models\Admin', 'admin_id');
+//    }
    
+   public function sacteur(){
+
+      return $this->belongsTo('App\Models\Secteur', 'sacteur_id');
+    }
+
+
+
+
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
+use App\Models\User;
+
 
 class AdminController extends Controller
 {
@@ -30,4 +32,41 @@ class AdminController extends Controller
     Auth::guard('admin')->logout();
     return redirect('/');
 }
+//index user
+
+function index(Request $request){
+       
+     $users = User::all();
+   return view ('dashboard.user.index',compact('users'));
+  
+        
+   }
+
+
+public function deactive($id)
+    {
+        //
+         $user = User::find($id);
+         $user->status = 1 ;
+         $user->save(); 
+
+       return back();
+    }
+
+ public function active($id)
+    {
+        //
+        $user = User::find($id);
+         $user->status = 0 ;
+         $user->save(); 
+
+
+       return redirect()->back()->with('user','vous avais active le compte de homme d affaire ');
+    }
+
+
+
+
+
+
 }

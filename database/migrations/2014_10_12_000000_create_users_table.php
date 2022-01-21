@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+           $table->string('name');
             $table->string('lastname');
             $table->date('datenaissance');
             $table->string('phone');
@@ -27,12 +27,15 @@ class CreateUsersTable extends Migration
             $table->string('lientwit')->nullable();
             $table->string('linked')->nullable();
             $table->integer('anneexp')->nullable();
+            $table->integer('photo')->nullable();
             $table->string('siteweb')->nullable();
+
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('status')->default(0);
-            
+            $table->boolean('status')->default(1);
+            $table->unsignedBigInteger('sacteur_id')->nullable();
+            $table->foreign('sacteur_id')->references('id')->on('secteurs');
             $table->rememberToken();
             $table->timestamps();
         });

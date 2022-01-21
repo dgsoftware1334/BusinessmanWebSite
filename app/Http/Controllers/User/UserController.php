@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Admin;
 
 class UserController extends Controller
 {
@@ -31,6 +32,7 @@ class UserController extends Controller
         $user->description = $request->description;
         $user->address = $request->address;
         $user->email = $request->email;
+       // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
         $save = $user->save();
 
