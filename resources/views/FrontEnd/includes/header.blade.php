@@ -1,11 +1,5 @@
- <!--div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div-->
+ 
+  
  <div class="header-section style-2 d-none d-lg-block">
 		
 		<div class="header-bottom">
