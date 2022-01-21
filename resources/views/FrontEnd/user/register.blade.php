@@ -69,6 +69,8 @@
                  
            <button type="submit"  name="submit">S'inscrire</button>
                 </div>
+             
+                
               </form>
             </div>
             </div>

@@ -1,13 +1,25 @@
+<<<<<<< HEAD
  
   
  <div class="header-section style-2 d-none d-lg-block">
+=======
+ <!--div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div-->
+ <div class="header-section style-2 d-none d-md-block" >
+>>>>>>> 0e382425e566a11b5fb07b33eade91c27978624e
 		
-		<div class="header-bottom">
+		<div class="header-bottom" style="height: 60px; ">
 			<nav class="primary-menu">
 				<div class="container container-1310">
 					<div class="menu-area">
 						<div class="row no-gutters justify-content-between align-items-center">
-							<a href="index.html" class="logo">
+							<a href="index.html" class="logo" >
 								<img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo">
 								<img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo">
 							</a>
@@ -31,24 +43,25 @@
 								<li><a href="sponsor-reg.html">Contatez-nous</a></li>
 								
 							
-								<li class="head-contact d-none d-xl-block">
+								<li>
 								@if (Route::has('user.login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                
                     @auth
 					<li>  <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::guard('web')->user()->name }}</a>
-					<ul class="submenu">
-										<li><a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+					<ul >
+										<li><a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> <img src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"/> Se déconnecter</a>
                                      <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form></li>
 										
 									</ul></li>
                     @else
-                        <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">S'inscrire</a>
+                     @if (Route::has('register'))
+                            <a href="{{ route('user.register') }}" ><img src="https://img.icons8.com/windows/32/000000/manager.png" sizes="30px" /><!--i class="fas fa-key"></i-->  S'inscrire</a>
                         @endif
+                        <a href="{{ route('user.login') }}" > <!--i class="fas fa-sign-in-alt"></i--> <img src="https://img.icons8.com/ios-glyphs/30/000000/login-rounded-right--v1.png"/>  Se connecter </a>
+
+                       
                     @endauth
-                </div>
+                
             @endif
 								</li>
 							</ul>
@@ -58,4 +71,4 @@
 			</nav>
 		</div>
 	</div>
-	
+		
