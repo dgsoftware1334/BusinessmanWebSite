@@ -30,9 +30,17 @@ class UserController extends Controller
         $save = $user->save();
 
         if( $save ){
-            return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
+            toastr()->success(trans(key: 'msg_trans.success'));
+
+            return redirect()->back();
+            //return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
         }else{
-            return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
+           // return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
+           
+        toastr()->error(trans(key: 'msg_trans.fail'));
+
+        return back();
+
         }
   }
 
@@ -45,7 +53,9 @@ class UserController extends Controller
     if(Auth::guard('web')->attempt($creds)){
         return redirect()->route('user.home');
     }else{
-        return redirect()->route('user.login')->with('fail','Incorrect credentials');
+        toastr()->error(trans(key: 'msg_trans.fail'));
+        return redirect()->route('user.login');
+        //return redirect()->route('user.login')->with('fail','Incorrect credentials');
     }
 }
 function logout(){

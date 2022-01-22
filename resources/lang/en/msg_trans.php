@@ -2,9 +2,9 @@
 
 return [
 
-    'name required' => 'name required',
-    'lastname required' => 'name required',
-    'success' => 'success',
+
+    'success' => 'Data has been saved successfully!',
+    'fail' => 'An error has occurred please try again later.',
 
 
 

@@ -13,5 +13,6 @@ return [
     'Contact us' => 'اتصل بنا',
     'Register' => 'تسجيل',
     'Login' => 'تسجيل الدخول',
+    'Logout' => 'خروج',
 
 ];

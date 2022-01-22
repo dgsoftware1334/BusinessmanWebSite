@@ -11,5 +11,6 @@ return [
     'Contact us' => 'Contactez-nous',
     'Register' => 'Inscription',
     'Login' => 'Connexion',
+    'Logout' => 'Déconnexion',
 
 ];
