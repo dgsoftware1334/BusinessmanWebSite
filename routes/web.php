@@ -24,33 +24,50 @@ Auth::routes();
   Route::view('/','FrontEnd.accueil')->name('home');
 
 
-Route::get('/', function () {
-    return view('FrontEnd.accueil');
-});
 
-  Route::view('/','FrontEnd.accueil')->name('home');
+  
 
 
-//-----------------------route pour user------------
-Route::prefix('user')->name('user.')->group(function(){
-    route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
-       
-        Route::view('/login','FrontEnd.user.login')->name('login');
-        Route::view('/register','FrontEnd.user.register')->name('register');
-        Route::post('create',[UserController::class,'create'])->name('create');
-        Route::post('/check',[UserController::class,'check'])->name('check');
-      
 
-    });
-    route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
+  ##############################Les routes concerné par la localization####################################
+  Route::group(
+    [
+      'prefix' => LaravelLocalization::setLocale(),
+      'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+
       Route::view('/','FrontEnd.accueil')->name('home');
-        Route::view('/profile','FrontEnd.user.profile')->name('home');
+      //-----------------------route pour user------------
+        Route::prefix('user')->name('user.')->group(function(){
+          route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
+             
+              Route::view('/login','FrontEnd.user.login')->name('login');
+              Route::view('/register','FrontEnd.user.register')->name('register');
+              Route::post('create',[UserController::class,'create'])->name('create');
+              Route::post('/check',[UserController::class,'check'])->name('check');
+            
+      
+          });
+          route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
+            Route::view('/','FrontEnd.accueil')->name('home');
+              Route::view('/profile','FrontEnd.user.profile')->name('home');
+      
+      
+            Route::post('/logout',[UserController::class,'logout'])->name('logout');
+          });
+      
+      });
 
-
-      Route::post('/logout',[UserController::class,'logout'])->name('logout');
     });
 
-});
+
+
+
+
+
+
+
+
 
 //-------------------------route pour l'admin-----------------------
 Route::prefix('admin')->name('admin.')->group(function(){

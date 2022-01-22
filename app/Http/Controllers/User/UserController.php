@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreatUserRequest;
+use App\Http\Requests\CheckUserRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -10,19 +13,9 @@ use App\Models\Admin;
 
 class UserController extends Controller
 {
-    function create(Request $request){
-        //Validate Inputs
-        $request->validate([
-            'name'=>'required',
-            'lastname'=>'required',
-            'datenaissance'=>'required',
-            'phone'=>'required',
-            'description'=>'required',
-            'address'=>'required',
-            'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:5|max:30',
-            'cpassword'=>'required|min:5|max:30|same:password'
-        ]);
+    function create(CreatUserRequest $request){
+      
+        $validated = $request->validated();
 
         $user = new User();
         $user->name = $request->name;
@@ -43,14 +36,10 @@ class UserController extends Controller
         }
   }
 
-  function check(Request $request){
+  function check(CheckUserRequest $request){
     //Validate inputs
-    $request->validate([
-       'email'=>'required|email|exists:users,email',
-       'password'=>'required|min:5|max:30'
-    ],[
-        'email.exists'=>'This email is not exists on users table'
-    ]);
+    
+    $validated = $request->validated();
 
     $creds = $request->only('email','password');
     if(Auth::guard('web')->attempt($creds)){
