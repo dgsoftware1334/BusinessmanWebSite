@@ -11,6 +11,9 @@ return [
     'Contact us' => 'Contact us',
     'Register' => 'Register',
     'Login' => 'Login',
+    'Logout' => 'Logout',
+
+    
 
 
     
