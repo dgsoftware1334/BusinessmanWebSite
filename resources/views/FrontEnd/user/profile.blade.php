@@ -16,7 +16,7 @@
             </div>
             <div class="speaker-content">
               <a href="#">{{ Auth::guard('web')->user()->name }}  {{ Auth::guard('web')->user()->lastname }}</a>
-              <p>sacteur</p>
+             
             </div>
           </div>
           <div class="page-social">
@@ -38,16 +38,16 @@
             <div class="col-lg-4">
                 <div class="speaker-info">
                     <div class="personal-information">
-                        <h5>Information personnel</h5>
+                        <h5>{{trans('profil_trans.Personal information')}} </h5>
                         <ul>
-                            <li><p>Nom</p><span>Sargio Lam </span></li>
-                            <li><p>Prénom</p><span>Chairman of Libarko </span></li>
-                            <li><p>Date de naissance</p><span>26/12/1968 </span></li>
-                            <li><p>Phone</p><span>0000000000</span></li>
-                            <li><p>Address</p><span>sargio@mail.com </span></li>
-                            <li><p>Diplome</p><span>www.sargio.com </span></li>
-                            <li><p>Secteur d'activité</p><span>www.sargio.com </span></li>
-                            <li><p>Site web</p><span>www.sargio.com </span></li>
+                            <li><p>{{trans('profil_trans.Family name')}}</p><span>Sargio Lam </span></li>
+                            <li><p>{{trans('profil_trans.Last name')}}</p><span>Chairman of Libarko </span></li>
+                            <li><p>{{trans('profil_trans.Date of birth')}}</p><span>26/12/1968 </span></li>
+                            <li><p>{{trans('profil_trans.Phone')}}</p><span>0000000000</span></li>
+                            <li><p>{{trans('profil_trans.Address')}}</p><span>sargio@mail.com </span></li>
+                            <li><p>{{trans('profil_trans.Diploma')}}</p><span>www.sargio.com </span></li>
+                            <li><p>{{trans('profil_trans.Activity area')}}</p><span>www.sargio.com </span></li>
+                            <li><p>{{trans('profil_trans.Website')}}</p><span>www.sargio.com </span></li>
                         </ul>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="col-lg-8">
                 <div class="speaker-details">
                     <div class="personal-articals">
-                        <h5>Description</h5>
+                        <h5>{{trans('profil_trans.Description')}}</h5>
                         <p>Sargio Lam is the chairman of Libarko Ltd. parall functionalize mindsha rather than bricks-and-clicks schema. Dramatic reconceptualize synergistic channel whereas tactic community repurpose granular quality. Competent syndic vertical infomediary with inexpensive methodologies. Compel utilize integrated infomediary without ethic content. Convenient negotiate sustainable innovation vis-a-vis economically sound paradigms.</p>
                         <p>Distinctively provide access to market positioning testing procedures rather than professional web services. Energistically e-enable customized customer service after multifunctional e-services. </p>
                         

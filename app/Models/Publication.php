@@ -9,9 +9,18 @@ class Publication extends Model
 {
     use HasFactory;
       protected $fillable = [
-           'libelle',
-            'description',
+      	    'contenu',
+            'context',
             'image',
-            'status',
+            'status'
     ];
+
+
+
+     public function users(){
+
+     return $this->belongsToMany(User::class)->withPivot(['id','is_valide','contenu'
+])->withTimestamps();
+
+    }
 }

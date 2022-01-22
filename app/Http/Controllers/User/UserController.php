@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Admin;
 
+use App\Models\Publication;
+
+
 class UserController extends Controller
 {
     function create(CreatUserRequest $request){
@@ -30,9 +33,17 @@ class UserController extends Controller
         $save = $user->save();
 
         if( $save ){
-            return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
+            toastr()->success(trans(key: 'msg_trans.success'));
+
+            return redirect()->back();
+            //return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
         }else{
-            return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
+           // return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
+           
+        toastr()->error(trans(key: 'msg_trans.fail'));
+
+        return back();
+
         }
   }
 
@@ -45,12 +56,52 @@ class UserController extends Controller
     if(Auth::guard('web')->attempt($creds)){
         return redirect()->route('user.home');
     }else{
-        return redirect()->route('user.login')->with('fail','Incorrect credentials');
+        toastr()->error(trans(key: 'msg_trans.fail'));
+        return redirect()->route('user.login');
+        //return redirect()->route('user.login')->with('fail','Incorrect credentials');
     }
 }
 function logout(){
     Auth::guard('web')->logout();
     return redirect('/');
+}
+
+
+
+public function home()
+{
+ $publications= Publication::all();
+  //->orderBy('created_at','desc')
+   return view ('FrontEnd.accueil',compact('publications'));  
+}
+/////////////////publicaiton
+
+public function page_publicaiton($id)
+{
+ $publication= Publication::find($id);
+  //->orderBy('created_at','desc')
+   return view ('FrontEnd.publication',compact('publication'));  
+}
+
+//////commentaire
+
+
+public function commentair(Publication $publication,Request $request,User $user ){
+  //$user = User::find($user->id);
+  //    foreach ($user->publications as $publications) {
+  //      if($publications->pivot->publication_id == $publication->id){
+        
+  //           $publications->pivot->contenu = $request->contenu ;
+  //          $publications->pivot->is_valide = 0 ;
+       //       $publications->pivot->save();
+  //           
+  //             return redirect()->back()->with('valide','Vous êtes maintenant //enregistré avec succès');
+        
+       //}
+   //}
+      Auth::guard('web')->user()->publications()->attach($publication, ['contenu' => $request->contenu ,'is_valide' => 0]);
+
+     
 }
 
 }
