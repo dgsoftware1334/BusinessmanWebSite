@@ -2,7 +2,7 @@
 
 @section('content')
  
- <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/2.jpg') }})">
+  <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/2.jpg') }})">
 
   
         <div class="page-header-content">
@@ -29,7 +29,7 @@
                     @endif
                     @csrf
           <div class="form-inner">
-           <input type="text" class="form-control" name="email" placeholder="{{trans('login_trans.Enter email address')}}" value="{{ old('email') }}"  class="@error('email') is-invalid @enderror">
+           <input type="text" class="form-control" name="email" placeholder="{{trans('login_trans.Enter email address')}}" value="{{ old('email') }}">
                           <span class="text-danger">@error('email'){{ $message }}@enderror</span>
             <input type="password" class="form-control" name="password" placeholder="{{trans('login_trans.Enter password')}}" value="{{ old('password') }}">
                           <span class="text-danger">@error('password'){{ $message }}@enderror</span>
