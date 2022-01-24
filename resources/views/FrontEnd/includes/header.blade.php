@@ -31,6 +31,7 @@
 										<li><a href="registation.html">{{trans('header_trans.Publications')}}</a></li>
 										<li><a href="event-sidebar.html">{{trans('header_trans.Events')}}</a></li>
 										<li><a href="event-single.html">{{trans('header_trans.Businessmans')}}</a></li>
+										<li><a href="{{ url('/secteur') }}">secteur</a></li>
 			                           
 									</ul>
 								</li>

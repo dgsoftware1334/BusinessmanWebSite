@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
+  @toastr_css
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}">
@@ -846,9 +847,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('/admin/index') }}" class="nav-link">
               <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
+              <p>Liste des hommes d'affaires</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/admin/secteur') }}" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>Les secteurs disponibles</p>
             </a>
           </li>
           <li>  
@@ -890,7 +897,9 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+@jquery
+    @toastr_js
+    @toastr_render
 <!-- jQuery -->
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
