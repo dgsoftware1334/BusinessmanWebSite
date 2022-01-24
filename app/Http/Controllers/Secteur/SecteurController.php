@@ -66,6 +66,12 @@ function store(StoreSecteurRequest $request){
     try {
         $validated = $request->validated();
         $secteurs = Secteur::findOrFail($request->id);
+        if($request->file('image')){
+          $newImageName3 =time().'-'.$request->name.'.'.$request->image->extension();
+          $test3 =$request->image->move('assests/images/secteurs/',$newImageName3);
+           $publication->image = $newImageName3;
+       
+             }
         $secteurs->update([
           $secteurs->libelle = ['fr' => $request->libelle, 'ar' => $request->libelle_ar, 'en' => $request->libelle_en],
           $secteurs->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->libelle_en],

@@ -68,7 +68,7 @@ function logout(){
 
 
 
-public function home()
+public function PublicationGet()
 {
  $publications= Publication::all();
   //->orderBy('created_at','desc')
