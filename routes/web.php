@@ -38,30 +38,23 @@ Auth::routes();
       'prefix' => LaravelLocalization::setLocale(),
       'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ 
+      //------------------------------routes for both user and guest----------------------------------------
 
-      Route::get('/',[UserController::class, 'PublicationGet'])->name('home');
-     
+      Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
-      //-----------------------route pour user------------
+      //-----------------------route pour user------------------------------------------------------------
         Route::prefix('user')->name('user.')->group(function(){
           route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
-             
               Route::view('/login','FrontEnd.user.login')->name('login');
               Route::view('/register','FrontEnd.user.register')->name('register');
               Route::post('create',[UserController::class,'create'])->name('create');
               Route::post('/check',[UserController::class,'check'])->name('check');
-              
-              
-              
-            
-      
+
           });
           route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
            
               Route::view('/profile','FrontEnd.user.profile')->name('home');
-      
-      
-            Route::post('/logout',[UserController::class,'logout'])->name('logout');
+               Route::post('/logout',[UserController::class,'logout'])->name('logout');
           });
       
       });
@@ -77,7 +70,7 @@ Auth::routes();
 
 
 
-//-------------------------route pour l'admin-----------------------
+//-------------------------route pour l'admin------------------------------------------------------
 Route::prefix('admin')->name('admin.')->group(function(){
        
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
