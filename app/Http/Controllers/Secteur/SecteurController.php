@@ -69,7 +69,7 @@ function store(StoreSecteurRequest $request){
         if($request->file('image')){
           $newImageName3 =time().'-'.$request->name.'.'.$request->image->extension();
           $test3 =$request->image->move('assests/images/secteurs/',$newImageName3);
-           $publication->image = $newImageName3;
+           $secteurs->image = $newImageName3;
        
              }
         $secteurs->update([
