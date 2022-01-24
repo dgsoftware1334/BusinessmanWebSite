@@ -14,6 +14,7 @@ class Secteur extends Model
              'libelle',
              'description',
              'image',
+             'admin_id',
     ];
 
     public function Admin() {

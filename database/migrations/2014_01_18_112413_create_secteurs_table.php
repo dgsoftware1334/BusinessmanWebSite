@@ -18,6 +18,8 @@ class CreateSecteursTable extends Migration
              $table->string('libelle');
              $table->text('description');
              $table->string('image');
+             $table->unsignedBigInteger('admin_id')->nullable();
+             $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();
         });
     }
