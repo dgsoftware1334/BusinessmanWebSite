@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Translatable\HasTranslations;
-
-use App\Models\Publication;
 
 
 class User   extends Authenticatable
@@ -21,8 +18,6 @@ class User   extends Authenticatable
      *
      * @var array<int, string>
      */
-
-  
     protected $fillable = [
         'name',
         'lastname',
@@ -73,14 +68,6 @@ class User   extends Authenticatable
       return $this->belongsTo('App\Models\Secteur', 'sacteur_id');
     }
 
-
-///////relation many to many
-    public function publications(){
-
-      return $this->belongsToMany(Publication::class)->withPivot(['id','is_valide','contenu'
-])->withTimestamps();
-      
-    }
 
 
 

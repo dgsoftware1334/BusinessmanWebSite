@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Admin;
 
+use App\Models\Publication;
+
+
 class UserController extends Controller
 {
     function create(CreatUserRequest $request){
@@ -61,6 +64,44 @@ class UserController extends Controller
 function logout(){
     Auth::guard('web')->logout();
     return redirect('/');
+}
+
+
+
+public function home()
+{
+ $publications= Publication::all();
+  //->orderBy('created_at','desc')
+   return view ('FrontEnd.accueil',compact('publications'));  
+}
+/////////////////publicaiton
+
+public function page_publicaiton($id)
+{
+ $publication= Publication::find($id);
+  //->orderBy('created_at','desc')
+   return view ('FrontEnd.publication',compact('publication'));  
+}
+
+//////commentaire
+
+
+public function commentair(Publication $publication,Request $request,User $user ){
+  //$user = User::find($user->id);
+  //    foreach ($user->publications as $publications) {
+  //      if($publications->pivot->publication_id == $publication->id){
+        
+  //           $publications->pivot->contenu = $request->contenu ;
+  //          $publications->pivot->is_valide = 0 ;
+       //       $publications->pivot->save();
+  //           
+  //             return redirect()->back()->with('valide','Vous êtes maintenant //enregistré avec succès');
+        
+       //}
+   //}
+      Auth::guard('web')->user()->publications()->attach($publication, ['contenu' => $request->contenu ,'is_valide' => 0]);
+
+     
 }
 
 }

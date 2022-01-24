@@ -23,6 +23,7 @@
 	<!-- achivement section ending here -->
 	<!-- newevent section start here -->
    @include('FrontEnd.section_home.newevent')
+    @include('FrontEnd.section_home.publication')
   <!-- newevent section ending here -->
   
 @endsection

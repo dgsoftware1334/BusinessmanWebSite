@@ -23,7 +23,15 @@ use App\Http\Controllers\Secteur\SecteurController;
 Auth::routes();
 
 
-  Route::view('/','FrontEnd.accueil')->name('home');
+Route::get('/', function () {
+   $publications=  App\Models\Publication::all();
+  //->orderBy('created_at','desc')
+   return view ('FrontEnd.accueil',compact('publications'));  
+   
+});
+
+
+  //Route::view('/','FrontEnd.accueil')->name('home');
 
 
 
@@ -65,7 +73,18 @@ Auth::routes();
 
     });
 
+    route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
+       Route::get('/',[UserController::class, 'home'])->name('home');
+       Route::view('/profile','FrontEnd.user.profile')->name('home');
 
+      ///////ajouter commentair/////////
+        Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
+        
+        Route::post('/publication/commentair/{publication}/{user}',[UserController::class, 'commentair'])->name('review.publication');
+
+
+
+});
 
 
 
@@ -95,10 +114,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
        //-----desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
+////------------ajouter/modifier/supprimer/  publication----------------S
+        Route::get('/publication/index',[AdminController::class, 'index_publication'])->name('index_publication');
+       Route::get('/publication/create',[AdminController::class, 'create_publication'])->name('create_publication');
+
+       Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
+
 
     });
 
 });
+
+
 
 
 

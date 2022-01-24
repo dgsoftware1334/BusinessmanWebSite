@@ -221,6 +221,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+<<<<<<< HEAD
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -858,10 +859,23 @@
               <p>Les secteurs disponibles</p>
             </a>
           </li>
+=======
+           <li class="nav-header"><a href="{{ route('admin.index')}}" ><i class="fas fa-user-cog"></i>&ensp;homme d'affaire</a></li>
+         
+          <li class="nav-header">
+            <a href="{{ route('admin.index_publication')}}" ><i class="fas fa-thumbtack"></i>
+&ensp; publication</a>
+
+         </li>
+
+
+         
+         
+>>>>>>> 4563d54456a2b3119ff436dd4f6ae050d9d53279
           <li>  
 					<ul class="submenu">
 										<li><a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                 
+                <i class="fas fa-sign-out-alt"></i>
                     Logout</a>
                                      <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form></li>
 										

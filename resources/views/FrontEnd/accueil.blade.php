@@ -17,12 +17,17 @@
 		</div>
 	</section>
  <!-- ======= Intro Section ======= -->
+
+
+    <!-- publicaion -->
+  
+   @include('FrontEnd.section_home.publication')
   @include('FrontEnd.section_home.service')
-  <!-- achivement section start here ->
-	@include('FrontEnd.section_home.achivement')
-	<!-- achivement section ending here -->
-	<!-- newevent section start here -->
+ 
    @include('FrontEnd.section_home.newevent')
+
+
+
   <!-- newevent section ending here -->
   
 @endsection
