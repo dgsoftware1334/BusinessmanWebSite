@@ -68,9 +68,10 @@ function logout(){
 
 
 
-public function home()
+public function Accueil()
 {
  $publications= Publication::all();
+ 
   //->orderBy('created_at','desc')
    return view ('FrontEnd.accueil',compact('publications'));  
 }

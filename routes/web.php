@@ -23,10 +23,7 @@ use App\Http\Controllers\Secteur\SecteurController;
 Auth::routes();
 
 
-
-
-
-  //Route::view('/','FrontEnd.accueil')->name('home');
+  Route::view('/','FrontEnd.accueil')->name('home');
 
 
 
@@ -41,7 +38,9 @@ Auth::routes();
       'prefix' => LaravelLocalization::setLocale(),
       'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ 
+      //------------------------------routes for both user and guest----------------------------------------
 
+<<<<<<< HEAD
       //Route::view('/','FrontEnd.accueil')->name('home');
       Route::get('/', function () {
         $publications=  App\Models\Publication::all();
@@ -52,20 +51,23 @@ Auth::routes();
      
      
       //-----------------------route pour user------------
+=======
+      Route::get('/',[UserController::class, 'Accueil'])->name('home');
+      Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
+      //-----------------------route pour user------------------------------------------------------------
+>>>>>>> 768e89875dbedd1fee0314a831a8ee5f456db6ab
         Route::prefix('user')->name('user.')->group(function(){
           route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
-             
               Route::view('/login','FrontEnd.user.login')->name('login');
               Route::view('/register','FrontEnd.user.register')->name('register');
               Route::post('create',[UserController::class,'create'])->name('create');
               Route::post('/check',[UserController::class,'check'])->name('check');
-            
-      
+
           });
           route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
-            Route::view('/','FrontEnd.accueil')->name('home');
-            ///////profile/////////
+           
               Route::view('/profile','FrontEnd.user.profile')->name('home');
+<<<<<<< HEAD
               Route::post('/profile/informationProfessional/{id}',[UserController::class, 'update_informationPro'])->name('update.informationPro');
               Route::post('/profile/informationParsonelle/{id}',[UserController::class, 'update_informationPar'])->name('update.informationPar');
 
@@ -79,28 +81,15 @@ Auth::routes();
 
             Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
             Route::post('/logout',[UserController::class,'logout'])->name('logout');
+=======
+               Route::post('/logout',[UserController::class,'logout'])->name('logout');
+>>>>>>> 768e89875dbedd1fee0314a831a8ee5f456db6ab
           });
       
       });
 
-        route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
-       Route::get('/',[UserController::class, 'home'])->name('home');
-       Route::view('/profile','FrontEnd.user.profile')->name('home');
-
-    
-      ///////ajouter commentair/////////
-        Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
-        
-        Route::post('/publication/commentair/{publication}/{user}',[UserController::class, 'commentair'])->name('review.publication');
-
-
-
-});
-
-
     });
 
-    
 
 
 
@@ -108,7 +97,9 @@ Auth::routes();
 
 
 
-//-------------------------route pour l'admin-----------------------
+
+
+//-------------------------route pour l'admin------------------------------------------------------
 Route::prefix('admin')->name('admin.')->group(function(){
        
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
@@ -129,37 +120,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
        //-----desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
-////------------ajouter/modifier/supprimer/  publication----------------S
-        Route::get('/publication/index',[AdminController::class, 'index_publication'])->name('index_publication');
-       Route::get('/publication/create',[AdminController::class, 'create_publication'])->name('create_publication');
-
-         Route::post('/publication/edite/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
-
-         Route::post('/publication/delete/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
-
-            Route::get('/publication/delete/{id}',[AdminController::class, 'delete_publication'])->name('delete_publication');
-
-            //-----desactive et active publication dans la partir de l'administrateur-------
-       Route::get('/publication/desactive/{id}',[AdminController::class, 'deactive_publication'])->name('deactive_publication');
-       Route::get('/publication/active/{id}',[AdminController::class, 'active_publication'])->name('active_publication');
-
-       Route::get('/publication/show/{id}',[AdminController::class, 'show_publication'])->name('show_publication');
-         Route::get('/commentair/delete/{id}/{id2}',[AdminController::class, 'delete_commentair'])->name('delete_commentair');
-
-      ;
-       Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
-
-  Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
-
-
-       Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
-
 
     });
 
 });
-
-
 
 
 
