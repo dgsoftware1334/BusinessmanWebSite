@@ -50,7 +50,7 @@ Auth::routes();
         
      });
      
-      Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
+     
       //-----------------------route pour user------------
         Route::prefix('user')->name('user.')->group(function(){
           route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
@@ -75,8 +75,9 @@ Auth::routes();
             Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
         
             Route::post('/publication/commentair/{publication}/{user}',[UserController::class, 'commentair'])->name('review.publication');
+          
 
-
+            Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
             Route::post('/logout',[UserController::class,'logout'])->name('logout');
           });
       
