@@ -201,7 +201,14 @@ border-top: 1px solid blue;
                    
                   @foreach ($secteurs as $row)
                     <tr>
-                      <td>{{$row->id}}</td>
+                    <td>
+                        @if(is_null($row->image))
+                         ( Image n'existe ) 
+                         @endif
+                         @if(!is_null($row->image))
+                        <img src="{{ asset('assests/images/secteurs/'.$row->image)  }}"  width="100" style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                         @endif
+                      </td>
                       <td> {{$row->libelle}}</td>
                       <td>{{$row->description}}</td>
                       <td>

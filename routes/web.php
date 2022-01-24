@@ -23,12 +23,7 @@ use App\Http\Controllers\Secteur\SecteurController;
 Auth::routes();
 
 
-Route::get('/', function () {
-   $publications=  App\Models\Publication::all();
-  //->orderBy('created_at','desc')
-   return view ('FrontEnd.accueil',compact('publications'));  
-   
-});
+
 
 
   //Route::view('/','FrontEnd.accueil')->name('home');
@@ -47,7 +42,13 @@ Route::get('/', function () {
       'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ 
 
-      Route::view('/','FrontEnd.accueil')->name('home');
+      //Route::view('/','FrontEnd.accueil')->name('home');
+      Route::get('/', function () {
+        $publications=  App\Models\Publication::all();
+       //->orderBy('created_at','desc')
+        return view ('FrontEnd.accueil',compact('publications'));  
+        
+     });
      
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       //-----------------------route pour user------------
