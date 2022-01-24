@@ -113,6 +113,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
        //-----desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
+       //----------Gestion des publication-------------------------------
+       Route::get('/publication/index',[AdminController::class, 'index_publication'])->name('index_publication');
+       Route::get('/publication/create',[AdminController::class, 'create_publication'])->name('create_publication');
+       Route::post('/publication/edite/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
+       Route::post('/publication/delete/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
+       Route::get('/publication/delete/{id}',[AdminController::class, 'delete_publication'])->name('delete_publication');
+       //-----desactive et active publication dans la partir de l'administrateur-------
+       Route::get('/publication/desactive/{id}',[AdminController::class, 'deactive_publication'])->name('deactive_publication');
+       Route::get('/publication/active/{id}',[AdminController::class, 'active_publication'])->name('active_publication');
+       Route::get('/publication/show/{id}',[AdminController::class, 'show_publication'])->name('show_publication');
+       Route::get('/commentair/delete/{id}/{id2}',[AdminController::class, 'delete_commentair'])->name('delete_commentair');
+       Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
+       Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
+       Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
     });
 
