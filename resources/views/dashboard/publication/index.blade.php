@@ -42,17 +42,22 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">homme d'affaire</h1>
+            <h1 class="m-0">Publication</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">homme d'affaire</a></li>
+              <li class="breadcrumb-item"><a href="#">Publication</a></li>
               <li class="breadcrumb-item active">accueil</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
 
+@if(session('supprimer'))
+<div class="alert alert-danger">
+ {{ session('supprimer') }}
+</div>
+@endif
  <div class="animated fadeInUp infinite" alt="Transparent MDB Logo" >      
      <div class="card card-primary card-outline">
         <div class="card-body">
@@ -131,31 +136,106 @@ border-top: 1px solid blue;
                      
                      
                       <!---edit user-->
-                      <i class="fas fa-edit" style="color: blue"></i>&ensp; 
+                      <a href="" data-toggle="modal" data-target="#modal-default{{$row->id}}">
+                      <i class="fas fa-edit" style="color: blue"></i></a>&ensp; 
+
+                     
 
                       <!--read user-->
-                      <i class="fas fa-folder" style="color :green"></i>&ensp; 
+                        <a  href="{{ url('admin/publication/show', $row->id) }}">
+                      <i class="fas fa-comment" style="color :green"></i>&ensp; </a>
 
                        <!--delete user-->
-                      <i class="far fa-trash-alt" style="color: red"></i>&ensp; 
+                      <a  href="{{ url('admin/publication/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
-                       @if($row->status == '0')
-                       <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
+                    <!--deactive-->
+                       @if($row->status == 1)
+                     <a   href="{{ route('admin.deactive_publication',[$row->id]) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
                        @endif
                        <!--active-->
-                        @if($row->status == '1')
-                        <a  href="{{ url('admin/user/active', $row->id) }}"> <i class="fas fa-check-circle"></i></a>
+                        @if($row->status == 0)
+                        <a  href="{{ route('admin.active_publication',[$row->id]) }}"> <i class="fas fa-check-circle"></i></a>
                          @endif
+
+
                      </td>
                    </tr>
-                    @endforeach
-                   </tr>
+
+
+   <div class="modal fade" id="modal-default{{$row->id}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #4682B4;">
+              <h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; Modifie publication</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+ <form class="form-horizontal" method="POST" action="{{ route('admin.edite_publication',[$row->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+                  @csrf
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Context</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="Context" name="context" value="{{$row->context}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Contenu</label>
+                    <div class="col-sm-9">
+            
+                      <textarea class="form-control" rows="3" name="contenu" placeholder="Enter ..."value="{{$row->contenu}}">{{$row->contenu}}</textarea>
+
+                    </div>
+                  </div>
+
+                 <div class="form-group row">
+                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="image">Image</label>
+                    <div class="input-group col-sm-9">
+                      <div class="custom-file col-sm-10">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" >
+                        <label class="custom-file-label" for="exampleInputFile">Choisis une image</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+                   <div class="form-group row">
+                      <div class="input-group col-sm-12">
+                  <!--button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button-->
+<br/>
+                  <button type="submit" class="btn btn-outline-info btn-block btn-flat"><img src="https://img.icons8.com/fluency/26/000000/save.png"/> Enregistrer</button>
+
+
+                   </div>
+                    </div>
+                </div>
+               
+              </form>
+
+
+
+            </div>
+           
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+                   @endforeach
+              </tr>
              
                     
                     
                     
                   </tbody>
                 </table>
+
+    
 
 
 </div>
@@ -206,13 +286,15 @@ border-top: 1px solid blue;
                      
                      
                       <!---edit user-->
+                      <a href="" data-target="#modal-default">
                       <i class="fas fa-edit" style="color: blue"></i>&ensp; 
+                      </a>
 
                       <!--read user-->
                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
 
                        <!--delete user-->
-                      <i class="far fa-trash-alt" style="color: red"></i>&ensp; 
+                       <a  href="{{ url('admin/publication/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
                        @if($row->status == '0')
                        <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
@@ -224,6 +306,72 @@ border-top: 1px solid blue;
                      </td>
                    </tr>
                      @endif
+
+
+                            <div class="modal fade" id="modal-default{{$row->id}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #4682B4;">
+              <h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; Modifie publication</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+ <form class="form-horizontal" method="POST" action="{{ route('admin.edite_publication',[$row->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+                  @csrf
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Context</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="Context" name="context" value="{{$row->context}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Contenu</label>
+                    <div class="col-sm-9">
+            
+                      <textarea class="form-control" rows="3" name="contenu" placeholder="Enter ..."value="{{$row->contenu}}">{{$row->contenu}}</textarea>
+
+                    </div>
+                  </div>
+
+                 <div class="form-group row">
+                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="image">Image</label>
+                    <div class="input-group col-sm-9">
+                      <div class="custom-file col-sm-10">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" >
+                        <label class="custom-file-label" for="exampleInputFile">Choisis une image</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+                   <div class="form-group row">
+                      <div class="input-group col-sm-12">
+                  <!--button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button-->
+<br/>
+                  <button type="submit" class="btn btn-outline-info btn-block btn-flat"><img src="https://img.icons8.com/fluency/26/000000/save.png"/> Enregistrer</button>
+
+
+                   </div>
+                    </div>
+                </div>
+               
+              </form>
+
+
+
+            </div>
+           
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
                     @endforeach
                    </tr>
              
@@ -282,7 +430,12 @@ border-top: 1px solid blue;
                      
                      
                       <!---edit user-->
-                      <i class="fas fa-edit" style="color: blue"></i>&ensp; 
+                      <a href="" data-toggle="modal" data-target="#modal-default">
+                      <i class="fas fa-edit" style="color: blue"></i></a>&ensp; 
+
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                  Launch Default Modal
+                </button>
 
                       <!--read user-->
                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
@@ -300,6 +453,70 @@ border-top: 1px solid blue;
                      </td>
                    </tr>
                     @endif
+                           <div class="modal fade" id="modal-default{{$row->id}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #4682B4;">
+              <h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; Modifie publication</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+ <form class="form-horizontal" method="POST" action="{{ route('admin.edite_publication',[$row->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+                  @csrf
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Context</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="Context" name="context" value="{{$row->context}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Contenu</label>
+                    <div class="col-sm-9">
+            
+                      <textarea class="form-control" rows="3" name="contenu" placeholder="Enter ..."value="{{$row->contenu}}">{{$row->contenu}}</textarea>
+
+                    </div>
+                  </div>
+
+                 <div class="form-group row">
+                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="image">Image</label>
+                    <div class="input-group col-sm-9">
+                      <div class="custom-file col-sm-10">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" >
+                        <label class="custom-file-label" for="exampleInputFile">Choisis une image</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+                   <div class="form-group row">
+                      <div class="input-group col-sm-12">
+                  <!--button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button-->
+<br/>
+                  <button type="submit" class="btn btn-outline-info btn-block btn-flat"><img src="https://img.icons8.com/fluency/26/000000/save.png"/> Enregistrer</button>
+
+
+                   </div>
+                    </div>
+                </div>
+               
+              </form>
+
+
+
+            </div>
+           
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
                     @endforeach
                    </tr>
              
@@ -309,7 +526,9 @@ border-top: 1px solid blue;
                   </tbody>
                 </table>
 
-</div>
+              </div>
+              <!-- edit publication--->
+ 
 </div>
 </div>
 </div>
@@ -320,6 +539,13 @@ border-top: 1px solid blue;
 </div>
   
 </div>
-    
+
+
+
+
+
+
+
+
   <!-- /.content-wrapper -->
 @endsection

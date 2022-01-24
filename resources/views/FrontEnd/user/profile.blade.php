@@ -1,7 +1,53 @@
  @extends('layouts.visiteur')
 
 @section('content')
- 
+ <script type="text/javascript">
+   $('#chooseFile').bind('change', function () {
+  var filename = $("#chooseFile").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload").removeClass('active');
+    $("#noFile").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload").addClass('active');
+    $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+ </script>
+ <style type="text/css">
+   /****** IGNORE ******/
+
+.copyright {
+  display:block;
+  margin-top: 100px;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.copyright a{
+  text-decoration: none;
+  color: #EE4E44;
+}
+
+
+/****** CODE ******/
+
+.file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;}
+.file-upload .file-select{display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+.file-upload .file-select .file-select-button{background:#dce4ec;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+.file-upload .file-select .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+.file-upload .file-select:hover{border-color:#34495e;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload .file-select:hover .file-select-button{background:#34495e;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload.active .file-select{border-color:#3fa46a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload.active .file-select .file-select-button{background:#3fa46a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload .file-select input[type=file]{z-index:100;cursor:pointer;position:absolute;height:100%;width:100%;top:0;left:0;opacity:0;filter:alpha(opacity=0);}
+.file-upload .file-select.file-select-disabled{opacity:0.65;}
+.file-upload .file-select.file-select-disabled:hover{cursor:default;display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;margin-top:5px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+.file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+.file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+ </style>
 
   <div class="page-header-section post-title style-2"  style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/17.jpg') }})">
         <div class="page-header-content">
@@ -12,7 +58,7 @@
                
 
 
-              <img src="{{ asset('assests/FrontEnd/assets/images/speaker/17.png') }}" alt="speaker" >
+              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
             </div>
             <div class="speaker-content">
               <a href="#">{{ Auth::guard('web')->user()->name }}  {{ Auth::guard('web')->user()->lastname }}</a>
@@ -21,11 +67,14 @@
           </div>
           <div class="page-social">
             <ul class="social-link-list d-flex flex-wrap">
-              <li><a href="#" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
-              <li><a href="#" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i></a></li>
-              <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
-              <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+            
+              <li><a href="<?=Auth::guard('web')->user()->lienfb?>" class="facebook"  target="_blank" ><i class=" fab fa-facebook-f"></i></a>
+
+              </li>
+              <li><a href="<?=Auth::guard('web')->user()->lientwit?>"target="_blank"  class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
+            
+              <li><a href="<?=Auth::guard('web')->user()->lieninsta ?>" target="_blank" class="facebook" style="background-color: #FF1493;"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="<?=Auth::guard('web')->user()->linked ?>" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
           </div>
         </div>
@@ -40,14 +89,15 @@
                     <div class="personal-information">
                         <h5>{{trans('profil_trans.Personal information')}} </h5>
                         <ul>
-                            <li><p>{{trans('profil_trans.Family name')}}</p><span>Sargio Lam </span></li>
-                            <li><p>{{trans('profil_trans.Last name')}}</p><span>Chairman of Libarko </span></li>
-                            <li><p>{{trans('profil_trans.Date of birth')}}</p><span>26/12/1968 </span></li>
-                            <li><p>{{trans('profil_trans.Phone')}}</p><span>0000000000</span></li>
-                            <li><p>{{trans('profil_trans.Address')}}</p><span>sargio@mail.com </span></li>
-                            <li><p>{{trans('profil_trans.Diploma')}}</p><span>www.sargio.com </span></li>
-                            <li><p>{{trans('profil_trans.Activity area')}}</p><span>www.sargio.com </span></li>
-                            <li><p>{{trans('profil_trans.Website')}}</p><span>www.sargio.com </span></li>
+                            <li><p>{{trans('profil_trans.Family name')}}</p><span>{{Auth::guard('web')->user()->name}}</span></li>
+                            <li><p>{{trans('profil_trans.Last name')}}</p><span>{{Auth::guard('web')->user()->lastname}} </span></li>
+                            <li><p>{{trans('profil_trans.Date of birth')}}</p><span>{{Auth::guard('web')->user()->datenaissance}} </span></li>
+                            <li><p>{{trans('profil_trans.Phone')}}</p><span>{{Auth::guard('web')->user()->phone}}</span></li>
+                            <li><p>{{trans('profil_trans.Address')}}</p><span>{{Auth::guard('web')->user()->address}}</span></li>
+                            <li><p>email</p><span> {{Auth::guard('web')->user()->email}}</span></li>
+                             <li><p>{{trans('profil_trans.Diploma')}}</p><span>{{Auth::guard('web')->user()->diplome}}</span></li>
+                            <li><p>{{trans('profil_trans.Website')}}</p><span>{{Auth::guard('web')->user()->siteweb}} </span></li>
+                          <li><p>secteur d'activité</p><span>vide </span></li>
                         </ul>
                     </div>
                 </div>
@@ -56,8 +106,7 @@
                 <div class="speaker-details">
                     <div class="personal-articals">
                         <h5>{{trans('profil_trans.Description')}}</h5>
-                        <p>Sargio Lam is the chairman of Libarko Ltd. parall functionalize mindsha rather than bricks-and-clicks schema. Dramatic reconceptualize synergistic channel whereas tactic community repurpose granular quality. Competent syndic vertical infomediary with inexpensive methodologies. Compel utilize integrated infomediary without ethic content. Convenient negotiate sustainable innovation vis-a-vis economically sound paradigms.</p>
-                        <p>Distinctively provide access to market positioning testing procedures rather than professional web services. Energistically e-enable customized customer service after multifunctional e-services. </p>
+                        <p>{{Auth::guard('web')->user()->description}}</p>
                         
                         <!--img src="{{ asset('assests/FrontEnd/assets/images/speaker/name.png') }}" alt="personal-cv"-->
                     </div>
@@ -68,12 +117,13 @@
     </section>
     <!-- speaker profile or cv section ending here -->
 
-    <!-- personal shedul section start here -->
+    <!-- mise a jour les information pro -->
     <section class="personal-schedule padding-tb">
         <div class="container container-`1310">
-            <div class="section-header accordion-question in">
-                <p></p>
-                <h2> <span>Information profisonnel</span></h2>
+          
+            <div class="section-header">
+               
+                <h2>Mise à jours des information profisonnel</h2>
              
             </div>
 
@@ -96,24 +146,29 @@
                
                 <!--p>Complete Our Registration Process and Join This Event</p-->
               </div>
-             <form action="" method="post" autocomplete="off">
-                   
+              <form class="form-horizontal" method="POST" action="{{ route('user.update.informationPro',[Auth::guard('web')->user()->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+                  
+
                     @csrf
           <div class="form-inner">
-           <input type="text" class="form-control" name="email" placeholder="Enter lien facebook">
-            <input type="text" class="form-control" name="email" placeholder="Enter lien instgrame">
-             <input type="text" class="form-control" name="email" placeholder="Enter lien linked in">
-              <input type="text" class="form-control" name="email" placeholder="Enter site web">
-        
-              <input type="text" class="form-control" name="email" placeholder="deplom section ">
-              <input type="text" class="form-control" name="email" placeholder="annee exprience ">
-
-              <input type="text" class="form-control" name="email" placeholder="photo ">
-
-
-                         
-           
-                      
+           <!----input type="text" class="form-control"  placeholder="Enter lien facebook"-->
+            <input type="text" class="form-control" name="lienfb" placeholder="https//www.facebook.com" value="{{ old('lienfb') }}">
+            <input type="text" class="form-control" name="lieninsta" placeholder="https//www.instagram.com">
+            <input type="text" class="form-control" name="lientwit" placeholder=" https//www.twiter.com">
+            <input type="text" class="form-control" name="linked" placeholder="  https//www.linkedin.com">
+            <input type="text" class="form-control" name="diplome" placeholder="Diploma">
+            <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
+              <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience">
+    
+            <br>
+           <div class="file-upload">
+              <div class="file-select">
+                <div class="file-select-button" id="fileName">Choisis une image</div>
+                <div class="file-select-name" id="noFile">Image...</div> 
+                <input type="file" name="photo" id="chooseFile">
+              </div>
+            </div>
+                      <br>
            <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">confirmer</button>
            
 
@@ -135,5 +190,90 @@
     <!-- personal shedul section ending here -->
 
    
+
+
+
+    <!-- mise a jour les information personnel -->
+    <section class="personal-schedule padding-tb">
+        <div class="container container-`1310">
+           
+
+            <div class="section-header">
+               
+                <h2>Mise à jours des informations personnelles</h2>
+             
+            </div>
+
+
+            <div class="section-wrapper">
+              <div class="accordion-item">
+                <div class="accordion-question in">
+                  <!--span><i class="fa fa-clock"></i> 8:30 am</span-->
+                  <!--h6>Business Market Research</h6-->
+                  <i class="fas fa-angle-double-down"></i>
+                </div>
+
+        <div class="page-header-content">
+            <div class="container container-1310">
+        <div class="page-header-content-inner">
+          
+          <div class="col-lg-8 offset-2">
+            <div class="register-border">
+            <div class="register-form">
+              <div class="form-title">
+               
+                <!--p>Complete Our Registration Process and Join This Event</p-->
+              </div>
+              <form class="form-horizontal" method="POST" action="{{ route('user.update.informationPar',[Auth::guard('web')->user()->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+                  
+
+                    @csrf
+          <div class="form-inner">
+           <!----input type="text" class="form-control"  placeholder="Enter lien facebook"-->
+           <input type="text" class="form-control" name="name" placeholder="{{trans('register_trans.Name')}}" value="{{ Auth::guard('web')->user()->name}}" class="@error('name') is-invalid @enderror">
+                <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+
+          <input type="text" class="form-control" name="lastname" placeholder="{{trans('register_trans.First Name')}}" value="{{ Auth::guard('web')->user()->lastname }}">
+           <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
+
+          <input type="date" class="form-control" name="datenaissance" placeholder="date de naissance" value="{{ Auth::guard('web')->user()->datenaissance }}">
+          <span class="text-danger">@error('datenaissance'){{ $message }} @enderror</span>
+
+
+          <input type="text" class="form-control" name="phone" placeholder="{{trans('register_trans.Phone')}}" value="{{ Auth::guard('web')->user()->phone}}">
+         <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+
+       <input type="text" class="form-control" name="address" placeholder="{{trans('register_trans.Address')}}" value="{{Auth::guard('web')->user()-> address }}">
+          <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+
+          
+
+           <input type="text" class="form-control" name="email" placeholder="{{trans('register_trans.Email')}}" value="{{ Auth::guard('web')->user()->email }}">
+            <span class="text-danger">@error('email'){{ $message }} @enderror</span>  
+          <textarea class="form-control" name="description" placeholder="{{trans('register_trans.Description')}}" value="{{ Auth::guard('web')->user()->description }}">{{ Auth::guard('web')->user()->description }}</textarea>
+          <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+
+             
+      
+           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">confirmer</button>
+           
+
+                </div>
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+            </div>
+        </div>
+          
+        </div>
+       
+     
+            </div>
+        </div>
+    </section>
+    <!-- personal shedul section ending here -->
+
  
     @endsection

@@ -74,12 +74,60 @@ public function home()
   //->orderBy('created_at','desc')
    return view ('FrontEnd.accueil',compact('publications'));  
 }
+
+//////////information profisionnel////
+
+public function update_informationPro(Request $request, $id)
+{
+ $user=User::find($id);
+  if($request->file('photo')){
+               $newImageName3 =time().'-'.$request->name.'.'.$request->photo->extension();
+        $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
+         $user->photo = $newImageName3;
+
+           }
+
+   
+  $user->lienfb=$request->lienfb;
+   
+   $user->lieninsta=$request->lieninsta;
+   $user->lientwit=$request->lientwit;
+   $user->linked=$request->linked;
+   $user->diplome=$request->diplome;
+   $user->siteweb=$request->siteweb;
+  $user->anneexp=$request->anneexp;
+   //
+
+   $user->save();
+
+return redirect()->back();
+}
+
+
+
+public function update_informationPar(Request $request, $id)
+{
+        $user=User::find($id);
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->datenaissance = $request->datenaissance;
+        $user->phone = $request->phone;
+        $user->description = $request->description;
+        $user->address = $request->address;
+        $user->email = $request->email;
+
+        $user->save();
+
+return redirect()->back();
+}
 /////////////////publicaiton
 
 public function page_publicaiton($id)
 {
  $publication= Publication::find($id);
   //->orderBy('created_at','desc')
+ ///dd('publication');
+
    return view ('FrontEnd.publication',compact('publication'));  
 }
 
@@ -100,7 +148,7 @@ public function commentair(Publication $publication,Request $request,User $user 
        //}
    //}
       Auth::guard('web')->user()->publications()->attach($publication, ['contenu' => $request->contenu ,'is_valide' => 0]);
-
+   return back();
      
 }
 
