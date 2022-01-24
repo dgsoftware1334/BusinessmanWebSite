@@ -22,7 +22,10 @@
 										<span>{{$row->context}}</span>
 										<h5><a href="#">U.con Fixed the Schedule of The Conference.</a></h5>
 										<p>{{$row->contenu}} </p>
-										 	<a href="{{ url('user/publication/'.$row->id) }}"class="btn-defult">plus detais <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/26/000000/external-arrow-ui-essentials-flatart-icons-outline-flatarticons.png"/></a>
+										 	
+
+										 	<a href="{{ route('user.publicaiton', [$row->id])}}" class="btn-defult">plus detais <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/26/000000/external-arrow-ui-essentials-flatart-icons-outline-flatarticons.png"/></a>
+										 
 										<div class="meta-post">
                                           
                                         </div>

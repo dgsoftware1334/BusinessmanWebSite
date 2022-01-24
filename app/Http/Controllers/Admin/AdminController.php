@@ -93,8 +93,118 @@ public function store_publication(Request $request)
  
 }
 
+public function edite_publication(Request $request, $id)
+{
+ $publication=Publication::find($id);
+  if($request->file('image')){
+        $newImageName3 =time().'-'.$request->name.'.'.$request->image->extension();
+        $test3 =$request->image->move('assests/images/poblication/',$newImageName3);
+         $publication->image = $newImageName3;
+     
+           }
+
+   $publication->context = $request->context;
+     $publication->contenu = $request->contenu;
+  
+   //
+
+   $publication->save();
+
+return redirect()->back();
+}
+
+public function show_publication($id){
+ $publications=Publication::find($id);
+ $commentairs =$publications->users();
+ return view ('dashboard.publication.show',compact('publications')); 
+ //dd($commentairs);
+}
+ public function delete_publication($id){
+
+      $publication=Publication::find($id);
+      $publication->delete();
+     // return response()->json(['status'=>'event deleted succsefuly']);
+      return back()->with('supprimer','la publication a été supprimé');
 
 
+
+    }
+
+    public function delete_commentair($id,$id1){
+
+      $publication=Publication::find($id);
+      foreach ($publication->users as $row ) {
+          if($row->pivot->id == $id1){
+             $row->pivot->delete();
+          }
+      }
+     // return response()->json(['status'=>'event deleted succsefuly']);
+      return back()->with('commtaire','le commentaire a été supprimé');
+
+
+
+    }
+
+
+    public function deactive_publication($id)
+    {
+         $publication = Publication::find($id);
+         $publication->status = 1 ;
+         $publication->save(); 
+
+       return back();
+    }
+
+ public function active_publication($id)
+    {
+        //
+        $publication = Publication::find($id);
+         $publication->status = 0 ;
+         $publication->save(); 
+
+
+       return redirect()->back()->with('user','vous avais active la publication');
+    }
+
+ public function active_commentaire(Publication $publication,Request $request,User $user ){
+ $user = User::find($user->id);
+
+     foreach ($user->publications as $publications) {
+        if($publications->pivot->publication_id == $publication->id){
+        
+             $publications->pivot->is_valide =1 ;
+            
+              $publications->pivot->save();
+             
+               return redirect()->back()->with('active','Vous êtes maintenant active cette commentaire');
+     
+        
+       }
+    }
+
+
+}
+
+
+
+ public function desactive_commentaire(Publication $publication,Request $request,User $user ){
+ $user = User::find($user->id);
+
+     foreach ($user->publications as $publications) {
+        if($publications->pivot->publication_id == $publication->id){
+        
+             $publications->pivot->is_valide =0 ;
+            
+              $publications->pivot->save();
+             
+               return redirect()->back()->with('deactive','Vous êtes maintenant deactive cette commentaire');
+     
+        
+       }
+    }
+
+
+}
 
 
 }

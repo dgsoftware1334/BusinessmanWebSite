@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('lientwit')->nullable();
             $table->string('linked')->nullable();
             $table->integer('anneexp')->nullable();
-            $table->integer('photo')->nullable();
+            $table->string('photo')->nullable();
             $table->string('siteweb')->nullable();
 
             $table->string('email')->unique();
