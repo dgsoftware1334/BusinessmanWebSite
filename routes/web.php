@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Secteur\SecteurController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ Route::get('/', function () {
 
 
 
+
   
 
 
@@ -45,6 +48,8 @@ Route::get('/', function () {
     ], function(){ 
 
       Route::view('/','FrontEnd.accueil')->name('home');
+     
+      Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       //-----------------------route pour user------------
         Route::prefix('user')->name('user.')->group(function(){
           route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
@@ -114,6 +119,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::view('/home','dashboard.admin.dashboard')->name('home');
        Route::post('/logout',[AdminController::class,'logout'])->name('logout');
        Route::get('/index',[AdminController::class, 'index'])->name('index');
+       //------------------gestion des secteurs --------------
+       Route::get('/secteur',[SecteurController::class, 'index'])->name('secteur');
+       Route::post('/store',[SecteurController::class, 'store'])->name('store');
+       Route::post('/update',[SecteurController::class, 'update'])->name('update');
+       Route::delete('/destroy',[SecteurController::class, 'destroy'])->name('destroy');
        //-----desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');

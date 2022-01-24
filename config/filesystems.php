@@ -42,6 +42,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'secteurs' => [
+            'driver' => 'local',
+            'root' => storage_path('assests/images/secteurs'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
