@@ -40,7 +40,7 @@ Auth::routes();
     ], function(){ 
       //------------------------------routes for both user and guest----------------------------------------
 
-<<<<<<< HEAD
+
       //Route::view('/','FrontEnd.accueil')->name('home');
       Route::get('/', function () {
         $publications=  App\Models\Publication::all();
@@ -51,11 +51,11 @@ Auth::routes();
      
      
       //-----------------------route pour user------------
-=======
+
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       //-----------------------route pour user------------------------------------------------------------
->>>>>>> 768e89875dbedd1fee0314a831a8ee5f456db6ab
+
         Route::prefix('user')->name('user.')->group(function(){
           route::middleware(['guest:web','PreventBackHistory','isUser'])->group(function(){
               Route::view('/login','FrontEnd.user.login')->name('login');
@@ -67,7 +67,7 @@ Auth::routes();
           route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
            
               Route::view('/profile','FrontEnd.user.profile')->name('home');
-<<<<<<< HEAD
+
               Route::post('/profile/informationProfessional/{id}',[UserController::class, 'update_informationPro'])->name('update.informationPro');
               Route::post('/profile/informationParsonelle/{id}',[UserController::class, 'update_informationPar'])->name('update.informationPar');
 
@@ -81,9 +81,8 @@ Auth::routes();
 
             Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
             Route::post('/logout',[UserController::class,'logout'])->name('logout');
-=======
+
                Route::post('/logout',[UserController::class,'logout'])->name('logout');
->>>>>>> 768e89875dbedd1fee0314a831a8ee5f456db6ab
           });
       
       });
