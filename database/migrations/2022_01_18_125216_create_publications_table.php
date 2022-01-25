@@ -19,6 +19,8 @@ class CreatePublicationsTable extends Migration
              $table->text('contenu');
              $table->string('image')->nullable();
              $table->tinyInteger('status')->default('0');
+              $table->unsignedBigInteger('admin_id')->nullable();
+             $table->foreign('admin_id')->references('id')->on('admins');
 
             $table->timestamps();
         });

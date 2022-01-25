@@ -28,7 +28,7 @@
 							   </li>
 							   <li><a href="about.html">{{trans('header_trans.Services')}}</a>
 								   <ul class="submenu">
-									   <li><a href="registation.html">{{trans('header_trans.Publications')}}</a></li>
+									   <li><a href="{{ route('user.list.publicaiton') }}">{{trans('header_trans.Publications')}}</a></li>
 									   <li><a href="event-sidebar.html">{{trans('header_trans.Events')}}</a></li>
 									   <li><a href="event-single.html">{{trans('header_trans.Businessmans')}}</a></li>
 									   <li><a href="{{ url('/secteurs') }}">secteur</a></li>

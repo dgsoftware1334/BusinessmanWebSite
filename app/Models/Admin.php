@@ -48,4 +48,9 @@ class Admin extends Authenticatable
       public function secteurs() {
         return $this->hasMany(App\Model\Secteur::class); 
       }
+
+
+      public function publications() {
+        return $this->hasMany(App\Model\Publication::class); 
+      }
 }

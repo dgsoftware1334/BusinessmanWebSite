@@ -61,14 +61,21 @@ Auth::routes();
           });
           route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
            
-              Route::view('/profile','FrontEnd.user.profile')->name('home');
+          // Route::view('/profile','FrontEnd.user.profile')->name('home');
+            Route::get('/profile',[UserController::class, 'profile'])->name('home');
 
-              Route::post('/profile/informationProfessional/{id}',[UserController::class, 'update_informationPro'])->name('update.informationPro');
-              Route::post('/profile/informationParsonelle/{id}',[UserController::class, 'update_informationPar'])->name('update.informationPar');
+          Route::post('/profile/informationProfessional/{id}',[UserController::class, 'update_informationPro'])->name('update.informationPro');
+          Route::post('/profile/informationParsonelle/{id}',[UserController::class, 'update_informationPar'])->name('update.informationPar');
 
 
             //////////publicaiton
       
+            //Route::view('/publications','FrontEnd.listPublication')->name('publication');
+
+
+            Route::get('/publications/',[UserController::class, 'list_publicaiton'])->name('list.publicaiton');
+
+
             Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
         
             Route::post('/publication/commentair/{publication}/{user}',[UserController::class, 'commentair'])->name('review.publication');
@@ -123,6 +130,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/publication/create',[AdminController::class, 'create_publication'])->name('create_publication');
        Route::post('/publication/edite/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
        Route::post('/publication/delete/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
+
        Route::get('/publication/delete/{id}',[AdminController::class, 'delete_publication'])->name('delete_publication');
        //-----desactive et active publication dans la partir de l'administrateur-------
        Route::get('/publication/desactive/{id}',[AdminController::class, 'deactive_publication'])->name('deactive_publication');
@@ -132,6 +140,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
        Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
        Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
+      //------------fondateur-----------------
+
+
+        Route::get('/fondateur',[AdminController::class, 'index_fondateur'])->name('index.fondateur');
+          Route::post('/fondateur/store',[AdminController::class, 'store_fondateur'])->name('store.fondateur');
+           Route::post('/fondateur/update/{id}',[AdminController::class, 'update_fondateur'])->name('update.fondateur');
 
     });
 

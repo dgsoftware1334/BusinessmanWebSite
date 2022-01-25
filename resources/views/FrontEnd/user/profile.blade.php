@@ -55,10 +55,13 @@
         <div class="page-header-content-inner">
           <div class="speaker">
             <div class="speaker-thumb">
-               
+               @if(is_null(Auth::guard('web')->user()->photo))
+                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+               @endif
 
-
+              @if(!is_null(Auth::guard('web')->user()->photo))
               <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+              @endif
             </div>
             <div class="speaker-content">
               <a href="#">{{ Auth::guard('web')->user()->name }}  {{ Auth::guard('web')->user()->lastname }}</a>
@@ -97,7 +100,16 @@
                             <li><p>email</p><span> {{Auth::guard('web')->user()->email}}</span></li>
                              <li><p>{{trans('profil_trans.Diploma')}}</p><span>{{Auth::guard('web')->user()->diplome}}</span></li>
                             <li><p>{{trans('profil_trans.Website')}}</p><span>{{Auth::guard('web')->user()->siteweb}} </span></li>
-                          <li><p>secteur d'activité</p><span>vide </span></li>
+                          <li><p>secteur d'activité</p><span>
+                         @if(is_null(Auth::guard('web')->user()->secteur_id))
+                          vide 
+                         
+                          @endif
+                           @if(!is_null(Auth::guard('web')->user()->secteur_id))
+                             {{ Auth::guard('web')->user()->secteur->libelle}}
+                          @endif
+                            
+                        </span></li>
                         </ul>
                     </div>
                 </div>
@@ -158,7 +170,14 @@
             <input type="text" class="form-control" name="linked" placeholder="  https//www.linkedin.com">
             <input type="text" class="form-control" name="diplome" placeholder="Diploma">
             <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
-              <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience">
+            <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience">
+             <br>
+            <select name="sacteur_id" id="department" class="form-control">
+            <option value=""> -- Select One --</option>
+              @foreach ($secteurs as $secteur)
+            <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? "selected":"" }}>{{ $secteur->libelle }}</option>
+               @endforeach 
+            </select>
     
             <br>
            <div class="file-upload">

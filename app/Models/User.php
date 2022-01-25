@@ -68,7 +68,7 @@ class User   extends Authenticatable
 //      return $this->belongsTo('App\Models\Admin', 'admin_id');
 //    }
    
-   public function sacteur(){
+   public function secteur(){
 
       return $this->belongsTo('App\Models\Secteur', 'sacteur_id');
     }

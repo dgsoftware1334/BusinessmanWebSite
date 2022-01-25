@@ -409,6 +409,10 @@ border-top: 1px solid blue;
             </div>
             <!-- /.card -->
           </div>
+       
         </div>
+
+         </div>
+
   <!-- /.content-wrapper -->
 @endsection

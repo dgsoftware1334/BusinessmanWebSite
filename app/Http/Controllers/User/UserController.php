@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Admin;
-
 use App\Models\Publication;
+use App\Models\Secteur;
 
 
 class UserController extends Controller
@@ -70,13 +70,17 @@ function logout(){
 
 public function Accueil()
 {
- $publications= Publication::all();
+ $publications= Publication::orderBy('created_at','desc')->get();
  
   //->orderBy('created_at','desc')
    return view ('FrontEnd.accueil',compact('publications'));  
 }
 
-//////////information profisionnel////
+//////////information profile////
+public function profile(){
+  $secteurs= Secteur::all();
+  return view ('FrontEnd.user.profile',compact('secteurs'));
+}
 
 public function update_informationPro(Request $request, $id)
 {
@@ -88,15 +92,15 @@ public function update_informationPro(Request $request, $id)
 
            }
 
-   
-  $user->lienfb=$request->lienfb;
+    $user->lienfb=$request->lienfb;
    
    $user->lieninsta=$request->lieninsta;
    $user->lientwit=$request->lientwit;
    $user->linked=$request->linked;
    $user->diplome=$request->diplome;
    $user->siteweb=$request->siteweb;
-  $user->anneexp=$request->anneexp;
+   $user->anneexp=$request->anneexp;
+   $user->sacteur_id=$request->sacteur_id;
    //
 
    $user->save();
@@ -121,7 +125,13 @@ public function update_informationPar(Request $request, $id)
 
 return redirect()->back();
 }
-/////////////////publicaiton
+
+
+/////////////////publicaiton/////////////////////////////////////////
+public function list_publicaiton(){
+  $publications= Publication::orderBy('updated_at','desc')->paginate(4);
+  return view('FrontEnd.listPublication',compact('publications'));
+}
 
 public function page_publicaiton($id)
 {
@@ -131,6 +141,8 @@ public function page_publicaiton($id)
 
    return view ('FrontEnd.publication',compact('publication'));  
 }
+
+
 
 //////commentaire
 

@@ -17,11 +17,13 @@ class CreateFondateursTable extends Migration
             $table->id();
              $table->string('nom');
              $table->string('prenom');
-            $table->string('diplom');
-
+             $table->string('diplom');
+             $table->string('photo');
              $table->text('description');
              $table->string('Telephone')->nullable();
-            $table->timestamps();
+             $table->unsignedBigInteger('admin_id')->nullable();
+             $table->foreign('admin_id')->references('id')->on('admins');
+             $table->timestamps();
         });
     }
 

@@ -2,7 +2,7 @@
 		<div class="container container-1310">
 			<div class="section-header d-flex align-items-center flex-wrap wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
 				<h2>Nouvelle publication</h2>
-				<a href="#" class="all-view">View All Posts</a>
+				<a href="{{ route('user.list.publicaiton') }}" class="all-view">Afficher tous les publication</a>
 				<div class="blog-btn">
 	                <div class="blog-btn-prev blog-navy"></div>
 	                <div class="blog-btn-next blog-navy"></div>
@@ -19,9 +19,12 @@
 										<a href="#"><img src="{{ asset('assests/images/poblication/'.$row->image)  }}" alt="blog"></a>
 									</div>
 									<div class="post-content">
-										<span>{{$row->context}}</span>
-										<h5><a href="#">U.con Fixed the Schedule of The Conference.</a></h5>
-										<p>{{$row->contenu}} </p>
+										<span></span>
+										<h5><a href="#">{{$row->context}}</a></h5>
+										<p>
+											{{ Str::limit($row->contenu, 30) }}
+
+										</p>
 										 	
 
 										 	<a href="{{ route('user.publicaiton', [$row->id])}}" class="btn-defult">plus detais <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/26/000000/external-arrow-ui-essentials-flatart-icons-outline-flatarticons.png"/></a>

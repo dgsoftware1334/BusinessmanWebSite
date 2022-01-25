@@ -36,6 +36,9 @@ class CreateUsersTable extends Migration
             $table->boolean('status')->default(1);
             $table->unsignedBigInteger('sacteur_id')->nullable();
             $table->foreign('sacteur_id')->references('id')->on('secteurs');
+            $table->unsignedBigInteger('admin_id')->nullable();
+             $table->foreign('admin_id')->references('id')->on('admins');
+             
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,6 +4,7 @@
 <!-- Mirrored from labartisan.net/demo/unlimitcon/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Jan 2022 15:33:12 GMT -->
 <head>
   <title>Unlimitcon</title>
+  @toastr_css
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Unlimitcon Template is a Creative Multipurpose HTML5 Template">
   <meta name="keywords" content="Unlimitcon, HTML5, Multipurpose, Template">
@@ -35,6 +36,10 @@
     <!-- footer section start here -->
      @include('FrontEnd.includes.footer')
     <!-- footer section ending here -->
+           
+    @jquery
+    @toastr_js
+    @toastr_render
 
   <script src="{{ asset('assests/FrontEnd/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/snap.svg-min.js') }}"></script>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Publication;
+use App\Models\Fondateur;
 
 class AdminController extends Controller
 {
@@ -61,8 +62,8 @@ public function deactive($id)
 ////////////////////parti publication 
 public function index_publication()
 {
-  $publications= Publication::all();
-  //->orderBy('created_at','desc')
+  $publications= Publication::orderBy('created_at','desc')->paginate(4);
+  //
    return view ('dashboard.publication.index',compact('publications'));  
 }
 
@@ -87,6 +88,7 @@ public function store_publication(Request $request)
      $publication->context = $request->context;
      $publication->contenu = $request->contenu;
      $publication->status = 1;
+     $publication->admin_id = Auth::guard('admin')->user()->id;
      $publication->save();
       return redirect('/admin/publication/create')->with('success','cette publicaiton sora publice');
 
@@ -105,6 +107,7 @@ public function edite_publication(Request $request, $id)
 
    $publication->context = $request->context;
      $publication->contenu = $request->contenu;
+     $publication->admin_id = Auth::guard('admin')->user()->id;
   
    //
 
@@ -204,6 +207,50 @@ public function show_publication($id){
     }
 
 
+}
+
+//-------fondateur-------//
+public function index_fondateur(){
+  $fondateurs=Fondateur::all();
+  return view('dashboard.fondateur.index',compact('fondateurs'));
+}
+
+
+
+public function store_fondateur(Request $request)
+{
+
+  $fondateur= new Fondateur();
+ 
+   
+     $fondateur->nom = $request->nom;
+     $fondateur->prenom = $request->prenom;
+     $fondateur->diplom = $request->diplom;
+     $fondateur->description = $request->description;
+     $fondateur->Telephone = $request->Telephone;
+     
+     $fondateur->save();
+      return redirect()->back()->with('success','cette publicaiton sora publice');
+
+ 
+
+}
+
+public function update_fondateur(Request $request, $id)
+{
+ $fondateur=Fondateur::find($id);
+  
+ $fondateur->nom = $request->nom;
+     $fondateur->prenom = $request->prenom;
+     $fondateur->diplom = $request->diplom;
+     $fondateur->description = $request->description;
+     $fondateur->Telephone = $request->Telephone;
+  
+   //
+
+   $fondateur->save();
+
+return redirect()->back();
 }
 
 

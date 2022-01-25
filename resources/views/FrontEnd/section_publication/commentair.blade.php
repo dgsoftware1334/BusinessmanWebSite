@@ -34,13 +34,15 @@
                                 </div>
                             </div>
                             <div class="post-thumb">
-                              @if(is_null($publication->image))
-                                <a href="assets/images/blog-single/01.jpg" data-rel="lightcase"><img src="assets/images/blog-single/01.jpg" alt="blog-single"></a>
-                                @endif
+                            
                                  @if(!is_null($publication->image))
                                 <a href="{{ asset('assests/images/poblication/'.$publication->image)  }}" data-rel="lightcase">
                                   <img src="{{ asset('assests/images/poblication/'.$publication->image)  }}" width="900px"></a>
                                 @endif
+                               @if(is_null($publication->image))
+                                 <img src="{{ asset('assests/FrontEnd/assets/images/blog/7.jpg') }}" alt="rel-blog">
+                                 @endif
+
                             </div>
                             <div class="post-content entry-content">
                                 <div class="post-content-inner">

@@ -12,7 +12,8 @@ class Publication extends Model
       	    'contenu',
             'context',
             'image',
-            'status'
+            'status',
+            'admin_id',
     ];
 
 
@@ -23,4 +24,9 @@ class Publication extends Model
 ])->withTimestamps();
 
     }
+
+
+    public function Admin() {
+        return $this->belongsTo(App\Models\Admin::class);
+      }
 }
