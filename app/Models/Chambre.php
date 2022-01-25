@@ -20,4 +20,10 @@ class Chambre extends Model
             'photo',
            
     ];
+
+
+
+    public function fondateurs() {
+        return $this->hasMany(App\Model\Fondateur::class); 
+      }
 }

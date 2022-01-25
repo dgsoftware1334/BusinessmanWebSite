@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Secteur\SecteurController;
+use App\Http\Controllers\Event\EventController;
+use App\Http\Controllers\Pub\PublicationController;
 
 
 /*
@@ -49,6 +51,7 @@ Auth::routes();
 
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
+      Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
       //-----------------------route pour user------------------------------------------------------------
 
         Route::prefix('user')->name('user.')->group(function(){
@@ -126,12 +129,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
        //----------Gestion des publication-------------------------------
+<<<<<<< HEAD
        Route::get('/publication/index',[AdminController::class, 'index_publication'])->name('index_publication');
        Route::get('/publication/create',[AdminController::class, 'create_publication'])->name('create_publication');
        Route::post('/publication/edite/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
        Route::post('/publication/delete/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
 
        Route::get('/publication/delete/{id}',[AdminController::class, 'delete_publication'])->name('delete_publication');
+=======
+       Route::get('/publication/index',[PublicationController::class, 'index_publication'])->name('index_publication');
+       Route::get('/publication/create',[PublicationController::class, 'create_publication'])->name('create_publication');
+       Route::post('/publication/edite',[PublicationController::class, 'update_publication'])->name('edite_publication');
+       //Route::post('/publication/delete/{id}',[AdminController::class, 'edite_publication'])->name('edite_publication');
+       Route::delete('/publication/delete',[PublicationController::class, 'delete_publication'])->name('delete_publication');
+>>>>>>> 5cf071b323103b21fd7d7b82a06c7af52f11529b
        //-----desactive et active publication dans la partir de l'administrateur-------
        Route::get('/publication/desactive/{id}',[AdminController::class, 'deactive_publication'])->name('deactive_publication');
        Route::get('/publication/active/{id}',[AdminController::class, 'active_publication'])->name('active_publication');
@@ -139,6 +150,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/delete/{id}/{id2}',[AdminController::class, 'delete_commentair'])->name('delete_commentair');
        Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
        Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
+<<<<<<< HEAD
        Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
       //------------fondateur-----------------
 
@@ -146,6 +158,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/fondateur',[AdminController::class, 'index_fondateur'])->name('index.fondateur');
           Route::post('/fondateur/store',[AdminController::class, 'store_fondateur'])->name('store.fondateur');
            Route::post('/fondateur/update/{id}',[AdminController::class, 'update_fondateur'])->name('update.fondateur');
+=======
+       Route::post('/publication/store',[PublicationController::class, 'store_publication'])->name('store.publication');
+       //------------------------------gestion des evenement ---------------------------------------------
+       Route::get('/events',[EventController::class, 'index'])->name('events');
+       Route::post('/createEvent',[EventController::class, 'createEven'])->name('createEven');
+       Route::post('/updateEvent',[EventController::class, 'updateEvent'])->name('updateEvent');
+       Route::delete('/destroyEvent',[EventController::class, 'destroyEvent'])->name('destroyEvent');
+      
+
+>>>>>>> 5cf071b323103b21fd7d7b82a06c7af52f11529b
 
     });
 

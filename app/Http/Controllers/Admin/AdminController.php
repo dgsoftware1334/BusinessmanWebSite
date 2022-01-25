@@ -60,7 +60,7 @@ public function deactive($id)
     }
 
 ////////////////////parti publication 
-public function index_publication()
+/*public function index_publication()
 {
   $publications= Publication::orderBy('created_at','desc')->paginate(4);
   //
@@ -72,10 +72,10 @@ public function index_publication()
 public function create_publication()
 {
    return view ('dashboard.publication.create');  
-}
+}*/
 
 
-public function store_publication(Request $request)
+/*public function store_publication(Request $request)
 {
 
   $publication= new Publication();
@@ -85,15 +85,15 @@ public function store_publication(Request $request)
      $test3 =$request->image->move('assests/images/poblication',$newImageName3);
      $publication->image = $newImageName3;
                                }
-     $publication->context = $request->context;
-     $publication->contenu = $request->contenu;
+     $publication->context = ['fr' => $request->context, 'ar' => $request->context_ar, 'en' => $request->context_en];
+     $publication->contenu = ['fr' => $request->contenu, 'ar' => $request->contenu_ar, 'en' => $request->contenu_en];
      $publication->status = 1;
      $publication->admin_id = Auth::guard('admin')->user()->id;
      $publication->save();
       return redirect('/admin/publication/create')->with('success','cette publicaiton sora publice');
 
  
-}
+}*/
 
 public function edite_publication(Request $request, $id)
 {

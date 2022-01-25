@@ -238,6 +238,12 @@
 
          </li>
 
+         <li class="nav-header">
+            <a href="{{ route('admin.events')}}" ><i class="fas fa-thumbtack"></i>
+&ensp; Evenements</a>
+
+         </li>
+
 
          
          

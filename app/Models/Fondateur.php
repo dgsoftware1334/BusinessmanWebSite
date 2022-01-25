@@ -19,4 +19,7 @@ class Fondateur extends Model
             'Telephone'
            
     ];
+    public function chambre() {
+        return $this->belongsTo(App\Models\Chambre::class);
+      }
 }
