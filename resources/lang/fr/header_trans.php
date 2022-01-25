@@ -12,5 +12,6 @@ return [
     'Register' => 'Inscription',
     'Login' => 'Connexion',
     'Logout' => 'Déconnexion',
+    'Secteur' => ' Secteur dactivité',
 
 ];

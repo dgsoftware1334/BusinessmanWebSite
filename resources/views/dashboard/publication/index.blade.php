@@ -362,24 +362,7 @@ border-top: 1px solid blue;
                 </table>
 
 
-  <div class="pagination-area d-flex flex-wrap justify-content-center">
-                 @if ($publications->lastPage() > 1)
 
-                            <ul class="pagination d-flex flex-wrap m-0">
-                              <li class="prev"> <a ref="{{ $publications->url(1) }}" class="{{ ($publications->currentPage() == 1) ? ' disabled' : '' }} page-link" aria-label="Previous">
-                                <span>« Précédent</span></a></li>
-                              @for ($i = 1; $i <= $publications->lastPage(); $i++)
-                              <li class="{{ ($publications->currentPage() == $i) ? ' active' : '' }} page-item">
-                                   <a href="{{ $publications->url($i) }}" class="page-link">{{ $i }}</a>
-                              </li>
-                              @endfor
-                              
-                              <li class="dot">....</li>
-                             
-                              <li  class="{{ ($publications->currentPage() == $publications->lastPage()) ? ' disabled' : '' }} page-item"> <a href="{{ $publications->url($publications->currentPage()+1) }}" class="page-link" aria-label="Next"><span>Suivant »</span></a></li>
-                            </ul>
-                   @endif
-                        </div>
     
 
 
