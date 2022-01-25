@@ -244,6 +244,12 @@
 
          </li>
 
+         <li class="nav-header">
+            <a href="{{ route('admin.index.fondateur')}}" ><i class="fas fa-thumbtack"></i>
+&ensp; Fondateur</a>
+
+         </li>
+
 
          
          
