@@ -362,9 +362,7 @@ border-top: 1px solid blue;
                 </table>
 
 
-  
-
-
+ 
 </div>
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 </div>
