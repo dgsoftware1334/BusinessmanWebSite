@@ -22,13 +22,11 @@ class CreateChambresTable extends Migration
             $table->string('telephone');
             $table->text('politique');
             $table->string('photo');
-<<<<<<< HEAD
-             $table->unsignedBigInteger('admin_id')->nullable();
-             $table->foreign('admin_id')->references('id')->on('admins');
-=======
+
+          
+
             $table->unsignedBigInteger('admin_id')->nullable();
             $table->foreign('admin_id')->references('id')->on('admins');
->>>>>>> 5cf071b323103b21fd7d7b82a06c7af52f11529b
             $table->timestamps();
         });
     }

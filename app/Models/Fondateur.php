@@ -16,7 +16,8 @@ class Fondateur extends Model
             'prenom',
             'diplom',
             'description',
-            'Telephone'
+            'Telephone',
+            'image',
            
     ];
     public function chambre() {

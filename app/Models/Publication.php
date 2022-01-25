@@ -27,7 +27,13 @@ class Publication extends Model
 ])->withTimestamps();
 
     }
+<<<<<<< HEAD
     
+=======
+
+
+
+>>>>>>> 3e7afc4f3097f267367729700520ccec5bacb05b
     public function Admin() {
         return $this->belongsTo(App\Models\Admin::class);
       }
