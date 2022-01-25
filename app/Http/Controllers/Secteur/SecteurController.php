@@ -39,7 +39,7 @@ function store(StoreSecteurRequest $request){
  
     $secteur= new Secteur();
     $secteur->libelle = ['fr' => $request->libelle, 'ar' => $request->libelle_ar, 'en' => $request->libelle_en];
-    $secteur->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->libelle_en];
+    $secteur->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en];
     $secteur->image= $file_name;
     $secteur->admin_id = Auth::guard('admin')->user()->id;
   

@@ -18,12 +18,14 @@ class CreateEventsTable extends Migration
       
             $table->string('sujet');
             $table->text('description');
-            $table->string('date_debut');
-            $table->string('date_fin');
+            $table->date('date_debut');
+            $table->date('date_fin');
             $table->integer('dure');
             $table->string('image');
             $table->string('type');
-            $table->string('lien');
+            $table->string('lien')->nullable();
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('admins');
              $table->tinyInteger('status')->default('0');
             $table->timestamps();
         })

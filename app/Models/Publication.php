@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Publication extends Model
 {
     use HasFactory;
+    use HasTranslations;
+    public $translatable = ['context', 'contenu'];
       protected $fillable = [
-      	    'contenu',
-            'context',
+      	    'context',
+            'contenu',
             'image',
             'status'
     ];
@@ -23,4 +26,7 @@ class Publication extends Model
 ])->withTimestamps();
 
     }
+    public function Admin() {
+        return $this->belongsTo(App\Models\Admin::class);
+      }
 }

@@ -21,6 +21,8 @@ class CreateFondateursTable extends Migration
 
              $table->text('description');
              $table->string('Telephone')->nullable();
+             $table->unsignedBigInteger('chambre_id')->nullable();
+             $table->foreign('chambre_id')->references('id')->on('chambres');
             $table->timestamps();
         });
     }

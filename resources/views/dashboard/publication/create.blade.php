@@ -68,17 +68,48 @@ border-top: 1px solid blue;
             <form class="form-horizontal" method="POST" action="{{ route('admin.store.publication') }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
                   @csrf
                 <div class="card-body">
+              
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Context</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le sujet</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Context" name="context">
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="Entrer le contexte en (fr)" name="context" class="@error('context') is-invalid @enderror">
+                      <span class="text-danger">@error('context'){{ $message }} @enderror</span>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Contenu</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >الموضوع</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="اكتب الموضوع باللغة العربية" name="context_ar">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >The subject</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="Write the context in english" name="context_en">
+                    </div>
+                  </div>
+                 
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Le contenu</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" placeholder="Enter ..."></textarea>
+                      <textarea class="form-control" rows="3" name="contenu" placeholder="Entrer le contenu de votre article" class="@error('contenu') is-invalid @enderror"></textarea>
+                      <span class="text-danger">@error('contenu'){{ $message }} @enderror</span>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
+                    <div class="col-sm-10">
+            
+                      <textarea class="form-control" rows="3" name="contenu" placeholder="اكتب المحتوى بالعربي ..."></textarea>
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">The content</label>
+                    <div class="col-sm-10">
+            
+                      <textarea class="form-control" rows="3" name="contenu" placeholder="Write the content in english ..."></textarea>
 
                     </div>
                   </div>
@@ -87,12 +118,14 @@ border-top: 1px solid blue;
                     <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Image</label>
                     <div class="input-group col-sm-10">
                       <div class="custom-file col-sm-10">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image"  class="@error('contenu') is-invalid @enderror">
+                       
                         <label class="custom-file-label" for="exampleInputFile">Choisis une image</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                       </div>
+                      <span class="text-danger">@error('image'){{ $message }} @enderror</span>
                     </div>
                   </div>
                   <br/>
