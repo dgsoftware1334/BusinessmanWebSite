@@ -130,12 +130,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
        //----------Gestion des publication-------------------------------
 
+<<<<<<< HEAD
+=======
+
+       
+>>>>>>> 1f5f350633c1ad36f249f410b587648198cd53fd
        Route::get('/publication/index',[PublicationController::class, 'index_publication'])->name('index_publication');
        Route::get('/publication/create',[PublicationController::class, 'create_publication'])->name('create_publication');
        Route::post('/publication/edite',[PublicationController::class, 'update_publication'])->name('edite_publication');
        Route::delete('/publication/delete',[PublicationController::class, 'delete_publication'])->name('delete_publication');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f5f350633c1ad36f249f410b587648198cd53fd
        //-----desactive et active publication dans la partir de l'administrateur-------
        Route::get('/publication/desactive/{id}',[AdminController::class, 'deactive_publication'])->name('deactive_publication');
        Route::get('/publication/active/{id}',[AdminController::class, 'active_publication'])->name('active_publication');
@@ -143,7 +151,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/delete/{id}/{id2}',[AdminController::class, 'delete_commentair'])->name('delete_commentair');
        Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
        Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f5f350633c1ad36f249f410b587648198cd53fd
        Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
       //------------fondateur-----------------
 
@@ -157,8 +168,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::post('/createEvent',[EventController::class, 'createEven'])->name('createEven');
        Route::post('/updateEvent',[EventController::class, 'updateEvent'])->name('updateEvent');
        Route::delete('/destroyEvent',[EventController::class, 'destroyEvent'])->name('destroyEvent');
+<<<<<<< HEAD
       
 
+=======
+>>>>>>> 1f5f350633c1ad36f249f410b587648198cd53fd
 
     });
 
