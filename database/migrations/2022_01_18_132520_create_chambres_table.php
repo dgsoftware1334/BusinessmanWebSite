@@ -15,13 +15,17 @@ class CreateChambresTable extends Migration
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->id();
-            $table->string('sujet');
+            $table->text('sujet');
             $table->text('description');
             $table->string('lien');
-            $table->string('adresse'); 
+            $table->text('adresse'); 
             $table->string('telephone');
             $table->text('politique');
             $table->string('photo');
+            $table->string('fb');
+            $table->string('insta');
+            $table->string('linked');
+            $table->string('twit');
 
           
 

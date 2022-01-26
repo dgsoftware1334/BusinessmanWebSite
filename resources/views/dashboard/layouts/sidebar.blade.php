@@ -215,6 +215,7 @@
           </div>
         </div>
       </div>
+     
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -249,6 +250,25 @@
 &ensp; Fondateur</a>
 
          </li>
+         <?php   $c =DB::table('chambres')->get();  ?>  
+         <?php  $result=$c->count()  ?>
+         
+         @if($result==0)
+         <li class="nav-header">
+         <a href="{{ route('admin.create_chambre')}}" ><i class="fas fa-thumbtack"></i>
+&ensp; Ajouter la chambre</a>
+
+      </li>
+      @else
+
+      <li class="nav-header">
+            <a href="{{ route('admin.index_chambre')}}" ><i class="fas fa-thumbtack"></i>
+&ensp;Chambre</a>
+
+         </li>
+        
+        @endif
+         
 
 
          

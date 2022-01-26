@@ -13,7 +13,7 @@ class StroreChambreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,27 @@ class StroreChambreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sujet' => 'required',
+            'description' => 'required',
+            'adresse' => 'required',
+            'telephone' => 'required',
+            'politique' => 'required',
+            
+        ];
+    }
+
+    
+    public function messages()
+    {
+        return [
+            'sujet.required' => 'Le champs titre (fr) est obligatoire',
+            'description.required' => 'Le champs description (fr) est obligatoire',
+            'adresse.required' => 'Le champs adresse  est obligatoire',
+            'telephone.required' => 'Le champs telephone  est obligatoire',
+            
+   
+   
+
         ];
     }
 }

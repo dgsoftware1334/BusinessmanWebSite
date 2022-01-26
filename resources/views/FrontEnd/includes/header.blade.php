@@ -42,7 +42,7 @@
 									  
 								   </ul>
 							   </li>
-							   <li><a href="speaker-profile.html">{{trans('header_trans.About')}}</a></li>
+							   <li><a href="{{ url('/about') }}">{{trans('header_trans.About')}}</a></li>
 							   <!--<li><a href="#">pages</a>
 								   
 							   </li>-->

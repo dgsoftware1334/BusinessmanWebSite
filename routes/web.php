@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Secteur\SecteurController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Pub\PublicationController;
+use App\Http\Controllers\Chambre\ChambreController;
+use App\Http\Controllers\Fondateur\FondateurController;
 
 
 /*
@@ -43,15 +45,16 @@ Auth::routes();
       //------------------------------routes for both user and guest----------------------------------------
 
 
-      //Route::view('/','FrontEnd.accueil')->name('home');
+     // Route::view('/about','FrontEnd.about')->name('about');
       
      
      
-      //-----------------------route pour user------------
+      //-----------------------route pour visiteur------------
 
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
+      Route::get('about',[ChambreController::class, 'about'])->name('about');
       //-----------------------route pour user------------------------------------------------------------
 
         Route::prefix('user')->name('user.')->group(function(){
@@ -131,8 +134,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
        //----------Gestion des publication-------------------------------
 
 
-       
+      
        Route::get('/publication/index',[PublicationController::class, 'index_publication'])->name('index_publication');
+       Route::post('/publication/store',[PublicationController::class, 'store_publication'])->name('store.publication');
        Route::get('/publication/create',[PublicationController::class, 'create_publication'])->name('create_publication');
        Route::post('/publication/edite',[PublicationController::class, 'update_publication'])->name('edite_publication');
        Route::delete('/publication/delete',[PublicationController::class, 'delete_publication'])->name('delete_publication');
@@ -146,17 +150,24 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
        Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
       //------------fondateur-----------------
-
-
-        Route::get('/fondateur',[AdminController::class, 'index_fondateur'])->name('index.fondateur');
-          Route::post('/fondateur/store',[AdminController::class, 'store_fondateur'])->name('store.fondateur');
-           Route::post('/fondateur/update/{id}',[AdminController::class, 'update_fondateur'])->name('update.fondateur');
-       Route::post('/publication/store',[PublicationController::class, 'store_publication'])->name('store.publication');
+        Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
+        //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');
+        Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');
+           Route::post('/fondateur/update/{id}',[FondateurController::class, 'update_fondateur'])->name('update.fondateur');
+      
        //------------------------------gestion des evenement ---------------------------------------------
        Route::get('/events',[EventController::class, 'index'])->name('events');
        Route::post('/createEvent',[EventController::class, 'createEven'])->name('createEven');
        Route::post('/updateEvent',[EventController::class, 'updateEvent'])->name('updateEvent');
        Route::delete('/destroyEvent',[EventController::class, 'destroyEvent'])->name('destroyEvent');
+       //---------------------------------information chambre---------------------
+       Route::get('/chambre/create',[ChambreController::class, 'create_chambre'])->name('create_chambre');
+       Route::post('/chambre/store',[ChambreController::class, 'store_chambre'])->name('store.chambre');
+       Route::get('/chambre/index',[ChambreController::class, 'index_chambre'])->name('index_chambre');
+       Route::get('/chambre/show/{id}',[ChambreController::class, 'show_chambre'])->name('show_chambre');
+       Route::post('/chambre/update',[ChambreController::class, 'update_chambre'])->name('update_chambre');
+       
+
 
     });
 

@@ -59,41 +59,7 @@ public function deactive($id)
        return redirect()->back()->with('user','vous avais active le compte de homme d affaire ');
     }
 
-////////////////////parti publication 
-/*public function index_publication()
-{
-  $publications= Publication::orderBy('created_at','desc')->paginate(4);
-  //
-   return view ('dashboard.publication.index',compact('publications'));  
-}
 
-
-
-public function create_publication()
-{
-   return view ('dashboard.publication.create');  
-}*/
-
-
-/*public function store_publication(Request $request)
-{
-
-  $publication= new Publication();
- 
-   if($request->file('image')){
-     $newImageName3 =time().'-'.$request->context.'.'.$request->image->extension();
-     $test3 =$request->image->move('assests/images/poblication',$newImageName3);
-     $publication->image = $newImageName3;
-                               }
-     $publication->context = ['fr' => $request->context, 'ar' => $request->context_ar, 'en' => $request->context_en];
-     $publication->contenu = ['fr' => $request->contenu, 'ar' => $request->contenu_ar, 'en' => $request->contenu_en];
-     $publication->status = 1;
-     $publication->admin_id = Auth::guard('admin')->user()->id;
-     $publication->save();
-      return redirect('/admin/publication/create')->with('success','cette publicaiton sora publice');
-
- 
-}*/
 
 public function edite_publication(Request $request, $id)
 {
@@ -210,48 +176,10 @@ public function show_publication($id){
 }
 
 //-------fondateur-------//
-public function index_fondateur(){
-  $fondateurs=Fondateur::all();
-  return view('dashboard.fondateur.index',compact('fondateurs'));
-}
 
 
 
-public function store_fondateur(Request $request)
-{
 
-  $fondateur= new Fondateur();
- 
-   
-     $fondateur->nom = $request->nom;
-     $fondateur->prenom = $request->prenom;
-     $fondateur->diplom = $request->diplom;
-     $fondateur->description = $request->description;
-     $fondateur->Telephone = $request->Telephone;
-     
-     $fondateur->save();
-      return redirect()->back()->with('success','cette publicaiton sora publice');
-
- 
-
-}
-
-public function update_fondateur(Request $request, $id)
-{
- $fondateur=Fondateur::find($id);
-  
- $fondateur->nom = $request->nom;
-     $fondateur->prenom = $request->prenom;
-     $fondateur->diplom = $request->diplom;
-     $fondateur->description = $request->description;
-     $fondateur->Telephone = $request->Telephone;
-  
-   //
-
-   $fondateur->save();
-
-return redirect()->back();
-}
 
 
 }

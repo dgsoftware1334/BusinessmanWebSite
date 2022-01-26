@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Fondateur extends Model
 {
     use HasFactory;
-    
+    use HasTranslations;
+    public $translatable = ['nom', 'prenom', 'diplom','description'];
 
 
    protected $fillable = [
@@ -18,6 +20,8 @@ class Fondateur extends Model
             'description',
             'Telephone',
             'image',
+            'admin_id',
+            'chambre_id',
            
     ];
     public function chambre() {
