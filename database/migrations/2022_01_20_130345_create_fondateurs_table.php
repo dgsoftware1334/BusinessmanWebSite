@@ -24,7 +24,7 @@ class CreateFondateursTable extends Migration
                $table->string('image')->nullable();
              $table->unsignedBigInteger('admin_id')->nullable();
              $table->foreign('admin_id')->references('id')->on('admins');
-             $table->timestamps();
+        
              $table->unsignedBigInteger('chambre_id')->nullable();
              $table->foreign('chambre_id')->references('id')->on('chambres');
          

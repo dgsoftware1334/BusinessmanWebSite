@@ -23,7 +23,8 @@
   
    @include('FrontEnd.section_home.publication')
   @include('FrontEnd.section_home.service')
- 
+      @include('FrontEnd.section_home.users')
+
    @include('FrontEnd.section_home.newevent')
 
 

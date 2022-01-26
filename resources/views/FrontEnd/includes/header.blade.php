@@ -30,18 +30,12 @@
 							   <li><a href="about.html">{{trans('header_trans.Services')}}</a>
 								   <ul class="submenu">
 
-									   <li><a href="{{ route('user.list.publicaiton') }}">{{trans('header_trans.Publications')}}</a></li>
-<<<<<<< HEAD
-									   <li><a href="event-sidebar.html">{{trans('header_trans.Events')}}</a></li>
-									   
-=======
-									
+									   <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
 
 									   
 									   <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
->>>>>>> e18115eb76776e4e810ad9a02043e5f71328ad9e
 
-									   <li><a href="event-single.html">{{trans('header_trans.Businessmans')}}</a></li>
+									   <li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
 									   <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
 
 									  

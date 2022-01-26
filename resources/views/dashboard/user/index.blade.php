@@ -74,7 +74,9 @@ border-top: 1px solid blue;
 
 </div>
 <div class="col-lg-1 ">
-  <button type="button" class="btn btn-block btn-outline-info" ><img src="https://img.icons8.com/dotty/33/000000/add-administrator.png"/></button>
+   <a  class="btn btn-block btn-outline-info" href="{{ url('admin/user/create') }}">
+<img src="https://img.icons8.com/dotty/33/000000/add-administrator.png"/></button>
+</a>
 
 </div>
 
@@ -120,13 +122,15 @@ border-top: 1px solid blue;
                      
                      
                       <!---edit user-->
-                      <i class="fas fa-user-edit" style="color: blue"></i>&ensp; 
+                       <a  href="{{ url('admin/user/edit', $row->id) }}">
+                      <i class="fas fa-user-edit" style="color: blue"></i></a>&ensp; 
 
                       <!--read user-->
+                         <a  href="{{ url('admin/user/show', $row->id) }}">
                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
-
+                          </a>
                        <!--delete user-->
-                      <i class="far fa-trash-alt" style="color: red"></i>&ensp; 
+                     <a  href="{{ url('admin/user/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
                        @if($row->status == '0')
                        <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
@@ -186,10 +190,10 @@ border-top: 1px solid blue;
                       <i class="fas fa-user-edit" style="color: blue"></i>&ensp; 
 
                       <!--read user-->
-                      <i class="fas fa-folder" style="color :green"></i>&ensp; 
+                   
 
                        <!--delete user-->
-                      <i class="far fa-trash-alt" style="color: red"></i>&ensp; 
+                     <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
                       <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
 
@@ -257,11 +261,13 @@ border-top: 1px solid blue;
                       <i class="fas fa-user-edit" style="color: blue"></i>&ensp; 
 
                       <!--read user-->
+                       <a  href="{{ url('admin/user/show', $row->id) }}">
                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
-
+                          </a>
+                         <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                        <!--delete user-->
                       <i class="far fa-trash-alt" style="color: red"></i>&ensp; 
-                     
+                         
 
                      <!--deactive-->
                        @if($row->status == '0')
