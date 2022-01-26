@@ -20,4 +20,7 @@ class Secteur extends Model
     public function Admin() {
         return $this->belongsTo(App\Models\Admin::class);
       }
+        public function users(){
+        return $this->hasMany('App\Models\User', 'sacteur_id', 'id');
+      }
 }

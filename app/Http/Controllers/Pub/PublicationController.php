@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Http\Requests\StrorePubRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Admin;
 
 class PublicationController extends Controller
 {
@@ -39,7 +41,7 @@ public function create_publication()
         $publication->contenu = ['fr' => $request->contenu, 'ar' => $request->contenu_ar, 'en' => $request->contenu_en];
         $publication->image= $file_name;
         $publication->status = 1;
-        $secteur->admin_id = Auth::guard('admin')->user()->id;
+          $publication->admin_id = Auth::guard('admin')->user()->id;
     
         $save =$publication->save();
         if( $save ){

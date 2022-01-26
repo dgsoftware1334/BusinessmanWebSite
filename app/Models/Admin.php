@@ -43,14 +43,14 @@ class Admin extends Authenticatable
     ];
 
      public function Users(){
-        return $this->hasMany('App\Model\User', 'admin_id', 'id');
+        return $this->hasMany('App\Models\User', 'admin_id', 'id');
       }
       public function secteurs() {
-        return $this->hasMany(App\Model\Secteur::class); 
+        return $this->hasMany(App\Models\Secteur::class); 
       }
 
 
       public function publications() {
-        return $this->hasMany(App\Model\Publication::class); 
+        return $this->hasMany(App\Models\Publication::class); 
       }
 }

@@ -9,8 +9,8 @@
                         </div>
                         <ol class="breadcrumb">
                             <li>Tu es là : </li>
-                            <li><a href="index.html">Services</a></li>
-                            <li class="active">publications</li>
+                            <li><a href="index.html">{{trans('header_trans.Home')}}</a></li>
+                            <li class="active">{{trans('header_trans.Publications')}}</li>
                         </ol>
                     </div>
                 </div>

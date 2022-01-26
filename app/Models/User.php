@@ -72,6 +72,9 @@ class User   extends Authenticatable
 
       return $this->belongsTo('App\Models\Secteur', 'sacteur_id');
     }
+    public function Admin() {
+        return $this->belongsTo(App\Models\Admin::class);
+      }
 
 
 ///////relation many to many

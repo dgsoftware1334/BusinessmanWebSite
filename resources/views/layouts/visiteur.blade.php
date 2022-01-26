@@ -62,6 +62,14 @@
     <script src="{{ asset('assests/FrontEnd/assets/js/theia-sticky-sidebar.js') }}"></script>
   <script src="{{ asset('assests/FrontEnd/assets/js/s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script>
   <script src="{{ asset('assests/FrontEnd/assets/js/mail.js') }}"></script>
+    <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+  <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+ <script>
+      $(window).scroll(function() {
+        var theta = $(window).scrollTop() / 300 % Math.PI;
+        $('#leftgear').css({ transform: 'rotate(' + theta + 'rad)' });
+      });
+  </script>
 </body>
 
 <!-- Mirrored from labartisan.net/demo/unlimitcon/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Jan 2022 15:35:12 GMT -->

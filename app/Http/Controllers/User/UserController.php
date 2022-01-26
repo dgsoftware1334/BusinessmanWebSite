@@ -71,15 +71,33 @@ function logout(){
 public function Accueil()
 {
  $publications= Publication::orderBy('created_at','desc')->get();
- 
+ //$users = User::where('status',0)->get();
+ //$users= User::orderBy('created_at','desc')->get();
+
+ $secteurs = Secteur::all();
   //->orderBy('created_at','desc')
-   return view ('FrontEnd.accueil',compact('publications'));  
+   return view ('FrontEnd.accueil',compact('publications','secteurs'));  
 }
 
 //////////information profile////
 public function profile(){
   $secteurs= Secteur::all();
   return view ('FrontEnd.user.profile',compact('secteurs'));
+}
+
+public function show($id){
+ 
+  $user= User::find($id);
+   $secteurs= Secteur::all();
+  return view ('FrontEnd.user.show',compact('secteurs','user'));
+}
+
+
+public function index(){
+  $secteurs= Secteur::all();
+$publication= Publication::find(1);
+  $users= User::orderBy('created_at','desc')->get();
+  return view ('FrontEnd.user.index',compact('users','secteurs','publication'));
 }
 
 public function update_informationPro(Request $request, $id)
@@ -139,6 +157,7 @@ public function page_publicaiton($id)
   //->orderBy('created_at','desc')
  ///dd('publication');
 
+
    return view ('FrontEnd.publication',compact('publication'));  
 }
 
@@ -164,5 +183,8 @@ public function commentair(Publication $publication,Request $request,User $user 
    return back();
      
 }
+
+
+
 
 }
