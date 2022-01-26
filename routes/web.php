@@ -6,13 +6,11 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Secteur\SecteurController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Pub\PublicationController;
-<<<<<<< HEAD
 use App\Http\Controllers\Chambre\ChambreController;
 use App\Http\Controllers\Fondateur\FondateurController;
-=======
 use App\Http\Controllers\Businessmans\BusinessmansController;
 
->>>>>>> 671b009ed94ded416f15529581b84cd1f6e38101
+
 
 
 /*
@@ -59,9 +57,8 @@ Auth::routes();
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
-<<<<<<< HEAD
       Route::get('about',[ChambreController::class, 'about'])->name('about');
-=======
+
        Route::get('/publications/',[UserController::class, 'list_publicaiton'])->name('list.publicaiton');
 
    
@@ -72,8 +69,7 @@ Auth::routes();
 
         
   Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
-        
->>>>>>> 671b009ed94ded416f15529581b84cd1f6e38101
+
       //-----------------------route pour user------------------------------------------------------------
 
         Route::prefix('user')->name('user.')->group(function(){
@@ -171,15 +167,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
        //----------Gestion des publication-------------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-      
-=======
-       
->>>>>>> 1f5f350633c1ad36f249f410b587648198cd53fd
->>>>>>> 70abe8a90c2220c3b53e34409285e1ab8481eeb6
-=======
->>>>>>> 671b009ed94ded416f15529581b84cd1f6e38101
        Route::get('/publication/index',[PublicationController::class, 'index_publication'])->name('index_publication');
        Route::post('/publication/store',[PublicationController::class, 'store_publication'])->name('store.publication');
        Route::get('/publication/create',[PublicationController::class, 'create_publication'])->name('create_publication');
@@ -207,8 +194,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::post('/createEvent',[EventController::class, 'createEven'])->name('createEven');
        Route::post('/updateEvent',[EventController::class, 'updateEvent'])->name('updateEvent');
        Route::delete('/destroyEvent',[EventController::class, 'destroyEvent'])->name('destroyEvent');
-<<<<<<< HEAD
-<<<<<<< HEAD
+
        //---------------------------------information chambre---------------------
        Route::get('/chambre/create',[ChambreController::class, 'create_chambre'])->name('create_chambre');
        Route::post('/chambre/store',[ChambreController::class, 'store_chambre'])->name('store.chambre');
@@ -216,17 +202,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/chambre/show/{id}',[ChambreController::class, 'show_chambre'])->name('show_chambre');
        Route::post('/chambre/update',[ChambreController::class, 'update_chambre'])->name('update_chambre');
        
-
-=======
-<<<<<<< HEAD
-      
-
-=======
->>>>>>> 1f5f350633c1ad36f249f410b587648198cd53fd
->>>>>>> 70abe8a90c2220c3b53e34409285e1ab8481eeb6
-=======
-
->>>>>>> 671b009ed94ded416f15529581b84cd1f6e38101
 
     });
 
