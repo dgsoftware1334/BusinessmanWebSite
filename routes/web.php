@@ -10,11 +10,6 @@ use App\Http\Controllers\Chambre\ChambreController;
 use App\Http\Controllers\Fondateur\FondateurController;
 use App\Http\Controllers\Businessmans\BusinessmansController;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0c8f4cff335af482b8b92c680c4c489bc65ebd19
-
 
 /*
 |--------------------------------------------------------------------------
@@ -72,13 +67,9 @@ Auth::routes();
 
     
   Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
-<<<<<<< HEAD
       Route::get('/search/user',[UserController::class, 'search'])->name('search.user');
 
-        
-=======
 
->>>>>>> 0c8f4cff335af482b8b92c680c4c489bc65ebd19
       //-----------------------route pour user------------------------------------------------------------
 
         Route::prefix('user')->name('user.')->group(function(){
@@ -176,10 +167,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
        //----------Gestion des publication-------------------------------
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0c8f4cff335af482b8b92c680c4c489bc65ebd19
        Route::get('/publication/index',[PublicationController::class, 'index_publication'])->name('index_publication');
        Route::post('/publication/store',[PublicationController::class, 'store_publication'])->name('store.publication');
        Route::get('/publication/create',[PublicationController::class, 'create_publication'])->name('create_publication');
