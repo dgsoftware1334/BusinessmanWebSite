@@ -8,6 +8,12 @@ use App\Models\Chambre;
 use App\Http\Requests\StroreChambreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Fondateur;
+use App\Models\Event;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\Publication;
+use App\Models\Secteur;
+
 class ChambreController extends Controller
 {
     public function create_chambre()
@@ -16,7 +22,12 @@ class ChambreController extends Controller
 }
 public function about(){
   $chambres= Chambre::all();
-  return view('FrontEnd.about',compact('chambres'));
+  $users=User::all();
+  $publications= Publication::all();
+  $events= Event::all();
+  $secteurs=Secteur::all();
+  $fondateurs=Fondateur::all();
+  return view('FrontEnd.about',compact('chambres','events','users','publications','secteurs','fondateurs'));
 }
 
 

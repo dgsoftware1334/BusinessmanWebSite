@@ -60,17 +60,19 @@ class FondateurController extends Controller
 public function store_fondateur(Request $request)
 {
 
-
-
-
-  
  
     $fondateur= new Fondateur();
-    $file_extension = $request->image->getClientOriginalExtension();
-    $file_name =time().'.'.$file_extension;
-    $path = 'assests/images/fondateurs';
-    $request->image->move($path,$file_name);
-    $fondateur->image= $file_name;
+   
+
+     if($request->file('image')){
+              $newImageName3 =time().'-'.$request->nom.'.'.$request->image->extension();
+              $test3 =$request->image->move('assests/images/fondateurs/',$newImageName3);
+               $fondateur->image = $newImageName3;
+           
+                 }
+
+
+
     $fondateur->nom = ['fr' => $request->nom, 'ar' => $request->nom_ar, 'en' => $request->nom_fr];
     $fondateur->prenom = ['fr' => $request->prenom, 'ar' => $request->prenom_ar, 'en' => $request->prenom_fr];
     $fondateur->diplom = ['fr' => $request->diplom, 'ar' => $request->diplom_ar, 'en' => $request->diplom_fr];
@@ -104,12 +106,18 @@ public function store_fondateur(Request $request)
 public function update_fondateur(Request $request, $id)
 {
  $fondateur=Fondateur::find($id);
- if($request->file('image')){
+/* if($request->file('image')){
     $newImageName3 =time().'-'.$request->nom.'.'.$request->image->extension();
     $test3 =$request->image->move('assests/images/fondateurs/',$newImageName3);
      $fondateur->image = $newImageName3;
  
-       }
+       }*/
+        if($request->file('image')){
+              $newImageName3 =time().'-'.$request->nom.'.'.$request->image->extension();
+              $test3 =$request->image->move('assests/images/fondateurs/',$newImageName3);
+               $fondateur->image = $newImageName3;
+           
+                 }
 
  $fondateur->nom = ['fr' => $request->nom, 'ar' => $request->nom_ar, 'en' => $request->nom_fr];
  $fondateur->prenom = ['fr' => $request->prenom, 'ar' => $request->prenom_ar, 'en' => $request->prenom_fr];

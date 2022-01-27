@@ -94,10 +94,45 @@ public function show($id){
 
 
 public function index(){
+
+   
   $secteurs= Secteur::all();
 $publication= Publication::find(1);
   $users= User::orderBy('created_at','desc')->get();
-  return view ('FrontEnd.user.index',compact('users','secteurs','publication'));
+$search=$users->take(0);
+   
+                   
+                       
+
+  return view ('FrontEnd.user.index',compact('users','secteurs','publication','search'));
+}
+
+public function search(){
+
+ $search_text= $_GET['query'];
+  $secteurs= Secteur::all();
+$publication= Publication::find(1);
+  $users= User::orderBy('created_at','desc')->get();
+
+   
+
+
+   $result = User::where('sacteur_id','%'.$search_text.'%')->get();
+        
+   $result2 = User::where('name','like','%'.$search_text.'%')->get();
+    
+
+   if($result->count() > 1 ){
+        $search= $result;
+        }
+           
+  elseif($result2->count() > 1 ){
+          $search= $result2;
+         }
+
+
+  return view ('FrontEnd.user.index',compact('users','secteurs','publication','search'));
+
 }
 
 public function update_informationPro(Request $request, $id)
