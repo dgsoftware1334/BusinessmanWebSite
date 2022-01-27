@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Http\Requests\StrorePubRequest;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-=======
+
 use App\Models\Admin;
->>>>>>> 671b009ed94ded416f15529581b84cd1f6e38101
+
 
 class PublicationController extends Controller
 {

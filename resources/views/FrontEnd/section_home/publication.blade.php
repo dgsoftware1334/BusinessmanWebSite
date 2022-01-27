@@ -3,18 +3,7 @@
 <section class="blog-section padding-tb">
 		<div class="container container-1310">
 			<div class="section-header d-flex align-items-center flex-wrap wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
-				<h2>Nouvelle publication @if (Route::has('user.login'))
-			   
-				                          @auth
-										 	leila
-										 @endauth
-                                       @else 
-                                       wiam
-                                         @endif
-
-
-
-
+				<h2>Nouvelle publication
                                      </h2>
 				<a href="{{ route('user.list.publicaiton') }}" class="all-view">Afficher tous les publication</a>
 				<div class="blog-btn">

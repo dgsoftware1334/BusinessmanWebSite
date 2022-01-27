@@ -11,8 +11,6 @@ use App\Http\Controllers\Fondateur\FondateurController;
 use App\Http\Controllers\Businessmans\BusinessmansController;
 
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,8 +66,10 @@ Auth::routes();
     Route::get('/businessmans',[UserController::class, 'index'])->name('index.user');
     Route::post('/search', [UserController::class, 'search'])->name('search');
 
-        
+    
   Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
+      Route::get('/search/user',[UserController::class, 'search'])->name('search.user');
+
 
       //-----------------------route pour user------------------------------------------------------------
 

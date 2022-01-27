@@ -18,7 +18,6 @@ class CreateFondateursTable extends Migration
              $table->string('nom');
              $table->string('prenom');
              $table->string('diplom');
-             $table->string('photo');
              $table->text('description');
              $table->string('Telephone')->nullable();
              $table->string('image')->nullable();

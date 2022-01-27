@@ -95,11 +95,20 @@ public function show($id){
 
 
 public function index(){
+
+   
   $secteurs= Secteur::all();
 $publication= Publication::find(1);
   $users= User::orderBy('created_at','desc')->get();
-  return view ('FrontEnd.user.index',compact('users','secteurs','publication'));
+$search=$users->take(0);
+   
+                   
+                       
+
+  return view ('FrontEnd.user.index',compact('users','secteurs','publication','search'));
 }
+
+
 //--------------------------------------------------------search method------------------------------------------------
 public function search(Request $request)
 {
