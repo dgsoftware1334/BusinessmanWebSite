@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class UserController extends Controller
@@ -107,6 +108,35 @@ $publication= Publication::find(1);
 }
 
 
+<<<<<<< HEAD
+=======
+//--------------------------------------------------------search method------------------------------------------------
+public function search(Request $request)
+{
+    $sec  = $request->secteur;
+    $q = $request->nom;
+
+
+    $users = User::where('name', 'LIKE', '%' . $q . '%')->whereHas('secteur', function (Builder $query) use ($sec) {
+      $query->where('libelle', 'LIKE', '%' . $sec . '%');
+  })->get();
+
+  
+
+  $secteurs= Secteur::all();
+  
+   
+
+    if (count($users) > 0) {
+
+        return view('FrontEnd.user.index',compact('secteurs','users',))->withDetails($users)->withQuery($q)->withLocations($secteurs);
+    } else {
+        return view('FrontEnd.user.index',compact('secteurs','users'))->withMessage('error il n existe pas d homme d affaire !')->withLocations($secteurs)->withQuery($q);
+    }
+    //dd($request->text);
+}
+//------------------------------------------------------------------------------------
+>>>>>>> 19763dd0ddf7c2fcb106fb6ee47218548c687d8a
 public function update_informationPro(Request $request, $id)
 {
  $user=User::find($id);

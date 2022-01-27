@@ -64,6 +64,7 @@ Auth::routes();
     //Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
     //------all users--------
     Route::get('/businessmans',[UserController::class, 'index'])->name('index.user');
+    Route::post('/search', [UserController::class, 'search'])->name('search');
 
     
   Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');

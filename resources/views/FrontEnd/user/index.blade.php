@@ -16,11 +16,17 @@
                             <li><a href="index.html">{{trans('header_trans.Businessmans')}}</a></li>
                             <li class="active">{{trans('header_trans.Home')}}</li>
                         </ol>
+                        
                     </div>
                 </div>
+                
             </div>
+            
         </div>
+        
     </div>
+<<<<<<< HEAD
+=======
 
     <div class="event-with-sidebar-section">
       <div class="container container-1310">
@@ -34,11 +40,46 @@
                 <div class="container container-1310 p-0 p-md-auto">
                   <div class="section-header">
                     <br>
-                    <h3>{{trans('header_trans.Businessmans')}}</h3>
+                    <h3>Publications </h3>
+                    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg bg-red-100 w-2/3 p-4 ">
+                <form action="{{route('search')}}" method="post" class="flex justify-start items-center">
+
+                    @csrf
+                    <div class="form-group w-1/3 mr-2">
+                        <select name="secteur" id="location" class="px-2 py-2 w-full">
+                            @foreach ($secteurs as $row)
+                            <option value="{{ $row->libelle }}">{{ $row->libelle }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group mr-2 w-1/3">
+
+                        <input type="text" name="nom" id="text"
+                            class="rounded w-full border border-gray-100 px-2 py-2">
+                    </div>
+
+                    <div class="form-group w-1/3">
+
+                        <button type="submit"
+                            class="px-2 py-2 bg-indigo-600 hover:bg-indigo-500 text-white w-full rounded">
+                            Search</button>
+                    </div>
+
+>>>>>>> 19763dd0ddf7c2fcb106fb6ee47218548c687d8a
+
+
+                </form> </div> </div> </div>
                   </div>
-                  <section class="event-schedule style-4 padding-tb">
+                  <!-- Search form -->
+
+                  <section class="event-schedule style-4 padding-tb"><p> </p>
                 <div class="container container-1310 p-0 p-md-auto">
                   <div class="section-wrapper">
+                    
+
                   
                     <div id="1st-Day" class="tabcontent active">
                       <div class="d-flex flex-wrap justify-content-center">
@@ -65,9 +106,7 @@
                             </div>
                             <div class="item-content">
                             <a href="#" class="name">{{$row->name}}  {{$row->lastname}}</a>
-                            <p> 
-                              <img src="https://img.icons8.com/external-prettycons-lineal-prettycons/26/000000/external-price-tag-shopping-prettycons-lineal-prettycons-1.png"/>
-                              @if(!is_null($row->secteur))
+                            <p> @if(!is_null($row->secteur))
                                     {{$row->secteur->libelle}}
                                  @endif
                                  @if(is_null($row->secteur))

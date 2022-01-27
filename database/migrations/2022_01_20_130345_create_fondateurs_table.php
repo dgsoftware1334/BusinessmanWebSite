@@ -20,13 +20,12 @@ class CreateFondateursTable extends Migration
              $table->string('diplom');
              $table->text('description');
              $table->string('Telephone')->nullable();
-               $table->string('image')->nullable();
+             $table->string('image')->nullable();
              $table->unsignedBigInteger('admin_id')->nullable();
              $table->foreign('admin_id')->references('id')->on('admins');
-        
              $table->unsignedBigInteger('chambre_id')->nullable();
              $table->foreign('chambre_id')->references('id')->on('chambres');
-              $table->timestamps();
+             $table->timestamps();
          
 
         });
