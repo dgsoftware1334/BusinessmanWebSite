@@ -53,11 +53,11 @@
 
                    
                     @if(is_null($row->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" >
+                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  >
                @endif
 
               @if(!is_null($row->photo))
-              <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker">
+              <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" >
               @endif
 
 
@@ -68,7 +68,7 @@
                     <div class="speaker-top">
                       <h2>{{$row->id}}.</h2>
                       <div class="speaker-info">
-                        <p>{{$row->diplom}} at <a href="#">Visitez son profil</a></p>
+                        <p>{{$row->diplom}} en <a href="{{url('/show',$row->id)}}">Visitez son profil</a></p>
                         <h4><a href="{{url('/show',$row->id)}}">{{$row->name}}  {{$row->lastname}}</a></h4>
                       </div>
                     </div>

@@ -20,7 +20,7 @@ class EventController extends Controller
 
       function liste_event(){
        
-        $events = Event::all();
+        $events = Event::where('status',1)->orderBy('created_at','desc')->paginate(6);
       return view ('FrontEnd.events',compact('events'));
      
            

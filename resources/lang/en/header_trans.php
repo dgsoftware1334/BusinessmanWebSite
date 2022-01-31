@@ -8,7 +8,7 @@ return [
     'Events' => 'Events',
     'Businessmans' => 'Businessmans',
     'About' => 'About',
-    'Contact us' => 'Contact us',
+    'Contact us' => 'Contact',
     'Secteur' => 'Activity area',
     'Register' => 'Register',
     'Login' => 'Login',

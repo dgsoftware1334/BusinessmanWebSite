@@ -42,7 +42,11 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+<<<<<<< HEAD
             <h1 class="m-0">Secteurs d'activité</h1>
+=======
+            <h1 class="m-0">Les secteurs d'activité</h1>
+>>>>>>> 125694824c898e093841ebb3264f59977ead91c6
             @error('libelle')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -52,7 +56,11 @@ border-top: 1px solid blue;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+<<<<<<< HEAD
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+=======
+              <li class="breadcrumb-item"><a href="#">Les secteurs d'activité</a></li>
+>>>>>>> 125694824c898e093841ebb3264f59977ead91c6
              
               
               <li class="breadcrumb-item active">Secteurs d'activité</li>
@@ -202,7 +210,7 @@ border-top: 1px solid blue;
                          ( Image n'existe ) 
                          @endif
                          @if(!is_null($row->image))
-                        <img src="{{ asset('assests/images/secteurs/'.$row->image)  }}"  width="100" style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                        <img src="{{ asset('assests/images/secteurs/'.$row->image)  }}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px">
                          @endif
                       </td>
                       <td> {{$row->libelle}}</td>
@@ -219,7 +227,9 @@ border-top: 1px solid blue;
                        <i class="far fa-edit" style="color: blue"></i>
                         </button>
                         <!--read secteur-->
-                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
+                        <a href="{{url('/secteur',$row->id)}}"  target="_blank">
+                       <i class="fas fa-folder" style="color :green" target="_blank"></i>&ensp; 
+                       </a>
 
                          <!--delete secteur-->
                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$row->id}}">

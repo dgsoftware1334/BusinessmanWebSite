@@ -1,3 +1,13 @@
+  <?php
+ 
+  $cont=0;
+  foreach($publication->users as $row){
+      if($row->pivot->is_valide == 1){
+      $cont= $cont+1;
+    }
+    }
+  
+ ?>
   <div class="page-header-section post-title style-1" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/02.png') }})">
 
         <div class="overlay">
@@ -5,11 +15,12 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text"> <span>Publication</span></span>
+                            <span class="title-text">Publication</span>
                         </div>
                         <ol class="breadcrumb">
                             <li>Tu es là : </li>
-                            <li><a href="index.html">Accueil</a></li>
+                          <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
+
                             <li class="active">publication</li>
                         </ol>
                     </div>
@@ -30,17 +41,17 @@
                                 </ul>
                                 <h2>{{$publication->context}}.</h2>
                                 <div class="meta-post entry-meta">&ensp;&ensp;&ensp;
-                                  <i class="fas fa-comments"></i><a href="#">{{count($publication->users)}} Comments </a> </span>
+                                  <i class="fas fa-comments"></i><a href="#">{{$cont}} Comments </a> </span>
                                 </div>
                             </div>
                             <div class="post-thumb">
                             
                                  @if(!is_null($publication->image))
                                 <a href="{{ asset('assests/images/poblication/'.$publication->image)  }}" data-rel="lightcase">
-                                  <img src="{{ asset('assests/images/poblication/'.$publication->image)  }}" width="900px"></a>
+                                  <img src="{{ asset('assests/images/poblication/'.$publication->image)  }}"  style="height: 400px;width: 1000px"></a>
                                 @endif
                                @if(is_null($publication->image))
-                                 <img src="{{ asset('assests/FrontEnd/assets/images/blog/7.jpg') }}" alt="rel-blog">
+                                 <img src="{{ asset('assests/FrontEnd/assets/images/blog/7.jpg') }}" alt="rel-blog" style="height: 400px;width: 1000px">
                                  @endif
 
                             </div>
@@ -48,32 +59,22 @@
                                 <div class="post-content-inner">
                                     <p>{{$publication->contenu}}</p>
                                     <div class="tags-section entry-footer justify-content-md-between justify-content-center">
-                                        <ul class="tags-part d-flex flex-wrap">
-                                            <li><i class="fa fa-tags"></i></li>
-                                            <li><span>tags : </span> </li>
-                                            <li><a href="#">meetup</a>,</li>
-                                            <li><a href="#">confarance</a>,</li>
-                                            <li><a href="#">events</a></li>
-                                        </ul>
-                                        <ul class="social-link-list d-flex flex-wrap">
-                                            <li><a href="#" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    
+ 
+
                        
 
                         <div class="Comments-section">
                             <div class="post-item">
-                                <h5 class="comments-title">{{count($publication->users)}} Comments</h5>
+                                <h5 class="comments-title">{{$cont}} Comments</h5>
                                 <ol class="comment-list">
                                    @foreach($publication->users as $row)
+                                    @if($row->pivot->is_valide == 1)
                                     <li id="comment-5" class="comment even thread-even depth-1">
                                         <div class="comment-body">
                                             <footer class="comment-meta">
@@ -97,6 +98,7 @@
                                             </div>
                                         </div>
                                     </li>
+                                    @endif
                                      @endforeach
                                     
                                 </ol>
@@ -119,40 +121,29 @@
                       <p>Connectez-vous à nos réseaux sociaux</p>
                     </div>
                     <div class="sidebar-wrapper">
+                      @foreach($chambres as $chambre)
                       <div class="sidebar-social-media">
                                             <div class="social-item">
-                                                <a href="#" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#" class="icon-title">facebook</a>
+                                                <a href="<?= $chambre->fb?>" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="<?= $chambre->fb?>" class="icon-title">facebook</a>
                                             </div>
                                             <div class="social-item">
-                                                <a href="#" class="icon twitter"><i class="fab fa-twitter"></i></a>
-                                                <a href="#" class="icon-title">twitter</a>
+                                                <a href="<?= $chambre->twit?>" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                                                <a href="<?= $chambre->twit?>" class="icon-title" target="_blank">twitter</a>
                                             </div>
                                             <div class="social-item">
-                                                <a href="#" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                                                <a href="#" class="icon-title">linkedin</a>
+                                                <a href="<?= $chambre->linked?>" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                                <a  href="<?= $chambre->linked?>"class="icon-title" target="_blank">linkedin</a>
                                             </div>
+                                            
+                                            
                                             <div class="social-item">
-                                                <a href="#" class="icon behance"><i class="fab fa-behance"></i></a>
-                                                <a href="#" class="icon-title">behance</a>
+                                                <a href="<?= $chambre->insta?>" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                                                <a href="<?= $chambre->insta?>" class="icon-title" target="_blank">instagram</a>
                                             </div>
-                                            <div class="social-item">
-                                                <a href="#" class="icon google"><i class="fab fa-google-plus-g"></i></a>
-                                                <a href="#" class="icon-title">google</a>
-                                            </div>
-                                            <div class="social-item">
-                                                <a href="#" class="icon instagram"><i class="fab fa-instagram"></i></a>
-                                                <a href="#" class="icon-title">instagram</a>
-                                            </div>
-                                            <div class="social-item">
-                                                <a href="#" class="icon tumblr"><i class="fab fa-tumblr"></i></a>
-                                                <a href="#" class="icon-title">tumblr</a>
-                                            </div>
-                                            <div class="social-item">
-                                                <a href="#" class="icon youtube"><i class="fab fa-youtube"></i></a>
-                                                <a href="#" class="icon-title">youtube</a>
-                                            </div>
+                                            
                       </div>
+                      @endforeach
                     </div>
                   </div>
                 </div>

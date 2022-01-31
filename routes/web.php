@@ -57,7 +57,9 @@ Auth::routes();
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
       Route::get('about',[ChambreController::class, 'about'])->name('about');
 
-       Route::get('/publications/',[UserController::class, 'list_publicaiton'])->name('list.publicaiton');
+     Route::get('/publications/',[UserController::class, 'list_publicaiton'])->name('list.publicaiton');
+       
+
 
    
     Route::get('/show/{id}',[UserController::class, 'show']);
@@ -65,10 +67,19 @@ Auth::routes();
     //------all users--------
     Route::get('/businessmans',[UserController::class, 'index'])->name('index.user');
     Route::post('/search', [UserController::class, 'search'])->name('search');
+    Route::get('/contact', [UserController::class, 'contact'])->name('contact');
+
+    Route::get('/contectUs/',[UserController::class, 'contact_us'])->name('contactus');
+
+   Route::get('/secteur/{id}',[UserController::class, 'show_secteur'])->name('show.secteur');
+
+
+
 
     
   Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
-      Route::get('/search/user',[UserController::class, 'search'])->name('search.user');
+  Route::get('/publication/visiteur/{id}',[UserController::class, 'page_publicaiton_visiteur'])->name('publicaiton.visiteur');
+     // Route::get('/search/user',[UserController::class, 'search'])->name('search.user');
 
 
       //-----------------------route pour user------------------------------------------------------------
@@ -117,6 +128,8 @@ Auth::routes();
                Route::post('/logout',[UserController::class,'logout'])->name('logout');
 
                Route::post('/logout',[UserController::class,'logout'])->name('logout');
+
+
 
           });
       
@@ -183,12 +196,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
        Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
 
+<<<<<<< HEAD
       
+=======
+       //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
+>>>>>>> 125694824c898e093841ebb3264f59977ead91c6
       //------------fondateur-----------------
         Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
         //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');
         Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');
-           Route::post('/fondateur/update/{id}',[FondateurController::class, 'update_fondateur'])->name('update.fondateur');
+        Route::post('/fondateur/update/{id}',[FondateurController::class, 'update_fondateur'])->name('update.fondateur');
+         Route::get('/fondateur/delete/{id}',[FondateurController::class,'delete'])->name('fondateur.delete');
+
       
        //------------------------------gestion des evenement ---------------------------------------------
        Route::get('/events',[EventController::class, 'index'])->name('events');
@@ -196,12 +215,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::post('/updateEvent',[EventController::class, 'updateEvent'])->name('updateEvent');
        Route::delete('/destroyEvent',[EventController::class, 'destroyEvent'])->name('destroyEvent');
 
+        Route::get('/Event/desactive/{id}',[AdminController::class, 'deactive_Event'])->name('deactive_event');
+       Route::get('/Event/active/{id}',[AdminController::class, 'active_Event'])->name('active_event');
+
        //---------------------------------information chambre---------------------
        Route::get('/chambre/create',[ChambreController::class, 'create_chambre'])->name('create_chambre');
        Route::post('/chambre/store',[ChambreController::class, 'store_chambre'])->name('store.chambre');
        Route::get('/chambre/index',[ChambreController::class, 'index_chambre'])->name('index_chambre');
        Route::get('/chambre/show/{id}',[ChambreController::class, 'show_chambre'])->name('show_chambre');
        Route::post('/chambre/update',[ChambreController::class, 'update_chambre'])->name('update_chambre');
+
+
+
        
 
     });

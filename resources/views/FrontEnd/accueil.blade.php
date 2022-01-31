@@ -8,9 +8,7 @@
 					<h1>We Are Event Professional</h1>
 					<span>Find The Conference, Festival, Exhibition, Meetup, Seaker & Vanue</span>
 					<div class="banner-search">
-						<input type="text" name="type" placeholder="Search by Artist, Team or Vanue">
-						<i class="fas fa-search"></i>
-						<a href="#" class="btn-defult">View Latest Events</a>
+						
 					</div>
 				</div>
 			</div>
@@ -20,15 +18,13 @@
 
 
     <!-- publicaion -->
-  
+   @include('FrontEnd.section_home.service')
+ 
    @include('FrontEnd.section_home.publication')
-  @include('FrontEnd.section_home.service')
+  
       @include('FrontEnd.section_home.users')
 
    @include('FrontEnd.section_home.newevent')
-
-
-
   <!-- newevent section ending here -->
   
 @endsection

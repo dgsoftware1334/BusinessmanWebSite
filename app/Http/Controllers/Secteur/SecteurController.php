@@ -20,7 +20,7 @@ class SecteurController extends Controller
 
       function liste(){
        
-        $secteurs = Secteur::all();
+        $secteurs = Secteur::paginate(4);
       return view ('FrontEnd.secteur',compact('secteurs'));
      
            

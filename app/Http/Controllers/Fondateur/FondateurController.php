@@ -131,4 +131,19 @@ public function update_fondateur(Request $request, $id)
 
 return redirect()->back();
 }
+
+
+public function delete($id){
+
+      $fodnateur=Fondateur::find($id);
+      $fodnateur->delete();
+        toastr()->error(trans(key: "le fodnateur a été bien supprimé"));
+     // return response()->json(['status'=>'event deleted succsefuly']);
+     
+            return redirect()->back();
+          
+
+
+    }
+
 }

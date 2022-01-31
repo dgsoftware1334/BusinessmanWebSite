@@ -2,20 +2,20 @@
 
 @section('content')
 <!-- page header section start here  -->
-<div class="page-header-section post-title style-1" style="background-image: url(assets/images/pageheader/pageheader.png)">
-        <div class="overlay">
+<div class="page-header-section post-title style-1" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/11.jpg') }})">
+               <div class="overlay">
             <div class="page-header-content">
                 <div class="container container-1310">
-					<div class="page-header-content-inner">
-						<div class="page-title">
-							<span class="title-text">Event  <span>Vanue</span></span>
-						</div>
-						<ol class="breadcrumb">
-							<li>You Are Here : </li>
-							<li><a href="index.html">Home</a></li>
-							<li class="active">event venue</li>
-						</ol>
-					</div>
+                    <div class="page-header-content-inner">
+                        <div class="page-title">
+                            <span class="title-text">listes des secteurs d'activité</span>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li>Tu es là : </li>
+                            <li><a href="{{url('/')}}">Accueil</a></li>
+                            <li class="active">listes des secteurs d'activité</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,26 +31,22 @@
                 <div class="col-md-6">
                     <div class="venue-item">
                         <div class="venue-thumb">
-                            <img src=" {{ asset('assests/images/secteurs/'.$row->image)}}" alt="">
+                            <img src=" {{ asset('assests/images/secteurs/'.$row->image)}}" alt="" style="height: 260px">
                         </div>
                         <div class="venue-content">
-                            <a href="#"><h6>{{$row->libelle}}</h6></a>
-                            <div class="meta-post">
-                                <span class="by"> 
-                                	350 Reception 
-                                	<a href="#"><i class="fa fa-heart"></i> 2. k</a>
-                                	<span class="rating">
-	                                	<i class="fa  fa-star"></i>
-	                                	<i class="fa  fa-star"></i>
-	                                	<i class="fa  fa-star"></i>
-	                                	<i class="fa  fa-star"></i>
-	                                	<i class="fa  fa-star-half"></i>
-	                                </span> 
-                            	</span>
-                            </div>
-                            <p>{{$row->description}}.</p>
+                           <a href="{{url('secteur',$row->id)}}"><h6>{{$row->libelle}}</h6></a>
+                            
+                            <p>
+                                {{ Str::limit($row->description, 70) }}.<a href="{{url('secteur',$row->id)}}">see more</a></p>
                             <div class="venue-location">
-                            	<p><i class="fa fa-home"></i> Gulshan, Link Road, Dhaka-1105</p>
+                            	
+                                <div class="meta-post">
+                                <span class="by"> 
+                                    
+                                    <a href="#"><i class="fa fa-user-tie"></i> {{count($row->users)}}</a>
+                                    
+                                </span>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -61,32 +57,30 @@
                 @endforeach
                
             </div>
-            <div class="pagination-area  d-flex flex-wrap justify-content-center">
-              	<ul class="pagination  d-flex flex-wrap m-0">
-                    <li class="prev">
-                      <a href="#"> <i class="fas fa-angle-double-left"></i> previous</a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#" class="active d-none d-md-block">2</a></li>
-                    <li><a href="#" class="d-none d-md-block">3</a></li>
-                    <li class="dot">....</li>
-                    <li><a href="#" class="d-none d-md-block">4</a></li>
-                    <li class="next">
-                      <a href="#">next <i class="fas fa-angle-double-right"></i> </a>
-                    </li>
-              	</ul>
-            </div>
+            <div class="pagination-area d-flex flex-wrap justify-content-center">
+                   @if ($secteurs->lastPage() > 1)
+
+                            <ul class="pagination d-flex flex-wrap m-0">
+                                <li class="prev"> <a ref="{{ $secteurs->url(1) }}" class="{{ ($secteurs->currentPage() == 1) ? ' disabled' : '' }} page-link" aria-label="Previous">
+                                    <span>« Précédent</span></a></li>
+                                @for ($i = 1; $i <= $secteurs->lastPage(); $i++)
+                                <li class="{{ ($secteurs->currentPage() == $i) ? ' active' : '' }} page-item">
+                                       <a href="{{ $secteurs->url($i) }}" class="page-link">{{ $i }}</a>
+                                </li>
+                                @endfor
+                                
+                                <li class="dot">....</li>
+                               
+                                <li  class="{{ ($secteurs->currentPage() == $secteurs->lastPage()) ? ' disabled' : '' }} page-item"> <a href="{{ $secteurs->url($secteurs->currentPage()+1) }}" class="page-link" aria-label="Next"><span>Suivant »</span></a></li>
+                            </ul>
+                   @endif
+                        </div>
+
         </div>
     </section>
     <!-- event venues section ending here  -->
 
  <!-- ======= Intro Section ======= -->
-  @include('FrontEnd.section_home.service')
-  <!-- achivement section start here ->
-	@include('FrontEnd.section_home.achivement')
-	<!-- achivement section ending here -->
-	<!-- newevent section start here -->
-   @include('FrontEnd.section_home.newevent')
-  <!-- newevent section ending here -->
+
   
 @endsection

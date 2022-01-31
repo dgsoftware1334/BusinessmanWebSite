@@ -45,8 +45,12 @@ public function create_publication()
         $publication->status = 1;
 
         $publication->admin_id = Auth::guard('admin')->user()->id;
+<<<<<<< HEAD
 
     
+=======
+      
+>>>>>>> 125694824c898e093841ebb3264f59977ead91c6
         $save =$publication->save();
         if( $save ){
             toastr()->success('Votre publication a été ajouter avec succée');

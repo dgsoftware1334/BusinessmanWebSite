@@ -13,7 +13,22 @@ use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Redirect;
+=======
+use App\Models\Chambre;
+
+use App\Models\Event;
+
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactUs;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
+
+
+>>>>>>> 125694824c898e093841ebb3264f59977ead91c6
 
 
 class UserController extends Controller
@@ -72,13 +87,17 @@ function logout(){
 
 public function Accueil()
 {
- $publications= Publication::orderBy('created_at','desc')->get();
+ $publications= Publication::orderBy('created_at','desc')->where('status',1)->take(4)->get();
  //$users = User::where('status',0)->get();
  //$users= User::orderBy('created_at','desc')->get();
 
- $secteurs = Secteur::all();
+ $secteurs = Secteur::all()->take(4);
+$event= Event::orderBy('created_at','desc')->where('status',1)->take(1)->get();
+
   //->orderBy('created_at','desc')
-   return view ('FrontEnd.accueil',compact('publications','secteurs'));  
+
+
+   return view ('FrontEnd.accueil',compact('publications','secteurs','event'));  
 }
 
 //////////information profile////
@@ -97,20 +116,19 @@ public function show($id){
 
 public function index(){
 
-   
+   $chambres= Chambre::all();
   $secteurs= Secteur::all();
 $publication= Publication::find(1);
   $users= User::orderBy('created_at','desc')->get();
-$search=$users->take(0);
-   
+
                    
                        
 
-  return view ('FrontEnd.user.index',compact('users','secteurs','publication','search'));
+  return view ('FrontEnd.user.index',compact('users','secteurs','publication','chambres'));
 }
 
 
-//--------------------------------------------------------search method------------------------------------------------
+
 public function search(Request $request)
 {
     $sec  = $request->secteur;
@@ -124,15 +142,20 @@ public function search(Request $request)
   
 
   $secteurs= Secteur::all();
+  $chambres= Chambre::all();
   
 
 
     if (count($users) > 0) {
 
+<<<<<<< HEAD
         return view('FrontEnd.user.index',compact('secteurs','users'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
   
+=======
+        return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
+>>>>>>> 125694824c898e093841ebb3264f59977ead91c6
     } else {
-        return view('FrontEnd.user.index',compact('secteurs','users'))->withMessage('error il n existe pas d homme d affaire !')->withLocations($secteurs)->withQuery($q);
+        return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('error il n existe pas d homme d affaire !')->withLocations($secteurs)->withQuery($q);
     }
   
 }
@@ -184,18 +207,33 @@ return redirect()->back();
 
 /////////////////publicaiton/////////////////////////////////////////
 public function list_publicaiton(){
-  $publications= Publication::orderBy('updated_at','desc')->paginate(4);
-  return view('FrontEnd.listPublication',compact('publications'));
+    $chambres= Chambre::all();
+
+  $publications= Publication::orderBy('updated_at','desc')->where('status',1)->paginate(4);
+  return view('FrontEnd.listPublication',compact('publications','chambres'));
 }
 
 public function page_publicaiton($id)
 {
+    $chambres= Chambre::all();
+
  $publication= Publication::find($id);
   //->orderBy('created_at','desc')
  ///dd('publication');
 
 
-   return view ('FrontEnd.publication',compact('publication'));  
+   return view ('FrontEnd.publication',compact('publication','chambres'));  
+}
+
+
+
+public function page_publicaiton_visiteur($id)
+{
+    $chambres= Chambre::all();
+
+ $publication= Publication::find($id);
+ 
+   return view ('FrontEnd.publication_visiteur',compact('publication','chambres'));  
 }
 
 
@@ -221,7 +259,42 @@ public function commentair(Publication $publication,Request $request,User $user 
      
 }
 
+public function contact(){
+     $chambres= Chambre::all();
+  return  view ('FrontEnd.contact_us',compact('chambres'));
+}
 
 
+public function contact_us(Request $request){
+
+
+  $name = $request->name;
+  $email =  $request->email;
+  $message= $request->message;
+        $details=[
+           'name' => $name,
+           'email' => $email,
+           'message'=>$message,
+
+                 ];
+  $admins=Admin::all();
+  foreach($admins as $row) { 
+   Mail::to($row->email)->send(new ContactUs($details));
+  }
+      
+//  return back();
+       return back();
+}
+
+
+
+public function show_secteur($id){
+  $secteur=Secteur::find($id);
+  $chambres= Chambre::all();
+  $users= User::where('sacteur_id',$id)->paginate(15);
+    return view ('FrontEnd.detail_secteur',compact('secteur','chambres','users'));
+
+
+}
 
 }
