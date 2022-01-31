@@ -42,7 +42,7 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">homme d'affaire</h1>
+            <h1 class="m-0">Les secteurs d'activité</h1>
             @error('libelle')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -52,7 +52,7 @@ border-top: 1px solid blue;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">homme d'affaire</a></li>
+              <li class="breadcrumb-item"><a href="#">Les secteurs d'activité</a></li>
              
               
               <li class="breadcrumb-item active">accueil</li>
@@ -206,7 +206,7 @@ border-top: 1px solid blue;
                          ( Image n'existe ) 
                          @endif
                          @if(!is_null($row->image))
-                        <img src="{{ asset('assests/images/secteurs/'.$row->image)  }}"  width="100" style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                        <img src="{{ asset('assests/images/secteurs/'.$row->image)  }}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px">
                          @endif
                       </td>
                       <td> {{$row->libelle}}</td>
@@ -223,7 +223,9 @@ border-top: 1px solid blue;
                        <i class="far fa-edit" style="color: blue"></i>
                         </button>
                         <!--read secteur-->
-                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
+                        <a href="{{url('/secteur',$row->id)}}"  target="_blank">
+                       <i class="fas fa-folder" style="color :green" target="_blank"></i>&ensp; 
+                       </a>
 
                          <!--delete secteur-->
                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$row->id}}">

@@ -56,7 +56,7 @@
           <div class="speaker">
             <div class="speaker-thumb">
                @if(is_null(Auth::guard('web')->user()->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
                @endif
 
               @if(!is_null(Auth::guard('web')->user()->photo))

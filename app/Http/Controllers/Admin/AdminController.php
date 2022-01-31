@@ -9,6 +9,10 @@ use App\Models\Admin;
 use App\Models\User;
 use App\Models\Publication;
 use App\Models\Fondateur;
+use App\Models\Event;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Validation;
+
 
 class AdminController extends Controller
 {
@@ -50,10 +54,21 @@ public function deactive($id)
 
  public function active($id)
     {
-        //
+        
+        
+      
         $user = User::find($id);
          $user->status = 0 ;
+
          $user->save(); 
+          $details=[
+           'name' => $user->name,
+           'lastname' => $user->lastname,
+           
+                 ];
+   Mail::to($user->email)->send(new Validation($details));
+  
+
 
 
        return redirect()->back()->with('user','vous avais active le compte de homme d affaire ');
@@ -173,9 +188,29 @@ public function show_publication($id){
     }
 
 
+} 
+public function deactive_Event($id){
+
+$event=Event::find($id);
+ $event->status = 0 ;
+  $event->save(); 
+  
+return redirect()->back();
+
+
+}
+
+public function active_Event($id){
+  $event=Event::find($id);
+ $event->status = 1 ;
+  $event->save(); 
+  return redirect()->back();
+  
 }
 
 //-------fondateur-------//
+
+
 
 
 

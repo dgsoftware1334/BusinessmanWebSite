@@ -13,7 +13,7 @@
 <div class="header-section style-2 d-none d-md-block" >
 
 	   
-	   <div class="header-bottom" style="height: 60px; ">
+	   <div class="header-bottom" >
 		   <nav class="primary-menu">
 			   <div class="container container-1310">
 				   <div class="menu-area">
@@ -27,6 +27,8 @@
 								   <a href="{{ url('/') }}">{{trans('header_trans.Home')}}</a>
 								   
 							   </li>
+							     <li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
+									   <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
 							   <li><a href="about.html">{{trans('header_trans.Services')}}</a>
 								   <ul class="submenu">
 
@@ -35,8 +37,7 @@
 									   
 									   <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
 
-									   <li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
-									   <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
+									 
 
 									  
 								   </ul>
@@ -45,7 +46,7 @@
 							   <!--<li><a href="#">pages</a>
 								   
 							   </li>-->
-							   <li><a href="sponsor-reg.html">{{trans('header_trans.Contact us')}}</a></li>
+							   <li><a href="{{url('/contact')}}">{{trans('header_trans.Contact us')}}</a></li>
 							   
 						   
 							   <li>

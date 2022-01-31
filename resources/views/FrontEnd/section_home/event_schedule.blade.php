@@ -4,6 +4,7 @@
 				<h2>View Our Upcoming Events</h2>
 				<span>More then 200 upcoming exclusive events are comming in this year. You can join our event & get unlimited of happyness.</span>
 			</div>
+			@foreach($event as $row)
 			<div class="section-wrapper">
 				<div class="tabcontent">
 					<ul>
@@ -13,7 +14,7 @@
 									<img src="assets/images/speaker/14.png" alt="speaker">
 								</div>
 								<div class="con-schedule-content">
-									<h4>Tech Conference 2020</h4>
+									<h4>{{$row->id}}</h4>
 									<p>Tech Conference 2020 is one of the largest conference. Monotonectal build principle center expertise before interdependent partnerships. Objectively engage sticky relationships.</p>
 									<ul>
 										<li>
@@ -116,5 +117,6 @@
                     <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><a href="#">5</a></li>
               	</ul>	
 			</div>
+			@endforeach
 		</div>
 	</section>	

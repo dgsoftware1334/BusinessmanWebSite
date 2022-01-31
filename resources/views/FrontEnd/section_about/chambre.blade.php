@@ -6,11 +6,12 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text"> <span>{{trans('header_trans.About')}}</span></span>
+                            <span class="title-text">{{trans('header_trans.About')}}</span>
                         </div>
                         <ol class="breadcrumb">
                             <li>Tu es là : </li>
-                            <li><a href="index.html">{{trans('header_trans.Home')}}</a></li>
+                            <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
+
                             <li class="active">{{trans('header_trans.About')}}</li>
                         </ol>
                     </div>
@@ -137,7 +138,7 @@
                         <div class="swiper-slide wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                         	<div class="slide-item">
                         		<div class="testi-thumb">
-                        			<img src="{{ asset('assests/images/fondateurs/'.$row3->image)}}" class="rounded-circle" >
+                        			<img src="{{ asset('assests/images/fondateurs/'.$row3->image)}}" class="rounded-circle" style="width: 140px;height: 190px" >
 
 
                         		</div>
@@ -162,44 +163,31 @@
     </section>
 
 
-    <section class="contact-section style-2 padding-tb" style="background-image: url(assets/images/contact/bg.png)">
+  <section class="contact-section style-2 padding-tb" style="background-image: url(assets/images/contact/bg.png)">
         <div class="container container-1310">
             <div class="contact-info">
                 <div class="section-header">
-                    <h5>Need Any Help?</h5>
+                    <h5>Contectez-nous</h5>
                 </div>
                 <div class="section-wrapper">
-                    <div class="number">+880 1234 567890</div>
+                    <div class="number">{{ $chambre->telephone}}</div>
                     <ul class="address">
-                        <li>Wari DOHS, Dhaka- 1100</li>
-                        <li>contact@yourmail.com</li>
+                        <li>{{ $chambre->adresse}}</li>
+                        <li><a  href="<?= $chambre->lien?>"  target="_blank">{{ $chambre->lien}}</a></li>
                     </ul>
                     <ul class="social-link-list d-flex flex-wrap">
-                        <li><a href="#" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i></a></li>
-                        <li><a href="#" class="behance"><i class="fab fa-behance"></i></a></li>
-                        <li><a href="#" class="tumblr"><i class="fab fa-tumblr"></i></a></li>
-                        <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="<?= $chambre->fb?>" class="facebook" target="_blank"><i class=" fab fa-facebook-f"></i></a></li>
+                         <li><a href="<?= $chambre->insta?>" class="facebook" target="_blank" style="background-color: #FF1493;"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#<?= $chambre->twit?>" class="twitter-sm" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#<?= $chambre->linked?>" class="linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        </a></li>
                     </ul>
                 </div>
             </div>
-            <div class="subscribe mt-5">
-                <div class="section-header">
-                    <h5>Subscrive for Newsletter</h5>
-                </div>
-                <div class="section-wrapper">
-                    <div class="email">
-                        <input type="email" name="email" placeholder="Enter Your Email Here">
-                    </div>
-                    <div class="sc-btn">
-                        <input type="submit" class="btn-defult" value="Submit Now">
-                    </div>
-                </div>
-            </div>
+       
         </div>
     </section>
+
 
 
 @endforeach

@@ -43,12 +43,9 @@ public function create_publication()
         $publication->contenu = ['fr' => $request->contenu, 'ar' => $request->contenu_ar, 'en' => $request->contenu_en];
         $publication->image= $file_name;
         $publication->status = 1;
-<<<<<<< HEAD
+
         $publication->admin_id = Auth::guard('admin')->user()->id;
-=======
-          $publication->admin_id = Auth::guard('admin')->user()->id;
->>>>>>> 671b009ed94ded416f15529581b84cd1f6e38101
-    
+      
         $save =$publication->save();
         if( $save ){
             toastr()->success('Votre publication a été ajouter avec succée');

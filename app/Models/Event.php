@@ -20,7 +20,8 @@ class Event extends Model
                   'dure',
                   'image',
                   'type',
-                  'lien',   
+                  'lien', 
+                  'adress',
                   'status',   
                   'admin_id',            
     

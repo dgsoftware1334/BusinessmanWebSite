@@ -8,7 +8,7 @@ return [
     'Events' => 'Événements',
     'Businessmans' => 'Hommes daffaires',
     'About' => 'A propos ',
-    'Contact us' => 'Contactez-nous',
+    'Contact us' => 'Contact',
     'Register' => 'Inscription',
     'Login' => 'Connexion',
     'Logout' => 'Déconnexion',

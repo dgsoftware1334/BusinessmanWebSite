@@ -5,11 +5,12 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text"> <span>Nouvelles publications </span></span>
+                            <span class="title-text">Nouvelles publications </span>
                         </div>
                         <ol class="breadcrumb">
                             <li>Tu es là : </li>
-                            <li><a href="index.html">{{trans('header_trans.Home')}}</a></li>
+                            <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
+
                             <li class="active">{{trans('header_trans.Publications')}}</li>
                         </ol>
                     </div>
@@ -34,20 +35,32 @@
 									</div>
 									<div class="section-wrapper">
 										@foreach($publications as $row)
+										 
 										<div class="post-item">
 											<div class="post-item-inner">
 												<div class="post-thumb">
                                   
 
                                                   @if(!is_null($row->image))
-													<img src="{{ asset('assests/images/poblication/'.$row->image)  }}" alt="rel-blog">
+													<img src="{{ asset('assests/images/poblication/'.$row->image)  }}" alt="rel-blog" style="height: 300px">
                                                    @endif
 
                                                   @if(is_null($row->image))
-													<img src="{{ asset('assests/FrontEnd/assets/images/blog/7.jpg') }}" alt="rel-blog">
+													<img src="{{ asset('assests/FrontEnd/assets/images/blog/7.jpg') }}" alt="rel-blog" style="height: 300px">
                                                    @endif
 
-													<a href="{{ route('user.publicaiton', [$row->id])}}" class="catagory">puls détait&ensp;<i class="fas fa-angle-double-right"></i></a>
+													<!--a href="{{ route('user.publicaiton', [$row->id])}}" class="catagory">puls détait&ensp;<i class="fas fa-angle-double-right"></i></a-->
+													 @if (Route::has('user.login'))
+			   
+				                                        @auth
+				                                       <a href="{{ route('user.publicaiton', [$row->id])}}" class="catagory">puls détait&ensp;   <i class="fas fa-angle-double-right"></i></a>
+				                                        @else
+				                                     	<a href="{{ url('publication/visiteur', $row->id)}}" class="catagory">puls détait&ensp;<i class="fas fa-angle-double-right"></i></a>
+
+					  
+				                                       @endauth
+			   
+		   @endif
 												</div>
 												<div class="post-content">
 													<h5><a href="#">{{$row->context}}</a></h5>
@@ -97,23 +110,26 @@
 						    	<div class="container container-1310">
 						    		<div class="row">
 						    			<div class="col-lg-12">
+						    				@foreach($chambres as $chambre)
 						    				<div class="gmap-widget">
 						    					<h5>Contectez-nous</h5>
 						    					<ul class="widget-list">
-						    						<li><i class="fas fa-home"></i> Unlimitcon</li>
-						    						<li><i class="fas fa-phone-square"></i> +880 1234 567890</li>
-						    						<li><i class="fas fa-envelope"></i> unlimitcon@gmail.com</li>
-						    						<li><i class="fas fa-fax"></i> 2 123 4567 890</li>
-						    						<li><i class="fas fa-tag"></i> Conference, Meetup</li>
-						    						<li><i class="fas fa-globe"></i> www.unlimitcon.com</li>
+						    						<li><i class="fas fa-home"></i>{{ $chambre->adresse}}</li>
+						    						<li><i class="fas fa-phone-square"></i> {{ $chambre->telephone}}</li>
+						    						<li><i class="fas fa-globe"></i><a  href="<?= $chambre->lien?>"  target="_blank">{{ $chambre->lien}}</a></li>
+
 						    					</ul>
 						    					<ul class="social-link-list d-flex flex-wrap">
-						                            <li><a href="#" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
-						                            <li><a href="#" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-						                            <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-						                            <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i></a></li>
+						                            <li><a href="<?= $chambre->fb?>" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
+
+						                            <li><a href="<?= $chambre->insta?>" class="icon instagram"><i class="fab fa-instagram"></i></a></li>
+
+						                            <li><a href="#<?= $chambre->twit?>" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
+						                            <li><a href="#<?= $chambre->linked?>" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+						                            
 						                        </ul>
 						    				</div>
+						    				@endforeach
 						    			</div>
 						    			<div class="col-lg-12">
 						    				<div id="map">

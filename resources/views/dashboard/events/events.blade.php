@@ -42,7 +42,7 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">homme d'affaire</h1>
+            <h1 class="m-0">Les événements</h1>
             @error('libelle')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -52,7 +52,7 @@ border-top: 1px solid blue;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">homme d'affaire</a></li>
+              <li class="breadcrumb-item"><a href="#">Les événements</a></li>
              
               
               <li class="breadcrumb-item active">accueil</li>
@@ -74,19 +74,10 @@ border-top: 1px solid blue;
   
                 <div class="card-body">
                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
-                       <img src="https://img.icons8.com/windows/32/000000/add-property.png"/>
+                    <img src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/32/000000/external-calendar-calendar-kmg-design-detailed-outline-kmg-design-2.png"/>
                         </button>
                 </div>
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                  
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
+                
                 </div>
               </div>
               
@@ -251,6 +242,7 @@ border-top: 1px solid blue;
                       <th>Duré</th>
                       <th>Type</th>
                       <th>Lien</th>
+                      <th>Etat</th>
                       <th >Action</th>
                     </tr>
                   </thead>
@@ -264,7 +256,7 @@ border-top: 1px solid blue;
                          ( Image n'existe ) 
                          @endif
                          @if(!is_null($event->image))
-                        <img src="{{ asset('assests/images/events/'.$event->image)}}"  width="100" style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                        <img src="{{ asset('assests/images/events/'.$event->image)}}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px ">
                          @endif
                       </td>
                       <td>{{$event->sujet}}</td>
@@ -274,6 +266,16 @@ border-top: 1px solid blue;
                       <td>{{$event->dure}}</td>
                       <td>{{$event->type}}</td>
                       <td>{{$event->lien}}</td>
+                      <td>
+                         
+                     @if($event->status == '0')
+                      <span class="badge badge-danger">prive</span>
+                      @elseif($event->status == '1')
+                       <span class="badge badge-success">publique</span>
+                     @endif
+
+                     
+                      </td>
                       
                       <td>
 
@@ -287,14 +289,27 @@ border-top: 1px solid blue;
                        <i class="far fa-edit" style="color: blue"></i>
                         </button>
                         <!--read secteur-->
-                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
-
+                       
                          <!--delete secteur-->
                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
                          <i class="far fa-trash-alt" style="color: red"></i>
                         </button>
                      
                        <!--deactive-->
+                         @if($event->status == 1)
+                     <a   href="{{ route('admin.deactive_event',[$event->id]) }}"> 
+                     
+                            <i class="fas fa-ban" style="color: orange"></i> 
+                     </a>
+                       @endif
+                       <!--active-->
+                        @if($event->status == 0)
+                        <a  href="{{ route('admin.active_event',[$event->id]) }}">
+                           
+                            <i class="fas fa-check-circle"></i>
+                        </a>
+                         @endif
+
 
                       </td>
                     </tr>

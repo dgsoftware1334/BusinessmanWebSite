@@ -14,7 +14,7 @@
                 <div class="text-center">
                   @if(is_null($user->photo))
                   <img class="profile-user-img img-fluid img-circle"
-                     src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}"
+                     src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}"
                        alt="User profile picture">
 
                     @endif

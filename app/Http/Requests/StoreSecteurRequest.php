@@ -26,7 +26,7 @@ class StoreSecteurRequest extends FormRequest
         return [
 
             'libelle' => 'required',
-            'description' => 'required|max:255',
+            'description' => 'required',
             
         ];
     }

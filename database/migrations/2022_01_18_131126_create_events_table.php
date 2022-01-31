@@ -23,6 +23,8 @@ class CreateEventsTable extends Migration
             $table->integer('dure');
             $table->string('image');
             $table->string('type');
+            
+             $table->string('adress');
             $table->string('lien')->nullable();
             $table->unsignedBigInteger('admin_id')->nullable();
             $table->foreign('admin_id')->references('id')->on('admins');

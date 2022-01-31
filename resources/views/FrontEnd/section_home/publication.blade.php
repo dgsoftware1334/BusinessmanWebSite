@@ -1,64 +1,63 @@
-
- 
-<section class="blog-section padding-tb">
-		<div class="container container-1310">
-			<div class="section-header d-flex align-items-center flex-wrap wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
-				<h2>Nouvelle publication
+  <section class="blog-section bg-ash padding-tb" style="background-color: white">
+    	<div class="container container-1310">
+            <div class="section-header d-flex align-items-center flex-wrap wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
+                <h2>Nouvelle publication
                                      </h2>
-				<a href="{{ route('user.list.publicaiton') }}" class="all-view">Afficher tous les publication</a>
-				<div class="blog-btn">
-	                <div class="blog-btn-prev blog-navy"></div>
-	                <div class="blog-btn-next blog-navy"></div>
-				</div>
-			</div>
-			<div class="section-wrapper">
-				<div class="blog-slider">
-					<div class="swiper-wrapper">
-   @foreach ($publications as $row)
-                    <div class="swiper-slide wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-							<div class="post-item">
-								<div class="post-item-inner">
+                <a href="{{ url('/publications/') }}" class="all-view">Afficher tous les publication</a>
+                <div class="blog-btn">
+                    <div class="blog-btn-prev blog-navy"></div>
+                    <div class="blog-btn-next blog-navy"></div>
+                </div>
+            </div>
+    		<div class="row">
+    			<div class="col-lg-12 clo-sm-12 sticky-widget">
+    				<div class="post-item-wrapper">
+    					<div class="row">
+    						 @foreach ($publications as $row)  
+
+
+    						<div class="col-md-4">
+    							<div class="post-item" style="border-color: black; font-size: 10px">
 									<div class="post-thumb">
-										<a href="#"><img src="{{ asset('assests/images/poblication/'.$row->image)  }}" alt="blog"></a>
+										<a href="blog-single.html"><img src="{{ asset('assests/images/poblication/'.$row->image)  }}" style="height: 160px;width: 360px" alt="blog"></a>
 									</div>
 									<div class="post-content">
-										<span></span>
-										<h5><a href="#">{{$row->context}}</a></h5>
-										<p>
-											{{ Str::limit($row->contenu, 30) }}
+                                        @if (Route::has('user.login'))
+               
+                                            @auth
+                                            <a href="{{ route('user.publicaiton', [$row->id])}}"  class="cata-icon">   <i class="fas fa-link"></i></a>
+                                             @else
+                                            <a href="{{ url('publication/visiteur', $row->id)}}"  class="cata-icon">  <i class="fas fa-link"></i></a>
 
-										</p>
-										 	
-                                          
-                                         <a href="{{ url('/publication',$row->id)}}" class="btn-defult">
+                      
+                                            @endauth
+                                            @endif
 
 
-										 		plus detais <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/26/000000/external-arrow-ui-essentials-flatart-icons-outline-flatarticons.png"/></a>
-										 
-										<div class="meta-post">
-                                          
+
+
+                                        <ul class="post-catagory">
+                                            <li><a href="#">Meetup,</a></li>
+                                            <li><a href="#">publication</a></li>
+                                        </ul>
+                                        <a href="blog-single.html">
+                                            <h5>{{$row->context}}.</h5>
+                                        </a>
+                                        <div class="meta-post">
+                                            <span class="by">{{ Str::limit($row->contenu, 30) }}</span><br> at &ensp;{{$row->updated_at}}</a>
                                         </div>
 									</div>
-								</div>
-							</div>
-						</div>
-   @endforeach          	
-                    	
-					</div>
-				</div>
-			</div>
+    							</div>
+    						</div>
+    						@endforeach
 
-
-
-
-					</div>
-				</div>
-			</div>
-
-
-
-		</div>
-	</section>
-
-
-	
+    					
+    					</div>
+    					
+    				</div>
+    			</div>
+                
+    			
+    		</div>
+    	</div>
+    </section>
