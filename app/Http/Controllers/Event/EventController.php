@@ -45,6 +45,7 @@ function createEven(StoreEventRequest $request){
     $event->dure =$request->dure;
     $event->type =$request->type;
     $event->lien =$request->lien;
+    $event->lieu =$request->lieu;
     $event->image= $file_name;
  
     $event->admin_id = Auth::guard('admin')->user()->id;

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
+use App\Http\Requests\CreatUserRequest;
 
 class BusinessmansController extends Controller
 {
@@ -22,9 +23,9 @@ class BusinessmansController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   function create(Request $request){
+   function create(CreatUserRequest $request){
       
-        //$validated = $request->validated();  
+        $validated = $request->validated();  
         $user = new User();
          if($request->file('photo')){
                $newImageName3 =time().'-'.$request->email.'.'.$request->photo->extension();
@@ -130,11 +131,12 @@ class BusinessmansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatUserRequest $request, $id)
     {
         //
-        $user= User::find($id);
 
+        $user= User::find($id);
+ $validated = $request->validated();  
 
         if($request->file('photo')){
                $newImageName3 =time().'-'.$request->email.'.'.$request->photo->extension();

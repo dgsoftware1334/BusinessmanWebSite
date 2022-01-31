@@ -142,14 +142,14 @@
                   <div class="row">
                     <div class="col-7">
                       <h2 class="lead"><b>{{$row->nom}}</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <p class="text-muted text-sm"><b>About: </b>{{$row->description}} </p>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="{{ asset('assests/images/fondateurs/'.$row->photo)}}" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -195,19 +195,19 @@
 
     <!------------------------------------------update modal------------------------------------->
     <div class="modal fade" id="edit{{$chambre->id}}">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+        <div class="modal-dialog modal-lg" style="width:1200px">
+          <div class="modal-content" style="width:1200px">
             <div class="modal-header">
               <h4 class="modal-title">Modifier l'evenement </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width:1200px">
 
               
             <!-- general form elements disabled -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Information de l'evnement</h3>
               </div>
@@ -292,7 +292,7 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="description" placeholder="Entrer une description sur la chambre" class="@error('description') is-invalid @enderror">{{$chambre->getTranslation('description', 'fr')}}</textarea>
+                      <textarea class="form-control" rows="3" name="description" id="fr" placeholder="Entrer une description sur la chambre" class="@error('description') is-invalid @enderror">{{$chambre->getTranslation('description', 'fr')}}</textarea>
                       <span class="text-danger">@error('description'){{ $message }} @enderror</span>
                     </div>
                   </div>
@@ -300,7 +300,7 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="description_ar" placeholder="اكتب المحتوى بالعربي ...">{{$chambre->getTranslation('description', 'ar')}}</textarea>
+                      <textarea class="form-control" rows="3" id="ar" name="description_ar" placeholder="اكتب المحتوى بالعربي ...">{{$chambre->getTranslation('description', 'ar')}}</textarea>
 
                     </div>
                   </div>
@@ -308,7 +308,7 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="description_en" placeholder="Write the description in english ...">{{$chambre->getTranslation('description', 'en')}}</textarea>
+                      <textarea class="form-control" rows="3" id="en" name="description_en" placeholder="Write the description in english ...">{{$chambre->getTranslation('description', 'en')}}</textarea>
 
                     </div>
                   </div>
@@ -316,7 +316,7 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Politique</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="politique" placeholder="Entrer une description sur la chambre" class="@error('politique') is-invalid @enderror">{{$chambre->getTranslation('politique', 'fr')}}</textarea>
+                      <textarea class="form-control" id="pofr" rows="3" name="politique" placeholder="Entrer la politique de la chambre" class="@error('politique') is-invalid @enderror">{{$chambre->getTranslation('politique', 'fr')}}</textarea>
                       <span class="text-danger">@error('politique'){{ $politique }} @enderror</span>
                     </div>
                   </div>
@@ -325,7 +325,7 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">السياسة</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="politique_ar" placeholder="Entrer une description sur la chambre" >{{$chambre->getTranslation('politique', 'ar')}}</textarea>
+                      <textarea class="form-control" rows="3"  id="poar" name="politique_ar" placeholder="Entrer une description sur la chambre" >{{$chambre->getTranslation('politique', 'ar')}}</textarea>
                       
                     </div>
                   </div>
@@ -333,7 +333,7 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Politic</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="politique_en" placeholder="Entrer une description sur la chambre" >{{$chambre->getTranslation('politique', 'en')}}</textarea>
+                      <textarea class="form-control" rows="3" id="poen" name="politique_en" placeholder="Entrer une description sur la chambre" >{{$chambre->getTranslation('politique', 'en')}}</textarea>
                     
                     </div>
                   </div>
@@ -381,8 +381,43 @@
         </div>
         <!-- /.modal-dialog -->
       </div>
+
               
 
  @endforeach
+ 
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#fr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#ar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#en' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+        ClassicEditor
+        .create( document.querySelector( '#pofr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#poar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#poen' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 @endsection

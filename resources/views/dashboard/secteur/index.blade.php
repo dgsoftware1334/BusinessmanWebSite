@@ -42,7 +42,7 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">homme d'affaire</h1>
+            <h1 class="m-0">Secteurs d'activité</h1>
             @error('libelle')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -52,10 +52,10 @@ border-top: 1px solid blue;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">homme d'affaire</a></li>
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
              
               
-              <li class="breadcrumb-item active">accueil</li>
+              <li class="breadcrumb-item active">Secteurs d'activité</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -66,26 +66,17 @@ border-top: 1px solid blue;
             <div class="card">
               <div class="card-header">
                   
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">La liste des secteurs d'activité</h3>
                
 
                 <div class="card-tools">
                 
                 <div class="card-body">
-                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
+                       <button type="button"  class="btn btn-block btn-outline-info" data-toggle="modal" data-target="#modal-lg">
                               Ajouter un secteur
                         </button>
                 </div>
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                  
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
               
@@ -102,7 +93,7 @@ border-top: 1px solid blue;
 
               
             <!-- general form elements disabled -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Information du secteur</h3>
               </div>
@@ -112,52 +103,57 @@ border-top: 1px solid blue;
                 @csrf
            
                   <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Le libellé du secteur</label>
-                        <input type="text" class="form-control" name="libelle" placeholder="Enter ..." class="@error('libelle') is-invalid @enderror"  >
-                        
-                        
-                       
+                        <label>Le libellé du secteur <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="libelle" placeholder="Donner le libellé du secteur ..." class="@error('libelle') is-invalid @enderror"  >
                       </div>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Libelle en arabe</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="libelle_ar" >
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Libelle en anglais</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="libelle_en" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
+
+                    <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
-                        <label>Description du secteur</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" ></textarea>
+                        <label>Description du secteur<span style="color:red">*</span></label>
+                        <textarea class="form-control" rows="3" placeholder="Donner une description du secteur ..." name="description"  class="@error('description') is-invalid @enderror" ></textarea>
                         
                       </div>
                     </div>
-                    <div class="col-sm-4">
+
+
+               
+                  </div>
+                  <div class="row">
+                 
+                    <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Description en arabe</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" ></textarea>
+                        <label>اسم المجال</label>
+                        <input type="text" class="form-control" placeholder="اكتب اسم المجال بالعربي ..." name="libelle_ar" >
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Description en anglais</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" ></textarea>
+                        <label>وصف المجال</label>
+                        <textarea class="form-control" rows="3" placeholder="اكتب وصف المجال بالعربي ..." name="description_ar" ></textarea>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                            <label for="">Ajouter une image</label>
+                   </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Libelle of the activity area</label>
+                        <input type="text" class="form-control" placeholder="Enter the libelle of the activity area..." name="libelle_en" >
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Give a description of the activity area ..." name="description_en" ></textarea>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="col-sm-12">
+                            <label for="">Ajouter une image<span style="color:red">*</span></label>
                             <input type="file" name="image"  class="course form-control">
                         </div>
                   </div>
@@ -170,8 +166,8 @@ border-top: 1px solid blue;
 
                  
                   <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              <button type="submit" class="btn btn-primary" name="submit">Valider</button>
             </div>
                   
                 </form>
@@ -252,7 +248,7 @@ border-top: 1px solid blue;
 
               
             <!-- general form elements disabled -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Information du secteur</h3>
               </div>
@@ -262,52 +258,54 @@ border-top: 1px solid blue;
                 @csrf
            
                   <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Le libellé du secteur</label>
+                        <label>Le libellé du secteur<span style="color:red">*</span></label>
                         <input type="text" class="form-control" name="libelle" placeholder="Enter ..." class="@error('libelle') is-invalid @enderror" value="{{$row->getTranslation('libelle', 'fr')}}" >
                         <input id="id" type="hidden" name="id" class="form-control"  value="{{ $row->id }}">
-                        
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
+                      </div></div>
+                      <div class="col-sm-12">
+                      <!-- textarea -->
                       <div class="form-group">
-                        <label>Libelle en arabe</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="libelle_ar" value="{{$row->getTranslation('libelle', 'ar')}}" >
+                        <label>Description du secteur<span style="color:red">*</span></label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" >{{$row->getTranslation('description', 'fr')}}</textarea>
+                        
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Libelle en anglais</label>
                         <input type="text" class="form-control" placeholder="Enter ..." name="libelle_en" value="{{$row->getTranslation('libelle', 'en')}}">
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <!-- textarea -->
-                      <div class="form-group">
-                        <label>Description du secteur</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" >{{$row->getTranslation('description', 'fr')}}</textarea>
-                        
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Description en arabe</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" >{{$row->getTranslation('description', 'ar')}}</textarea>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description en anglais</label>
                         <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" >{{$row->getTranslation('description', 'en')}}</textarea>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                            <label for="">Ajouter une image</label>
+                  </div>
+                  <div class="row">
+                 
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description en arabe</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" >{{$row->getTranslation('description', 'ar')}}</textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Libelle en arabe</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="libelle_ar" value="{{$row->getTranslation('libelle', 'ar')}}" >
+                      </div>
+                    </div>
+                    </div>
+            
+                    <div class="col-sm-12">
+                            <label for="">Ajouter une image<span style="color:red">*</span></label>
                             <input type="file" name="image"  class="course form-control" value="{{ $row->image }}">
                         </div>
                   </div>

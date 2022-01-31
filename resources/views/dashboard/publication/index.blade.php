@@ -129,7 +129,7 @@ border-top: 1px solid blue;
                       <td>{{$row->context}}</td>
 
                      <td>
-                      {{$row->contenu}}
+                      {!!$row->contenu!!}
                    </td>
 
                      <td>
@@ -186,7 +186,7 @@ border-top: 1px solid blue;
 
               
             <!-- general form elements disabled -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Information du secteur</h3>
               </div>
@@ -197,7 +197,7 @@ border-top: 1px solid blue;
                 <div class="card-body">
               
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le sujet</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le sujet<span style="color:red">*</span></label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputEmail3" placeholder="Entrer le contexte en (fr)" name="context"  value="{{$row->getTranslation('context', 'fr')}}"  class="@error('context') is-invalid @enderror">
                       @error('context')
@@ -220,7 +220,7 @@ border-top: 1px solid blue;
                   </div>
                  
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Le contenu</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Le contenu<span style="color:red">*</span></label>
                     <div class="col-sm-10">
             
                       <textarea class="form-control" rows="3" name="contenu" placeholder="Entrer le contenu de votre article"  class="@error('contenu') is-invalid @enderror"> {{$row->getTranslation('contenu', 'fr')}}</textarea>
@@ -362,14 +362,7 @@ border-top: 1px solid blue;
                 </table>
 
 
-<<<<<<< HEAD
 
-    
-
-
-=======
- 
->>>>>>> 3e7afc4f3097f267367729700520ccec5bacb05b
 </div>
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 </div>

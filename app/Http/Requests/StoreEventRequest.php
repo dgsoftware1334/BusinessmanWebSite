@@ -26,10 +26,11 @@ class StoreEventRequest extends FormRequest
         return [
             'sujet' => 'required',
             'description' => 'required|max:255',
-            'date_debut' => 'required',
-            'date_fin' => 'required',
+            'date_debut' => 'required|date|after:tomorrow',
+            'date_fin' => 'required|date|after:date_debut',
             'dure' => 'required',
             'type' => 'required',
+           
         ];
     }
 
@@ -38,8 +39,8 @@ class StoreEventRequest extends FormRequest
         return [
             'sujet.required' => 'Le champs sujet (fr) est obligatoire',
             'description.required' => 'Le champs description (fr) est obligatoire',
-            'date_debut.required' => 'La date de debut est obligatoire',
-            'date_fin.required' => 'La date de fin est obligatoire',
+            'date_debut.required' => 'La date de debut est obligatoire et doit etre aprés demain',
+            'date_fin.required' => 'La date de fin est obligatoire et doit etre aprés la date debut',
             'dure.required' => 'La duré est obligatoire',
             'type.required' => 'Le type est obligatoire',
    

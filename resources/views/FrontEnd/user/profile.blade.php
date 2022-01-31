@@ -1,6 +1,8 @@
  @extends('layouts.visiteur')
+ @section('content')
+ <link rel="stylesheet" href="{{ asset('https://www.w3schools.com/w3css/4/w3.css') }}">
 
-@section('content')
+
  <script type="text/javascript">
    $('#chooseFile').bind('change', function () {
   var filename = $("#chooseFile").val();
@@ -84,7 +86,7 @@
             </div>
         </div>
     </div>
-  <section class="speaker-profile padding-tb bg-ash">
+ <!-- <section class="speaker-profile padding-tb bg-ash">
         <div class="container container-1310">
           <div class="row">
             <div class="col-lg-4">
@@ -120,14 +122,106 @@
                         <h5>{{trans('profil_trans.Description')}}</h5>
                         <p>{{Auth::guard('web')->user()->description}}</p>
                         
-                        <!--img src="{{ asset('assests/FrontEnd/assets/images/speaker/name.png') }}" alt="personal-cv"-->
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- speaker profile or cv section ending here -->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <section class="personal-schedule padding-tb">
+      <!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+<!-- The Grid -->
+<div class="w3-row-padding">
+
+  <!-- Left Column -->
+  <div class="w3-third">
+  
+    <div class="w3-white w3-text-grey w3-card-4">
+      <div class="w3-display-container">
+      @if(is_null(Auth::guard('web')->user()->photo))
+                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+               @endif
+
+              @if(!is_null(Auth::guard('web')->user()->photo))
+              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+              @endif
+              <br> <br> <br> <br> 
+        <div class="w3-display-bottomleft w3-container w3-text-black">
+          <h2>{{Auth::guard('web')->user()->name}} &nbsp; {{Auth::guard('web')->user()->lastname}} </h2>
+        </div>
+      </div>
+      <div class="w3-container">
+      <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->datenaissance}}
+        <?php $dob=Auth::guard('web')->user()->datenaissance?>
+       
+        <span class="tag  w3-round" style="color:#fd3d6b">( {{ \Carbon\Carbon::parse($dob)->diff(\Carbon\Carbon::now())->format('%y years') }})</p>
+
+        <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->address}}</p>
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large "style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->email}}</p>
+        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->phone}}</p>
+        
+
+      
+    
+      
+     
+      </div>
+    </div><br>
+
+  <!-- End Left Column -->
+  </div>
+
+  <!-- Right Column -->
+  <div class="w3-twothird">
+  
+  
+
+    <div class="w3-container w3-card w3-white">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-briefcase" style="color:#fd3d6b"></i>&ensp;{{trans('profil_trans.Professional information')}}</h2>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{trans('profil_trans.Diploma')}}</b></h5>
+        <h6 style="color:#fd3d6b"><i class="fas fa-user-graduate"></i>&ensp;{{Auth::guard('web')->user()->diplome}}</h6>
+        
+        <hr>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
+        <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
+        @if(is_null(Auth::guard('web')->user()->secteur_id))
+                          vide 
+                         
+                          @endif
+                           @if(!is_null(Auth::guard('web')->user()->secteur_id))
+                             {{ Auth::guard('web')->user()->secteur->libelle}}
+                          @endif
+      </h6>
+        <p>   @if(!is_null(Auth::guard('web')->user()->secteur_id))
+                             {{ Auth::guard('web')->user()->secteur->description}}
+                          @endif</p>
+        <hr>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{trans('profil_trans.Description')}}</b></h5>
+        
+        <p> {{ Auth::guard('web')->user()->description}}</p><br>
+      </div>
+    </div>
+
+  <!-- End Right Column -->
+  </div>
+  
+<!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+
+    </section> 
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!-- mise a jour les information pro -->
     <section class="personal-schedule padding-tb">
@@ -135,7 +229,7 @@
           
             <div class="section-header">
                
-                <h2>Mise à jours des information profisonnel</h2>
+                <h2>{{trans('profil_trans.Updates personal information')}}</h2>
              
             </div>
 
@@ -219,7 +313,7 @@
 
             <div class="section-header">
                
-                <h2>Mise à jours des informations personnelles</h2>
+                <h2>{{trans('profil_trans.Updates professional information')}}</h2>
              
             </div>
 
@@ -274,7 +368,7 @@
 
              
       
-           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">confirmer</button>
+           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>
            
 
                 </div>

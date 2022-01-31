@@ -51,7 +51,7 @@
                                     <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$event->date_debut}} To {{$event->date_fin}}</a></span>
                                     <span class="by"><i class="fas fa-map-marker-alt"></i> {{$event->lien}}.</span>
                                 </div>
-                                <p>{{$event->description}}</p>
+                                <p>{!! $event->description !!}</p>
                                 <a href="#" class="btn-defult">Buy Ticket</a>
                             </div>
                         </div>

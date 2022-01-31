@@ -39,6 +39,51 @@ border-left: 4px solid blue;
 border-top: 1px solid blue;
 }
  </style>
+ <script>
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.visibility = 'visible';
+        document.getElementById('ifNo').style.visibility = 'hidden';
+    }
+    else {
+      document.getElementById('ifNo').style.visibility = 'visible';
+      document.getElementById('ifYes').style.visibility = 'hidden';
+      
+      }
+
+}
+
+function yesnoCheckupdate() {
+    if (document.getElementById('yesCheckup').checked) {
+        document.getElementById('ifYesup').style.visibility = 'visible';
+        document.getElementById('ifNoup').style.visibility = 'hidden';
+    }
+    else {
+      document.getElementById('ifNoup').style.visibility = 'visible';
+      document.getElementById('ifYesup').style.visibility = 'hidden';
+      
+      }
+
+}
+
+ </script>
+ <script>
+    ClassicEditor
+        .create( document.querySelector( '#editorfr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#editorar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#editoren' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -49,13 +94,22 @@ border-top: 1px solid blue;
 @error('description')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">homme d'affaire</a></li>
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
              
               
-              <li class="breadcrumb-item active">accueil</li>
+              <li class="breadcrumb-item active">Evenements</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -91,19 +145,22 @@ border-top: 1px solid blue;
               </div>
               
       <div class="modal fade" id="modal-lg">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+        <div class="modal-dialog modal-lg" style="width: 1200px">
+          <div class="modal-content" style="width: 1200px">
             <div class="modal-header">
-              <h4 class="modal-title">Ajouter un evenement</h4>
+              <h4 class="modal-title">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                Ajouter un evenement</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width:1200px">
 
               
             <!-- general form elements disabled -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Informations concernant l'evenement</h3>
               </div>
@@ -111,50 +168,52 @@ border-top: 1px solid blue;
               <div class="card-body">
                 <form action="{{ route('admin.createEven')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-           
+                <hr class="solid">
                   <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Sujet (fr)</label>
-                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('libelle') is-invalid @enderror"  >
-                        
-                        
-                       
+                        <label>Sujet (fr)<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="sujet" placeholder="Entrer le sujet de cet evenement" class="@error('libelle') is-invalid @enderror"  >
                       </div>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Sujet (ar)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_ar" >
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Sujet (en)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
-                        <label>Description (fr))</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" ></textarea>
+                        <label>Description (fr))<span style="color:red">*</span></label>
+                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  id="editorfr" class="@error('description') is-invalid @enderror" ></textarea>
                         
                       </div>
-                    </div>
-                    <div class="col-sm-4">
+                    </div></div>
+                    <hr class="solid">
+                    <div class="row">
+                    <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Description(ar)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" ></textarea>
+                        <label>الموضوع</label>
+                        <input type="text" class="form-control" placeholder="اكتب الموضوع ..." name="sujet_ar" >
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>اوصف</label>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="editorar"></textarea>
+                      </div>
+                    </div></div>
+
+                   
+                    <hr class="solid">
+                  <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Subject (en)</label>
+                        <input type="text" class="form-control" placeholder="Enter the subject ..." name="sujet_en" >
+                      </div>
+                    </div>
+                  <hr/>
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter the description ..." name="description_en" id="editoren"></textarea>
                       </div>
                     </div>
                     </div>
@@ -162,7 +221,7 @@ border-top: 1px solid blue;
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Date de debut</label>
+                        <label>Date de debut<span style="color:red">*</span></label>
                         <input type="date" class="form-control" name="date_debut" placeholder="Enter ..."  >
                         
                         
@@ -171,60 +230,57 @@ border-top: 1px solid blue;
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                      <label>Date de fin</label>
+                      <label>Date de fin<span style="color:red">*</span></label>
                         <input type="date" class="form-control" name="date_fin" placeholder="Enter ..."  >
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Duré</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="dure" >
+                        <label>Duré <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" placeholder="Entrer la duré de l'evenement ..." name="dure" >
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->
-                      <div class="form-group">
-                        <label>Type</label>
-                        <select class="form-control" name="type">
-                          <option value="en_ligne">En ligne</option>
-                          <option value="presentiel">Presentiel</option>
-                       
-                        </select>
-                        
-                        
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                      <label>Lien</label>
-                        <input type="text" class="form-control" name="lien" placeholder="Enter ..."  >
-                      </div>
-                    </div>
-                   
+                      <div class="form-group">  
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheck();" name="type" id="yesCheck" value="1"/> <b>En ligne </b></label>&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheck();" name="type" id="noCheck" value="0"/> <b>Présentiel</b></label>
+                 <div id="ifYes" style="visibility:hidden">
+                        Lien: <input type='text'  class="form-control"placeholder="Entrer le lien vers l'evenement ..." id='ifYes' name='lien'><br>
+        
                   </div>
+        
+                 <div id="ifNo" style="visibility:hidden">
+                        lieu: <input type='text'  class="form-control"placeholder="Entrer le lieu de l'evenement ..."  id='ifNo' name='lieu'><br>
+        
+                  </div> 
+                      </div>
+                    </div> </div>
+                 
 
 
                   
-                    
+                  <div class="row">
                     <div class="col-sm-6">
-                            <label for="">Ajouter une image</label>
+                            <label for="">Ajouter une image<span style="color:red">*</span></label>
                             <input type="file" name="image"  class="course form-control">
                         </div>
                   </div>
-
+                  </div>
+                
                   <!-- input states -->
                  
+  
                  
 
                 
 
                  
                   <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              <button type="submit" class="btn btn-primary" name="submit">Valider</button>
             </div>
                   
                 </form>
@@ -251,6 +307,7 @@ border-top: 1px solid blue;
                       <th>Duré</th>
                       <th>Type</th>
                       <th>Lien</th>
+                      <th>Lieu</th>
                       <th >Action</th>
                     </tr>
                   </thead>
@@ -268,12 +325,17 @@ border-top: 1px solid blue;
                          @endif
                       </td>
                       <td>{{$event->sujet}}</td>
-                      <td>{{$event->description}}</td>
+                      <td>{!! $event->description !!}</td>
                       <td>{{$event->date_debut}}</td>
                       <td>{{$event->date_fin}}</td>
                       <td>{{$event->dure}}</td>
-                      <td>{{$event->type}}</td>
+                      <td>@if($event->type==0)
+                       Présentiel
+                       @else
+                       En ligne 
+                       @endif</td>
                       <td>{{$event->lien}}</td>
+                      <td> {{$event->lieu}}</td>
                       
                       <td>
 
@@ -303,19 +365,23 @@ border-top: 1px solid blue;
  
       <!------------------------------------------update modal------------------------------------->
       <div class="modal fade" id="edit{{$event->id}}">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+        <div class="modal-dialog modal-lg" style="width:1200px">
+          <div class="modal-content" style="width:1200px">
             <div class="modal-header">
-              <h4 class="modal-title">Modifier l'evenement </h4>
+              <h4 class="modal-title">
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                Modifier l'evenement </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width:1200px">
 
               
             <!-- general form elements disabled -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Information de l'evnement</h3>
               </div>
@@ -325,50 +391,62 @@ border-top: 1px solid blue;
                 @csrf
            
                   <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Sujet (fr)</label>
-                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('sujet') is-invalid @enderror" value="{{$event->getTranslation('sujet', 'fr')}}" >
+                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('sujet') is-invalid @enderror" value="{{$event->getTranslation('sujet', 'fr')}}">
                         
                         <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
                        
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Description (fr))</label>
+                     
+                        <textarea class="form-control" rows="3"  id="editorfr" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror">
+                        
+                        {{$event->getTranslation('description', 'fr')}}
+                        
+                        </textarea>
+                        
+                      </div>
+                    </div>
+                    </div>
+
+                    
+                 
+                  <div class="row">
+                  
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Sujet (ar)</label>
                         <input type="text" class="form-control" placeholder="Enter ..." name="sujet_ar" value="{{$event->getTranslation('sujet', 'ar')}}">
                       </div>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Sujet (en)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en"  value="{{$event->getTranslation('sujet', 'en')}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <!-- textarea -->
-                      <div class="form-group">
-                        <label>Description (fr))</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" >{{$event->getTranslation('description', 'fr')}}</textarea>
-                        
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description(ar)</label>
                         <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" >{{$event->getTranslation('description', 'ar')}}</textarea>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Sujet (en)</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en"  value="{{$event->getTranslation('sujet', 'en')}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description (en)</label>
                         <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" >{{$event->getTranslation('description', 'en')}}</textarea>
                       </div>
                     </div>
+                  
                     </div>
                     <div class="row">
                     <div class="col-sm-4">
@@ -394,34 +472,30 @@ border-top: 1px solid blue;
                       </div>
                     </div>
                   </div>
+              
+
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                       <!-- text input -->
-                      <div class="form-group">
-                        <label>Type</label>
-                        <select class="form-control" name="type"  value="{{$event->type}}">
-                          <option value="en_ligne">En ligne</option>
-                          <option value="presentiel">Presentiel</option>
-                       
-                        </select>
-                        
-                        
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                      <label>Lien</label>
-                        <input type="text" class="form-control" name="lien" placeholder="Enter ..."  value="{{$event->lien}}" >
-                      </div>
-                    </div>
-                   
+                      <div class="form-group">  
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="yesCheckup" value="1" @if(old('type')) checked @endif/> <b>En ligne </b></label>&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="noCheckup"value="0" @if(!old('type')) checked @endif/> <b>Présentiel</b></label>
+                 <div id="ifYes" style="visibility:hidden">
+                        Lien: <input type='text'  class="form-control"placeholder="Entrer le lien vers l'evenement ..." id='ifYesup' name='lien' value="{{$event->lien}}"><br>
+        
                   </div>
+        
+                 <div id="ifNo" style="visibility:hidden">
+                        lieu: <input type='text'  class="form-control"placeholder="Entrer le lieu de l'evenement ..."  id='ifNoup' name='lieu' value="{{$event->lieu}}"><br>
+        
+                  </div> 
+                      </div>
+                    </div> </div>
 
 
                   
                     
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                             <label for="">Ajouter une image</label>
                             <input type="file" name="image"  class="course form-control">
                         </div>
@@ -531,4 +605,7 @@ border-top: 1px solid blue;
           </div>
         </div></div>
   <!-- /.content-wrapper -->
+
+
+
 @endsection

@@ -13,6 +13,7 @@ use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Redirect;
 
 
 class UserController extends Controller
@@ -124,15 +125,16 @@ public function search(Request $request)
 
   $secteurs= Secteur::all();
   
-   
+
 
     if (count($users) > 0) {
 
-        return view('FrontEnd.user.index',compact('secteurs','users',))->withDetails($users)->withQuery($q)->withLocations($secteurs);
+        return view('FrontEnd.user.index',compact('secteurs','users'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
+  
     } else {
         return view('FrontEnd.user.index',compact('secteurs','users'))->withMessage('error il n existe pas d homme d affaire !')->withLocations($secteurs)->withQuery($q);
     }
-    //dd($request->text);
+  
 }
 //------------------------------------------------------------------------------------
 public function update_informationPro(Request $request, $id)

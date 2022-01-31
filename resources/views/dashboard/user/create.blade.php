@@ -60,7 +60,15 @@ border-top: 1px solid blue;
 
 
 
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="card card-default">
          
@@ -71,6 +79,7 @@ border-top: 1px solid blue;
               <div class="col-md-6">
                 <div class="card card-primary">
               <div class="card-header">
+             
                 <h3 class="card-title">Information profisonnels</h3>
               </div>
               <div class="card-body">
@@ -89,7 +98,7 @@ border-top: 1px solid blue;
                     @csrf
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Nom</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Nom <span style="color:red">*</span></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" name="name" placeholder="{{trans('register_trans.Name')}}" value="{{ old('name') }}" class="@error('name') is-invalid @enderror">
                       <span class="text-danger">@error('name'){{ $message }} @enderror</span>
@@ -98,14 +107,14 @@ border-top: 1px solid blue;
                   </div>
                     
                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Prenom</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Prenom<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" name="lastname" placeholder="{{trans('register_trans.First Name')}}" value="{{ old('lastname') }}">
                      <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
                     </div>
                   </div>
                    <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Date de naissance</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Date de naissance<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                       <input type="date" class="form-control" name="datenaissance" placeholder="date de naissance" value="{{ old('datenaissance') }}">
           <span class="text-danger">@error('datenaissance'){{ $message }} @enderror</span>
@@ -113,7 +122,7 @@ border-top: 1px solid blue;
                     </div>
                   </div>
                    <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Phone</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Phone <span style="color:red">*</span></label>
                     <div class="col-sm-9">
                       <input type="text"class="form-control" name="phone" placeholder="{{trans('register_trans.Phone')}}" value="{{ old('phone') }}">
          <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
@@ -121,7 +130,7 @@ border-top: 1px solid blue;
                     </div>
                   </div>
                      <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Description</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Description<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                        <textarea class="form-control" name="description" placeholder="{{trans('register_trans.Description')}}" value="{{ old('description') }}"></textarea>
           <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
@@ -129,7 +138,7 @@ border-top: 1px solid blue;
                   </div>
 
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Adress</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label" >Adress<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                        <input type="text" class="form-control" name="address" placeholder="{{trans('register_trans.Address')}}" value="{{ old('address') }}">
           <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
@@ -139,7 +148,7 @@ border-top: 1px solid blue;
 
 
                   <div class="form-group row">
-                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Email</label>
+                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Email<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                    <input type="text" class="form-control" name="email" placeholder="{{trans('register_trans.Email')}}" value="{{ old('email') }}">
                    <span class="text-danger">@error('email'){{ $message }} @enderror</span>     
@@ -150,7 +159,7 @@ border-top: 1px solid blue;
 
 
                 <div class="form-group row">
-                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Mote de passe</label>
+                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Mote de passe<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                     <input type="password" class="form-control" name="password" placeholder="{{trans('register_trans.Password')}}" value="{{ old('password') }}">
               <span class="text-danger">@error('password'){{ $message }} @enderror</span>    
@@ -160,7 +169,7 @@ border-top: 1px solid blue;
 
 
                 <div class="form-group row">
-                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Confirmer mote de passe</label>
+                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Confirmer mote de passe<span style="color:red">*</span></label>
                     <div class="col-sm-9">
                       <input type="password" class="form-control" name="cpassword" placeholder="{{trans('register_trans.Confirm Password')}}" value="{{ old('cpassword') }}">
             <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>

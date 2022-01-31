@@ -70,7 +70,7 @@ border-top: 1px solid blue;
                 <div class="card-body">
               
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le sujet</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le sujet<span style="color:red">*</span></label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputEmail3" placeholder="Entrer le contexte en (fr)" name="context" class="@error('context') is-invalid @enderror">
                       <span class="text-danger">@error('context'){{ $message }} @enderror</span>
@@ -90,10 +90,10 @@ border-top: 1px solid blue;
                   </div>
                  
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Le contenu</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Le contenu<span style="color:red">*</span></label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" placeholder="Entrer le contenu de votre article" class="@error('contenu') is-invalid @enderror"></textarea>
+                      <textarea class="form-control" rows="3" name="contenu" id="editorfr" placeholder="Entrer le contenu de votre article" class="@error('contenu') is-invalid @enderror"></textarea>
                       <span class="text-danger">@error('contenu'){{ $message }} @enderror</span>
                     </div>
                   </div>
@@ -101,7 +101,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" placeholder="اكتب المحتوى بالعربي ..."></textarea>
+                      <textarea class="form-control" rows="3" name="contenu" id="editorar" placeholder="اكتب المحتوى بالعربي ..."></textarea>
 
                     </div>
                   </div>
@@ -109,13 +109,13 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">The content</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" placeholder="Write the content in english ..."></textarea>
+                      <textarea class="form-control" rows="3" name="contenu" id="editoren" placeholder="Write the content in english ..."></textarea>
 
                     </div>
                   </div>
 
                  <div class="form-group row">
-                    <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Image</label>
+                    <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Image<span style="color:red">*</span></label>
                     <div class="input-group col-sm-10">
                       <div class="custom-file col-sm-10">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image"  class="@error('contenu') is-invalid @enderror">
@@ -159,7 +159,23 @@ border-top: 1px solid blue;
 
 
 
-
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editorfr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#editorar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#editoren' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
     
   <!-- /.content-wrapper -->

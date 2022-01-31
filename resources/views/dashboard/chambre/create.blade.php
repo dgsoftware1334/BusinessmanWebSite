@@ -142,7 +142,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="description" placeholder="Entrer une description sur la chambre" class="@error('description') is-invalid @enderror"></textarea>
+                      <textarea class="form-control" rows="3" name="description" id="fr" placeholder="Entrer une description sur la chambre" class="@error('description') is-invalid @enderror"></textarea>
                       <span class="text-danger">@error('description'){{ $message }} @enderror</span>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="description_ar" placeholder="اكتب المحتوى بالعربي ..."></textarea>
+                      <textarea class="form-control" rows="3" name="description_ar" id="ar" placeholder="اكتب المحتوى بالعربي ..."></textarea>
 
                     </div>
                   </div>
@@ -158,7 +158,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="description_en" placeholder="Write the description in english ..."></textarea>
+                      <textarea class="form-control" rows="3" id="en" name="description_en" placeholder="Write the description in english ..."></textarea>
 
                     </div>
                   </div>
@@ -166,7 +166,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Politique</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="politique" placeholder="Entrer la politique confidentielle de la chambre" class="@error('politique') is-invalid @enderror"></textarea>
+                      <textarea class="form-control" rows="3" id="pofr" name="politique" placeholder="Entrer la politique confidentielle de la chambre" class="@error('politique') is-invalid @enderror"></textarea>
                       <span class="text-danger">@error('politique'){{ $politique }} @enderror</span>
                     </div>
                   </div>
@@ -175,7 +175,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">السياسة</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="politique_ar" placeholder="اكتب السياسة المتبعة في الغرفة" ></textarea>
+                      <textarea class="form-control" rows="3" id="poar" name="politique_ar" placeholder="اكتب السياسة المتبعة في الغرفة" ></textarea>
                       
                     </div>
                   </div>
@@ -183,7 +183,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Politic</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="politique_en" placeholder="Write the politic of the chamber" ></textarea>
+                      <textarea class="form-control" rows="3"  id="poen" name="politique_en" placeholder="Write the politic of the chamber" ></textarea>
                     
                     </div>
                   </div>
@@ -234,7 +234,39 @@ border-top: 1px solid blue;
 
 
 
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#fr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#ar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#en' ) )
+        .catch( error => {
+            console.error( error );
+        } );
 
+        ClassicEditor
+        .create( document.querySelector( '#pofr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#poar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#poen' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
     
   <!-- /.content-wrapper -->

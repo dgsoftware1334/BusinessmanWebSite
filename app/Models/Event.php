@@ -11,7 +11,7 @@ class Event extends Model
 
     use HasFactory;
     use HasTranslations;
-    public $translatable = ['sujet', 'description','type'];
+    public $translatable = ['sujet', 'description'];
  protected $fillable = [
                   'sujet',
                   'description',
@@ -20,7 +20,8 @@ class Event extends Model
                   'dure',
                   'image',
                   'type',
-                  'lien',   
+                  'lien',
+                  'lieu',   
                   'status',   
                   'admin_id',            
     
