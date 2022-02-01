@@ -1,3 +1,6 @@
+ <?php
+ $chambre=App\Models\Chambre::all();
+ ?>
  <section class="footer-section">
     	<div class="top"><a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a></div>
     	<div class="footer-top padding-tb">
@@ -16,12 +19,14 @@
 	    					</div>
 	    					<div class="footer-link-list">
 	    						<ul>
-	    							<li><a href="#">Contact with Us</a></li>
-	    							<li><a href="#">Total Schedule</a></li>
-	    							<li><a href="#">Pricing Plan</a></li>
-	    							<li><a href="#">Sponsor Application Form</a></li>
-	    							<li><a href="#">FAQ</a></li>
-	    							<li><a href="#">Speaker List</a></li>
+	    							 <a href="{{ url('/') }}">{{trans('header_trans.Home')}}</a>
+	    							<li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
+	    							 <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
+	    							<li><a href="{{ url('/about') }}">{{trans('header_trans.About')}}</a></li>
+							   <!--<li><a href="#">pages</a>
+								   
+							   </li>-->
+							   <li><a href="{{url('/contact')}}">{{trans('header_trans.Contact us')}}</a></li>
 	    						</ul>
 	    					</div>
 	    				</div>
@@ -29,83 +34,51 @@
 	    			<div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
 	    				<div class="footer-content">
 	    					<div class="footer-title">
-	    						<h5>Flicker</h5>
+	    						
 	    					</div>
 	    					<div class="footer-gellary">
-	    						<div class="f-gellary-item">
-	    							<div class="f-gellary-item-inner">
+	    						 @foreach($chambre as $row)
+	    							
 	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img" href="{{ asset('assests/FrontEnd/assets/images/footer/01.png') }}" data-rel="lightcase"><img src="{{ asset('assests/FrontEnd/assets/images/footer/01.png') }}" alt="blog-single"></a>
-	    								</div>
-	    							</div>
+	    									<a class="footer-img"  data-rel="lightcase"><img src="{{ asset('assests/images/chambre/'.$row->photo)}}" alt="blog-single" style="height: 100px; width: 200px"></a>
+	    								
 	    						</div>
-	    						<div class="f-gellary-item">
-	    							<div class="f-gellary-item-inner">
-	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img" href="{{ asset('assests/FrontEnd/assets/images/footer/02.png') }}" data-rel="lightcase"><img src="{{ asset('assests/FrontEnd/assets/images/footer/02.png') }}" alt="blog-single"></a>
-	    								</div>
-	    							</div>
-	    						</div>
-	    						<div class="f-gellary-item">
-	    							<div class="f-gellary-item-inner">
-	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img" href="{{ asset('assests/FrontEnd/assets/images/footer/03.png') }}" data-rel="lightcase"><img src="{{ asset('assests/FrontEnd/assets/images/footer/03.png') }}" alt="blog-single') }}"></a>
-	    								</div>
-	    							</div>
-	    						</div>
-	    						<div class="f-gellary-item">
-	    							<div class="f-gellary-item-inner">
-	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img" href="{{ asset('assests/FrontEnd/assets/images/footer/04.png') }}" data-rel="lightcase"><img src="{{ asset('assests/FrontEnd/assets/images/footer/04.png') }}" alt="blog-single') }}"></a>
-	    								</div>
-	    							</div>
-	    						</div>
-	    						<div class="f-gellary-item">
-	    							<div class="f-gellary-item-inner">
-	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img" href="{{ asset('assests/FrontEnd/assets/images/footer/05.png') }}" data-rel="lightcase"><img src="{{ asset('assests/FrontEnd/assets/images/footer/05.png') }}" alt="blog-single"></a>
-	    								</div>
-	    							</div>
-	    						</div>
-	    						<div class="f-gellary-item">
-	    							<div class="f-gellary-item-inner">
-	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img" href="{{ asset('assests/FrontEnd/assets/images/footer/06.png') }}" data-rel="lightcase"><img src="{{ asset('assests/FrontEnd/assets/images/footer/06.png') }}" alt="blog-single"></a>
-	    								</div>
-	    							</div>
-	    						</div>
+	    						
+	    						
 	    					</div>
+
 	    				</div>
 	    			</div>
 	    			<div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+	    				<h5>Contacte-nous</h5>
 	    				<div class="footer-content">
-	    					<div class="footer-title">
-	    						<h5>Subscribe Newsletter</h5>
-	    					</div>
-	    					<div class="footer-newsletter">
-	    						<p>Enter your email and get unlimited news and updates within short time.</p>
-	    						<div id="mc_embed_signup">
-									<form action="https://gmail.us5.list-manage.com/subscribe/post?u=cd67c3a5c3df2403ff4fe61e3&amp;id=f6f53669dd" method="post" id="mc-embedded-subscribe-form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-										<div id="mc_embed_signup_scroll">
-											<div class="mc-field-group">
-												<input type="email" value="" name="EMAIL" placeholder="Enter Your E-mail Here" class="required email" id="mce-EMAIL" required>
-											</div>
-											<div class="clear">
-												<button type="submit" name="subscribe" id="mc-embedded-subscribe">Submit Now</button>
-											</div>
-											<div id="mce-responses" class="clear">
-												<div class="response" id="mce-error-response" style="display:none"></div>
-												<div class="response" id="mce-success-response" style="display:none"></div>
-											</div>
-											<div style="position: absolute; left: -5000px;" aria-hidden="true">
-												<input type="text" name="b_161602bf96bf36d0210b776e2_8bad457ed1" tabindex="-1" value="">
-											</div>
-										</div>
-									</form>
-								</div>
-	    					</div>
+	                        <nav class="nav flex-column">
+                            
+                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-home"></i>&ensp;{{ $row->adresse}}</a>
+                               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-phone-square"></i>&ensp;{{ $row->telephone}}</a>
+                              
+                            </nav>
+
+
+
+
+
+
+
+
+                             <ul class="social-link-list d-flex flex-wrap mt-3">
+	                              <li><a href="<?= $row->fb?>" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
+
+						         <li><a href="<?= $row->insta?>" class="icon instagram"><i class="fab fa-instagram"></i></a></li>
+
+						         <li><a href="#<?= $row->twit?>" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
+						         <li><a href="#<?= $row->linked?>" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+	                        </ul>
+
+	                       
 	    				</div>
 	    			</div>
+	    			@endforeach
 	    		</div>
 	    	</div>
 	    </div>

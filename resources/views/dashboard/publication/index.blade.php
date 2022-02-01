@@ -369,14 +369,9 @@ border-top: 1px solid blue;
                 </table>
 
 
-<<<<<<< HEAD
 
 </div>
-<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-</div>
-<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-=======
-</div>
+
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
   
 
@@ -924,7 +919,6 @@ border-top: 1px solid blue;
                     
                   </tbody>
                 </table>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
  </div>
               <!-- edit publication--->
  

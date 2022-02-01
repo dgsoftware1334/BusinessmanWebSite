@@ -44,13 +44,10 @@
                                     <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} à {{$row->date_fin}} </a></span>
                                     <span class="by"><i class="fas fa-map-marker-alt"></i> Toma Tower, Gulshan, Dhaka.</span>
                                 </div>
-<<<<<<< HEAD
                                 <p>{!! $event->description !!}</p>
                                 <a href="#" class="btn-defult">Buy Ticket</a>
-=======
                                 <p>{{ Str::limit($row->description, 30) }}.</p>
                                 <a href="<?=$row->lien?>" class="btn-defult">Viste lien</a>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
                             </div>
                         </div>
                     </div>

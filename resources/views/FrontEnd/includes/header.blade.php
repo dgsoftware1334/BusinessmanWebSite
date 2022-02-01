@@ -70,8 +70,10 @@
 			   
 		   @endif
 							   </li>
+							   <li></li>
+							   <li></li>
 							   <!------------------------------------------------Language selector----------------------------------------------------------->
-							   <li><i class="fa fa-globe" aria-hidden="true"></i>
+							   <li><img src="https://img.icons8.com/wired/30/000000/translation.png"/>
 								   <ul class="submenu">
 								   @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 	   <li>

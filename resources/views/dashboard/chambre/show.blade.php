@@ -89,25 +89,19 @@
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-<<<<<<< HEAD
                       <h2 class="lead"><b>{{$row->nom}}</b></h2>
                       <p class="text-muted text-sm"><b>About: </b>{{$row->description}} </p>
-=======
                       <h2 class="lead"><b>{{$row->nom}} &end;  {{$row->prenom}}</b></h2>
                        <p class="text-muted text-sm"><b>Description: </b> {{$row->description}} </p>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                         
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Tlephone #  :{{$row->Telephone}}</li>
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-<<<<<<< HEAD
                       <img src="{{ asset('assests/images/fondateurs/'.$row->photo)}}" alt="user-avatar" class="img-circle img-fluid">
-=======
                      
                         <img src="{{ asset('assests/images/fondateurs/'.$row->image)}}" class="img-circle img-fluid" style="width: 100px;height: 100px" >
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
                     </div>
                   </div>
                 </div>
@@ -129,7 +123,6 @@
 
     </section>
 
-<<<<<<< HEAD
   <!-- /.content-wrapper -->
 
     <!------------------------------------------update modal------------------------------------->
@@ -322,9 +315,7 @@
       </div>
 
               
-=======
-  </div>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
+
 
  @endforeach
  

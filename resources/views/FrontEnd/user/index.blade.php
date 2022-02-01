@@ -42,60 +42,38 @@
                     <br>
                     <h3>Les hommes d'affaire </h3>
                     <br>
-                     <div class="panel panel-default" style="background-color:#F0FFF0;border-radius: 30px;">
+                     <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg bg-red-100 w-2/3 p-4 ">
+                <form action="{{route('search')}}" method="post" class="flex justify-start items-center">
 
-                       <br>
+                    @csrf
+                    <div class="form-group w-1/3 mr-2">
+                        <select name="secteur" id="location" class="px-2 py-2 w-full">
+                         <option value="">1111</option>
 
-                          <form action="{{route('search')}}" method="post" class="flex justify-start items-center">
-
-                            @csrf
-                          <div class="form-row">
-
-
-
-              <div class="form-group col-md-4 ">
-                <input id="password" type="text" name="nom" id="text"  placeholder="Recherche par Nom" class="rounded-pill  px-2 py-2"  style="border-radius: 30px;height: 37px">
-                      
-              <div class="validate"></div>
-            </div>
-
-
-
-            <div class="form-group col-md-5">
-             
-                        <select class="form-select px-2 py-2 " aria-label=".form-select-lg example"  name="secteur" id="location" style="border-radius: 30px;">
-                                <option selected>Recherche par un secteur d'activité<br>
-                                </option>
-                                @foreach ($secteurs as $row)
+                            @foreach ($secteurs as $row)
                             <option value="{{ $row->libelle }}">{{ $row->libelle }}</option>
                             @endforeach
-                              </select>
-               
-                 </div>
+                        </select>
+                    </div>
 
+                    <div class="form-group mr-2 w-1/3">
 
-                    <div class="form-group col-md-3">
-               
-                <!--button class="btn-defult"  type="submit" >Recherche
-                </button!-->
-                <input class="btn-defult px-2 py-2"  type="submit"  style="border-radius: 30px;height: 37px;width: 200px;background-color: red"  value="Recherche">
-                        <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >  
-                         <img src="https://img.icons8.com/office/22/000000/search--v1.png"/>
-                        </span> 
-           
+                        <input type="text" name="nom" id="text"
+                            class="rounded w-full border border-gray-100 px-2 py-2">
+                    </div>
 
+                    <div class="form-group w-1/3">
 
-                 </div>
-
+                        <button type="submit"
+                            class="px-2 py-2 bg-indigo-600 hover:bg-indigo-500 text-white w-full rounded">
+                            Search</button>
+                    </div>
 
 
 
-
-
-          </div>
-    </form>
-    
-                      </div>
+                </form> </div> </div> </div>
                     
                
                

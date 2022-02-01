@@ -13,9 +13,7 @@ use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
 use Illuminate\Database\Eloquent\Builder;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Redirect;
-=======
 use App\Models\Chambre;
 
 use App\Models\Event;
@@ -28,7 +26,6 @@ use Illuminate\Support\Facades\DB;
 
 
 
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
 
 
 class UserController extends Controller
@@ -129,6 +126,7 @@ $publication= Publication::find(1);
 
 
 
+
 public function search(Request $request)
 {
     $sec  = $request->secteur;
@@ -144,20 +142,15 @@ public function search(Request $request)
   $secteurs= Secteur::all();
   $chambres= Chambre::all();
   
-
+   
 
     if (count($users) > 0) {
 
-<<<<<<< HEAD
-        return view('FrontEnd.user.index',compact('secteurs','users'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
-  
-=======
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
     } else {
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('error il n existe pas d homme d affaire !')->withLocations($secteurs)->withQuery($q);
     }
-  
+    //dd($request->text);
 }
 //------------------------------------------------------------------------------------
 public function update_informationPro(Request $request, $id)
