@@ -26,10 +26,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
 
 class UserController extends Controller
 {
@@ -149,17 +146,15 @@ public function search(Request $request)
 
     if (count($users) > 0) {
 
-<<<<<<< HEAD
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
-=======
 
-        return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
+        //return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
   
    // return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
+
     } else {
-        return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('error il n existe pas d homme d affaire !')->withLocations($secteurs)->withQuery($q);
+        return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('Erreur cet Homme d affaire est introuvable !')->withLocations($secteurs)->withQuery($q);
     }
     //dd($request->text);
 }
