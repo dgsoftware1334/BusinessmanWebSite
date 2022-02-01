@@ -106,53 +106,34 @@ function yesnoCheckupdate() {
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-<<<<<<< HEAD
-=======
 
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 
               <li class="breadcrumb-item"><a href="#">Les événements</a></li>
 
-<<<<<<< HEAD
-=======
-             
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
+
               
               <li class="breadcrumb-item active">Evenements</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-
-      <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                  
-                <h3 class="card-title">Responsive Hover Table</h3>
-               
-
-                <div class="card-tools">
-                <div class="col-lg-1 ">
-  
-                <div class="card-body">
-                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
+<div class="col-lg-12 bg-white">
+<div class="tab-content mt-4" id="myTabContent">
+<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
                     <img src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/32/000000/external-calendar-calendar-kmg-design-detailed-outline-kmg-design-2.png"/>
                         </button>
-                </div>
-                
-                </div>
-              </div>
-              
+
+
+                                
       <div class="modal fade" id="modal-lg">
         <div class="modal-dialog modal-lg" style="width: 1200px">
           <div class="modal-content" style="width: 1200px">
-            <div class="modal-header">
-              <h4 class="modal-title">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                Ajouter un evenement</h4>
+            <div class="modal-header"  style="background-color: #4682B4;">
+<h4 class="modal-title" style="color: white" >&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;Ajouter un événement</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -161,13 +142,7 @@ function yesnoCheckupdate() {
 
               
             <!-- general form elements disabled -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Informations concernant l'evenement</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form action="{{ route('admin.createEven')}}" method="POST" enctype="multipart/form-data">
+             <form action="{{ route('admin.createEven')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <hr class="solid">
                   <div class="row">
@@ -285,9 +260,6 @@ function yesnoCheckupdate() {
             </div>
                   
                 </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
             </div>
           
           </div>
@@ -308,16 +280,9 @@ function yesnoCheckupdate() {
                       <th>Duré</th>
                       <th>Type</th>
                       <th>Lien</th>
-<<<<<<< HEAD
                       <th>Lieu</th>
                       <th>Etat</th>
-=======
 
-                      <th>Lieu</th>
-
-                      <th>Etat</th>
-
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
                       <th >Action</th>
                     </tr>
                   </thead>
@@ -345,10 +310,8 @@ function yesnoCheckupdate() {
                        En ligne 
                        @endif</td>
                       <td>{{$event->lien}}</td>
-<<<<<<< HEAD
-=======
 
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
+
                       <td> {{$event->lieu}}</td>
                       <td>
                          
@@ -359,11 +322,8 @@ function yesnoCheckupdate() {
                      @endif
 
                      
-                      </td>
-<<<<<<< HEAD
-=======
 
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
+
                       
                       <td>
 
@@ -639,12 +599,14 @@ function yesnoCheckupdate() {
 
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div></div>
+
+</div>
+</div>
+</div>
+     
+
+
+      </div>
   <!-- /.content-wrapper -->
 
 

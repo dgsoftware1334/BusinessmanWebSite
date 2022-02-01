@@ -40,7 +40,7 @@
 	    						 @foreach($chambre as $row)
 	    							
 	    								<div class="f-gellary-thumb">
-	    									<a class="footer-img"  data-rel="lightcase"><img src="{{ asset('assests/images/chambre/'.$row->photo)}}" alt="blog-single" style="height: 100px; width: 200px"></a>
+	    									<a class="footer-img"  data-rel="lightcase"><img src="{{ asset('assests/images/chambre/'.$row->photo)}}" alt="blog-single" style="height:160px; width: 200px"></a>
 	    								
 	    						</div>
 	    						
@@ -54,8 +54,8 @@
 	    				<div class="footer-content">
 	                        <nav class="nav flex-column">
                             
-                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-home"></i>&ensp;{{ $row->adresse}}</a>
-                               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-phone-square"></i>&ensp;{{ $row->telephone}}</a>
+                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-home" style="color: #fd3d6b"></i>&ensp;{{ $row->adresse}}</a>
+                               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-phone-square" style="color: #fd3d6b"></i>&ensp;{{ $row->telephone}}</a>
                               
                             </nav>
 

@@ -27,12 +27,13 @@ class BusinessmansController extends Controller
       
         $validated = $request->validated();  
         $user = new User();
-         if($request->file('photo')){
-               $newImageName3 =time().'-'.$request->email.'.'.$request->photo->extension();
+        if($request->file('photo')){
+     $newImageName3 =time().'-'.$request->name.'.'.$request->photo->extension();
         $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
          $user->photo = $newImageName3;
 
            }
+
 
         $user->name = $request->name;
         $user->lastname = $request->lastname;
@@ -138,12 +139,13 @@ class BusinessmansController extends Controller
         $user= User::find($id);
  $validated = $request->validated();  
 
-        if($request->file('photo')){
-               $newImageName3 =time().'-'.$request->email.'.'.$request->photo->extension();
+      if($request->file('photo')){
+               $newImageName3 =time().'-'.$request->name.'.'.$request->photo->extension();
         $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
          $user->photo = $newImageName3;
 
            }
+
 
         $user->name = $request->name;
         $user->lastname = $request->lastname;

@@ -33,7 +33,7 @@
 	            	<div class="col-lg-6 col-12">
 		                <div class="about-item-left">
 		                    <div class="about-content">
-		                        <p>{{$chambre->description}}</p>
+		                        <p>{!!$chambre->description!!}</p>
 		                       
 		                    </div>
 		                    <div class="about-counter feature-rsb d-md-flex">
@@ -111,7 +111,7 @@
                                 
                                 <div class="content">
                                     <h4></h4>
-                                    <p>  {{$chambre->politique}}.</p>
+                                    <p>  {!!$chambre->politique!!}.</p>
                                 </div>
                             </div>
                             
@@ -143,7 +143,7 @@
 
                         		</div>
                         		<div class="testi-content">
-                        			<span class="testi-text">{{$row3->description}}.</span>
+                        			<span class="testi-text">{!!$row3->description!!}.</span>
                         			<h6 class="name">{{$row3->nom}} {{$row3->prenom}}</h6>
                         			<span class="desc">,{{$row3->diplom}}</span>
                         			<br>

@@ -196,11 +196,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
        Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
 
-<<<<<<< HEAD
 
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
-=======
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
+
       //------------fondateur-----------------
         Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
         //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');

@@ -17,7 +17,7 @@ class CreatePublicationUserTable extends Migration
             $table->id();
 
             $table->tinyInteger('is_valide')->default('0');
-            $table->string('contenu')->nullable();
+            $table->longtext('contenu')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')-> onDelete ('cascade');
             $table->unsignedBigInteger('publication_id')->nullable();
