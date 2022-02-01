@@ -24,9 +24,9 @@
             </div>
             <div class="sidebar-content">
               <div class="section-header">
-                <span>Présentation avec</span>
-                <h2>35 personnes expérience</h2>
-                <p>Présentation de la nouvelle génération des hommes d'affaire</p>
+                <span>{{trans('usersbar_trans.Presentation')}}</span>
+                <h2>{{trans('usersbar_trans.Some sectors with users')}}</h2>
+               
               </div>
             </div>
           </div>

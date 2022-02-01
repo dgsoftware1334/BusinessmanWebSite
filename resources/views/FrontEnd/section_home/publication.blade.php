@@ -1,9 +1,9 @@
   <section class="blog-section bg-ash padding-tb" style="background-color: white">
     	<div class="container container-1310">
             <div class="section-header d-flex align-items-center flex-wrap wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
-                <h2>Nouvelle publication
+                <h2>{{trans('pub_trans.Recent publications')}}
                                      </h2>
-                <a href="{{ url('/publications/') }}" class="all-view">Afficher tous les publication</a>
+                <a href="{{ url('/publications/') }}" class="all-view">{{trans('pub_trans.Show all posts')}}</a>
                 <div class="blog-btn">
                     <div class="blog-btn-prev blog-navy"></div>
                     <div class="blog-btn-next blog-navy"></div>

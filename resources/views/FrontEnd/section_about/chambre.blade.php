@@ -9,7 +9,7 @@
                             <span class="title-text">{{trans('header_trans.About')}}</span>
                         </div>
                         <ol class="breadcrumb">
-                            <li>Tu es là : </li>
+                         
                             <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
 
                             <li class="active">{{trans('header_trans.About')}}</li>

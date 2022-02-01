@@ -2,17 +2,16 @@
 
 @section('content')
 
-  <div class="page-header-section post-title style-1 " style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/3.jpg') }})">
+  <div class="page-header-section post-title style-1" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/3.jpg') }})">
 
         <div class="overlay">
             <div class="page-header-content">
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text"> {{trans('header_trans.Businessmans')}} </span>
+                            <span class="title-text"> <span>{{trans('header_trans.Businessmans')}} </span></span>
                         </div>
                         <ol class="breadcrumb">
-                          
                             <li>Tu es là : </li>
                             <li><a href="index.html">{{trans('header_trans.Businessmans')}}</a></li>
                             <li class="active">{{trans('header_trans.Home')}}</li>
@@ -27,7 +26,6 @@
         
     </div>
 
-
     <div class="event-with-sidebar-section">
       <div class="container container-1310">
         <div class="section-wrapper">
@@ -40,65 +38,38 @@
                 <div class="container container-1310 p-0 p-md-auto">
                   <div class="section-header">
                     <br>
-                    <h3>Les hommes d'affaire </h3>
-                    <br>
-                     <div class="panel panel-default" style="background-color:#F0FFF0;border-radius: 30px;">
+                    <h3>Publications </h3>
+                    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg bg-red-100 w-2/3 p-4 ">
+                <form action="{{route('search')}}" method="post" class="flex justify-start items-center">
 
-                       <br>
-
-                          <form action="{{route('search')}}" method="post" class="flex justify-start items-center">
-
-                            @csrf
-                          <div class="form-row">
-
-
-
-              <div class="form-group col-md-4 ">
-                <input id="password" type="text" name="nom" id="text"  placeholder="Recherche par Nom" class="rounded-pill  px-2 py-2"  style="border-radius: 30px;height: 37px">
-                      
-              <div class="validate"></div>
-            </div>
-
-
-
-            <div class="form-group col-md-5">
-             
-                        <select class="form-select px-2 py-2 " aria-label=".form-select-lg example"  name="secteur" id="location" style="border-radius: 30px;">
-                                <option selected>Recherche par un secteur d'activité<br>
-                                </option>
-                                @foreach ($secteurs as $row)
+                    @csrf
+                    <div class="form-group w-1/3 mr-2">
+                        <select name="secteur" id="location" class="px-2 py-2 w-full">
+                        <option value="Aucun">Aucun</option>
+                            @foreach ($secteurs as $row)
                             <option value="{{ $row->libelle }}">{{ $row->libelle }}</option>
                             @endforeach
-                              </select>
-               
-                 </div>
+                        </select>
+                    </div>
 
+                    <div class="form-group mr-2 w-1/3">
 
-                    <div class="form-group col-md-3">
-               
-                <!--button class="btn-defult"  type="submit" >Recherche
-                </button!-->
-                <input class="btn-defult px-2 py-2"  type="submit"  style="border-radius: 30px;height: 37px;width: 200px;background-color: red"  value="Recherche">
-                        <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >  
-                         <img src="https://img.icons8.com/office/22/000000/search--v1.png"/>
-                        </span> 
-           
+                        <input type="text" name="nom" id="text"
+                            class="rounded w-full border border-gray-100 px-2 py-2">
+                    </div>
 
+                    <div class="form-group w-1/3">
 
-                 </div>
-
+                        <button type="submit"
+                            class="px-2 py-2 bg-indigo-600 hover:bg-indigo-500 text-white w-full rounded">
+                            Search</button>
+                    </div>
 
 
 
-
-
-          </div>
-    </form>
-    
-                      </div>
-                    
-               
-               
+                </form> </div> </div> </div>
                   </div>
                   <!-- Search form -->
 
@@ -111,17 +82,20 @@
                     <div id="1st-Day" class="tabcontent active">
                       <div class="d-flex flex-wrap justify-content-center">
                         @foreach($users as  $row)
+
+
                    
+            
                         <div class="speaker-item">
                           <div class="speaker-item-inner">
                             <div class="item-thumb">
                              <a href="{{url('/show',$row->id)}}">
 
                                @if(is_null($row->photo))
-                                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  height="100px" width="100px">
+                                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" >
                                @endif
                                 @if(!is_null($row->photo))
-                                <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" height="100px" width="100px" style="height: 190px;width: 600px">
+                                <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker">
                                 @endif
 
 
@@ -182,30 +156,38 @@
                     </div>
                     <div class="sidebar-wrapper">
                       <div class="sidebar-social-media">
-                          @foreach($chambres as $chambre)
-                      <div class="sidebar-social-media">
                                             <div class="social-item">
-                                                <a href="<?= $chambre->fb?>" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="<?= $chambre->fb?>" class="icon-title">facebook</a>
+                                                <a href="#" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#" class="icon-title">facebook</a>
                                             </div>
                                             <div class="social-item">
-                                                <a href="<?= $chambre->twit?>" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-                                                <a href="<?= $chambre->twit?>" class="icon-title" target="_blank">twitter</a>
+                                                <a href="#" class="icon twitter"><i class="fab fa-twitter"></i></a>
+                                                <a href="#" class="icon-title">twitter</a>
                                             </div>
                                             <div class="social-item">
-                                                <a href="<?= $chambre->linked?>" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                                <a  href="<?= $chambre->linked?>"class="icon-title" target="_blank">linkedin</a>
+                                                <a href="#" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                                <a href="#" class="icon-title">linkedin</a>
                                             </div>
-                                            
-                                            
                                             <div class="social-item">
-                                                <a href="<?= $chambre->insta?>" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                                                <a href="<?= $chambre->insta?>" class="icon-title" target="_blank">instagram</a>
+                                                <a href="#" class="icon behance"><i class="fab fa-behance"></i></a>
+                                                <a href="#" class="icon-title">behance</a>
                                             </div>
-                                            
-                      </div>
-                      @endforeach
-                                          
+                                            <div class="social-item">
+                                                <a href="#" class="icon google"><i class="fab fa-google-plus-g"></i></a>
+                                                <a href="#" class="icon-title">google</a>
+                                            </div>
+                                            <div class="social-item">
+                                                <a href="#" class="icon instagram"><i class="fab fa-instagram"></i></a>
+                                                <a href="#" class="icon-title">instagram</a>
+                                            </div>
+                                            <div class="social-item">
+                                                <a href="#" class="icon tumblr"><i class="fab fa-tumblr"></i></a>
+                                                <a href="#" class="icon-title">tumblr</a>
+                                            </div>
+                                            <div class="social-item">
+                                                <a href="#" class="icon youtube"><i class="fab fa-youtube"></i></a>
+                                                <a href="#" class="icon-title">youtube</a>
+                                            </div>
                       </div>
                     </div>
                   </div>
@@ -222,6 +204,11 @@
       </div>
     </div>
   </div>
+
+
+
+
+
 
 
 

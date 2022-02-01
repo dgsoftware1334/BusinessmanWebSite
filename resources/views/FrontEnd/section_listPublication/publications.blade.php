@@ -5,10 +5,10 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text">Nouvelles publications </span>
+                            <span class="title-text">{{trans('listpub_trans.All posts')}} </span>
                         </div>
                         <ol class="breadcrumb">
-                            <li>Tu es là : </li>
+                           
                             <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
 
                             <li class="active">{{trans('header_trans.Publications')}}</li>
@@ -31,7 +31,7 @@
 								<div class="container container-1310 p-0 p-md-auto">
 									<div class="section-header">
 										<br>
-										<h3>Publications </h3>
+										<h3>{{trans('listpub_trans.All posts')}} </h3>
 									</div>
 									<div class="section-wrapper">
 										@foreach($publications as $row)

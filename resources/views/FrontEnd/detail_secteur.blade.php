@@ -13,7 +13,7 @@
                             <span class="title-text"> Secteur d'activité</span>
                         </div>
                         <ol class="breadcrumb">
-                            <li>Tu es là : </li>
+                            
                              <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
 
                             <li><a href="{{url('/secteurs')}}">Secteur</a></li>

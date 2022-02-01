@@ -106,11 +106,11 @@ function yesnoCheckupdate() {
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-<<<<<<< HEAD
+
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-=======
+
               <li class="breadcrumb-item"><a href="#">Les événements</a></li>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
+
              
               
               <li class="breadcrumb-item active">Evenements</li>
@@ -302,11 +302,11 @@ function yesnoCheckupdate() {
                       <th>Duré</th>
                       <th>Type</th>
                       <th>Lien</th>
-<<<<<<< HEAD
+
                       <th>Lieu</th>
-=======
+
                       <th>Etat</th>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
+
                       <th >Action</th>
                     </tr>
                   </thead>
@@ -334,9 +334,8 @@ function yesnoCheckupdate() {
                        En ligne 
                        @endif</td>
                       <td>{{$event->lien}}</td>
-<<<<<<< HEAD
+
                       <td> {{$event->lieu}}</td>
-=======
                       <td>
                          
                      @if($event->status == '0')
@@ -347,7 +346,7 @@ function yesnoCheckupdate() {
 
                      
                       </td>
->>>>>>> 125694824c898e093841ebb3264f59977ead91c6
+
                       
                       <td>
 
