@@ -44,7 +44,7 @@
                                             <h5>{{$row->context}}.</h5>
                                         </a>
                                         <div class="meta-post">
-                                            <span class="by">{{ Str::limit($row->contenu, 30) }}</span><br> at &ensp;{{$row->updated_at}}</a>
+                                            <span class="by">{!! Str::limit($row->contenu, 30) !!}</span><br> at &ensp;{{$row->updated_at}}</a>
                                         </div>
 									</div>
     							</div>

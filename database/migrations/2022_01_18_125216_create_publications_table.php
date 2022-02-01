@@ -15,8 +15,8 @@ class CreatePublicationsTable extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
-             $table->string('context');
-             $table->text('contenu');
+             $table->text('context');
+             $table->longtext('contenu');
              $table->string('image')->nullable();
              $table->tinyInteger('status')->default('0');
 

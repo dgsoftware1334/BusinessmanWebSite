@@ -273,10 +273,10 @@ border-top: 1px solid blue;
 
                   
          <div class="form-group row">
-                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="image">Image</label>
+                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="photo">Image</label>
                     <div class="input-group col-sm-9">
                       <div class="custom-file col-sm-9">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image"  class="@error('contenu') is-invalid @enderror">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="photo"  class="@error('contenu') is-invalid @enderror">
                        
                         <label class="custom-file-label" for="exampleInputFile">Choisis une image</label>
                       </div>

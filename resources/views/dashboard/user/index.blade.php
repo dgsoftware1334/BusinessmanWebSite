@@ -195,8 +195,7 @@ border-top: 1px solid blue;
                        <!--delete user-->
                      <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
-                      <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
-
+                 
                       <!--active-->
                       
                      <!--deactive-->
@@ -266,7 +265,6 @@ border-top: 1px solid blue;
                           </a>
                          <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                        <!--delete user-->
-                      <i class="far fa-trash-alt" style="color: red"></i>&ensp; 
                          
 
                      <!--deactive-->

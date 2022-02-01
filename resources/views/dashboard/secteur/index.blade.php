@@ -42,82 +42,59 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-<<<<<<< HEAD
-            <h1 class="m-0">Secteurs d'activité</h1>
             <h1 class="m-0">Les secteurs d'activité</h1>
-=======
-
-            
-
-            <h1 class="m-0">Les secteurs d'activité</h1>
-
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
-            @error('libelle')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
-@error('description')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-<<<<<<< HEAD
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
               <li class="breadcrumb-item"><a href="#">Les secteurs d'activité</a></li>
-=======
-
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-
-              <li class="breadcrumb-item"><a href="#">Les secteurs d'activité</a></li>
-
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
-             
-              
-              <li class="breadcrumb-item active">Secteurs d'activité</li>
+              <li class="breadcrumb-item active">accueil</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
 
-      <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                  
-                <h3 class="card-title">La liste des secteurs d'activité</h3>
-               
+@if(session('supprimer'))
+<div class="alert alert-danger">
+ {{ session('supprimer') }}
+</div>
+@endif
+ <div class="animated fadeInUp infinite" alt="Transparent MDB Logo" >      
+     <div class="card card-primary card-outline">
+        <div class="card-body">
+         <div class="container">
+<div class="row">
+<div class="col-lg-11 bg-white rounded-top tab-head">
 
-                <div class="card-tools">
-                
-                <div class="card-body">
-                       <button type="button"  class="btn btn-block btn-outline-info" data-toggle="modal" data-target="#modal-lg">
-                              Ajouter un secteur
-                        </button>
-                </div>
+</div>
+<div class="col-lg-1 ">
+  <a type="button"  class="btn btn-block btn-outline-info" data-toggle="modal" data-target="#modal-lg">
+<img src="https://img.icons8.com/ios/32/000000/new-job.png"/>
+</a>
+</div>
+   
 
-                </div>
-              </div>
-              
-      <div class="modal fade" id="modal-lg">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Ajouter un secteur d'activité</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+   <div class="modal fade" id="modal-lg">
+       <div class="modal-dialog"style="width: 900px" >
+<div class="modal-content"style="width: 900px">
+<div class="modal-header" style="background-color: #4682B4;">
+<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; Ajouter un secteur d'activité </h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
 
-              
-            <!-- general form elements disabled -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Information du secteur</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form action="{{ route('admin.store')}}" method="POST" enctype="multipart/form-data">
+         <div class="modal-body">
+           <form action="{{ route('admin.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
            
                   <div class="row">
@@ -133,7 +110,7 @@ border-top: 1px solid blue;
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Description du secteur<span style="color:red">*</span></label>
-                        <textarea class="form-control" rows="3" placeholder="Donner une description du secteur ..." name="description"  class="@error('description') is-invalid @enderror" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Donner une description du secteur ..." name="description"  class="@error('description') is-invalid @enderror" id="fr" ></textarea>
                         
                       </div>
                     </div>
@@ -152,7 +129,7 @@ border-top: 1px solid blue;
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>وصف المجال</label>
-                        <textarea class="form-control" rows="3" placeholder="اكتب وصف المجال بالعربي ..." name="description_ar" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="اكتب وصف المجال بالعربي ..." name="description_ar" id="ar"></textarea>
                       </div>
                     </div>
                    </div>
@@ -166,7 +143,7 @@ border-top: 1px solid blue;
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Give a description of the activity area ..." name="description_en" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Give a description of the activity area ..." name="description_en" id="en"></textarea>
                       </div>
                     </div>
                     </div>
@@ -189,19 +166,28 @@ border-top: 1px solid blue;
             </div>
                   
                 </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            </div>
+             
+          </div>
+
+           
           
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
       </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+             
+<!---ajouter secteur----->
+
+
+
+
+
+
+<div class="col-lg-12 bg-white">
+<div class="tab-content mt-4" id="myTabContent">
+
+<table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -224,7 +210,7 @@ border-top: 1px solid blue;
                          @endif
                       </td>
                       <td> {{$row->libelle}}</td>
-                      <td>{{$row->description}}</td>
+                      <td>{!!$row->description!!}</td>
                       <td>
 
                      
@@ -255,26 +241,20 @@ border-top: 1px solid blue;
 
 
       <!------------------------------------------update modal------------------------------------->
-      <div class="modal fade" id="edit{{$row->id}}">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Modifier le secteur d'activité</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+     
+ <div class="modal fade" id="edit{{$row->id}}">
+         <div class="modal-dialog"style="width: 900px" >
+<div class="modal-content"style="width: 900px">
+<div class="modal-header" style="background-color: #4682B4;">
+<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; Modifie un secteur d'activité </h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
             <div class="modal-body">
 
-              
-            <!-- general form elements disabled -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Information du secteur</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form action="{{ route('admin.update')}}" method="POST" enctype="multipart/form-data">
+               <form action="{{ route('admin.update')}}" method="POST" enctype="multipart/form-data">
                 @csrf
            
                   <div class="row">
@@ -289,7 +269,7 @@ border-top: 1px solid blue;
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Description du secteur<span style="color:red">*</span></label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" >{{$row->getTranslation('description', 'fr')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror"  id="upfr<?=$row->id; ?>"  >{{$row->getTranslation('description', 'fr')}}</textarea>
                         
                       </div>
                     </div>
@@ -304,7 +284,7 @@ border-top: 1px solid blue;
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description en anglais</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" >{{$row->getTranslation('description', 'en')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en"  id="upen<?=$row->id; ?>" >{{$row->getTranslation('description', 'en')}}</textarea>
                       </div>
                     </div>
                   </div>
@@ -313,7 +293,7 @@ border-top: 1px solid blue;
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description en arabe</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" >{{$row->getTranslation('description', 'ar')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar"  id="upar<?=$row->id; ?>" >{{$row->getTranslation('description', 'ar')}}</textarea>
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -343,9 +323,8 @@ border-top: 1px solid blue;
             </div>
                   
                 </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
+            <!-- general form elements disabled -->
+            
             </div>
           
           </div>
@@ -353,9 +332,26 @@ border-top: 1px solid blue;
         </div>
         <!-- /.modal-dialog -->
       </div>
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
                 
                      <!------------------------------------------delete modal------------------------------------->
+                     
                      <div class="modal fade" id="delete{{$row->id}}">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -415,6 +411,26 @@ border-top: 1px solid blue;
       </div>
 
 
+<script>
+   
+        ClassicEditor
+        .create( document.querySelector( '#upen<?=$row->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upar<?=$row->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upfr<?=$row->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    
+     
+</script>
 
                       
                     
@@ -422,15 +438,43 @@ border-top: 1px solid blue;
 
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-       
-        </div>
+ 
+</div>
+</div>
+</div>
+</div>
 
-         </div>
+</div>
+     </div>
+</div>
+  
+</div>
+
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#fr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#ar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#en' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+       
+    
+     
+</script>
+
+
+
+
 
   <!-- /.content-wrapper -->
 @endsection

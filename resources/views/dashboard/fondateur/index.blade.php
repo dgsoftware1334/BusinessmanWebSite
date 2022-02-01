@@ -137,7 +137,9 @@ border-top: 1px solid blue;
 <div class="modal-dialog"style="width: 1000px" >
 <div class="modal-content"style="width: 1000px">
 <div class="modal-header" style="background-color: #4682B4;">
-<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; Ajouter </h4>
+<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+Modifier un fondateur </h4>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -206,7 +208,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Description<span style="color:red">*</span></label>
                     <div class="col-sm-9">
             
-                      <textarea class="form-control" rows="3" name="description" id="upfr" placeholder="Enter ..." >{{$row->getTranslation('description', 'fr')}}</textarea>
+                      <textarea class="form-control" rows="3" name="description" id="upfr<?=$row->id; ?>" placeholder="Enter ..." >{{$row->getTranslation('description', 'fr')}}</textarea>
 
                     </div>
                   </div>
@@ -214,7 +216,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-3 col-form-label">نبذة عن المؤسس</label>
                     <div class="col-sm-9">
             
-                      <textarea class="form-control" rows="3" id="upar" name="description_ar" placeholder="نبذة عن المؤسس ..."> {{$row->getTranslation('description', 'ar')}}</textarea>
+                      <textarea class="form-control" rows="3" id="upar<?=$row->id; ?>" name="description_ar" placeholder="نبذة عن المؤسس ..."> {{$row->getTranslation('description', 'ar')}}</textarea>
 
                     </div>
                   </div>
@@ -222,14 +224,24 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Description</label>
                     <div class="col-sm-9">
             
-                      <textarea class="form-control" rows="3" name="description_en" id="upen" placeholder="Write an english description" >{{$row->getTranslation('description', 'en')}}</textarea>
+                      <textarea class="form-control" rows="3" name="description_en" id="upen<?=$row->id; ?>" placeholder="Write an english description" >{{$row->getTranslation('description', 'en')}}</textarea>
 
                     </div>
                   </div>
-                  <div class="col-sm-6">
+                 
+
+
+                   <div class="col-sm-6">
                             <label for="">Ajouter une image<span style="color:red">*</span></label>
                             <input type="file" name="image"  class="course form-control">
                         </div>
+
+
+
+
+
+
+
 
                  
                   <br/>
@@ -258,7 +270,40 @@ border-top: 1px solid blue;
 </div>
 <!-- /.modal-dialog -->
 </div>
-
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#fr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#ar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#en' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upen<?=$row->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upar<?=$row->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upfr<?=$row->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    
+     
+</script>
 
 
 
@@ -298,8 +343,8 @@ border-top: 1px solid blue;
 <div class="modal-header"  style="background-color: #4682B4;">
 <h4 class="modal-title" style="color: white" >&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
-&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
-Ajouter </h4>
+
+Ajouter un fondateur</h4>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -388,10 +433,12 @@ Ajouter </h4>
 
                     </div>
                   </div>
-                  <div class="col-sm-6">
+            <div class="col-sm-6">
                             <label for="">Ajouter une image<span style="color:red">*</span></label>
                             <input type="file" name="image"  class="course form-control">
                         </div>
+
+
 
                  
                   <br/>
@@ -429,6 +476,7 @@ Ajouter </h4>
 </div>
 
 </div>
+
 <script>
     ClassicEditor
         .create( document.querySelector( '#fr' ) )
@@ -445,25 +493,10 @@ Ajouter </h4>
         .catch( error => {
             console.error( error );
         } );
-        ClassicEditor
-        .create( document.querySelector( '#upen' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        ClassicEditor
-        .create( document.querySelector( '#upar' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        ClassicEditor
-        .create( document.querySelector( '#upfr' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+       
     
      
 </script>
-
 
 <!-- /.content-wrapper -->
 @endsection
