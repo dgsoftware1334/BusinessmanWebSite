@@ -8,12 +8,12 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text">listes des secteurs d'activité</span>
+                            <span class="title-text">{{trans('secteur_trans.list of business sectors')}}</span>
                         </div>
                         <ol class="breadcrumb">
-                            <li>Tu es là : </li>
-                            <li><a href="{{url('/')}}">Accueil</a></li>
-                            <li class="active">listes des secteurs d'activité</li>
+                            
+                            <li><a href="{{url('/')}}">{{trans('secteur_trans.Home')}}</a></li>
+                            <li class="active">{{trans('secteur_trans.list of business sectors')}}</li>
                         </ol>
                     </div>
                 </div>

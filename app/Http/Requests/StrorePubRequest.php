@@ -25,7 +25,7 @@ class StrorePubRequest extends FormRequest
     {
         return [
             'context' => 'required',
-            'contenu' => 'required|max:255',
+            'contenu' => 'required',
             'image' => 'required',
         ];
     }

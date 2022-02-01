@@ -9,12 +9,12 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text">Liste des événements</span>
+                            <span class="title-text">{{trans('listevent_trans.All events')}}</span>
                         </div>
                         <ol class="breadcrumb">
-                            <li>Tu es là : </li>
+                            
                              <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
-                            <li class="active">Liste des événements</li>
+                            <li class="active">{{trans('listevent_trans.All events')}}</li>
 
 
                            
@@ -44,10 +44,20 @@
                                     <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} à {{$row->date_fin}} </a></span>
                                     <span class="by"><i class="fas fa-map-marker-alt"></i> Toma Tower, Gulshan, Dhaka.</span>
                                 </div>
+<<<<<<< HEAD
                                 <p>{!! $event->description !!}</p>
                                 <a href="#" class="btn-defult">Buy Ticket</a>
                                 <p>{{ Str::limit($row->description, 30) }}.</p>
                                 <a href="<?=$row->lien?>" class="btn-defult">Viste lien</a>
+=======
+
+                                <p>{!! $event->description !!}</p>
+                                <a href="#" class="btn-defult">Buy Ticket</a>
+
+                                <p>{{ Str::limit($row->description, 30) }}.</p>
+                                <a href="<?=$row->lien?>" class="btn-defult">Visite lien</a>
+
+>>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
                             </div>
                         </div>
                     </div>

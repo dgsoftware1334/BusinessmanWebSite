@@ -17,20 +17,20 @@
 	    			<div class="col-lg-8">
 	    				<div class="contact-info">
 	                        <div id="respond" class="comment-respond contact-from7">
-	                            <h4 id="reply-title" class="comment-reply-title">Laissez un message</h4>
-	                            <p>Envoyez-nous un message si vous avez des questions</p>         
+	                            <h4 id="reply-title" class="comment-reply-title">{{trans('contact_trans.Leave a message')}}</h4>
+	                            <p>{{trans('contact_trans.Send us a message if you have any questions')}}</p>       
 	                             <form  method="get" action="{{ route('contactus')}}" >
                 <div class="form-group">
                   <div class="input-group">
                  <br>
                  <br>
-                     <input type="email" placeholder="E-mail"  id="email" name="email">
-                      <input type="text" placeholder="Name"  id="name" name="name">
+                     <input type="email" placeholder="{{trans('contact_trans.Email')}}"  id="email" name="email">
+                      <input type="text" placeholder="{{trans('contact_trans.Name')}}"  id="name" name="name">
                                    
-	                <textarea name="message" rows="8" id="message" placeholder="Your Message" ></textarea>
+	                <textarea name="message" rows="8" id="message" placeholder="{{trans('contact_trans.Message')}}" ></textarea>
                       
                      <div class="col-lg-12"> 
-                     <input name="submit" type="submit" id="submit" class="submit" value="Envoyez message" style="background-color:  #fd3d6b;width: 700px" >
+                     <input name="submit" type="submit" id="submit" class="submit" value="{{trans('contact_trans.Send your message')}}" style="background-color:  #fd3d6b;width: 700px" >
                   </div>  </div>
                 </div>
               </form>

@@ -5,8 +5,8 @@
 		<div class="banner-content-area">
 			<div class="container container-1310">
 				<div class="banner-content">
-					<h1>We Are Event Professional</h1>
-					<span>Find The Conference, Festival, Exhibition, Meetup, Seaker & Vanue</span>
+					<h1>{{trans('accueil_trans.Platform of Algerian businessmen')}}</h1>
+					<span>{{trans('accueil_trans.Here you find Algerian businessmen and their sectors of activity')}}</span>
 					<div class="banner-search">
 						
 					</div>

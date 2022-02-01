@@ -8,8 +8,8 @@
 			
 			<div class="section-header">
 					<br><br>
-                <h2>Les secteurs d'activité</h2>
-                <p><a href="{{ url('/secteurs/') }}" class="all-view">Afficher tous Les secteurs d'activité</a></p>
+                <h2>{{trans('service_trans.Sectors of activity')}}</h2>
+                <p><a href="{{ url('/secteurs/') }}" class="all-view">{{trans('service_trans.Show all Sectors of activity')}}</a></p>
             </div>
 			<div class="section-wrapper" >
 				  @foreach ($secteurs as $row1)

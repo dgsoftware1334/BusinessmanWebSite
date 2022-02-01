@@ -22,8 +22,11 @@ class CreateEventsTable extends Migration
             $table->date('date_fin');
             $table->integer('dure');
             $table->string('image');
+<<<<<<< HEAD
             $table->boolean('type');
 
+=======
+>>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
             $table->string('lien')->nullable();
             $table->string('lieu')->nullable();
             $table->unsignedBigInteger('admin_id')->nullable();

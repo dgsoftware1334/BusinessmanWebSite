@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->date('datenaissance');
             $table->string('phone');
-            $table->string('description');
+            $table->longText('description');
             $table->string('address');
             $table->string('diplome')->nullable();
             $table->string('lienfb')->nullable();

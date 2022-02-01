@@ -42,8 +42,16 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+<<<<<<< HEAD
             <h1 class="m-0">Secteurs d'activité</h1>
             <h1 class="m-0">Les secteurs d'activité</h1>
+=======
+
+            
+
+            <h1 class="m-0">Les secteurs d'activité</h1>
+
+>>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
             @error('libelle')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -53,8 +61,16 @@ border-top: 1px solid blue;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+<<<<<<< HEAD
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
               <li class="breadcrumb-item"><a href="#">Les secteurs d'activité</a></li>
+=======
+
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+
+              <li class="breadcrumb-item"><a href="#">Les secteurs d'activité</a></li>
+
+>>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
              
               
               <li class="breadcrumb-item active">Secteurs d'activité</li>

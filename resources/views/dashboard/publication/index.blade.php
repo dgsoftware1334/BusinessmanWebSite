@@ -369,9 +369,20 @@ border-top: 1px solid blue;
                 </table>
 
 
+<<<<<<< HEAD
 
 </div>
 
+=======
+
+
+</div>
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+</div>
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+</div>
+>>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
   
 
@@ -919,6 +930,10 @@ border-top: 1px solid blue;
                     
                   </tbody>
                 </table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
  </div>
               <!-- edit publication--->
  
