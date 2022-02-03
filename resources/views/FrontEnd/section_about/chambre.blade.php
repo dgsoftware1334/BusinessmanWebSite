@@ -25,7 +25,7 @@
      <section class="about-section style-2 padding-tb">
         <div class="container container-1310">
             <div class="section-header">
-                <p>Qui sommes nous</p>
+                <p>{{trans('about_trans.Who are we')}}</p>
                 <h2>{{$chambre->sujet}}</h2>
             </div>
             <div class="section-wrapper">
@@ -103,7 +103,7 @@
 		        <div class="achive-right">
 	                <div class="section-header">
 	                   
-	                    <h2>&ensp; Politique de confidentialité</h2>
+	                    <h2>&ensp; {{trans('about_trans.Politics about the chamber')}}</h2>
 	                </div>
 	                <div class="section-wrapper">
                         <div class="achive-content">
@@ -129,7 +129,7 @@
         <div class="container container-1310">
             <div class="section-header wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
                 <p></p>
-                <h2>NOS FONDATEURS</h2>
+                <h2>{{trans('about_trans.Our founders')}}</h2>
             </div>
             <div class="section-wrapper">
 				<div class="testimonial-slider-two">
@@ -167,7 +167,7 @@
         <div class="container container-1310">
             <div class="contact-info">
                 <div class="section-header">
-                    <h5>Contectez-nous</h5>
+                    <h5>{{trans('about_trans.Contact us')}}</h5>
                 </div>
                 <div class="section-wrapper">
                     <div class="number">{{ $chambre->telephone}}</div>

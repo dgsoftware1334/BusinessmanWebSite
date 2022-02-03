@@ -21,15 +21,7 @@ class Event extends Model
                   'image',
                   'type',
                   'lien',
-<<<<<<< HEAD
                   'lieu',
-=======
-
-
-                  'lieu',
-      
-                
->>>>>>> 757608a43e44b0c574bec2ac5a838fabae4a9a08
                   'status',   
                   'admin_id',            
     

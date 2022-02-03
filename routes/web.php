@@ -66,7 +66,8 @@ Auth::routes();
     //Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
     //------all users--------
     Route::get('/businessmans',[UserController::class, 'index'])->name('index.user');
-    Route::post('/search', [UserController::class, 'search'])->name('search');
+    //Route::post('/search', [UserController::class, 'search'])->name('search');
+    Route::get('/search', [UserController::class, 'barrerecherche'])->name('search');
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
 
     Route::get('/contectUs/',[UserController::class, 'contact_us'])->name('contactus');
@@ -199,15 +200,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/desactive/{publication}/{user}/{id}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
 
 
-<<<<<<< HEAD
+
 
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
 
-=======
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
->>>>>>> 757608a43e44b0c574bec2ac5a838fabae4a9a08
+
       //------------fondateur-----------------
         Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
         //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');

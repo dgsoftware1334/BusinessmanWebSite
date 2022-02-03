@@ -26,10 +26,8 @@ use Illuminate\Support\Facades\DB;
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 757608a43e44b0c574bec2ac5a838fabae4a9a08
+
 class UserController extends Controller
 {
     function create(CreatUserRequest $request){
@@ -129,7 +127,7 @@ $publication= Publication::find(1);
 
 
 
-public function search(Request $request)
+/*public function search(Request $request)
 {
     $sec  = $request->secteur;
     $q = $request->nom;
@@ -148,26 +146,46 @@ public function search(Request $request)
 
     if (count($users) > 0) {
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 757608a43e44b0c574bec2ac5a838fabae4a9a08
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
         //return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
   
    // return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 757608a43e44b0c574bec2ac5a838fabae4a9a08
     } else {
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('Erreur cet Homme d affaire est introuvable !')->withLocations($secteurs)->withQuery($q);
     }
     //dd($request->text);
-}
+}*/
+/*--------------------------------------------------second search ------------------------*/
+public function barrerecherche() {
+  $nom=$_GET['nom'];
+  $secteur=$_GET['secteur'];
+ 
+  /*$users = DB::table('users')->join('secteurs', 'users.sacteur_id', '=', 'secteurs.id')
+  ->where('users.name',$nom)
+  ->orWhere('secteurs.libelle',$secteur)
+  
+  ->select('users.*')
+  ->get();*/
+  $users = User::where('name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
+    $query->where('libelle', 'LIKE', '%' . $secteur . '%');
+})->get();
+
+  $secteurs= Secteur::all();
+  $chambres= Chambre::all();
+  if (count($users) > 0) {
+
+   
+    return view('FrontEnd.user.index',compact('secteurs','users','chambres'));
+      }
+      else {
+        return view('FrontEnd.user.index',compact('secteurs','users','chambres'));
+      }
+    
+    }
 //------------------------------------------------------------------------------------
 public function update_informationPro(Request $request, $id)
 {

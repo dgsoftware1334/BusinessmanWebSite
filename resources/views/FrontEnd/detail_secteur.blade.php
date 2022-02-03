@@ -10,13 +10,13 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text"> Secteur d'activité</span>
+                            <span class="title-text"> {{trans('about_trans.Sector of activity')}}</span>
                         </div>
                         <ol class="breadcrumb">
                             
                              <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
 
-                            <li><a href="{{url('/secteurs')}}">Secteur</a></li>
+                            <li><a href="{{url('/secteurs')}}">{{trans('about_trans.Sector')}}</a></li>
                             <li class="active">{{$secteur->libelle}}</li>
                         </ol>
                     </div>

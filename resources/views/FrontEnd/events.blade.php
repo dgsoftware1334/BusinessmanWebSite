@@ -41,7 +41,7 @@
                             <div class="masonary-content">
                                 <a href="#"><h5>{{$row->sujet}}</h5></a>
                                 <div class="meta-post">
-                                    <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} à {{$row->date_fin}} </a></span>
+                                    <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} <i>{{trans('about_trans.At')}}</i> {{$row->date_fin}} </a></span>
                                     <span class="by">
                                      @if(is_null($row->lieu))
                                       <i class="fas fa-link"></i>
@@ -56,7 +56,7 @@
                                 <p>
                                     {!! Str::limit($row->description, 60) !!}
                                 </p>
-                                <a href="<?=$row->lien?>" class="btn-defult">Viste lien</a>
+                                <a href="<?=$row->lien?>" class="btn-defult">{{trans('about_trans.Visit the link')}}</a>
 
                                 
                             </div>

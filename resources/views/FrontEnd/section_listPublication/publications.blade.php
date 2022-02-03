@@ -53,9 +53,9 @@
 													 @if (Route::has('user.login'))
 			   
 				                                        @auth
-				                                       <a href="{{ route('user.publicaiton', [$row->id])}}" class="catagory">puls détait&ensp;   <i class="fas fa-angle-double-right"></i></a>
+				                                       <a href="{{ route('user.publicaiton', [$row->id])}}" class="catagory">{{trans('about_trans.See more')}}&ensp;   <i class="fas fa-angle-double-right"></i></a>
 				                                        @else
-				                                     	<a href="{{ url('publication/visiteur', $row->id)}}" class="catagory">puls détait&ensp;<i class="fas fa-angle-double-right"></i></a>
+				                                     	<a href="{{ url('publication/visiteur', $row->id)}}" class="catagory">{{trans('about_trans.See more')}}&ensp;<i class="fas fa-angle-double-right"></i></a>
 
 					  
 				                                       @endauth
@@ -67,7 +67,7 @@
 													<p>{!!$row->contenu!!}.  </p>
 													<div class="meta-post">
 							                            <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->updated_at}}</a></span>
-							                             <span class="by"><i class="fas fa-comment-alt"></i> {{count($row->users)}} Comments </span>
+							                             <span class="by"><i class="fas fa-comment-alt"></i> {{count($row->users)}} {{trans('about_trans.Comments')}} </span>
 							                            <span class="by"><i class="fas fa-map-marker-alt"></i> Algérie.</span>
 							                        </div>
 												</div>
@@ -112,7 +112,7 @@
 						    			<div class="col-lg-12">
 						    				@foreach($chambres as $chambre)
 						    				<div class="gmap-widget">
-						    					<h5>Contectez-nous</h5>
+						    					<h5>{{trans('about_trans.Contact us')}}</h5>
 						    					<ul class="widget-list">
 						    						<li><i class="fas fa-home"></i>{{ $chambre->adresse}}</li>
 						    						<li><i class="fas fa-phone-square"></i> {{ $chambre->telephone}}</li>

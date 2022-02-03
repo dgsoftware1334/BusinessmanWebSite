@@ -82,20 +82,20 @@
                 <div class="container container-1310 p-0 p-md-auto">
                   <div class="section-header">
                     <br>
-                    <h3>Les hommes d'affaire </h3>
+                    <h3>{{trans('about_trans.Businessmen')}}</h3>
                     <br>
                   
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="align:center;">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg bg-red-100 w-2/3 p-4 ">
               
-                <form action="{{route('search')}}" method="post" class="flex justify-start items-center">
+                <form action="{{route('search')}}" method="GET" class="flex justify-start items-center">
 
                     @csrf
                 
                     <div style="float:left;">
                         <select name="secteur"  class="px-2 py-2 w-full">
-                        <option value="">Entrer un secteur...</option>
+                        <option value="">{{trans('about_trans.Sector')}}...</option>
                             @foreach ($secteurs as $secteur)
                             <option value="{{ $secteur->libelle }}">{{ $secteur->libelle }}</option>
                             @endforeach
@@ -104,13 +104,13 @@
 
                     <div style="float:left;">
 
-                        <input type="text" name="nom" placeholder="Rechercher par nom" id="text" class="px-2 py-2 w-full">
+                        <input type="text" name="nom" placeholder="{{trans('about_trans.Name')}}" id="text" class="px-2 py-2 w-full">
                     </div>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div style="float:left;">
 
                         <button type="submit">
-                            Search</button>
+                        {{trans('about_trans.Search')}}</button>
                     </div>
                 
 
@@ -120,9 +120,9 @@
                 <div style="clear:both;">&nbsp;</div>
                 <hr>
 
-                @if(isset($details))
               
-                <h2>Le résultats de votre recherche:</h2>
+              
+                <h2>{{trans('about_trans.The results of your search')}}:</h2>
 
                 <section class="event-schedule style-4 padding-tb"><p> </p>
                 <div class="container container-1310 p-0 p-md-auto">
@@ -133,7 +133,7 @@
                     <div id="1st-Day" class="tabcontent active">
                       <div class="d-flex flex-wrap justify-content-center">
                         @foreach($users as  $row)
-                        @if($row->status == 0)
+                       
 
 
                    
@@ -155,18 +155,16 @@
                             </a>
                             </div>
                             <div class="item-content">
-                            <a href="#" class="name">{{$row->name}}  {{$row->lastname}}</a>
-                            <p> @if(!is_null($row->secteur))
-                                    {{$row->secteur->libelle}}
-                                 @endif
-                                 @if(is_null($row->secteur))
-                                   Vide
-                                 @endif
-                            </p>
+                            <a href="#" class="name">{{$row->name}}  {{$row->lastname}}
+
+                          
+
+                            </a>
+                            <span>{{$row->secteur->libelle}}</span> 
                             </div>
                                     </div>
                         </div>
-                         @endif
+                         
                         @endforeach
                       </div>
                     </div>
@@ -178,14 +176,14 @@
                 </div>
               </section>  
 
-                @endif
+               
 
-                @if (isset($message))
+                <!--@if (isset($message))
                 <img src="{{asset('assests/FrontEnd/assets/images/notfound.png')}}" alt="notfoud" >
 
-                <p class="">{{$message}}</p> Pour le nom: "{{$query}}"
+                <p class="">{{$message}}</p> {{trans('about_trans.ىضكث')}}: "{{$query}}"
 
-                @endif
+                @endif-->
             </div>
         </div>
     </div>
@@ -225,8 +223,8 @@
                 <div class="sidebar-inner">
                   <div class="sidebar-wrapper">
                     <div class="sidebar-header">
-                     <h5>Connecte-toi avec nous</h5>
-                      <p>Connectez-vous à nos réseaux sociaux</p>
+                     <h5>{{trans('about_trans.Connect you with us')}}</h5>
+                      <p>{{trans('about_trans.Connect you to our social medias')}}</p>
                     </div>
                     <div class="sidebar-wrapper">
                       <div class="sidebar-social-media">

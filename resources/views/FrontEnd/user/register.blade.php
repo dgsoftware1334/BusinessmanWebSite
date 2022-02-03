@@ -10,8 +10,8 @@
         <div class="page-header-content-inner">
           <div class="col-lg-7">
             <div class="register-title" >
-              <h2 style="color: #5B384B">{{trans('register_trans.Registration for the businessmen')}}</h2>
-              <h3 style="color:black">{{trans('register_trans.Your registration will allow you to have an overview in the national platform of Algerian businessmen')}} </h3>
+              <h2 style="color:#2A0C49 ">{{trans('register_trans.Registration for the businessmen')}}</h2>
+              <h4 style="color:#1B0135 ;border-radius: 15px; align:center;">{{trans('register_trans.Your registration will allow you to have an overview in the national platform of Algerian businessmen')}} </h4>
             </div>
           </div>
           <div class="col-lg-5">
