@@ -26,11 +26,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
 class UserController extends Controller
 {
     function create(CreatUserRequest $request){
@@ -149,20 +145,14 @@ public function search(Request $request)
 
     if (count($users) > 0) {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
         //return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
   
    // return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
+
     } else {
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('Erreur cet Homme d affaire est introuvable !')->withLocations($secteurs)->withQuery($q);
     }
