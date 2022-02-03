@@ -60,7 +60,7 @@
                             </div>
                             <div class="post-content entry-content">
                                 <div class="post-content-inner">
-                                    <p>{{$publication->contenu}}</p>
+                                    <p>{!!$publication->contenu!!}</p>
                                     <div class="tags-section entry-footer justify-content-md-between justify-content-center">
                                         
                                     </div>

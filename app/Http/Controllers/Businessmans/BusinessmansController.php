@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
-use App\Http\Requests\CreatUserRequest;
+use App\Http\Requests\StoreUserRequest;
 
 class BusinessmansController extends Controller
 {
@@ -23,16 +23,21 @@ class BusinessmansController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   function create(CreatUserRequest $request){
+   function create(StoreUserRequest $request){
       
         $validated = $request->validated();  
         $user = new User();
+       
         if($request->file('photo')){
-     $newImageName3 =time().'-'.$request->name.'.'.$request->photo->extension();
-        $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
-         $user->photo = $newImageName3;
-
-           }
+       $file_extension = $request->photo->getClientOriginalExtension();
+       $file_name =time().'.'.$file_extension;
+         $path = 'assests/imgUser';
+    $request->photo->move($path,$file_name);
+     $user->photo= $file_name;
+ 
+       // $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
+       
+                                    }
 
 
         $user->name = $request->name;
@@ -54,11 +59,11 @@ class BusinessmansController extends Controller
         $user->siteweb=$request->siteweb;
         $user->anneexp=$request->anneexp;
         $user->sacteur_id=$request->sacteur_id;
-   //
+   //  
+       
+            $save = $user->save();
 
-        
-
-        $save = $user->save();
+      
 
         if( $save ){
             toastr()->success(trans(key: 'msg_trans.success'));
@@ -132,19 +137,24 @@ class BusinessmansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreatUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
 
         $user= User::find($id);
- $validated = $request->validated();  
+ 
 
-      if($request->file('photo')){
-               $newImageName3 =time().'-'.$request->name.'.'.$request->photo->extension();
-        $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
-         $user->photo = $newImageName3;
-
-           }
+       
+        if($request->file('photo')){
+       $file_extension = $request->photo->getClientOriginalExtension();
+       $file_name =time().'.'.$file_extension;
+         $path = 'assests/imgUser';
+    $request->photo->move($path,$file_name);
+     $user->photo= $file_name;
+ 
+       // $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
+       
+                                    }
 
 
         $user->name = $request->name;

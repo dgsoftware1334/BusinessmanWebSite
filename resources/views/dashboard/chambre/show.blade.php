@@ -18,13 +18,15 @@
     </section>
   @foreach($chambres as $chambre)
   <section class="content">
-
       <!-- Default box -->
       <div class="card card-solid">
         <div class="card-body">
           <div class="row">
             <br>
+
             <div class="col-12 col-sm-6">
+              <h1> {{$chambre->sujet}}</h1>
+              <br><hr>
               <h3 class="d-inline-block d-sm-none">Discription de la chambre</h3>
               <div class="col-12">
                 <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" class="product-image" alt="Product Image">
@@ -136,8 +138,9 @@
     <div class="modal fade" id="edit{{$chambre->id}}">
         <div class="modal-dialog modal-lg" style="width:1200px">
           <div class="modal-content" style="width:1200px">
-            <div class="modal-header">
-              <h4 class="modal-title">Modifier l'evenement </h4>
+            <div class="modal-header" style="background-color: #4682B4;">
+<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;Modifier les Informations de La chambte </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -146,13 +149,7 @@
 
               
             <!-- general form elements disabled -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Information de l'evnement</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-              <form class="form-horizontal" method="POST" action="{{route('admin.update_chambre')}}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+            <form class="form-horizontal" method="POST" action="{{route('admin.update_chambre')}}" autocomplete="off" enctype="multipart/form-data" id="myForm">
                   @csrf
                 <div class="card-body">
               
@@ -310,9 +307,6 @@
                 </div-->
                 <!-- /.card-footer -->
               </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
             </div>
           
           </div>

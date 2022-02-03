@@ -48,7 +48,7 @@
 							<div class="acive-content wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
 								<span>PROCHAIN ​​ÉVÉNEMENT</span>
 								<h2>{{$row->sujet}}</h2>
-								<p>{{$row->description}}.</p>
+								<p>{!!$row->description!!}.</p>
 								<ul class="newevent-right-list">
 									
 									<li>
@@ -61,11 +61,23 @@
 									</li>
 									<li>
 										<div class="newevent-icon"><i class="fas fa-link"></i></div>
-										<div class="newevent-addres">{{$row->lien}}<span></span></div>
+										<div class="newevent-addres">
+											@if(!is_null($row->lien))
+											{{$row->lien}}<span></span>
+											@endif
+											@if(is_null($row->lien))
+											<span>(Vide)</span>
+											@endif
+										</div>
 									</li>
 									<li>
 										<div class="newevent-icon"><i class="fas fa-map-marker-alt"></i></div>
-										<div class="newevent-addres">Shahera Tropical Center, Dhaka.</div>
+										<div class="newevent-addres">@if(!is_null($row->lieu))
+											{{$row->lieu}}<span></span>
+											@endif
+											@if(is_null($row->lieu))
+											<span>(Vide)</span>
+											@endif.</div>
 									</li>
 								</ul>
 							</div>

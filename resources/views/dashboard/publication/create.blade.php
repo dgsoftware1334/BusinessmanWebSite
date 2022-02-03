@@ -58,6 +58,12 @@ border-top: 1px solid blue;
 </div>
 @endif
 
+@if(session('error'))
+<div class="alert alert-danger">
+ {{ session('error') }}
+</div>
+@endif
+
    <div class="row">
         <div class="col-sm-1 col-md-1 "></div>
         <br/>

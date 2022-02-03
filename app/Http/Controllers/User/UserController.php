@@ -26,11 +26,6 @@ use Illuminate\Support\Facades\DB;
 
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
 class UserController extends Controller
 {
     function create(CreatUserRequest $request){
@@ -119,7 +114,7 @@ public function index(){
    $chambres= Chambre::all();
   $secteurs= Secteur::all();
 $publication= Publication::find(1);
-  $users= User::orderBy('created_at','desc')->get();
+  $users= User::orderBy('created_at','desc')->where('status',0)->get();
 
                    
                        
@@ -149,20 +144,13 @@ public function search(Request $request)
 
     if (count($users) > 0) {
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
         //return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
   
    // return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
     } else {
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('Erreur cet Homme d affaire est introuvable !')->withLocations($secteurs)->withQuery($q);
     }
@@ -264,7 +252,9 @@ public function commentair(Publication $publication,Request $request,User $user 
        //}
    //}
       Auth::guard('web')->user()->publications()->attach($publication, ['contenu' => $request->contenu ,'is_valide' => 0]);
-   return back();
+       toastr()->success('Le commentaire a été ajouter! veuillez attendre la validation');
+        return redirect()->back();
+   
      
 }
 
@@ -300,7 +290,7 @@ public function contact_us(Request $request){
 public function show_secteur($id){
   $secteur=Secteur::find($id);
   $chambres= Chambre::all();
-  $users= User::where('sacteur_id',$id)->paginate(15);
+  $users= User::where('sacteur_id',$id)->where('status',0)->paginate(15);
     return view ('FrontEnd.detail_secteur',compact('secteur','chambres','users'));
 
 

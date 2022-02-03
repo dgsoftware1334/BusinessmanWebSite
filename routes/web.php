@@ -192,16 +192,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/publication/desactive/{id}',[AdminController::class, 'deactive_publication'])->name('deactive_publication');
        Route::get('/publication/active/{id}',[AdminController::class, 'active_publication'])->name('active_publication');
        Route::get('/publication/show/{id}',[AdminController::class, 'show_publication'])->name('show_publication');
-       Route::get('/commentair/delete/{id}/{id2}',[AdminController::class, 'delete_commentair'])->name('delete_commentair');
-       Route::get('/commentair/active/{publication}/{user}',[AdminController::class, 'active_commentaire'])->name('active.active');
-       Route::get('/commentair/desactive/{publication}/{user}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
+
+       Route::get('/commentair/delete/{idp}/{idpb}/{idu}',[AdminController::class, 'delete_c'])->name('delete_commentair');
+
+       Route::get('/commentair/active/{publication}/{user}/{id}',[AdminController::class, 'active_commentaire'])->name('active.active');
+       Route::get('/commentair/desactive/{publication}/{user}/{id}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
 
 
-<<<<<<< HEAD
-=======
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
->>>>>>> 017c73a55aaa0e3ec980fd95f7eda2055799c4fb
       //------------fondateur-----------------
         Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
         //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');

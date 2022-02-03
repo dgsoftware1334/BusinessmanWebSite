@@ -19,7 +19,7 @@
     						<div class="col-md-4">
     							<div class="post-item" style="border-color: black; font-size: 10px">
 									<div class="post-thumb">
-										<a href="blog-single.html"><img src="{{ asset('assests/images/poblication/'.$row->image)  }}" style="height: 160px;width: 360px" alt="blog"></a>
+										<a href="blog-single.html"><img src="{{ asset('assests/images/poblication/'.$row->image)  }}" style="height: 160px;width: 400px" alt="blog"></a>
 									</div>
 									<div class="post-content">
                                         @if (Route::has('user.login'))
@@ -44,7 +44,7 @@
                                             <h5>{{$row->context}}.</h5>
                                         </a>
                                         <div class="meta-post">
-                                            <span class="by">{!! Str::limit($row->contenu, 30) !!}</span><br> at &ensp;{{$row->updated_at}}</a>
+                                           </span><br> at &ensp;{{$row->updated_at}}</a>
                                         </div>
 									</div>
     							</div>

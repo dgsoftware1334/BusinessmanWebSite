@@ -37,7 +37,13 @@ public function create_publication()
         $file_name =time().'.'.$file_extension;
         $path = 'assests/images/poblication';
         $request->image->move($path,$file_name);
+
      
+
+
+
+
+
         $publication= new Publication();
         $publication->context = ['fr' => $request->context, 'ar' => $request->context_ar, 'en' => $request->context_en];
         $publication->contenu = ['fr' => $request->contenu, 'ar' => $request->contenu_ar, 'en' => $request->contenu_en];
@@ -71,9 +77,13 @@ public function create_publication()
             $validated = $request->validated();
             $publication = Publication::findOrFail($request->id);
             if($request->file('image')){
-              $newImageName3 =time().'-'.$request->name.'.'.$request->image->extension();
-              $test3 =$request->image->move('assests/images/poblication/',$newImageName3);
-               $publication->image = $newImageName3;
+             
+       $file_extension = $request->image->getClientOriginalExtension();
+       $file_name =time().'.'.$file_extension;
+         $path = 'assests/images/poblication';
+    $request->image->move($path,$file_name);
+     $publication->image= $file_name;
+ 
            
                  }
             $publication->update([

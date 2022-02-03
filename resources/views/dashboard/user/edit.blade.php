@@ -74,7 +74,7 @@ border-top: 1px solid blue;
                 <h3 class="card-title">Information profisonnels</h3>
               </div>
               <div class="card-body">
-                <form action="{{ route('admin.user.update',[$user->id]) }}" method="post" autocomplete="off">
+                <form action="{{ route('admin.user.update',[$user->id]) }}" method="post" autocomplete="off" enctype="multipart/form-data">
                @if (Session::get('success'))
                          <div class="alert alert-success">
                              {{ Session::get('success') }}
@@ -253,10 +253,29 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Secteur</label>
                     <div class="col-sm-9">
                    <select name="sacteur_id" id="department" class="form-control">
-            <option value=""> -- Select One --</option>
-              @foreach ($secteurs as $secteur)
-            <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? "selected":"" }}>{{ $secteur->libelle }}</option>
-               @endforeach 
+                    <option value="">Aucun</option>
+<?php
+$status = true;
+?>
+@foreach($secteurs as $secteur)
+@if((isset($user->secteur->id)))
+  @if( ($user->secteur->id == $secteur->id))
+  <option value="{{ $secteur->id }}" selected>{{ $secteur->libelle }}</option>
+  @endif
+@endif
+
+@if($user->secteur_id!= $secteur->id && $status  )
+
+<option value="{{ $secteur->id }}">{{ $secteur->libelle }}</option>
+<?php
+$status = true;
+?>
+@endif
+
+
+@endforeach
+
+
             </select>
 
                     </div>

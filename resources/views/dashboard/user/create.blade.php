@@ -83,7 +83,7 @@ border-top: 1px solid blue;
                 <h3 class="card-title">Information profisonnels</h3>
               </div>
               <div class="card-body">
-                <form action="{{ route('admin.user.store') }}" method="post" autocomplete="off">
+                <form action="{{ route('admin.user.store') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                @if (Session::get('success'))
                          <div class="alert alert-success">
                              {{ Session::get('success') }}
@@ -100,7 +100,7 @@ border-top: 1px solid blue;
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Nom <span style="color:red">*</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" placeholder="{{trans('register_trans.Name')}}" value="{{ old('name') }}" class="@error('name') is-invalid @enderror">
+                      <input type="text" class="form-control" name="name" placeholder="{{trans('register_trans.Name')}}" value="{{ old('name') }}" class="@error('name') is-invalid @enderror" required="">
                       <span class="text-danger">@error('name'){{ $message }} @enderror</span>
 
                     </div>
@@ -264,16 +264,15 @@ border-top: 1px solid blue;
                    <select name="sacteur_id" id="department" class="form-control">
             <option value=""> -- Select One --</option>
               @foreach ($secteurs as $secteur)
-            <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? "selected":"" }}>{{ $secteur->libelle }}</option>
+            <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? :"" }}>{{ $secteur->libelle }}</option>
                @endforeach 
             </select>
 
                     </div>
                   </div>
 
-                  
-         <div class="form-group row">
-                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="photo">Image</label>
+                 <div class="form-group row">
+                    <label for="exampleInputFile" class="col-sm-3 col-form-label" name="image">Image<span style="color:red">*</span></label>
                     <div class="input-group col-sm-9">
                       <div class="custom-file col-sm-9">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="photo"  class="@error('contenu') is-invalid @enderror">

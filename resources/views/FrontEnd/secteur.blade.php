@@ -37,7 +37,7 @@
                            <a href="{{url('secteur',$row->id)}}"><h6>{{$row->libelle}}</h6></a>
                             
                             <p>
-                                {{ Str::limit($row->description, 70) }}.<a href="{{url('secteur',$row->id)}}">see more</a></p>
+                                {!! Str::limit($row->description, 70) !!}.<a href="{{url('secteur',$row->id)}}">see more</a></p>
                             <div class="venue-location">
                             	
                                 <div class="meta-post">

@@ -97,6 +97,7 @@ border-top: 1px solid blue;
 <thead>
 <tr>
 <th style="width: 10px">#</th>
+<th>fondateur</th>
 <th>nom complet</th>
 <th>diplom</th>
 <th>description</th>
@@ -110,6 +111,7 @@ border-top: 1px solid blue;
 @foreach($fondateurs as $row)
 <tr>
 <td>{{$row->id}}</td>
+<td><img src="{{ asset('assests/images/fondateurs/'.$row->image)}}" class="rounded-circle" style="width: 60px;height: 90px" ></td>
 <td>{{$row->nom}} {{$row->prenom}}</td>
 <td>{{$row->diplom}}</td>
 <td>{!!$row->description!!}</td>

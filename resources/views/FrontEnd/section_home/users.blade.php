@@ -42,7 +42,7 @@
               
            <?php 
 //$row3=$row1->users->take(1)->get();
-           $row3=$row1->users->take(2);
+           $row3=$row1->users->where('status',0)->take(2);
 
    ?>
               @foreach($row3 as $row)
