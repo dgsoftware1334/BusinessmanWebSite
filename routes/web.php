@@ -202,20 +202,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/desactive/{publication}/{user}/{id}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f99a774a3ff59db8d342ae50c5de2106b00d29f
-
-       //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
 
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9f99a774a3ff59db8d342ae50c5de2106b00d29f
+       //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
+
+
       //------------fondateur-----------------
         Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
         //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');

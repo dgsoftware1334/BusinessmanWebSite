@@ -165,7 +165,7 @@
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
         <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>
-      {{ $user->secteur->libelle ?? '(vide)' }}
+      {{ $user->secteur->libelle ?? '(vide)' }}  ( {{ $user->anneexp}} anneé exprience )
       </h6>
        
           <p>    

@@ -200,13 +200,7 @@
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
         <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
-     @if(isset(Auth::guard('web')->user()->secteur_id))
-                          (vide) 
-                         
-                          @endif
-         @if(!isset(Auth::guard('web')->user()->secteur_id))
-              {{ Auth::guard('web')->user()->secteur->libelle}} ( {{ Auth::guard('web')->user()->anneexp}} anneé exprience )
-           @endif
+        {{ Auth::guard('web')->user()->secteur->libelle ?? '(vide)' }}  ( {{ Auth::guard('web')->user()->anneexp}} anneé exprience )
       </h6>
         <p>   @if(!isset(Auth::guard('web')->user()->secteur_id))
                              {!! Auth::guard('web')->user()->secteur->description!!}
