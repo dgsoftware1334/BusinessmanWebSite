@@ -186,6 +186,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/publication/create',[PublicationController::class, 'create_publication'])->name('create_publication');
        Route::post('/publication/edite',[PublicationController::class, 'update_publication'])->name('edite_publication');
        Route::delete('/publication/delete',[PublicationController::class, 'delete_publication'])->name('delete_publication');
+       
+       Route::get('/publication/supprimer/{id}',[PublicationController::class, 'suprimer_publication'])->name('suprimer_publication');
 
 
        //-----desactive et active publication dans la partir de l'administrateur-------
@@ -199,15 +201,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/commentair/desactive/{publication}/{user}/{id}',[AdminController::class, 'desactive_commentaire'])->name('active.deactive');
 
 
-<<<<<<< HEAD
 
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
 
-=======
        //Route::post('/publication/store',[AdminController::class, 'store_publication'])->name('store.publication');
 
->>>>>>> 757608a43e44b0c574bec2ac5a838fabae4a9a08
       //------------fondateur-----------------
         Route::get('/fondateur',[FondateurController::class, 'index_fondateur'])->name('index.fondateur');
         //Route::post('/fondateur/store',[FondateurController::class, 'store_fondateur'])->name('store.fondateur');
@@ -221,6 +220,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::post('/createEvent',[EventController::class, 'createEven'])->name('createEven');
        Route::post('/updateEvent',[EventController::class, 'updateEvent'])->name('updateEvent');
        Route::delete('/destroyEvent',[EventController::class, 'destroyEvent'])->name('destroyEvent');
+       Route::get('/Event/supprimer/{id}',[EventController::class, 'suprimer_event'])->name('suprimer_event');
 
         Route::get('/Event/desactive/{id}',[AdminController::class, 'deactive_Event'])->name('deactive_event');
        Route::get('/Event/active/{id}',[AdminController::class, 'active_Event'])->name('active_event');

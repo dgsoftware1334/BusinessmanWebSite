@@ -108,4 +108,10 @@ public function create_publication()
         return redirect()->back();
     
       }
+      public function suprimer_publication($id){
+         $publication=Publication::find($id);
+      $publication->delete();
+        toastr()->error('Vous avez supprimer le secteur');
+        return redirect()->back();
+      }
 }

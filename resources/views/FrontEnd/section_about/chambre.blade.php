@@ -142,8 +142,8 @@
 
 
                         		</div>
-                        		<div class="testi-content">
-                        			<span class="testi-text" style="color: white;">{!!$row3->description!!}.</span>
+                        		<div class="testi-content" >
+                        			<span style="color: white;">{!!$row3->description!!}.</span>
                         			<h6 class="name">{{$row3->nom}} {{$row3->prenom}}</h6>
                         			<span class="desc">,{{$row3->diplom}}</span>
                         			<br>

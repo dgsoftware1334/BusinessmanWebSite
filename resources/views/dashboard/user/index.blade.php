@@ -42,11 +42,11 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">homme d'affaire</h1>
+            <h1 class="m-0">Les hommes d'affaire</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">homme d'affaire</a></li>
+              <li class="breadcrumb-item"><a href="#">Les hommes d'affaire</a></li>
               <li class="breadcrumb-item active">accueil</li>
             </ol>
           </div><!-- /.col -->

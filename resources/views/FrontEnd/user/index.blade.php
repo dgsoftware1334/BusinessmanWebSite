@@ -56,7 +56,6 @@
                         </div>
                         <ol class="breadcrumb">
                           
-                            <li>Tu es là : </li>
                             <li><a href="index.html">{{trans('header_trans.Businessmans')}}</a></li>
                             <li class="active">{{trans('header_trans.Home')}}</li>
                         </ol>

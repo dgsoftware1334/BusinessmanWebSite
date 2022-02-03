@@ -143,11 +143,11 @@
     <div class="w3-white w3-text-grey w3-card-4">
       <div class="w3-display-container">
       @if(is_null(Auth::guard('web')->user()->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
                @endif
 
               @if(!is_null(Auth::guard('web')->user()->photo))
-              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
               @endif
               <br> <br> <br> <br> 
         <div class="w3-display-bottomleft w3-container w3-text-black">
@@ -163,6 +163,15 @@
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->address}}</p>
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large "style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->email}}</p>
         <p><i class="fa fa-phone fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->phone}}</p>
+           <p><i class="fas fa-globe fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>
+         @if(!is_null(Auth::guard('web')->user()->siteweb))
+
+          {{Auth::guard('web')->user()->siteweb}}
+          @endif
+
+            @if(is_null(Auth::guard('web')->user()->siteweb))
+          (vide)</p>
+          @endif
         
 
       
@@ -191,17 +200,17 @@
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
         <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
-        @if(is_null(Auth::guard('web')->user()->secteur_id))
-                          vide 
+     @if(isset(Auth::guard('web')->user()->secteur_id))
+                          (vide) 
                          
                           @endif
-                           @if(!is_null(Auth::guard('web')->user()->secteur_id))
-                             {{ Auth::guard('web')->user()->secteur->libelle}}
-                          @endif
+         @if(!isset(Auth::guard('web')->user()->secteur_id))
+              {{ Auth::guard('web')->user()->secteur->libelle}} ( {{ Auth::guard('web')->user()->anneexp}} anneé exprience )
+           @endif
       </h6>
-        <p>   @if(!is_null(Auth::guard('web')->user()->secteur_id))
-                             {{ Auth::guard('web')->user()->secteur->description}}
-                          @endif</p>
+        <p>   @if(!isset(Auth::guard('web')->user()->secteur_id))
+                             {!! Auth::guard('web')->user()->secteur->description!!}
+              @endif</p>
         <hr>
       </div>
       <div class="w3-container">
@@ -266,12 +275,37 @@
             <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
             <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience">
              <br>
+           
             <select name="sacteur_id" id="department" class="form-control">
             <option value=""> -- Select One --</option>
-              @foreach ($secteurs as $secteur)
-            <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? "selected":"" }}>{{ $secteur->libelle }}</option>
-               @endforeach 
+<?php
+$status = true;
+?>
+@foreach($secteurs as $secteur)
+@if((isset(Auth::guard('web')->user()->secteur->id)))
+  @if( (Auth::guard('web')->user()->secteur->id == $secteur->id))
+  <option value="{{ $secteur->id }}" selected>{{ $secteur->libelle }}</option>
+  @endif
+@endif
+
+@if(Auth::guard('web')->user()->secteur_id!= $secteur->id && $status  )
+
+<option value="{{ $secteur->id }}">{{ $secteur->libelle }}</option>
+<?php
+$status = true;
+?>
+@endif
+
+
+@endforeach
+
+
             </select>
+
+
+
+
+
     
             <br>
            <div class="file-upload">
@@ -282,7 +316,7 @@
               </div>
             </div>
                       <br>
-           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">confirmer</button>
+           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>
            
 
                 </div>
@@ -365,7 +399,7 @@
             <span class="text-danger">@error('email'){{ $message }} @enderror</span>  
           <textarea class="form-control" name="description" placeholder="{{trans('register_trans.Description')}}" value="{{ Auth::guard('web')->user()->description }}">{{ Auth::guard('web')->user()->description }}</textarea>
           <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-
+<br>
              
       
            <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>

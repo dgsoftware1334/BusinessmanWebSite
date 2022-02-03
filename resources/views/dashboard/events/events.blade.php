@@ -618,12 +618,712 @@ function yesnoCheckupdate() {
 </div>
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
+  <table  class="table table-bordered">
+                  <thead>
+                    <tr>
+                    <th>Image</th>
+                      <th>Sujet</th>
+                      <th>Description</th>
+                      <th>Date de debut</th>
+                      <th>Date de fin</th>
+                      <th>Duré</th>
+                      <th>Type</th>
+                      <th>Adress/Lien</th>
+
+                      <th>Etat</th>
+                      <th >Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                   
+                  @foreach ($events as $event)
+                  @if($event->status ==1)
+                    <tr>
+                    <td>
+                        @if(is_null($event->image))
+                         ( Image n'existe ) 
+                         @endif
+                         @if(!is_null($event->image))
+                        <img src="{{ asset('assests/images/events/'.$event->image)}}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px ">
+                         @endif
+                      </td>
+                      <td>{{$event->sujet}}</td>
+                      <td>{!!$event->description!!}</td>
+                      <td>{{$event->date_debut}}</td>
+                      <td>{{$event->date_fin}}</td>
+                      <td>{{$event->dure}}</td>
+                      <td>
+                        @if($event->type == 0)
+                        presentail
+                       @else
+                        en ligne
+                        @endif
+                      </td>
+                      <td>
+                        @if(is_null($event->lien))
+                        {{$event->lieu}}
+                        @endif
+                        @if(is_null($event->lieu))
+                        {{$event->lien}}
+                        @endif
+                      </td>
+                      <td>
+                         
+                     @if($event->status == '0')
+                      <span class="badge badge-danger">prive</span>
+                      @elseif($event->status == '1')
+                       <span class="badge badge-success">publique</span>
+                     @endif
+
+                     
+                      </td>
+                      
+                      <td>
+
+                     
+                     
+
+
+
+              
+                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit{{$event->id}}">
+                       <i class="far fa-edit" style="color: blue"></i>
+                        </button>
+                        <!--read secteur-->
+                       
+                         <!--delete secteur-->
+                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
+                         <i class="far fa-trash-alt" style="color: red"></i>
+                        </button>
+                     
+                       <!--deactive-->
+                         @if($event->status == 1)
+                     <a   href="{{ route('admin.deactive_event',[$event->id]) }}"> 
+                     
+                            <i class="fas fa-ban" style="color: orange"></i> 
+                     </a>
+                       @endif
+                       <!--active-->
+                        @if($event->status == 0)
+                        <a  href="{{ route('admin.active_event',[$event->id]) }}">
+                           
+                            <i class="fas fa-check-circle"></i>
+                        </a>
+                         @endif
+
+
+                      </td>
+                    </tr>
+
+
+ 
+      <!------------------------------------------update modal------------------------------------->
+          <div class="modal fade" id="edit{{$event->id}}">
+        <div class="modal-dialog modal-lg" style="width:1200px">
+          <div class="modal-content" style="width:1200px">
+            <div class="modal-header" style="background-color: #4682B4;">
+              <h4 class="modal-title" style="color: white">
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                Modifier l'evenement </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width:1200px">
+
+              
+            <!-- general form elements disabled -->
+             <form action="{{ url('admin/updateEvent')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+           
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Sujet (fr)</label>
+                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('sujet') is-invalid @enderror" value="{{$event->getTranslation('sujet', 'fr')}}">
+                        
+                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Description (fr))</label>
+                     
+                        <textarea class="form-control" rows="3"   placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$event->id; ?>">
+                        
+                        {{$event->getTranslation('description', 'fr')}}
+                        
+                        </textarea>
+                        
+                      </div>
+                    </div>
+                    </div>
+
+                    
+                 
+                  <div class="row">
+                  
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Sujet (ar)</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_ar" value="{{$event->getTranslation('sujet', 'ar')}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description(ar)</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" id="upar<?=$event->id; ?>" >{{$event->getTranslation('description', 'ar')}}</textarea>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Sujet (en)</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en"  value="{{$event->getTranslation('sujet', 'en')}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description (en)</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" id="upen<?=$event->id; ?>">{{$event->getTranslation('description', 'en')}}</textarea>
+                      </div>
+                    </div>
+                  
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Date de debut</label>
+                        <input type="date" class="form-control" name="date_debut" placeholder="Enter ..." value="{{$event->date_debut}}" >
+                        
+                        
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                      <label>Date de fin</label>
+                        <input type="date" class="form-control" name="date_fin" placeholder="Enter ..."   value="{{$event->date_fin}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Duré</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="dure"  value="{{$event->dure}}" >
+                      </div>
+                    </div>
+                  </div>
+              
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">  
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="yesCheckup" value="1" @if(old('type')) checked @endif/> <b>En ligne </b></label>&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="noCheckup"value="0" @if(!old('type')) checked @endif/> <b>Présentiel</b></label>
+                 <div id="ifYes" style="visibility:hidden">
+                        Lien: <input type='text'  class="form-control"placeholder="Entrer le lien vers l'evenement ..." id='ifYesup' name='lien' value="{{$event->lien}}"><br>
+        
+                  </div>
+        
+                 <div id="ifNo" style="visibility:hidden">
+                        lieu: <input type='text'  class="form-control"placeholder="Entrer le lieu de l'evenement ..."  id='ifNoup' name='lieu' value="{{$event->lieu}}"><br>
+        
+                  </div> 
+                      </div>
+                    </div> </div>
+
+
+                  
+                    
+                    <div class="col-sm-12">
+                            <label for="">Ajouter une image</label>
+                            <input type="file" name="image"  class="course form-control">
+                        </div>
+                  </div>
+
+                  <!-- input states -->
+                 
+                 
+
+                
+
+                 
+                  <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </div>
+                  
+                </form>
+          
+            </div>
+          
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+                                   
+
+      <!------------------------------------------delete modal------------------------------------->
+      <div class="modal fade" id="delete{{$event->id}}">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Suppression</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              
+            <!-- general form elements disabled -->
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Suppression</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form action="{{ route('admin.destroyEvent')}}" method="POST" >
+                {{method_field('Delete')}}
+                @csrf
+           
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <p>Etes vous sur de vouloir supprimer le secteur</p>
+                        <input type="text" class="form-control" name="sujet"  value="{{ $event->sujet }}" disabled  >
+
+                        
+                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
+                        
+                       
+                      </div>
+                    </div>
+                  
+                  
+                  </div>
+              
+                  
+                  <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+              <button type="submit" class="btn btn-primary" name="submit">Oui</button>
+            </div>
+                  
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            </div>
+          
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+
+
+     <script>
   
+        ClassicEditor
+        .create( document.querySelector( '#upen<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upar<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upfr<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    
+     
+</script>
+
+
+                
+                
+                  
+
+              @endif
+                    
+              @endforeach
+
+                  </tbody>
+                </table>
+
+
+
 
 
 
 </div>
 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+<table  class="table table-bordered">
+                  <thead>
+                    <tr>
+                    <th>Image</th>
+                      <th>Sujet</th>
+                      <th>Description</th>
+                      <th>Date de debut</th>
+                      <th>Date de fin</th>
+                      <th>Duré</th>
+                      <th>Type</th>
+                      <th>Adress/Lien</th>
+
+                      <th>Etat</th>
+                      <th >Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                   
+                  @foreach ($events as $event)
+                  @if($event->status ==0)
+                    <tr>
+                    <td>
+                        @if(is_null($event->image))
+                         ( Image n'existe ) 
+                         @endif
+                         @if(!is_null($event->image))
+                        <img src="{{ asset('assests/images/events/'.$event->image)}}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px ">
+                         @endif
+                      </td>
+                      <td>{{$event->sujet}}</td>
+                      <td>{!!$event->description!!}</td>
+                      <td>{{$event->date_debut}}</td>
+                      <td>{{$event->date_fin}}</td>
+                      <td>{{$event->dure}}</td>
+                      <td>
+                        @if($event->type == 0)
+                        presentail
+                       @else
+                        en ligne
+                        @endif
+                      </td>
+                      <td>
+                        @if(is_null($event->lien))
+                        {{$event->lieu}}
+                        @endif
+                        @if(is_null($event->lieu))
+                        {{$event->lien}}
+                        @endif
+                      </td>
+                      <td>
+                         
+                     @if($event->status == '0')
+                      <span class="badge badge-danger">prive</span>
+                      @elseif($event->status == '1')
+                       <span class="badge badge-success">publique</span>
+                     @endif
+
+                     
+                      </td>
+                      
+                      <td>
+
+                     
+                     
+
+
+
+              
+                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit{{$event->id}}">
+                       <i class="far fa-edit" style="color: blue"></i>
+                        </button>
+                        <!--read secteur-->
+                       
+                         <!--delete secteur-->
+                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
+                         <i class="far fa-trash-alt" style="color: red"></i>
+                        </button>
+                     
+                       <!--deactive-->
+                         @if($event->status == 1)
+                     <a   href="{{ route('admin.deactive_event',[$event->id]) }}"> 
+                     
+                            <i class="fas fa-ban" style="color: orange"></i> 
+                     </a>
+                       @endif
+                       <!--active-->
+                        @if($event->status == 0)
+                        <a  href="{{ route('admin.active_event',[$event->id]) }}">
+                           
+                            <i class="fas fa-check-circle"></i>
+                        </a>
+                         @endif
+
+
+                      </td>
+                    </tr>
+
+
+ 
+      <!------------------------------------------update modal------------------------------------->
+          <div class="modal fade" id="edit{{$event->id}}">
+        <div class="modal-dialog modal-lg" style="width:1200px">
+          <div class="modal-content" style="width:1200px">
+            <div class="modal-header" style="background-color: #4682B4;">
+              <h4 class="modal-title" style="color: white">
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                Modifier l'evenement </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width:1200px">
+
+              
+            <!-- general form elements disabled -->
+             <form action="{{ url('admin/updateEvent')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+           
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Sujet (fr)</label>
+                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('sujet') is-invalid @enderror" value="{{$event->getTranslation('sujet', 'fr')}}">
+                        
+                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Description (fr))</label>
+                     
+                        <textarea class="form-control" rows="3"   placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$event->id; ?>">
+                        
+                        {{$event->getTranslation('description', 'fr')}}
+                        
+                        </textarea>
+                        
+                      </div>
+                    </div>
+                    </div>
+
+                    
+                 
+                  <div class="row">
+                  
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Sujet (ar)</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_ar" value="{{$event->getTranslation('sujet', 'ar')}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description(ar)</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" id="upar<?=$event->id; ?>" >{{$event->getTranslation('description', 'ar')}}</textarea>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Sujet (en)</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en"  value="{{$event->getTranslation('sujet', 'en')}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description (en)</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" id="upen<?=$event->id; ?>">{{$event->getTranslation('description', 'en')}}</textarea>
+                      </div>
+                    </div>
+                  
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Date de debut</label>
+                        <input type="date" class="form-control" name="date_debut" placeholder="Enter ..." value="{{$event->date_debut}}" >
+                        
+                        
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                      <label>Date de fin</label>
+                        <input type="date" class="form-control" name="date_fin" placeholder="Enter ..."   value="{{$event->date_fin}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Duré</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="dure"  value="{{$event->dure}}" >
+                      </div>
+                    </div>
+                  </div>
+              
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">  
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="yesCheckup" value="1" @if(old('type')) checked @endif/> <b>En ligne </b></label>&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;
+                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="noCheckup"value="0" @if(!old('type')) checked @endif/> <b>Présentiel</b></label>
+                 <div id="ifYes" style="visibility:hidden">
+                        Lien: <input type='text'  class="form-control"placeholder="Entrer le lien vers l'evenement ..." id='ifYesup' name='lien' value="{{$event->lien}}"><br>
+        
+                  </div>
+        
+                 <div id="ifNo" style="visibility:hidden">
+                        lieu: <input type='text'  class="form-control"placeholder="Entrer le lieu de l'evenement ..."  id='ifNoup' name='lieu' value="{{$event->lieu}}"><br>
+        
+                  </div> 
+                      </div>
+                    </div> </div>
+
+
+                  
+                    
+                    <div class="col-sm-12">
+                            <label for="">Ajouter une image</label>
+                            <input type="file" name="image"  class="course form-control">
+                        </div>
+                  </div>
+
+                  <!-- input states -->
+                 
+                 
+
+                
+
+                 
+                  <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </div>
+                  
+                </form>
+          
+            </div>
+          
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+                                   
+
+      <!------------------------------------------delete modal------------------------------------->
+      <div class="modal fade" id="delete{{$event->id}}">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Suppression</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              
+            <!-- general form elements disabled -->
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Suppression</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form action="{{ route('admin.destroyEvent')}}" method="POST" >
+                {{method_field('Delete')}}
+                @csrf
+           
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <p>Etes vous sur de vouloir supprimer le secteur</p>
+                        <input type="text" class="form-control" name="sujet"  value="{{ $event->sujet }}" disabled  >
+
+                        
+                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
+                        
+                       
+                      </div>
+                    </div>
+                  
+                  
+                  </div>
+              
+                  
+                  <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+              <button type="submit" class="btn btn-primary" name="submit">Oui</button>
+            </div>
+                  
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            </div>
+          
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+
+
+     <script>
+  
+        ClassicEditor
+        .create( document.querySelector( '#upen<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upar<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upfr<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    
+     
+</script>
+
+
+                
+                
+                  
+
+                      
+              @endif 
+              @endforeach
+
+                  </tbody>
+                </table>
+
 
 
 

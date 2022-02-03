@@ -108,4 +108,11 @@ function createEven(StoreEventRequest $request){
     return redirect()->back();
 
   }
+
+      public function suprimer_Event($id){
+         $events=Event::find($id);
+      $events->delete();
+        toastr()->error('Vous avez supprimer le secteur');
+        return redirect()->back();
+      }
 }

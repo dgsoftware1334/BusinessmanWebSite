@@ -444,10 +444,7 @@ Modifier La publication</h4>
                         <a  href="{{ url('admin/publication/show', $row->id) }}">
                       <i class="fas fa-comment" style="color :green"></i>&ensp; </a>
 
-                       <!--delete user-->
-                       <!--a href="" data-toggle="modal" data-target="#delete{{$row->id}}"> <i class="far fa-trash-alt" style="color: red"></i></a-->&ensp; 
-                      <!--deactive-->
-                    <!--deactive-->
+                        <a  href="{{ url('admin/publication/supprimer', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp;  
                        @if($row->status == 0)
                      <a   href="{{ route('admin.deactive_publication',[$row->id]) }}"> 
                       <i class="fas fa-check-circle"></i>
@@ -758,6 +755,8 @@ Modifier La publication</h4>
 
                        <!--delete user-->
                        <!--a href="" data-toggle="modal" data-target="#delete{{$row->id}}"> <i class="far fa-trash-alt" style="color: red"></i></a!-->&ensp; 
+
+                    <a  href="{{ url('admin/publication/supprimer', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
                     <!--deactive-->
                        @if($row->status == 0)

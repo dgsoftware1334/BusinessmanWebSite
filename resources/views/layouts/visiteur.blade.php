@@ -19,6 +19,8 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/style.css') }}">
     <script src="https://kit.fontawesome.com/91eb611da5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+   
+       
     
 </head>
 
@@ -61,10 +63,10 @@
     <script src="{{ asset('assests/FrontEnd/assets/js/functions.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/theia-sticky-sidebar.js') }}"></script>
-  <script src="{{ asset('assests/FrontEnd/assets/js/s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script>
+  <!--script src="{{ asset('assests/FrontEnd/assets/js/s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script-->
   <script src="{{ asset('assests/FrontEnd/assets/js/mail.js') }}"></script>
-    <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-  <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script src="{{ asset('assests/FrontEnd/../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script>
+
  <script>
       $(window).scroll(function() {
         var theta = $(window).scrollTop() / 300 % Math.PI;
