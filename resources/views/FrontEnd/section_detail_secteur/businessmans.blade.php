@@ -1,8 +1,8 @@
 <section class="speaker-section style-1 padding-tb bg-ash">
         <div class="container container-1310">
             <div class="section-header sticky-widget">
-                <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">Les hommes d'affaires </h2>
-                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">Le meilleur les hommes d'affaire du secteur {{$secteur->libelle}}</p>
+                <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">{{trans('about_trans.Businessmen')}} </h2>
+                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">{{trans('about_trans.The best Businessmen for the sector')}}  {{$secteur->libelle}}</p>
             </div>
             <div class="section-wrapper d-flex flex-wrap justify-content-lg-center">
                
@@ -41,7 +41,7 @@
                         </div>
                         <div class="item-content">
                             <a href="#" class="name">{{$row->name}}  {{$row->lastname}}</a>
-                            <p>  <a href="{{url('/show',$row->id)}}">Visiter son profil</a></p>
+                            <p>  <a href="{{url('/show',$row->id)}}">{{trans('about_trans.Visit the profil')}}</a></p>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="feature-rs">
-                        <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">Discription</h3>
+                        <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">{{trans('about_trans.Description')}}</h3>
                         <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">{!!$secteur->description!!}.</p>
                     </div>
                     

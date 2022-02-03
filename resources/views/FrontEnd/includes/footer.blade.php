@@ -15,7 +15,7 @@
 	    			<div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
 	    				<div class="footer-content">
 	    					<div class="footer-title">
-	    						<h5>Usefull Links</h5>
+	    						<h5>{{trans('about_trans.Usefull Links')}}</h5>
 	    					</div>
 	    					<div class="footer-link-list">
 	    						<ul>
@@ -50,7 +50,7 @@
 	    				</div>
 	    			</div>
 	    			<div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-	    				<h5>Contacte-nous</h5>
+	    				<h5>{{trans('about_trans.Contact us')}}</h5>
 	    				<div class="footer-content">
 	                        <nav class="nav flex-column">
                             
