@@ -104,10 +104,14 @@ border-top: 1px solid blue;
                       <td>{{$row->datenaissance }}</td>
                      <td>{{$row->email }}</td>
                      <td>
-                       <!--  @if(is_null(true))
+                    @if(is_null($row->sacteur_id))
+                     vide
                          @endif
-                       -->
-                       vide
+                     @if(!is_null($row->sacteur_id))
+                       {{ $row->secteur->libelle}}
+                         @endif
+                     
+                      
                    </td>
                      <td>
                      @if($row->status == '1')

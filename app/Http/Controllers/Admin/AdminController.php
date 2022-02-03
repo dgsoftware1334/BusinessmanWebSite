@@ -114,16 +114,21 @@ public function show_publication($id){
 
     }
 
-    public function delete_commentair($id,$id1){
+    public function delete_c($idp,$idpb,$idu){
+      //return $id3;
+      $publication=Publication::find($idpb);
+      $user=User::find($idu);
+      $com=$publication->users()->wherePivot('id','=',$idp)->wherePivot('publication_id','=',$idpb)->wherePivot('user_id','=',$idu)->detach();
 
-      $publication=Publication::find($id);
-      foreach ($publication->users as $row ) {
-          if($row->pivot->id == $id1){
-             $row->pivot->delete();
-          }
-      }
+     // foreach ($publication->users as $row ) {
+      //    if($row->pivot->id == $id1 && $publications->pivot->id == $id3){
+      //       $row->pivot->delete();
+      //    }
+      //}
      // return response()->json(['status'=>'event deleted succsefuly']);
       return back()->with('commtaire','le commentaire a été supprimé');
+
+      //Auth::guard('web')->user()->events()->where('event_id' ,$event)->detach($event);
 
 
 
@@ -150,11 +155,11 @@ public function show_publication($id){
        return redirect()->back()->with('user','vous avais active la publication');
     }
 
- public function active_commentaire(Publication $publication,Request $request,User $user ){
+ public function active_commentaire(Publication $publication,Request $request,User $user,$id ){
  $user = User::find($user->id);
 
      foreach ($user->publications as $publications) {
-        if($publications->pivot->publication_id == $publication->id){
+        if($publications->pivot->publication_id == $publication->id && $publications->pivot->id == $id){
         
              $publications->pivot->is_valide =1 ;
             
@@ -171,11 +176,11 @@ public function show_publication($id){
 
 
 
- public function desactive_commentaire(Publication $publication,Request $request,User $user ){
+ public function desactive_commentaire(Publication $publication,Request $request,User $user ,$id){
  $user = User::find($user->id);
 
      foreach ($user->publications as $publications) {
-        if($publications->pivot->publication_id == $publication->id){
+        if($publications->pivot->publication_id == $publication->id &&  $publications->pivot->id == $id){
         
              $publications->pivot->is_valide =0 ;
             

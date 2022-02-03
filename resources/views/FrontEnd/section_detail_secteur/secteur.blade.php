@@ -9,7 +9,7 @@
                 <div class="col-lg-6">
                     <div class="feature-rs">
                         <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">Discription</h3>
-                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">{{$secteur->description}}.</p>
+                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">{!!$secteur->description!!}.</p>
                     </div>
                     
                 </div>

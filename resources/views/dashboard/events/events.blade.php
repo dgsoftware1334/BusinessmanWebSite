@@ -67,67 +67,48 @@ function yesnoCheckupdate() {
 }
 
  </script>
- <script>
-    ClassicEditor
-        .create( document.querySelector( '#editorfr' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        ClassicEditor
-        .create( document.querySelector( '#editorar' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        ClassicEditor
-        .create( document.querySelector( '#editoren' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Les événements</h1>
-            @error('libelle')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
-@error('description')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-
               <li class="breadcrumb-item"><a href="#">Les événements</a></li>
-
-
-              
-              <li class="breadcrumb-item active">Evenements</li>
+              <li class="breadcrumb-item active">accueil</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-<div class="col-lg-12 bg-white">
-<div class="tab-content mt-4" id="myTabContent">
-<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
+
+ <div class="animated fadeInUp infinite" alt="Transparent MDB Logo" >      
+     <div class="card card-primary card-outline">
+        <div class="card-body">
+         <div class="container">
+<div class="row">
+<div class="col-lg-11 bg-white rounded-top tab-head">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item1">
+<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">tous</a>
+</li>
+<li class="nav-item1">
+<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Publie</a>
+</li>
+<li class="nav-item1">
+<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Prive</a>
+</li>
+</ul>
+
+
+</div>
+<div class="col-lg-1 ">
+     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
                     <img src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/32/000000/external-calendar-calendar-kmg-design-detailed-outline-kmg-design-2.png"/>
                         </button>
 
+</div>
 
-                                
-      <div class="modal fade" id="modal-lg">
+    <div class="modal fade" id="modal-lg">
         <div class="modal-dialog modal-lg" style="width: 1200px">
           <div class="modal-content" style="width: 1200px">
             <div class="modal-header"  style="background-color: #4682B4;">
@@ -157,7 +138,7 @@ function yesnoCheckupdate() {
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Description (fr))<span style="color:red">*</span></label>
-                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  id="editorfr" class="@error('description') is-invalid @enderror" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="fr"></textarea>
                         
                       </div>
                     </div></div>
@@ -172,7 +153,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>اوصف</label>
-                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="editorar"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="ar"></textarea>
                       </div>
                     </div></div>
 
@@ -189,7 +170,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter the description ..." name="description_en" id="editoren"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter the description ..." name="description_en" id="en"></textarea>
                       </div>
                     </div>
                     </div>
@@ -267,9 +248,13 @@ function yesnoCheckupdate() {
         </div>
         <!-- /.modal-dialog -->
       </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+<div class="col-lg-12 bg-white">
+<div class="tab-content mt-4" id="myTabContent">
+<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+
+ <table  class="table table-bordered">
                   <thead>
                     <tr>
                     <th>Image</th>
@@ -279,10 +264,9 @@ function yesnoCheckupdate() {
                       <th>Date de fin</th>
                       <th>Duré</th>
                       <th>Type</th>
-                      <th>Lien</th>
-                      <th>Lieu</th>
-                      <th>Etat</th>
+                      <th>Adress/Lien</th>
 
+                      <th>Etat</th>
                       <th >Action</th>
                     </tr>
                   </thead>
@@ -300,19 +284,25 @@ function yesnoCheckupdate() {
                          @endif
                       </td>
                       <td>{{$event->sujet}}</td>
-                      <td>{!! $event->description !!}</td>
+                      <td>{!!$event->description!!}</td>
                       <td>{{$event->date_debut}}</td>
                       <td>{{$event->date_fin}}</td>
                       <td>{{$event->dure}}</td>
-                      <td>@if($event->type==0)
-                       Présentiel
+                      <td>
+                        @if($event->type == 0)
+                        presentail
                        @else
-                       En ligne 
-                       @endif</td>
-                      <td>{{$event->lien}}</td>
-
-
-                      <td> {{$event->lieu}}</td>
+                        en ligne
+                        @endif
+                      </td>
+                      <td>
+                        @if(is_null($event->lien))
+                        {{$event->lieu}}
+                        @endif
+                        @if(is_null($event->lieu))
+                        {{$event->lien}}
+                        @endif
+                      </td>
                       <td>
                          
                      @if($event->status == '0')
@@ -322,8 +312,7 @@ function yesnoCheckupdate() {
                      @endif
 
                      
-
-
+                      </td>
                       
                       <td>
 
@@ -365,11 +354,11 @@ function yesnoCheckupdate() {
 
  
       <!------------------------------------------update modal------------------------------------->
-      <div class="modal fade" id="edit{{$event->id}}">
+          <div class="modal fade" id="edit{{$event->id}}">
         <div class="modal-dialog modal-lg" style="width:1200px">
           <div class="modal-content" style="width:1200px">
-            <div class="modal-header">
-              <h4 class="modal-title">
+            <div class="modal-header" style="background-color: #4682B4;">
+              <h4 class="modal-title" style="color: white">
               &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
               &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
               &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
@@ -382,13 +371,7 @@ function yesnoCheckupdate() {
 
               
             <!-- general form elements disabled -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Information de l'evnement</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-              <form action="{{ url('admin/updateEvent')}}" method="POST" enctype="multipart/form-data">
+             <form action="{{ url('admin/updateEvent')}}" method="POST" enctype="multipart/form-data">
                 @csrf
            
                   <div class="row">
@@ -407,7 +390,7 @@ function yesnoCheckupdate() {
                       <div class="form-group">
                         <label>Description (fr))</label>
                      
-                        <textarea class="form-control" rows="3"  id="editorfr" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror">
+                        <textarea class="form-control" rows="3"   placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$event->id; ?>">
                         
                         {{$event->getTranslation('description', 'fr')}}
                         
@@ -430,7 +413,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description(ar)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" >{{$event->getTranslation('description', 'ar')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" id="upar<?=$event->id; ?>" >{{$event->getTranslation('description', 'ar')}}</textarea>
                       </div>
                     </div>
                     </div>
@@ -444,7 +427,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" >{{$event->getTranslation('description', 'en')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" id="upen<?=$event->id; ?>">{{$event->getTranslation('description', 'en')}}</textarea>
                       </div>
                     </div>
                   
@@ -515,9 +498,7 @@ function yesnoCheckupdate() {
             </div>
                   
                 </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
+          
             </div>
           
           </div>
@@ -588,7 +569,28 @@ function yesnoCheckupdate() {
 
 
 
+     <script>
+  
+        ClassicEditor
+        .create( document.querySelector( '#upen<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upar<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#upfr<?=$event->id; ?>' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    
      
+</script>
+
+
                 
                 
                   
@@ -600,15 +602,63 @@ function yesnoCheckupdate() {
                   </tbody>
                 </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+  
+
+
+
+</div>
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+
+
+
 </div>
 </div>
 </div>
+</div>
+</div>
+
+              </div>
+     </div>
+</div>
+  
+</div>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#fr' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#ar' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        ClassicEditor
+        .create( document.querySelector( '#en' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+       
+    
      
-
-
-      </div>
+</script>
+    
   <!-- /.content-wrapper -->
-
-
-
 @endsection

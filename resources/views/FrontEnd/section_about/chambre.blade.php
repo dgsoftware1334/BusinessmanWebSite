@@ -65,17 +65,17 @@
 		                           
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about">
+	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 600px">
 	                                    </div>
 		                            </div>
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about">
+	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 600px">
 	                                    </div>
 		                            </div>
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about">
+	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 600px">
 	                                    </div>
 		                            </div>
 		                            
@@ -143,7 +143,7 @@
 
                         		</div>
                         		<div class="testi-content">
-                        			<span class="testi-text">{!!$row3->description!!}.</span>
+                        			<span class="testi-text" style="color: white;">{!!$row3->description!!}.</span>
                         			<h6 class="name">{{$row3->nom}} {{$row3->prenom}}</h6>
                         			<span class="desc">,{{$row3->diplom}}</span>
                         			<br>

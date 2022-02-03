@@ -64,7 +64,7 @@
 												</div>
 												<div class="post-content">
 													<h5><a href="#">{{$row->context}}</a></h5>
-													<p>{{$row->contenu}}.  </p>
+													<p>{!!$row->contenu!!}.  </p>
 													<div class="meta-post">
 							                            <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->updated_at}}</a></span>
 							                             <span class="by"><i class="fas fa-comment-alt"></i> {{count($row->users)}} Comments </span>

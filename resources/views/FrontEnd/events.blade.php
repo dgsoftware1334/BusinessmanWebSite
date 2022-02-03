@@ -36,28 +36,29 @@
                     <div class="grid-item masonary-item" data-category="transition">
                         <div class="masonary-item-inner">
                             <div class="masonary-thumb">
-                                <a href="#"><img src="{{ asset('assests/images/events/'.$row->image)}}" alt="masonary" style="height: 200px; width: 260px"></a>
+                                <a href="#"><img src="{{ asset('assests/images/events/'.$row->image)}}" alt="masonary" style="height: 200px; width: 360px"></a>
                             </div>
                             <div class="masonary-content">
                                 <a href="#"><h5>{{$row->sujet}}</h5></a>
                                 <div class="meta-post">
                                     <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} à {{$row->date_fin}} </a></span>
-                                    <span class="by"><i class="fas fa-map-marker-alt"></i> Toma Tower, Gulshan, Dhaka.</span>
+                                    <span class="by">
+                                     @if(is_null($row->lieu))
+                                      <i class="fas fa-link"></i>
+                                     {{$row->lien}}
+                                     @endif
+                                      @if(is_null($row->lien))
+                                      <i class="fas fa-map-marker-alt"></i> 
+                                    {{ $row->lieu}}
+                                     @endif
+                                    .</span>
                                 </div>
-<<<<<<< HEAD
-                                <p>{!! $event->description !!}</p>
-                                <a href="#" class="btn-defult">Buy Ticket</a>
-                                <p>{{ Str::limit($row->description, 30) }}.</p>
+                                <p>
+                                    {!! Str::limit($row->description, 60) !!}
+                                </p>
                                 <a href="<?=$row->lien?>" class="btn-defult">Viste lien</a>
-=======
 
-                                <p>{!! $event->description !!}</p>
-                                <a href="#" class="btn-defult">Buy Ticket</a>
-
-                                <p>{{ Str::limit($row->description, 30) }}.</p>
-                                <a href="<?=$row->lien?>" class="btn-defult">Visite lien</a>
-
->>>>>>> 88703bf30110c5a664afb60a598232c3fb1a30d6
+                                
                             </div>
                         </div>
                     </div>

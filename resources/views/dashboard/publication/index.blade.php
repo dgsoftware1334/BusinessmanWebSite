@@ -164,25 +164,20 @@ border-top: 1px solid blue;
   
         <!------------------------------------------update modal------------------------------------->
         <div class="modal fade" id="edit{{$row->id}}">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Modifier le secteur d'activité</h4>
+        <div class="modal-dialog" style="width: 1000px" >
+<div class="modal-content" style="width: 1000px">
+<div class="modal-header"  style="background-color: #4682B4;">
+<h4 class="modal-title" style="color: white" >&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+
+Modifier La publication</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
 
-              
-            <!-- general form elements disabled -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Information du secteur</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-              <form class="form-horizontal" method="POST" action="{{ route('admin.edite_publication',[$row->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
+                <form class="form-horizontal" method="POST" action="{{ route('admin.edite_publication',[$row->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
                   @csrf
                 <div class="card-body">
               
@@ -331,9 +326,8 @@ border-top: 1px solid blue;
             </div>
                   
                 </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
+            <!-- general form elements disabled -->
+            
             </div>
           
           </div>

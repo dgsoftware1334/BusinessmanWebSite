@@ -57,7 +57,7 @@ function store_chambre(StroreChambreRequest $request){
     $save =$chambre->save();
     if( $save ){
         toastr()->success('Votre chambre a été ajouter avec succée');
-        return redirect()->back();
+        return route('admin.show_chambre');
 
        
     }else{
@@ -90,11 +90,19 @@ public function update_chambre(StroreChambreRequest $request)
   try {
       $validated = $request->validated();
       $chambre = Chambre::findOrFail($request->id);
-      if($request->file('photo')){
-        $file_name =time().'.'.$file_extension;
-        $path = 'assests/images/chambre';
-        $request->photo->move($path,$file_name);
-           }
+      
+        if($request->file('photo')){
+       $file_extension = $request->photo->getClientOriginalExtension();
+       $file_name =time().'.'.$file_extension;
+         $path = 'assests/images/chambre';
+    $request->photo->move($path,$file_name);
+  $chambre->photo= $file_name;
+       // $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
+       
+                                    }
+
+
+
       $chambre->update([
         $chambre->sujet = ['fr' => $request->sujet, 'ar' => $request->sujet_ar, 'en' => $request->sujet_en],
         $chambre->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en],
@@ -106,6 +114,8 @@ public function update_chambre(StroreChambreRequest $request)
         $chambre->insta =  $request->insta,
         $chambre->linked =  $request->linked,
         $chambre->twit =  $request->twit,
+           
+
       ]);
       toastr()->success('Les changement ont été bien apporté');
       return redirect()->back();

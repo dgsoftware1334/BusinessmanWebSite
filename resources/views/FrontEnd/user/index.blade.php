@@ -133,6 +133,7 @@
                     <div id="1st-Day" class="tabcontent active">
                       <div class="d-flex flex-wrap justify-content-center">
                         @foreach($users as  $row)
+                        @if($row->status == 0)
 
 
                    
@@ -143,10 +144,10 @@
                              <a href="{{url('/show',$row->id)}}">
 
                                @if(is_null($row->photo))
-                                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" >
+                                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  style="height: 190px;width: 190px">
                                @endif
                                 @if(!is_null($row->photo))
-                                <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker">
+                                <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" style="height: 190px;width: 330px">
                                 @endif
 
 
@@ -165,6 +166,7 @@
                             </div>
                                     </div>
                         </div>
+                         @endif
                         @endforeach
                       </div>
                     </div>
@@ -209,7 +211,9 @@
                                 <div class="sidebar-wrapper">
                                     <ul class="post-catagori">
                                       @foreach($secteurs as $row)
-                                        <li><a href="#">{{$row->libelle}}</a><span>({{count($row->users)}})</span></li>
+                                        <li><a href="{{ url('/secteur',$row->id) }}">{{$row->libelle}}</a><span>
+                                       
+                                          ({{count($row->users)}})</span></li>
                                        @endforeach
                                     </ul>
                                 </div>

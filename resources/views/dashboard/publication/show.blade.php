@@ -132,14 +132,14 @@ border-top: 1px solid blue;
                        <td>
                     
                        <!--delete user-->
-                      <a  href="{{ route('admin.delete_commentair',[$row->pivot->user_id,$row->pivot->user_id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+                      <a  href="{{ route('admin.delete_commentair',[$row->pivot->id,$row->pivot->publication_id,$row->pivot->user_id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
 
                       @if($row->pivot->is_valide == '1')
-                       <a   href="{{ route('admin.active.deactive',[$row->pivot->publication_id,$row->pivot->user_id]) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
+                       <a   href="{{ route('admin.active.deactive',[$row->pivot->publication_id,$row->pivot->user_id,$row->pivot->id]) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
                        @endif
                        <!--active-->
                         @if($row->pivot->is_valide == '0')
-                         <a  href="{{ route('admin.active.active',[$row->pivot->publication_id,$row->pivot->user_id]) }}"> <i class="fas fa-check-circle"></i></a>
+                         <a  href="{{ route('admin.active.active',[$row->pivot->publication_id,$row->pivot->user_id,$row->pivot->id]) }}"> <i class="fas fa-check-circle"></i></a>
                          @endif
 
                      </td>

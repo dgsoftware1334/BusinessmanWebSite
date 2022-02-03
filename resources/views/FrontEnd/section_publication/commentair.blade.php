@@ -57,7 +57,7 @@
                             </div>
                             <div class="post-content entry-content">
                                 <div class="post-content-inner">
-                                    <p>{{$publication->contenu}}</p>
+                                    <p>{!!$publication->contenu!!}</p>
                                     <div class="tags-section entry-footer justify-content-md-between justify-content-center">
                                         
                                     </div>
@@ -79,7 +79,24 @@
                                         <div class="comment-body">
                                             <footer class="comment-meta">
                                                 <div class="comment-author vcard">
-                                                    <img alt="comments" src="{{ asset('assests/imgUser/'.$row->photo)  }}"width="90" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+
+                                                    
+
+
+
+                                                @if(is_null($row->photo))
+               <img alt="comments" src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}"width="90" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 90px;width: 90px"  class="img-circle">
+               @endif
+
+              @if(!is_null($row->photo))
+             <img alt="comments" src="{{ asset('assests/imgUser/'.$row->photo)  }}"width="90" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+              @endif
+
+
+
+
+
+
                                                 </div>
 
                                                 <div class="comment-metadata">
