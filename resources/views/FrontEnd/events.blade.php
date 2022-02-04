@@ -42,21 +42,19 @@
                                 <a href="#"><h5>{{$row->sujet}}</h5></a>
                                 <div class="meta-post">
                                     <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} <i>{{trans('about_trans.At')}}</i> {{$row->date_fin}} </a></span>
-                                    <span class="by">
-                                     @if(is_null($row->lieu))
-                                      <i class="fas fa-link"></i>
-                                     {{$row->lien}}
-                                     @endif
-                                      @if(is_null($row->lien))
+                                    <span class="by"> 
                                       <i class="fas fa-map-marker-alt"></i> 
-                                    {{ $row->lieu}}
-                                     @endif
+                                   
+                                     {{ $row->lieu ?? '(vide)' }}
                                     .</span>
+                                    <span class="by"> <i class="fas fa-link"></i>
+                                   
+                                     <a href="<?=$row->lien?>">{{ $row->lien ?? '(vide)' }}</a></span>
                                 </div>
                                 <p>
                                     {!! Str::limit($row->description, 60) !!}
                                 </p>
-                                <a href="<?=$row->lien?>" class="btn-defult">{{trans('about_trans.Visit the link')}}</a>
+                                <a href="{{url('/event',$row->id)}}" class="btn-defult" target="">{{trans('about_trans.Visit the link')}}</a>
 
                                 
                             </div>

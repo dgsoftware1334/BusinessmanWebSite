@@ -22,11 +22,6 @@ class Event extends Model
                   'type',
                   'lien',
                   'lieu',
-<<<<<<< HEAD
-      
-                
-=======
->>>>>>> 9f99a774a3ff59db8d342ae50c5de2106b00d29f
                   'status',   
                   'admin_id',            
     

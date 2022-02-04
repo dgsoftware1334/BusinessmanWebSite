@@ -159,7 +159,7 @@
                           
 
                             </a>
-                            <span>{{$row->secteur->libelle}}</span> 
+                            <span> {{ $row->secteur->libelle ?? '(vide)' }}</span> 
                             </div>
                                     </div>
                         </div>

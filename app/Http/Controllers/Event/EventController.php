@@ -26,6 +26,15 @@ class EventController extends Controller
            
       }
 
+         function event_show($id){
+       
+        $event = Event::find($id);
+      return view ('FrontEnd.event_detail',compact('event'));
+     
+           
+      }
+      
+
 
 
 

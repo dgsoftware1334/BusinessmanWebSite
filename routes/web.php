@@ -81,6 +81,7 @@ Auth::routes();
   Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
   Route::get('/publication/visiteur/{id}',[UserController::class, 'page_publicaiton_visiteur'])->name('publicaiton.visiteur');
      // Route::get('/search/user',[UserController::class, 'search'])->name('search.user');
+  Route::get('/event/{id}',[EventController::class, 'event_show'])->name('event.show');
 
 
       //-----------------------route pour user------------------------------------------------------------

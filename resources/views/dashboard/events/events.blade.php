@@ -326,7 +326,7 @@ function yesnoCheckupdate() {
                        <i class="far fa-edit" style="color: blue"></i>
                         </button>
                         <!--read secteur-->
-                       
+                       <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
                          <i class="far fa-trash-alt" style="color: red"></i>
@@ -691,7 +691,7 @@ function yesnoCheckupdate() {
                        <i class="far fa-edit" style="color: blue"></i>
                         </button>
                         <!--read secteur-->
-                       
+                       <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
                          <i class="far fa-trash-alt" style="color: red"></i>
@@ -1048,7 +1048,7 @@ function yesnoCheckupdate() {
                        <i class="far fa-edit" style="color: blue"></i>
                         </button>
                         <!--read secteur-->
-                       
+                       <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
                          <i class="far fa-trash-alt" style="color: red"></i>
