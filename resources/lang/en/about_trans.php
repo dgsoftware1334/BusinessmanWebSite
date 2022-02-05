@@ -35,7 +35,9 @@ return [
     'End date' => 'End date',
     'Period' => 'Period',
     'Type' => 'Type',
-    'Post' => 'Type',
+    'Post' => 'Post',
+    'Posted on' => 'Posted on',
+    
 
    
 

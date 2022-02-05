@@ -165,7 +165,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/secteur',[SecteurController::class, 'index'])->name('secteur');
        Route::post('/store',[SecteurController::class, 'store'])->name('store');
        Route::post('/update',[SecteurController::class, 'update'])->name('update');
-       Route::delete('/destroy',[SecteurController::class, 'destroy'])->name('destroy');
+       //Route::delete('/destroy',[SecteurController::class, 'destroy'])->name('destroy');
+       Route::get('/destroy/{id}',[SecteurController::class, 'destroy'])->name('destroy');
+       //Route::get('secteur/delete/{id}', 'SecteurController@destroy');
        //----- mise à jours et desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
        Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
