@@ -2,7 +2,7 @@
 
 return [
 
-    'All events' => 'Tous les evenements',
+    'All events' => 'Tous les évenements',
     
     
 

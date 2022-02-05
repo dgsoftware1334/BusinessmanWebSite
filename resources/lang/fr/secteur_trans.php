@@ -2,7 +2,7 @@
 
 return [
 
-    'list of business sectors' => 'Listes des secteurs d activité',
+    'list of business sectors' => 'Listes des secteurs d\'activité',
     'Home' => 'Accueil',
     
     

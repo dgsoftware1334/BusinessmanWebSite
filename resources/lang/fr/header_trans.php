@@ -6,12 +6,12 @@ return [
     'Services' => 'Services',
     'Publications' => 'Publications',
     'Events' => 'Événements',
-    'Businessmans' => 'Hommes daffaires',
+    'Businessmans' => 'Hommes d\'affaires',
     'About' => 'A propos ',
     'Contact us' => 'Contact',
     'Register' => 'Inscription',
     'Login' => 'Connexion',
     'Logout' => 'Déconnexion',
-    'Secteur' => ' Secteur dactivité',
+    'Secteur' => ' Secteur d\'activité',
 
 ];
