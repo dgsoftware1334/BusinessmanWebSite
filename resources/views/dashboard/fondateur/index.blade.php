@@ -103,7 +103,7 @@ border-top: 1px solid blue;
 <th>description</th>
 <th>telephone</th>
 
-<th >Action</th>
+<th style="width: 15%;">Action</th>
 </tr>
 </thead>
 <tbody>
@@ -114,7 +114,9 @@ border-top: 1px solid blue;
 <td><img src="{{ asset('assests/images/fondateurs/'.$row->image)}}" class="rounded-circle" style="width: 60px;height: 90px" ></td>
 <td>{{$row->nom}} {{$row->prenom}}</td>
 <td>{{$row->diplom}}</td>
-<td>{!!$row->description!!}</td>
+<td>
+  {!! Str::limit($row->description, 100) !!}
+</td>
 
 
 

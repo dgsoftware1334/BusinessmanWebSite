@@ -93,7 +93,7 @@ border-top: 1px solid blue;
                       <th>Email</th>
                       <th>Sacteur d'activité</th>
                       <th>Etat</th>
-                      <th >Action</th>
+                      <th style="width: 15%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -121,7 +121,7 @@ border-top: 1px solid blue;
                      @endif
 
                      </td>
-                     <td>
+                     <td >
 
                      
                      
@@ -163,7 +163,7 @@ border-top: 1px solid blue;
                       <th>Email</th>
                       <th>Sacteur d'activité</th>
                       <th>Etat</th>
-                      <th >Action</th>
+                      <th style="width: 15%;" >Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -233,7 +233,7 @@ border-top: 1px solid blue;
                       <th>Email</th>
                       <th>Sacteur d'activité</th>
                       <th>Etat</th>
-                      <th >Action</th>
+                      <th style="width: 15%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>

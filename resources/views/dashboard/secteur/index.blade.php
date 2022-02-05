@@ -210,7 +210,7 @@ border-top: 1px solid blue;
                          @endif
                       </td>
                       <td> {{$row->libelle}}</td>
-                      <td>{!!$row->description!!}</td>
+                      <td> {!! Str::limit($row->description, 100) !!}</td>
                       <td>
 
                      
@@ -270,7 +270,8 @@ border-top: 1px solid blue;
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Description du secteur<span style="color:red">*</span></label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror"  id="upfr<?=$row->id; ?>"  >{{$row->getTranslation('description', 'fr')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror"  id="upfr<?=$row->id; ?>"  >{{$row->getTranslation('description', 'fr')}}
+                        </textarea>
                         
                       </div>
                     </div>

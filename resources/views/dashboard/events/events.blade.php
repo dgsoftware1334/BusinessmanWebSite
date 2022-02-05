@@ -258,7 +258,6 @@ function yesnoCheckupdate() {
                   <thead>
                     <tr>
                     <th>Image</th>
-                      <th>Sujet</th>
                       <th>Description</th>
                       <th>Date de debut</th>
                       <th>Date de fin</th>
@@ -267,7 +266,7 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-                      <th >Action</th>
+                      <th style="width:60%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -276,15 +275,18 @@ function yesnoCheckupdate() {
                   @foreach ($events as $event)
                     <tr>
                     <td>
+                      
                         @if(is_null($event->image))
-                         ( Image n'existe ) 
+                         ( Image n'existe )
+                         {{$event->sujet}} 
                          @endif
                          @if(!is_null($event->image))
                         <img src="{{ asset('assests/images/events/'.$event->image)}}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px ">
+                        <br>{{$event->sujet}}
                          @endif
                       </td>
-                      <td>{{$event->sujet}}</td>
-                      <td>{!!$event->description!!}</td>
+                      <td>
+                      {!! Str::limit($event->description, 100) !!}</td>
                       <td>{{$event->date_debut}}</td>
                       <td>{{$event->date_fin}}</td>
                       <td>{{$event->dure}}</td>
@@ -622,7 +624,7 @@ function yesnoCheckupdate() {
                   <thead>
                     <tr>
                     <th>Image</th>
-                      <th>Sujet</th>
+                      
                       <th>Description</th>
                       <th>Date de debut</th>
                       <th>Date de fin</th>
@@ -631,7 +633,7 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-                      <th >Action</th>
+                      <th style="width:60%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -642,14 +644,16 @@ function yesnoCheckupdate() {
                     <tr>
                     <td>
                         @if(is_null($event->image))
-                         ( Image n'existe ) 
+                         ( Image n'existe )
+                         {{$event->sujet}} 
                          @endif
                          @if(!is_null($event->image))
                         <img src="{{ asset('assests/images/events/'.$event->image)}}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px ">
+                        <br>{{$event->sujet}}
                          @endif
                       </td>
-                      <td>{{$event->sujet}}</td>
-                      <td>{!!$event->description!!}</td>
+                      <td>
+                      {!! Str::limit($event->description, 100) !!}</td>
                       <td>{{$event->date_debut}}</td>
                       <td>{{$event->date_fin}}</td>
                       <td>{{$event->dure}}</td>
@@ -979,7 +983,7 @@ function yesnoCheckupdate() {
                   <thead>
                     <tr>
                     <th>Image</th>
-                      <th>Sujet</th>
+                     
                       <th>Description</th>
                       <th>Date de debut</th>
                       <th>Date de fin</th>
@@ -988,7 +992,7 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-                      <th >Action</th>
+                      <th style="width:60%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -999,14 +1003,16 @@ function yesnoCheckupdate() {
                     <tr>
                     <td>
                         @if(is_null($event->image))
-                         ( Image n'existe ) 
+                         ( Image n'existe )
+                         {{$event->sujet}} 
                          @endif
                          @if(!is_null($event->image))
                         <img src="{{ asset('assests/images/events/'.$event->image)}}"   style="border-radius: 20px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;height: 100px;width: 100px ">
+                        <br>{{$event->sujet}}
                          @endif
                       </td>
-                      <td>{{$event->sujet}}</td>
-                      <td>{!!$event->description!!}</td>
+                      <td>
+                      {!! Str::limit($event->description, 100) !!}</td>
                       <td>{{$event->date_debut}}</td>
                       <td>{{$event->date_fin}}</td>
                       <td>{{$event->dure}}</td>

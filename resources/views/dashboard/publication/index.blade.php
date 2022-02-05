@@ -92,7 +92,7 @@ border-top: 1px solid blue;
                       <th>contenu</th>
                       <th>Etat</th>
                       
-                      <th >Action</th>
+                      <th style="width: 20%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -112,7 +112,7 @@ border-top: 1px solid blue;
                       <td>{{$row->context}}</td>
 
                      <td>
-                      {!!$row->contenu!!}
+                      {!! Str::limit($row->contenu, 100) !!}..
                    </td>
 
                      <td>
@@ -396,7 +396,7 @@ Modifier La publication</h4>
                       <th>contenu</th>
                       <th>Etat</th>
                       
-                      <th >Action</th>
+                      <th style="width: 20%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -417,7 +417,7 @@ Modifier La publication</h4>
                       <td>{{$row->context}}</td>
 
                      <td>
-                      {!!$row->contenu!!}
+                      {!! Str::limit($row->contenu, 60) !!}
                    </td>
 
                      <td>
@@ -705,7 +705,7 @@ Modifier La publication</h4>
                       <th>contenu</th>
                       <th>Etat</th>
                       
-                      <th >Action</th>
+                      <th style="width: 20%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -726,7 +726,7 @@ Modifier La publication</h4>
                       <td>{{$row->context}}</td>
 
                      <td>
-                      {!!$row->contenu!!}
+                      {!! Str::limit($row->contenu, 100) !!}
                    </td>
 
                      <td>
