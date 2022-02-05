@@ -34,7 +34,8 @@ return [
     'End date' => 'Date fin',
     'Period' => 'Dure',
     'Type' => 'Type',
-
+    'Post' => 'Publication',
+    'Posted on' => 'Publié le',
     
 
 ];
