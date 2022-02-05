@@ -29,6 +29,15 @@ return [
     'The results of your search' => 'The results of your search',
 
     'Usefull Links' => 'Usefull Links',
+    'Event' => 'Event',
+    'Information about the event' => 'Information about the event',
+    'Start date' => 'Start date',
+    'End date' => 'End date',
+    'Period' => 'Period',
+    'Type' => 'Type',
+    'Post' => 'Post',
+    'Posted on' => 'Posted on',
+    
 
    
 

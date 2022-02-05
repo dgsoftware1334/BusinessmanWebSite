@@ -15,13 +15,13 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text">Publication</span>
+                            <span class="title-text">{{trans('about_trans.Post')}}</span>
                         </div>
                         <ol class="breadcrumb">
-                            <li>Tu es là : </li>
+                           
                           <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
 
-                            <li class="active">publication</li>
+                            <li class="active">{{trans('about_trans.Post')}}</li>
                         </ol>
                     </div>
                 </div>
@@ -36,12 +36,12 @@
               <div class="post-item">
                             <div class="post-content-header entry-header">
                                 <ul class="post-catagory">
-                                    <li><a href="#">Se rencontrer</a></li>
+                                    <li><a href="#">{{trans('about_trans.Posted on')}}</a></li>
                                     <li class="date"><a href="#">{{$publication->updated_at}}</a></li>
                                 </ul>
                                 <h2>{{$publication->context}}.</h2>
                                 <div class="meta-post entry-meta">&ensp;&ensp;&ensp;
-                                  <i class="fas fa-comments"></i><a href="#">{{$cont}} Comments </a> </span>
+                                  <i class="fas fa-comments"></i><a href="#">{{$cont}} {{trans('about_trans.Comments')}} </a> </span>
                                 </div>
                             </div>
                             <div class="post-thumb">
@@ -71,7 +71,7 @@
 
                         <div class="Comments-section">
                             <div class="post-item">
-                                <h5 class="comments-title">{{$cont}} Comments</h5>
+                                <h5 class="comments-title">{{$cont}} {{trans('about_trans.Comments')}}</h5>
                                 <ol class="comment-list">
                                    @foreach($publication->users as $row)
                                     @if($row->pivot->is_valide == 1)
@@ -134,8 +134,8 @@
                 <div class="sidebar-inner">
                   <div class="sidebar-wrapper">
                     <div class="sidebar-header">
-                     <h5>Connecte-toi avec nous</h5>
-                      <p>Connectez-vous à nos réseaux sociaux</p>
+                     <h5>{{trans('about_trans.Connect you with us')}}</h5>
+                      <p>{{trans('about_trans.Connect you to our social medias')}}</p>
                     </div>
                     <div class="sidebar-wrapper">
                       @foreach($chambres as $chambre)
@@ -172,7 +172,7 @@
                 <div class="sidebar-inner mb-0">
                   <div class="sidebar-wrapper">
                     <div class="sidebar-header">
-                      <h5>laissez un commentaire</h5>
+                      <h5>{{trans('about_trans.Leave a comment')}}</h5>
                     </div>
                     <div class="sidebar-wrapper">
                       <div class="sidebar-comments-list">
@@ -182,12 +182,12 @@
                                     
          @csrf
           <div class="form-inner">
-         <textarea name="contenu" rows="8" id="message" placeholder="Your Message" required ></textarea>
+         <textarea name="contenu" rows="8" id="message" placeholder="{{trans('about_trans.Your comment')}}" required ></textarea>
 
                          
            
                       
-           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">confirmer</button>
+           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('about_trans.Comment')}}</button>
            
 
                 </div>

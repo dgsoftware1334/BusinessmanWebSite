@@ -86,12 +86,18 @@ function store(StoreSecteurRequest $request){
   }
 
 
-  public function destroy(Request $request)
+ /* public function destroy(Request $request)
   {
 
     $secteurs = Secteur::findOrFail($request->id)->delete();
     toastr()->error('Vous avez supprimer le secteur');
     return redirect()->back();
 
-  }
+  }*/
+  public function destroy($id)
+{
+  $secteurs = Secteur::findOrFail($id)->delete();
+  toastr()->error('Vous avez supprimer le secteur');
+    return back()->with('success','Sector deleted successfully');
+}
 }

@@ -228,9 +228,10 @@ border-top: 1px solid blue;
                        </a>
 
                          <!--delete secteur-->
-                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$row->id}}">
+                        <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$row->id}}">
                          <i class="far fa-trash-alt" style="color: red"></i>
-                        </button>
+                        </button>-->
+                        <a href="{{url('admin/destroy',$row->id)}}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
                      
                        <!--deactive-->
 
@@ -371,7 +372,7 @@ border-top: 1px solid blue;
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="{{ route('admin.destroy')}}" method="POST" >
+                <form action="" method="POST" >
                 {{method_field('Delete')}}
                 @csrf
            
@@ -472,6 +473,23 @@ border-top: 1px solid blue;
      
 </script>
 
+<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<<script>
+$('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Etes vous sur de bien vouloir supprimer le secteur?',
+        text: 'Le secteur sera supprimer ainsi que les informations attaché avec',
+        icon: 'warning',
+        buttons: ["Annuler", "Oui!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
+</script>
 
 
 

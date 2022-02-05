@@ -7,12 +7,12 @@
                 <div class="container container-1310">
                     <div class="page-header-content-inner">
                         <div class="page-title">
-                            <span class="title-text">événement</span>
+                            <span class="title-text">{{trans('about_trans.Event')}}</span>
                         </div>
                         <ol class="breadcrumb">
                             
                              <li><a href="{{url('/')}}">{{trans('header_trans.Home')}}</a></li>
-                            <li class="active">événement</li>
+                            <li class="active">{{trans('about_trans.Event')}}</li>
 
 
                            
