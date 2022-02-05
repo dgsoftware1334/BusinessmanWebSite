@@ -140,7 +140,7 @@ border-top: 1px solid blue;
                       <i class="fas fa-comment" style="color :green"></i>&ensp; </a>
 
                        <!--delete user-->
-                       <a href="" data-toggle="modal" data-target="#delete{{$row->id}}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+                       <a href="{{url('admin/publication/supprimer',$row->id)}}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
                       <!--deactive-->
                     <!--deactive-->
                        @if($row->status == 0)
@@ -298,7 +298,7 @@ Modifier La publication</h4>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="{{ route('admin.delete_publication')}}" method="POST" >
+                <form action="" method="POST" >
                 {{method_field('Delete')}}
                 @csrf
            
@@ -306,7 +306,7 @@ Modifier La publication</h4>
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
-                        <p>Etes vous sur de vouloir supprimer le secteur</p>
+                      
                         <input type="text" class="form-control" name="libelle"  value="{{ $row->context }}" disabled  >
 
                         
@@ -444,8 +444,9 @@ Modifier La publication</h4>
                         <a  href="{{ url('admin/publication/show', $row->id) }}">
                       <i class="fas fa-comment" style="color :green"></i>&ensp; </a>
 
-                        <a  href="{{ url('admin/publication/supprimer', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp;  
-                       @if($row->status == 0)
+                      <a href="{{url('admin/publication/delete',$row->id)}}" class="button delete-confirmp"><i class="far fa-trash-alt" style="color: red"></i></a>
+&ensp;                       
+ @if($row->status == 0)
                      <a   href="{{ route('admin.deactive_publication',[$row->id]) }}"> 
                       <i class="fas fa-check-circle"></i>
 
@@ -756,7 +757,9 @@ Modifier La publication</h4>
                        <!--delete user-->
                        <!--a href="" data-toggle="modal" data-target="#delete{{$row->id}}"> <i class="far fa-trash-alt" style="color: red"></i></a!-->&ensp; 
 
-                    <a  href="{{ url('admin/publication/supprimer', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+                   
+                   <a href="{{ url('admin/publication/supprimer', $row->id) }}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
+&ensp; 
                       <!--deactive-->
                     <!--deactive-->
                        @if($row->status == 0)
@@ -919,7 +922,7 @@ Modifier La publication</h4>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="{{ route('admin.delete_publication')}}" method="POST" >
+                <form action="" method="POST" >
                 {{method_field('Delete')}}
                 @csrf
            
@@ -1013,6 +1016,38 @@ Modifier La publication</h4>
 </div>
   
 </div>
+<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<<script>
+$('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Etes vous sur de bien vouloir supprimer le secteur?',
+        text: 'Le secteur sera supprimer ainsi que les informations attaché avec',
+        icon: 'warning',
+        buttons: ["Annuler", "Oui!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
+
+$('.delete-confirmp').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Etes vous sur de bien vouloir supprimer le secteur?',
+        text: 'Le secteur sera supprimer ainsi que les informations attaché avec',
+        icon: 'warning',
+        buttons: ["Annuler", "Oui!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
+</script>
     
   <!-- /.content-wrapper -->
 @endsection

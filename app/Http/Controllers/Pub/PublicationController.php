@@ -109,9 +109,8 @@ public function create_publication()
     
       }
       public function suprimer_publication($id){
-         $publication=Publication::find($id);
-      $publication->delete();
-        toastr()->error('Vous avez supprimer le secteur');
-        return redirect()->back();
+        $pub = Publication::findOrFail($id)->delete();
+      toastr()->error('Vous avez supprimer cette publication');
+        return back()->with('success','La publication a été bien supprimé');
       }
 }
