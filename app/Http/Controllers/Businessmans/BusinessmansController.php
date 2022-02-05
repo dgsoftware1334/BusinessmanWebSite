@@ -82,12 +82,9 @@ class BusinessmansController extends Controller
 
     public function delete($id){
 
-      $user=User::find($id);
-      $user->delete();
-        toastr()->error(trans(key: "l'homme d'affaire a été bien supprimé"));
-     // return response()->json(['status'=>'event deleted succsefuly']);
-     
-            return redirect()->back();
+      $user = User::findOrFail($id)->delete();
+      toastr()->error('Vous avez supprimer l homme d affaire');
+        return back()->with('success','Businessman deleted successfully');
           
 
 

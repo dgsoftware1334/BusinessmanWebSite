@@ -134,7 +134,9 @@ border-top: 1px solid blue;
                       <i class="fas fa-folder" style="color :green"></i>&ensp; 
                           </a>
                        <!--delete user-->
-                     <a  href="{{ url('admin/user/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+                    <!-- <a  href="{{ url('admin/user/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>-->
+                    <a href="{{url('admin/user/delete',$row->id)}}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
+&ensp; 
                       <!--deactive-->
                        @if($row->status == '0')
                        <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
@@ -300,6 +302,24 @@ border-top: 1px solid blue;
 </div>
   
 </div>
+
+<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<<script>
+$('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Etes vous sur de bien vouloir supprimer cet homme d affaire?',
+        text: 'L homme d affaire sera supprimer ainsi que les informations attaché avec',
+        icon: 'warning',
+        buttons: ["Annuler", "Oui!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
+</script>
     
   <!-- /.content-wrapper -->
 @endsection
