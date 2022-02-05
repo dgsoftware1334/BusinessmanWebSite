@@ -158,20 +158,14 @@ $publication= Publication::find(1);
 
     if (count($users) > 0) {
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9f99a774a3ff59db8d342ae50c5de2106b00d29f
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
         //return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
   
    // return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withDetails($users)->withQuery($q)->withLocations($secteurs);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9f99a774a3ff59db8d342ae50c5de2106b00d29f
     } else {
         return view('FrontEnd.user.index',compact('secteurs','users','chambres'))->withMessage('Erreur cet Homme d affaire est introuvable !')->withLocations($secteurs)->withQuery($q);
     }

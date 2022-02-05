@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="event-title">
-                        <p>événement</p>
+                        <p>{{trans('about_trans.Event')}}</p>
                     </div>
                     <div class="event-pagination"></div>
                 </div>
@@ -62,21 +62,21 @@
                     <div class="events-sidebar">
                         
                         <div class="venue-info">
-                               <h5>Evénement Info</h5>
+                               <h5>{{trans('about_trans.Information about the event')}}</h5>
                             <ul>
                                 <li>
-                                    <p>Date début</p>:<span>{{$event->date_debut}}.</span>
+                                    <p>{{trans('about_trans.Start date')}}</p>:<span>{{$event->date_debut}}.</span>
                                 </li>
                                 
                                 <li>
-                                    <p>Date Fin </p>:<span>{{$event->date_fin}}</span>
+                                    <p>{{trans('about_trans.End date')}} </p>:<span>{{$event->date_fin}}</span>
                                 </li>
                                 <li>
-                                    <p>Duré</p>:<span>{{$event->dure}}</span>
+                                    <p>{{trans('about_trans.Period')}}</p>:<span>{{$event->dure}}</span>
                                 </li>
                                 
                                 <li>
-                                    <p>Type</p>:<span>
+                                    <p>{{trans('about_trans.Type')}}</p>:<span>
                                          @if($event->type == 0)
                                             presentail
                                            @else

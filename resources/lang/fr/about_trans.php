@@ -28,7 +28,12 @@ return [
     'Search' => 'Rechercher',
     'The results of your search' => 'Le résultat de votre recherche',
     'Usefull Links' => 'Liens utiles',
-    
+    'Event' => 'Evenement',
+    'Information about the event' => 'Informations de l evenement',
+    'Start date' => 'Date debut',
+    'End date' => 'Date fin',
+    'Period' => 'Dure',
+    'Type' => 'Type',
 
     
 

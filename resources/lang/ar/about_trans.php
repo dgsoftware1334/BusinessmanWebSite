@@ -28,6 +28,12 @@ return [
     'Search' => 'بحث',
     'The results of your search' => 'نتيجة البحث',
     'Usefull Links' => 'روابط سريعة',
+    'Event' => 'حدث',
+    'Information about the event' => 'معلومات عن الحدث',
+    'Start date' => 'تاريخ البداية',
+    'End date' => 'تاريخ النهاية',
+    'Period' => 'المدة',
+    'Type' => 'صنف',
 
     
     
