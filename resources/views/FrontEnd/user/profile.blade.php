@@ -86,48 +86,8 @@
             </div>
         </div>
     </div>
- <!-- <section class="speaker-profile padding-tb bg-ash">
-        <div class="container container-1310">
-          <div class="row">
-            <div class="col-lg-4">
-                <div class="speaker-info">
-                    <div class="personal-information">
-                        <h5>{{trans('profil_trans.Personal information')}} </h5>
-                        <ul>
-                            <li><p>{{trans('profil_trans.Family name')}}</p><span>{{Auth::guard('web')->user()->name}}</span></li>
-                            <li><p>{{trans('profil_trans.Last name')}}</p><span>{{Auth::guard('web')->user()->lastname}} </span></li>
-                            <li><p>{{trans('profil_trans.Date of birth')}}</p><span>{{Auth::guard('web')->user()->datenaissance}} </span></li>
-                            <li><p>{{trans('profil_trans.Phone')}}</p><span>{{Auth::guard('web')->user()->phone}}</span></li>
-                            <li><p>{{trans('profil_trans.Address')}}</p><span>{{Auth::guard('web')->user()->address}}</span></li>
-                            <li><p>email</p><span> {{Auth::guard('web')->user()->email}}</span></li>
-                             <li><p>{{trans('profil_trans.Diploma')}}</p><span>{{Auth::guard('web')->user()->diplome}}</span></li>
-                            <li><p>{{trans('profil_trans.Website')}}</p><span>{{Auth::guard('web')->user()->siteweb}} </span></li>
-                          <li><p>secteur d'activité</p><span>
-                         @if(is_null(Auth::guard('web')->user()->secteur_id))
-                          vide 
-                         
-                          @endif
-                           @if(!is_null(Auth::guard('web')->user()->secteur_id))
-                             {{ Auth::guard('web')->user()->secteur->libelle}}
-                          @endif
-                            
-                        </span></li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-8">
-                <div class="speaker-details">
-                    <div class="personal-articals">
-                        <h5>{{trans('profil_trans.Description')}}</h5>
-                        <p>{{Auth::guard('web')->user()->description}}</p>
-                        
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
+
+  
     <!-- speaker profile or cv section ending here -->
     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <section class="personal-schedule padding-tb">
@@ -143,7 +103,7 @@
     <div class="w3-white w3-text-grey w3-card-4">
       <div class="w3-display-container">
       @if(is_null(Auth::guard('web')->user()->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/1.png')  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
+                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
                @endif
 
               @if(!is_null(Auth::guard('web')->user()->photo))
@@ -202,9 +162,9 @@
         <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
         {{ Auth::guard('web')->user()->secteur->libelle ?? '(vide)' }}  ( {{ Auth::guard('web')->user()->anneexp}} anneé exprience )
       </h6>
-        <p>   @if(!isset(Auth::guard('web')->user()->secteur_id))
-                             {!! Auth::guard('web')->user()->secteur->description!!}
-              @endif</p>
+        <p> 
+
+            </p>
         <hr>
       </div>
       <div class="w3-container">
@@ -281,6 +241,7 @@ $status = true;
   <option value="{{ $secteur->id }}" selected>{{ $secteur->libelle }}</option>
   @endif
 @endif
+
 
 @if(Auth::guard('web')->user()->secteur_id!= $secteur->id && $status  )
 

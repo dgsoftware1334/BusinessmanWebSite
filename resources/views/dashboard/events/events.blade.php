@@ -266,11 +266,8 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-<<<<<<< HEAD
                       <th style="width:20%;">Action</th>
-=======
-                      <th>Action</th>
->>>>>>> 899e10a835427f3753404cb72a0acc7886d1f61f
+
                     </tr>
                   </thead>
                   <tbody>
@@ -328,7 +325,9 @@ function yesnoCheckupdate() {
 
 
               
-                      
+                      <a data-toggle="modal" data-target="#edit{{$event->id}}">
+                       <i class="far fa-edit" style="color: blue"></i>
+                        </a>
                         <!--read secteur-->
                        <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
@@ -634,7 +633,7 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-                      <th style="width:60%;">Action</th>
+                      <th style="width:20%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -686,21 +685,11 @@ function yesnoCheckupdate() {
                       
                       <td>
 
-                     
-                     
-
-
-
-              
-                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit{{$event->id}}">
-                       <i class="far fa-edit" style="color: blue"></i>
-                        </button>
                         <!--read secteur-->
                        <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
-                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
-                         <i class="far fa-trash-alt" style="color: red"></i>
-                        </button>
+                        <a href="{{ url('admin/Event/supprimer', $event->id) }}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
+
                      
                        <!--deactive-->
                          @if($event->status == 1)
@@ -993,7 +982,7 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-                      <th style="width:60%;">Action</th>
+                      <th style="width:20%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1051,16 +1040,13 @@ function yesnoCheckupdate() {
 
 
               
-                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit{{$event->id}}">
-                       <i class="far fa-edit" style="color: blue"></i>
-                        </button>
+                       
                         <!--read secteur-->
                        <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
-                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
-                         <i class="far fa-trash-alt" style="color: red"></i>
-                        </button>
-                     
+                          <a href="{{ url('admin/Event/supprimer', $event->id) }}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
+
+                                          
                        <!--deactive-->
                          @if($event->status == 1)
                      <a   href="{{ route('admin.deactive_event',[$event->id]) }}"> 
