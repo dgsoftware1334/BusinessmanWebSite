@@ -65,17 +65,17 @@
 		                           
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 600px">
+	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 400px">
 	                                    </div>
 		                            </div>
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 600px">
+	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 400px">
 	                                    </div>
 		                            </div>
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 600px">
+	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 400px">
 	                                    </div>
 		                            </div>
 		                            

@@ -82,21 +82,5 @@
 	    		</div>
 	    	</div>
 	    </div>
-	    <div class="footer-bottom bg-ash">
-	    	<div class="container container-1310">
-	    		<div class="row justify-content-lg-between justify-content-center align-items-center">
-	    			<div class="copyright wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
-	    				<p>&copy;  2020 <a href="index.html">Unlimitcon</a>  Designed By <a href="https://themeforest.net/user/labartisan/portfolio">LabArtisan</a></p>
-	    			</div>
-	    			<div class="footer-social">
-	    				<ul class="social-media d-flex flex-wrap mb-0">
-	    					<li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-	    					<li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-	    					<li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s"><a href="#"><i class="fab fa-twitter"></i></a></li>
-	    					<li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-	    				</ul>
-	    			</div>
-	    		</div>
-	    	</div>
-	    </div>
+	    
     </section>

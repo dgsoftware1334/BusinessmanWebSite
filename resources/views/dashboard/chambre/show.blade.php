@@ -29,7 +29,7 @@
               <br><hr>
               <h3 class="d-inline-block d-sm-none">Discription de la chambre</h3>
               <div class="col-12">
-                <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" class="product-image" alt="Product Image">
+                <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" class="product-image" alt="Product Image"  style="height: 400px">
               </div>
 
                

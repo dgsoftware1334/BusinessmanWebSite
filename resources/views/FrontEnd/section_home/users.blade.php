@@ -42,7 +42,7 @@
               
            <?php 
 //$row3=$row1->users->take(1)->get();
-           $row3=$row1->users->where('status',0)->take(2);
+           $row3=$row1->users->where('status',0)->take(3);
 
    ?>
               @foreach($row3 as $row)
@@ -53,11 +53,11 @@
 
                    
                     @if(is_null($row->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  >
+                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  style="height: 290px;width: 290px">
                @endif
 
               @if(!is_null($row->photo))
-              <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" >
+              <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" style="height: 290px;width: 290px">
               @endif
 
 

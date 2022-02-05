@@ -123,9 +123,9 @@
               
                 <h2>{{trans('about_trans.The results of your search')}}:</h2>
 
-                <section class="event-schedule style-4 padding-tb"><p> </p>
-                <div class="container container-1310 p-0 p-md-auto">
-                  <div class="section-wrapper">
+                <section class="event-schedule style-4 padding-tb" style="width: 700px"><p> </p>
+                <div class="container container-1310 p-0 p-md-auto" style="width: 700px">
+                  <div class="section-wrapper"  >
                     
 
                   
@@ -137,16 +137,16 @@
 
                    
             
-                        <div class="speaker-item">
+                        <div class="speaker-item" style="width: 280px">
                           <div class="speaker-item-inner">
                             <div class="item-thumb">
                              <a href="{{url('/show',$row->id)}}">
 
                                @if(is_null($row->photo))
-                                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  style="height: 190px;width: 190px">
+                                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  style="height: 190px;width: 400px">
                                @endif
                                 @if(!is_null($row->photo))
-                                <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" style="height: 190px;width: 330px">
+                                <img src="{{ asset('assests/imgUser/'.$row->photo)  }}" alt="speaker" style="height: 190px;width: 400px">
                                 @endif
 
 
@@ -154,10 +154,7 @@
                             </a>
                             </div>
                             <div class="item-content">
-                            <a href="#" class="name">{{$row->name}}  {{$row->lastname}}
-
-                          
-
+                            <a href="{{url('/show',$row->id)}}" class="name">{{$row->name}}  {{$row->lastname}}
                             </a>
                             <span> {{ $row->secteur->libelle ?? '(vide)' }}</span> 
                             </div>
