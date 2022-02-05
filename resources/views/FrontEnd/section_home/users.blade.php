@@ -36,7 +36,7 @@
           <div class="speaker-event">
             <div class="speaker-title">
               <h2>{{$row1->libelle}}</h2>
-              <p>{{count($row1->users)}}  hommes d'affaires<span> dans ce secteur d'activit </span></p>
+              <p>{{count($row1->users->where('status',0))}} hommes d'affaires<span> dans ce secteur d'activit </span></p>
             </div>
             <div class="speaker-wrapper">
               

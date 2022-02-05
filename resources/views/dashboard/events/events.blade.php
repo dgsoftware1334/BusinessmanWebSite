@@ -266,7 +266,7 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
-                      <th style="width:60%;">Action</th>
+                      <th style="width:20%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>

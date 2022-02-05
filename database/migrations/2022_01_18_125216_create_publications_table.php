@@ -21,7 +21,7 @@ class CreatePublicationsTable extends Migration
              $table->tinyInteger('status')->default('0');
 
              $table->unsignedBigInteger('admin_id')->nullable();
-             $table->foreign('admin_id')->references('id')->on('admins');
+             $table->foreign('admin_id')->references('id')->on('admins')->onDelete ('cascade');
 
             $table->timestamps();
         });

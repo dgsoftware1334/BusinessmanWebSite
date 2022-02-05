@@ -27,7 +27,7 @@ class CreateEventsTable extends Migration
             $table->string('lien')->nullable();
             $table->string('lieu')->nullable();
             $table->unsignedBigInteger('admin_id')->nullable();
-            $table->foreign('admin_id')->references('id')->on('admins');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete ('cascade');
              $table->tinyInteger('status')->default('0');
              
             $table->timestamps();

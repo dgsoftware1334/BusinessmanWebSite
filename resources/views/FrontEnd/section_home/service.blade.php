@@ -25,7 +25,7 @@
 							<h5><a href="#">{{$row1->libelle}}</a></h5>
 							<div class="meta-post">
 								<span class="by">{!! Str::limit($row1->description, 60) !!}.</span>
-	                            <span class="by"><i class="fas fa-user-tie"></i><a class="date" href="#">{{$row1->users->count()}}</a></span>
+	                            <span class="by"><i class="fas fa-user-tie"></i><a class="date" href="#">{{count($row1->users->where('status',0))}}</a></span>
 	                          
 	                        </div>
 						</div>

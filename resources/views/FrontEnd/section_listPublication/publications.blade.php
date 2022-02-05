@@ -67,7 +67,19 @@
 													<p>{!!$row->contenu!!}.  </p>
 													<div class="meta-post">
 							                            <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->updated_at}}</a></span>
-							                             <span class="by"><i class="fas fa-comment-alt"></i> {{count($row->users)}} {{trans('about_trans.Comments')}} </span>
+							                             <span class="by"><i class="fas fa-comment-alt"></i> 
+
+							                             	 <?php
+ 
+  $cont=0;
+  foreach($row->users as $row1){
+      if($row1->pivot->is_valide == 1){
+      $cont= $cont+1;
+    }
+    }
+  
+ ?>
+							                             	{{$cont}} {{trans('about_trans.Comments')}} </span>
 							                            <span class="by"><i class="fas fa-map-marker-alt"></i> Algérie.</span>
 							                        </div>
 												</div>

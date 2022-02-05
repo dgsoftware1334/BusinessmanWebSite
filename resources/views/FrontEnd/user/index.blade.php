@@ -123,8 +123,8 @@
               
                 <h2>{{trans('about_trans.The results of your search')}}:</h2>
 
-                <section class="event-schedule style-4 padding-tb" style="width: 700px"><p> </p>
-                <div class="container container-1310 p-0 p-md-auto" style="width: 700px">
+                <section class="event-schedule style-4 padding-tb" style="width: 900px"><p> </p>
+                <div class="container container-1310 p-0 p-md-auto" style="width: 900px">
                   <div class="section-wrapper"  >
                     
 
@@ -207,7 +207,7 @@
                                       @foreach($secteurs as $row)
                                         <li><a href="{{ url('/secteur',$row->id) }}">{{$row->libelle}}</a><span>
                                        
-                                          ({{count($row->users)}})</span></li>
+                                          ({{count($row->users->where('status',0))}})</span></li>
                                        @endforeach
                                     </ul>
                                 </div>

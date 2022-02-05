@@ -43,7 +43,7 @@
                                 <div class="meta-post">
                                 <span class="by"> 
                                     
-                                    <a href="#"><i class="fa fa-user-tie"></i> {{count($row->users)}}</a>
+                                    <a href="#"><i class="fa fa-user-tie"></i>  {{count($row->users->where('status',0))}}</a>
                                     
                                 </span>
                             </div>

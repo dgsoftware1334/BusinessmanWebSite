@@ -41,7 +41,7 @@
                                 </ul>
                                 <h2>{{$publication->context}}.</h2>
                                 <div class="meta-post entry-meta">&ensp;&ensp;&ensp;
-                                  <i class="fas fa-comments"></i><a href="#">{{$cont}} {{trans('about_trans.Comments')}} </a> </span>
+                                  <i class="fas fa-comments"></i><a href="#">&ensp;{{$cont}}  &ensp; {{trans('about_trans.Comments')}} </a> </span>
                                 </div>
                             </div>
                             <div class="post-thumb">

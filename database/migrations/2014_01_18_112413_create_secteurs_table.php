@@ -19,7 +19,7 @@ class CreateSecteursTable extends Migration
              $table->longtext('description');
              $table->string('image');
              $table->unsignedBigInteger('admin_id')->nullable();
-             $table->foreign('admin_id')->references('id')->on('admins');
+             $table->foreign('admin_id')->references('id')->on('admins')->onDelete ('cascade');
             $table->timestamps();
         });
     }
