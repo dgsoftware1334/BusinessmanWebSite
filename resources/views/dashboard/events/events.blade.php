@@ -266,7 +266,11 @@ function yesnoCheckupdate() {
                       <th>Adress/Lien</th>
 
                       <th>Etat</th>
+<<<<<<< HEAD
                       <th style="width:20%;">Action</th>
+=======
+                      <th>Action</th>
+>>>>>>> 899e10a835427f3753404cb72a0acc7886d1f61f
                     </tr>
                   </thead>
                   <tbody>
@@ -320,19 +324,16 @@ function yesnoCheckupdate() {
 
                      
                      
-
+                   
 
 
               
-                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit{{$event->id}}">
-                       <i class="far fa-edit" style="color: blue"></i>
-                        </button>
+                      
                         <!--read secteur-->
                        <a href="{{url('/event',$event->id)}}">  <i class="far fa-folder" style="color: blue"></i></a>
                          <!--delete secteur-->
-                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$event->id}}">
-                         <i class="far fa-trash-alt" style="color: red"></i>
-                        </button>
+                         <a href="{{ url('admin/Event/supprimer', $event->id) }}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
+
                      
                        <!--deactive-->
                          @if($event->status == 1)
@@ -1365,6 +1366,25 @@ function yesnoCheckupdate() {
     
      
 </script>
+<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<<script>
+$('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Etes vous sur de bien vouloir supprimer l\' evenement?',
+        text: 'l\' evenement sera supprimer ainsi que les informations attaché avec',
+        icon: 'warning',
+        buttons: ["Annuler", "Oui!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
+
+</script>
+    
     
   <!-- /.content-wrapper -->
 @endsection

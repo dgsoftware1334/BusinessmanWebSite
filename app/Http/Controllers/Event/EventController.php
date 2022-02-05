@@ -112,6 +112,7 @@ function createEven(StoreEventRequest $request){
   public function destroyEvent(Request $request)
   {
 
+
     $events = Event::findOrFail($request->id)->delete();
     toastr()->error('Vous avez supprimer l evenement');
     return redirect()->back();
@@ -121,7 +122,7 @@ function createEven(StoreEventRequest $request){
       public function suprimer_Event($id){
          $events=Event::find($id);
       $events->delete();
-        toastr()->error('Vous avez supprimer le secteur');
+        toastr()->error('Vous avez supprimer l evenement');
         return redirect()->back();
       }
 }

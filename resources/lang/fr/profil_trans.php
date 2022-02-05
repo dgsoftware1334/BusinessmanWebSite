@@ -12,7 +12,7 @@ return [
     'Phone' => 'Télephone',
     'Address' => 'Adresse',
     'Diploma' => 'Diplome',
-    'Activity area' => 'Secteur dactivité',
+    'Activity area' => 'Secteur d\'activité',
     'Website' => 'Siteweb',
     'Description' => 'Description',
     'Updates personal information' => 'Mise à jours des informations personnelles',

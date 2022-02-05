@@ -127,7 +127,7 @@ border-top: 1px solid blue;
 <a href="" data-toggle="modal" data-target="#edite{{$row->id}}">
 <i class="fas fa-edit" style="color: blue"></i></a>&ensp;
 
- <a  href="{{ url('admin/fondateur/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+<a href="{{ url('admin/fondateur/delete', $row->id) }}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
 
 
 
@@ -501,6 +501,23 @@ Ajouter un fondateur</h4>
     
      
 </script>
+<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<<script>
+$('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Etes vous sur de bien vouloir supprimer le fondateur?',
+        text: 'Le fondateur sera supprimer ainsi que les informations attaché avec',
+        icon: 'warning',
+        buttons: ["Annuler", "Oui!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
 
+</script>
 <!-- /.content-wrapper -->
 @endsection
