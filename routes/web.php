@@ -152,6 +152,8 @@ Auth::routes();
 Route::prefix('admin')->name('admin.')->group(function(){
        
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
+      Route::get('/register',[AdminController::class,'index_register'])->name('index_register');
+      Route::post('/create_admin',[AdminController::class,'create_admin'])->name('create_admin');
         Route::view('/login','dashboard.admin.login')->name('login');
         Route::post('/check',[AdminController::class,'check'])->name('check');
     });
