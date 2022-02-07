@@ -12,10 +12,48 @@ use App\Models\Fondateur;
 use App\Models\Event;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Validation;
-
+use DB;
 
 class AdminController extends Controller
+
 {
+  public function index_register(){
+    $var=DB::table('admins')->count();
+    
+    if($var >0){
+    return view ('dashboard.admin.login');}
+    else {
+    return view ('dashboard.admin.register');
+  }}
+  function create_admin(Request $request){
+      
+    $request->validate([
+      'name' =>'required',
+      'email'=>'required|email',
+      'password'=>'required|min:5|max:30'
+   ]);
+
+    $admin = new Admin();
+    $admin->name = $request->name;
+    
+    $admin->email = $request->email;
+   
+    $admin->password = \Hash::make($request->password);
+    $save = $admin->save();
+
+    if( $save ){
+        toastr()->success(trans(key: 'msg_trans.success'));
+
+        return redirect()->back();
+    }else{
+       
+    toastr()->error(trans(key: 'msg_trans.fail'));
+
+    return back();
+
+    }
+}
+
     function check(Request $request){
         //Validate Inputs
         $request->validate([
