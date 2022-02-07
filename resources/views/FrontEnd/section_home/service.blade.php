@@ -16,13 +16,13 @@
 				<div class="post-item">
 					<div class="post-item-inner">
 						<div class="post-thumb">
-							<img src="{{ asset('assests/images/secteurs/'.$row1->image)  }}" alt="rel-blog" style="height: 130px">
-							<a  class="catagory"><img src="https://img.icons8.com/carbon-copy/24/000000/arrow.png"/>
+							<img src="{{ asset('assests/images/secteurs/'.$row1->image)  }}" alt="rel-blog" style="height: 130px" >
+						<a  href="{{ url('/secteur',$row1->id) }}" class="catagory"><img src="https://img.icons8.com/carbon-copy/24/000000/arrow.png"/>
 
 							</a>
 						</div>
 						<div class="post-content">
-							<h5><a href="#">{{$row1->libelle}}</a></h5>
+							<h5><a href="{{ url('/secteur',$row1->id) }}">{{$row1->libelle}}</a></h5>
 							<div class="meta-post">
 								<span class="by">{!! Str::limit($row1->description, 60) !!}.</span>
 	                            <span class="by"><i class="fas fa-user-tie"></i><a class="date" href="#">{{count($row1->users->where('status',0))}}</a></span>

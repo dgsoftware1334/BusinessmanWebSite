@@ -65,19 +65,24 @@
 		                           
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 400px">
+	                                        <img src="{{ asset('assests/FrontEnd/assets/images/banner/bs/4.jpg') }}" alt="about" style="height: 400px">
 	                                    </div>
 		                            </div>
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 400px">
+	                                        <img src="{{ asset('assests/FrontEnd/assets/images/banner/bs/5.jpg') }}" alt="about" style="height: 400px">
 	                                    </div>
 		                            </div>
 		                            <div class="swiper-slide">
 	                                    <div class="about-thumb">
-	                                        <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" alt="about" style="height: 400px">
+	                                        <img src="{{ asset('assests/FrontEnd/assets/images/banner/bs/1.jpg') }}" alt="about" style="height: 400px">
 	                                    </div>
 		                            </div>
+                                     <div class="swiper-slide">
+                                        <div class="about-thumb">
+                                            <img src="{{ asset('assests/FrontEnd/assets/images/banner/bs/7.jpg') }}" alt="about" style="height: 400px">
+                                        </div>
+                                    </div>
 		                            
 		                        </div>
 		                        <div class="about-item-pagination"></div>
@@ -93,7 +98,7 @@
     	<div class="row no-gutters align-items-center">
     		<div class="col-lg-5 col-12">
 	        	<div>
-	        		 <img src="{{ asset('assests/FrontEnd/assets/images/banner/9.jpg') }}" alt="about">
+	        		 <img src="{{ asset('assests/FrontEnd/assets/images/banner/bs/3.jpg') }}" alt="about">
 	        		
 	        		
 	        	</div>
@@ -123,8 +128,7 @@
 		    </div>
 	    </div>
     </section>
-    <br>
-    <br>
+    
    <section class="testimonial-section style-2 padding-tb" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/10.jpg') }})">
         <div class="container container-1310">
             <div class="section-header wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">

@@ -3,7 +3,7 @@
 
 <!-- Mirrored from labartisan.net/demo/unlimitcon/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Jan 2022 15:33:12 GMT -->
 <head>
-  <title>Unlimitcon</title>
+  <title>Algerian business-man</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Unlimitcon Template is a Creative Multipurpose HTML5 Template">
   <meta name="keywords" content="Unlimitcon, HTML5, Multipurpose, Template">
@@ -36,7 +36,7 @@
   <div class="mobile-menu">
     <nav class="mobile-header primary-menu d-lg-none">
       <div class="header-logo">
-        <a href="index.html" class="logo"><img src="assets/images/logo/01.png" alt="logo"></a>
+        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo"></a>
       </div>
       <div class="header-bar" id="open-button">
               <span></span>
@@ -54,7 +54,7 @@
         <div class="mobile-menu-area d-lg-none">
               <div class="mobile-menu-area-inner" id="scrollbar">
                     <div class="header-bar m-menu-bar">
-                        <a href="#" class="logo"><img src="assets/images/logo/01.png" alt="logo"></a>
+                        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo"></a>
                         <div class="close-button" id="close-button"></div>
                     </div>
                   <ul class="m-menu">
@@ -121,12 +121,7 @@
                    </ul>
                  </li>
                   </ul>
-                    <ul class="social-link-list d-flex flex-wrap">
-                        <li><a href="#" class="facebook"><i class=" fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i></a></li>
-                    </ul>
+                   
               </div>
           </div>
       </nav>
@@ -142,9 +137,9 @@
         <div class="container container-1310">
           <div class="menu-area">
             <div class="row no-gutters justify-content-between align-items-center">
-              <a href="index.html" class="logo">
-                <img src="assets/images/logo/01.png" alt="logo">
-                <img src="assets/images/logo/01.png" alt="logo">
+              <a href="" class="logo">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo">
               </a>
              <ul class="main-menu d-flex align-items-center">
                  <li class="active">
@@ -167,9 +162,7 @@
                    </ul>
                  </li>
                  <li><a href="{{ url('/about') }}">{{trans('header_trans.About')}}</a></li>
-                 <!--<li><a href="#">pages</a>
-                   
-                 </li>-->
+                
                  <li><a href="{{url('/contact')}}">{{trans('header_trans.Contact us')}}</a></li>
                  
                
@@ -286,8 +279,8 @@
               <div class="footer-content">
                           <nav class="nav flex-column">
                             
-                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-home" style="color: #fd3d6b"></i>&ensp;{{ $row->adresse}}</a>
-                               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-phone-square" style="color: #fd3d6b"></i>&ensp;{{ $row->telephone}}</a>
+                              <a class="nav-link disabled" tabindex="-1" aria-disabled="true"><i class="fas fa-home" style="color: #fd3d6b"></i>&ensp;{{ $row->adresse}}</a>
+                               <a class="nav-link disabled"  tabindex="-1" aria-disabled="true"><i class="fas fa-phone-square" style="color: #fd3d6b"></i>&ensp;{{ $row->telephone}}</a>
                               
                             </nav>
 
@@ -358,6 +351,12 @@
     <script src="{{ asset('assests/FrontEnd/assets/js/theia-sticky-sidebar.js') }}"></script>
   <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
   <script src="{{ asset('assests/FrontEnd/assets/js/mail.js') }}"></script>
+    <script>
+      $(window).scroll(function() {
+        var theta = $(window).scrollTop() / 300 % Math.PI;
+        $('#leftgear').css({ transform: 'rotate(' + theta + 'rad)' });
+      });
+  </script>
 </body>
 
 <!-- Mirrored from labartisan.net/demo/unlimitcon/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Jan 2022 15:35:12 GMT -->

@@ -19,7 +19,27 @@
     						<div class="col-md-4">
     							<div class="post-item" style="border-color: black; font-size: 10px">
 									<div class="post-thumb">
-										<a href="blog-single.html"><img src="{{ asset('assests/images/poblication/'.$row->image)  }}" style="height: 160px;width: 400px" alt="blog"></a>
+										  @if (Route::has('user.login'))
+               
+                                            @auth
+                                            <a href="{{ route('user.publicaiton', [$row->id])}}"  class="cata-icon">  
+                                             @else
+                                            <a href="{{ url('publication/visiteur', $row->id)}}"  class="cata-icon"> 
+
+                      
+                                            @endauth
+                                            @endif
+
+
+                                            <img src="{{ asset('assests/images/poblication/'.$row->image)  }}" style="height: 160px;width: 400px" alt="blog">
+
+                                        </a>
+
+
+
+
+
+                                      
 									</div>
 									<div class="post-content">
                                         @if (Route::has('user.login'))
@@ -37,12 +57,24 @@
 
 
                                         <ul class="post-catagory">
-                                            <li><a href="#">Meetup,</a></li>
-                                            <li><a href="#">publication</a></li>
+                                            <li><a >Meetup,</a></li>
+                                            <li><a >publication</a></li>
                                         </ul>
-                                        <a href="blog-single.html">
-                                            <h5>{{$row->context}}.</h5>
-                                        </a>
+                                        
+                                           @if (Route::has('user.login'))
+               
+                                            @auth
+                                            <a href="{{ route('user.publicaiton', [$row->id])}}"  >   <h5>{{$row->context}}.</h5></a>
+                                             @else
+                                            <a href="{{ url('publication/visiteur', $row->id)}}"  ><h5>{{$row->context}}.</h5></a>
+
+                      
+                                            @endauth
+                                            @endif
+
+
+
+
                                         <div class="meta-post">
                                            </span><br> at &ensp;{{$row->updated_at}}</a>
                                         </div>

@@ -66,7 +66,7 @@
               @endif
             </div>
             <div class="speaker-content">
-              <a href="#">{{ Auth::guard('web')->user()->name }}  {{ Auth::guard('web')->user()->lastname }}</a>
+              <a>{{ Auth::guard('web')->user()->name }}  {{ Auth::guard('web')->user()->lastname }}</a>
              
             </div>
           </div>
@@ -153,14 +153,16 @@
       <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-briefcase" style="color:#fd3d6b"></i>&ensp;{{trans('profil_trans.Professional information')}}</h2>
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Diploma')}}</b></h5>
-        <h6 style="color:#fd3d6b"><i class="fas fa-user-graduate"></i>&ensp;{{Auth::guard('web')->user()->diplome}}</h6>
+        <h6 style="color:#fd3d6b"><i class="fas fa-user-graduate"></i>&ensp;
+          {{ Auth::guard('web')->user()->diplome ?? '(vide)' }}
+        </h6>
         
         <hr>
       </div>
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
         <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
-        {{ Auth::guard('web')->user()->secteur->libelle ?? '(vide)' }}  ( {{ Auth::guard('web')->user()->anneexp}} anneé exprience )
+        {{ Auth::guard('web')->user()->secteur->libelle ?? '(vide)' }}  ( {{ Auth::guard('web')->user()->anneexp->anneexp ?? '0' }} anneé exprience )
       </h6>
         <p> 
 

@@ -28,15 +28,15 @@
 						                <p>Days</p>
 						            </li>
 
-						            <li><span class="count-number ">0</span>
+						            <li><span class="count-number">0</span>
 						                <p>Hours</p>
 						            </li>
 
-						            <li><span class="count-number ">0</span>
+						            <li><span class="count-number">0</span>
 						                <p>Minite</p>
 						            </li>
 
-						            <li><span class="count-number hours days minutes  seconds">0</span>
+						            <li><span class="count-number ">0</span>
 						                <p>Seconds</p>
 						            </li>
 						        </ul>
@@ -57,7 +57,7 @@
 
 											{{$row->date_fin}} à {{$row->date_debut}}
 
-										</span>,  at 9:00am - 6:00pm</div>
+										</span></div>
 									</li>
 									<li>
 										<div class="newevent-icon"><i class="fas fa-link"></i></div>
