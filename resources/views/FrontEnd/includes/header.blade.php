@@ -8,7 +8,7 @@
 			   <span></span>
 		   </div>
 	   </div>
-   </div!-->
+   </div-->
    
 <div class="header-section style-2 d-none d-md-block" >
 
