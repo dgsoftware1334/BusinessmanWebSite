@@ -36,10 +36,13 @@
 
 									   
 									   <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
-
-									 
-
-									  
+									   @if(Route::has('user.login'))
+									   @auth
+									   <li><a href="{{ url('user/sujets') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @else
+									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @endauth
+									  @endif
 								   </ul>
 							   </li>
 							   <li><a href="{{ url('/about') }}">{{trans('header_trans.About')}}</a></li>

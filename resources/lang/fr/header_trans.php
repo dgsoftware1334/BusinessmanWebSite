@@ -13,5 +13,6 @@ return [
     'Login' => 'Connexion',
     'Logout' => 'Déconnexion',
     'Secteur' => ' Secteur d\'activité',
+    'Forum' => 'Forum',
 
 ];

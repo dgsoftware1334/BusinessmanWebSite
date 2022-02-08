@@ -13,6 +13,7 @@ return [
     'Register' => 'Register',
     'Login' => 'Login',
     'Logout' => 'Logout',
+    'Forum' => 'Forum',
 
     
 

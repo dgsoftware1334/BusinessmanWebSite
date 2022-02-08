@@ -125,6 +125,11 @@
 &ensp; Evenements</a>
 
          </li>
+         <li class="nav-header">
+            <a href="{{ route('admin.sujets')}}" ><i class="far fa-calendar-alt"></i>
+&ensp; Sujets</a>
+
+         </li>
 
          <li class="nav-header">
             <a href="{{ route('admin.index.fondateur')}}" ><i class="fas fa-sitemap"></i>
