@@ -13,6 +13,8 @@ return [
     'Registration for the businessmen' => 'Registration for the businessmen',
     'Your registration will allow you to have an overview in the national platform of Algerian businessmen' => 'Your registration will allow you to have an overview in the national platform of Algerian businessmen',
     'success' => 'succés',
+        'Current password'=>'Current password'
+
     
 
 ];

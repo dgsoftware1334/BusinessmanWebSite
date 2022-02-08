@@ -31,13 +31,15 @@
                 <div class="col-md-6">
                     <div class="venue-item">
                         <div class="venue-thumb">
+                             <a href="{{url('secteur',$row->id)}}">
                             <img src=" {{ asset('assests/images/secteurs/'.$row->image)}}" alt="" style="height: 260px">
+                        </a>
                         </div>
                         <div class="venue-content">
                            <a href="{{url('secteur',$row->id)}}"><h6>{{$row->libelle}}</h6></a>
                             
                             <p>
-                                {!! Str::limit($row->description, 70) !!}.<a href="{{url('secteur',$row->id)}}">see more</a></p>
+                                {!! Str::limit($row->description,60) !!}.<a href="{{url('secteur',$row->id)}}">see more</a></p>
                             <div class="venue-location">
                             	
                                 <div class="meta-post">

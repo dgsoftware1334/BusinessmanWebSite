@@ -148,24 +148,30 @@ border-top: 1px solid blue;
                   </div>
 
 
-
-                <!--div class="form-group row">
-                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Mote de passe</label>
-                    <div class="col-sm-9">
-                    <input type="password" class="form-control" name="password" placeholder="{{trans('register_trans.Password')}}" value="{{  $user->password }}">
-              <span class="text-danger">@error('password'){{ $message }} @enderror</span>    
-      
-                    </div>
-                  </div>
-
-
-                <div class="form-group row">
-                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Confirmer mote de passe</label>
-                    <div class="col-sm-9">
-                      <input type="password" class="form-control" name="cpassword" placeholder="{{trans('register_trans.Confirm Password')}}" value="{{  $user->cpassword }}">
-            <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
-                    </div>
-                  </div-->
+          <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label" >Current Password</label>
+  
+                            <div class="col-md-9">
+                                <input id="password" type="password" class="form-control" name="current_password" autocomplete="current-password">
+                            </div>
+                        </div>
+               
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label" >New Password</label>
+  
+                            <div class="col-md-9">
+                                <input id="new_password" type="password" class="form-control" name="new_password" autocomplete="current-password">
+                            </div>
+                        </div>
+  
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label" >New Confirm Password</label>
+    
+                            <div class="col-md-9">
+                                <input id="new_confirm_password" type="password" class="form-control" name="new_confirm_password" autocomplete="current-password">
+                            </div>
+                        </div>
+   
 
 
 

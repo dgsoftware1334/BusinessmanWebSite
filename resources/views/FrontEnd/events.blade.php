@@ -36,12 +36,12 @@
                     <div class="grid-item masonary-item" data-category="transition">
                         <div class="masonary-item-inner">
                             <div class="masonary-thumb">
-                                <a href="#"><img src="{{ asset('assests/images/events/'.$row->image)}}" alt="masonary" style="height: 200px; width: 360px"></a>
+                                <a href="{{url('/event',$row->id)}}"><img src="{{ asset('assests/images/events/'.$row->image)}}" alt="masonary" style="height: 200px; width: 360px"></a>
                             </div>
                             <div class="masonary-content">
-                                <a href="#"><h5>{{$row->sujet}}</h5></a>
+                                <a href="{{url('/event',$row->id)}}"><h5>{{$row->sujet}}</h5></a>
                                 <div class="meta-post">
-                                    <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->date_debut}} <i>{{trans('about_trans.At')}}</i> {{$row->date_fin}} </a></span>
+                                    <span class="by"><i class="fas fa-clock"></i> <a class="date" href="{{url('/event',$row->id)}}">{{$row->date_debut}} <i>{{trans('about_trans.At')}}</i> {{$row->date_fin}} </a></span>
                                     <span class="by"> 
                                       <i class="fas fa-map-marker-alt"></i> 
                                    

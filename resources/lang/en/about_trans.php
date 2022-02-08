@@ -37,6 +37,8 @@ return [
     'Type' => 'Type',
     'Post' => 'Post',
     'Posted on' => 'Posted on',
+    'Search for businessmen by name'=> 'Search for businessmen by name'
+
     
 
    

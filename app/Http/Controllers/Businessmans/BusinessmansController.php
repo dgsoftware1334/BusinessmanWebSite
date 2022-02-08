@@ -9,7 +9,8 @@ use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
 use App\Http\Requests\StoreUserRequest;
-
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 class BusinessmansController extends Controller
 {
  
@@ -174,7 +175,7 @@ class BusinessmansController extends Controller
         $user->anneexp=$request->anneexp;
         $user->sacteur_id=$request->sacteur_id;
    //
-
+    $user->password=Hash::make($request->new_password);
         
 
         $save = $user->save();

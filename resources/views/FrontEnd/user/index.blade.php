@@ -1,3 +1,4 @@
+
 @extends('layouts.visiteur')
 
 @section('content')
@@ -45,7 +46,7 @@
 
     </style>
 
-  <div class="page-header-section post-title style-1 " style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/3.jpg') }})">
+  <div class="page-header-section post-title style-1"  style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/3.jpg') }})">
 
         <div class="overlay">
             <div class="page-header-content">
@@ -56,8 +57,9 @@
                         </div>
                         <ol class="breadcrumb">
                           
-                            <li><a href="index.html">{{trans('header_trans.Businessmans')}}</a></li>
-                            <li class="active">{{trans('header_trans.Home')}}</li>
+                          
+                     <li ><a href="{{ url('/') }}">{{trans('header_trans.Home')}}</a></li>
+                    <li class="active">{{trans('header_trans.Businessmans')}}</li>
                         </ol>
                         
                     </div>
@@ -68,6 +70,10 @@
         </div>
         
     </div>
+<!-- page header section -->
+
+    <!-- end page header section -->
+
 
 
     <div class="event-with-sidebar-section">
@@ -123,8 +129,8 @@
               
                 <h2>{{trans('about_trans.The results of your search')}}:</h2>
 
-                <section class="event-schedule style-4 padding-tb" style="width: 900px"><p> </p>
-                <div class="container container-1310 p-0 p-md-auto" style="width: 900px">
+                <section class="event-schedule style-4 padding-tb" ><p> </p>
+                <div class="container container-1310 p-0 p-md-auto" >
                   <div class="section-wrapper"  >
                     
 

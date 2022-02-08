@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -238,6 +240,7 @@ public function update_informationPar(Request $request, $id)
         $user->description = $request->description;
         $user->address = $request->address;
         $user->email = $request->email;
+        $user->password=Hash::make($request->new_password);
 
         $user->save();
 

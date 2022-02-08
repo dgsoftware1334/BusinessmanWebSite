@@ -66,7 +66,7 @@
               @endif
             </div>
             <div class="speaker-content">
-              <a href="#">{{ $user->name }}  {{ $user->lastname }}</a>
+              <a >{{ $user->name }}  {{ $user->lastname }}</a>
              
             </div>
           </div>
@@ -109,6 +109,7 @@
               @endif
               <br> <br> <br> <br> 
         <div class="w3-display-bottomleft w3-container w3-text-black">
+          <br> <br> 
           <h2>{{$user->name}} &nbsp; {{$user->lastname}} </h2>
         </div>
       </div>
@@ -165,7 +166,7 @@
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
         <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>
-      {{ $user->secteur->libelle ?? '(vide)' }}  ( {{ $user->anneexp}} anneé exprience )
+      {{ $user->secteur->libelle ?? '(vide)' }}  ({{ $user->anneexp ?? '0' }} anneé exprience )
       </h6>
        
           <p>    

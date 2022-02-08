@@ -36,6 +36,8 @@ return [
     'Type' => 'Type',
     'Post' => 'Publication',
     'Posted on' => 'Publié le',
+    'Search for businessmen by name'=> 'recherche les hommes d\'affaires par Nom '
+
     
 
 ];

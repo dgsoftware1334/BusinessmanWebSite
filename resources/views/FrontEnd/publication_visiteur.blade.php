@@ -39,12 +39,12 @@
               <div class="post-item">
                             <div class="post-content-header entry-header">
                                 <ul class="post-catagory">
-                                    <li><a href="#">{{trans('about_trans.Published on')}}</a></li>
-                                    <li class="date"><a href="#">{{$publication->updated_at}}</a></li>
+                                    <li><a >{{trans('about_trans.Published on')}}</a></li>
+                                    <li class="date">{{$publication->updated_at}}</li>
                                 </ul>
                                 <h2>{{$publication->context}}.</h2>
                                 <div class="meta-post entry-meta">&ensp;&ensp;&ensp;
-                                  <i class="fas fa-comments"></i><a href="#">{{$cont}} {{trans('about_trans.Comments')}} </a> </span>
+                                  <i class="fas fa-comments"></i>&ensp;{{$cont}} {{trans('about_trans.Comments')}}</span>
                                 </div>
                             </div>
                             <div class="post-thumb">

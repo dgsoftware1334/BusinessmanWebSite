@@ -36,8 +36,8 @@
               <div class="post-item">
                             <div class="post-content-header entry-header">
                                 <ul class="post-catagory">
-                                    <li><a href="#">{{trans('about_trans.Posted on')}}</a></li>
-                                    <li class="date"><a href="#">{{$publication->updated_at}}</a></li>
+                                    <li><a >{{trans('about_trans.Posted on')}}</a></li>
+                                    <li class="date">{{$publication->updated_at}}</li>
                                 </ul>
                                 <h2>{{$publication->context}}.</h2>
                                 <div class="meta-post entry-meta">&ensp;&ensp;&ensp;

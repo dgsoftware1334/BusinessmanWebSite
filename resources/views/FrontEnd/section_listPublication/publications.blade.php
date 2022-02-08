@@ -60,10 +60,26 @@
 					  
 				                                       @endauth
 			   
-		   @endif
+		                                            @endif
 												</div>
 												<div class="post-content">
-													<h5><a href="#">{{$row->context}}</a></h5>
+													<h5>
+													@if (Route::has('user.login'))
+			   
+				                                        @auth
+				                                       <a href="{{ route('user.publicaiton', [$row->id])}}">
+				                                        @else
+				                                     	<a href="{{ url('publication/visiteur', $row->id)}}">
+					  
+				                                       @endauth
+			   
+		                                            @endif
+
+
+
+
+
+															{{$row->context}}</a></h5>
 													<p>{!!$row->contenu!!}.  </p>
 													<div class="meta-post">
 							                            <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->updated_at}}</a></span>
@@ -71,14 +87,14 @@
 
 							                             	 <?php
  
-  $cont=0;
-  foreach($row->users as $row1){
-      if($row1->pivot->is_valide == 1){
-      $cont= $cont+1;
-    }
-    }
+                                                               $cont=0;
+                                                               foreach($row->users as $row1){
+                                                                   if($row1->pivot->is_valide == 1){
+                                                                   $cont= $cont+1;
+                                                                 }
+                                                                 }
   
- ?>
+                                                              ?>
 							                             	{{$cont}} {{trans('about_trans.Comments')}} </span>
 							                            <span class="by"><i class="fas fa-map-marker-alt"></i> Algérie.</span>
 							                        </div>
