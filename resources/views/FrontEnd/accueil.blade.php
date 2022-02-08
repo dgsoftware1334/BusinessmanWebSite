@@ -1,7 +1,7 @@
 @extends('layouts.visiteur')
 
 @section('content')
-<section class="banner-section style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/0002.png') }}); background-color: #f2f2f2">
+<section class="banner-section style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/0002.png') }}); background-color: white;margin-top: -60px;margin-left: 10px">
    <div class="banner-content-area">
 			<div class="container container-1310">
 				<div class="banner-content">
