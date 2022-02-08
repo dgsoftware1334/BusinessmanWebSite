@@ -8,36 +8,28 @@
   <meta name="description" content="Unlimitcon Template is a Creative Multipurpose HTML5 Template">
   <meta name="keywords" content="Unlimitcon, HTML5, Multipurpose, Template">
   <meta name="author" content="LabArtisan">
-  @toastr_css
+  
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" style="height: 60px;width: 100px" >
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/animate.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assests/FrontEnd/assets/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/all.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/lightcase.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/swiper.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/style.css') }}">
-
-    <script src="https://kit.fontawesome.com/91eb611da5.js" crossorigin="anonymous"></script>
-    <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
-
    <script src="https://kit.fontawesome.com/91eb611da5.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
-@jquery
-    @toastr_js
-    @toastr_render
     <!-- preloader start here -->
-    <!--div class="preloader">
+    <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
                 <span></span>
                 <span></span>
             </div>
         </div>
-    </!--div-->
+    </div>
   <!-- preloader ending here -->
   
   <!-- mobile-nav section start here -->
@@ -86,7 +78,7 @@
 
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
-                 
+
                    
 
                     
@@ -153,8 +145,8 @@
           <div class="menu-area">
             <div class="row no-gutters justify-content-between align-items-center">
               <a href="" class="logo">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 80px;width: 120px">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 80px;width: 120px">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
               </a>
              <ul class="main-menu d-flex align-items-center">
                  <li class="active">
@@ -177,7 +169,7 @@
 
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
-                
+
                    
 
                     
@@ -271,6 +263,13 @@
                      <a href="{{ url('/') }}">{{trans('header_trans.Home')}}</a>
                     <li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
                      <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
+                     @if(Route::has('user.login'))
+									   @auth
+									   <li><a href="{{ url('user/sujets') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @else
+									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @endauth
+									  @endif
                     <li><a href="{{ url('/about') }}">{{trans('header_trans.About')}}</a></li>
                  <!--<li><a href="#">pages</a>
                    
@@ -354,32 +353,6 @@
     <!-- footer section ending here -->
 
 
-    </body>
-  <script src="{{asset('assests/FrontEnd/assets/js/jquery.js')}}"></script>
-   <script src="{{asset('assests/FrontEnd/assets/js/snap.svg-min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/classie.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/main3.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/fontawesome.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/jquery.counterup.min.js')}}"></script>
-  <script src="{{asset('assests/FrontEnd/assets/js/jquery.easing.js')}}"></script> 
-    <script src="{{asset('assests/FrontEnd/assets/js/parallax.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/swiper.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/lightcase.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/jquery.countdown.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/jQuery.scrollSpeed.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/jquery.jticker.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/waypoints.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/functions.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/wow.min.js')}}"></script>
-    <script src="{{asset('assests/FrontEnd/assets/js/theia-sticky-sidebar.js')}}"></script>
-  <!--script src="{{ asset('assests/FrontEnd/assets/js/s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script-->
-  <script src="{{asset('assests/FrontEnd/assets/js/mail.js') }}"></script>
-    <script src="{{asset('assests/FrontEnd/../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script>
-
- <script>
-
   <script src="{{ asset('assests/FrontEnd/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/snap.svg-min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/classie.js') }}"></script>
@@ -387,7 +360,7 @@
     <script src="{{ asset('assests/FrontEnd/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/fontawesome.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/jquery.counterup.min.js') }}"></script>
-  <script src="{{ asset('assests/FrontEnd/assets/js/jquery.easing.js') }}"></script> 
+  <script src='{{ asset('assests/FrontEnd/assets/js/jquery.easing.js') }}'></script> 
     <script src="{{ asset('assests/FrontEnd/assets/js/parallax.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/swiper.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/lightcase.js') }}"></script>
@@ -402,13 +375,12 @@
   <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
   <script src="{{ asset('assests/FrontEnd/assets/js/mail.js') }}"></script>
     <script>
-
       $(window).scroll(function() {
         var theta = $(window).scrollTop() / 300 % Math.PI;
         $('#leftgear').css({ transform: 'rotate(' + theta + 'rad)' });
       });
   </script>
+</body>
 
-
-
+<!-- Mirrored from labartisan.net/demo/unlimitcon/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Jan 2022 15:35:12 GMT -->
 </html>
