@@ -16,12 +16,12 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/lightcase.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/swiper.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/style.css') }}">
-<<<<<<< HEAD
+
     <script src="https://kit.fontawesome.com/91eb611da5.js" crossorigin="anonymous"></script>
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
-=======
+
    <script src="https://kit.fontawesome.com/91eb611da5.js" crossorigin="anonymous"></script>
->>>>>>> b1d80baa0b7c3532f1168499d72659a27fb66454
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 </head>
 
@@ -76,7 +76,13 @@
 
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
-
+                     @if(Route::has('user.login'))
+									   @auth
+									   <li><a href="{{ url('user/sujets') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @else
+									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @endauth
+									  @endif
                    
 
                     
@@ -160,7 +166,13 @@
 
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
-
+                     @if(Route::has('user.login'))
+									   @auth
+									   <li><a href="{{ url('user/sujets') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @else
+									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
+									 @endauth
+									  @endif
                    
 
                     
