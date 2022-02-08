@@ -9,7 +9,7 @@
   <meta name="keywords" content="Unlimitcon, HTML5, Multipurpose, Template">
   <meta name="author" content="LabArtisan">
   
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assests/FrontEnd/assets/images/x-icon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" style="height: 60px;width: 100px" >
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/all.min.css') }}">
@@ -36,7 +36,7 @@
   <div class="mobile-menu">
     <nav class="mobile-header primary-menu d-lg-none">
       <div class="header-logo">
-        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo"></a>
+        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 60px;width: 160px"></a>
       </div>
       <div class="header-bar" id="open-button">
               <span></span>
@@ -54,7 +54,7 @@
         <div class="mobile-menu-area d-lg-none">
               <div class="mobile-menu-area-inner" id="scrollbar">
                     <div class="header-bar m-menu-bar">
-                        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo"></a>
+                        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 60px;width: 160px"></a>
                         <div class="close-button" id="close-button"></div>
                     </div>
                   <ul class="m-menu">
@@ -138,8 +138,8 @@
           <div class="menu-area">
             <div class="row no-gutters justify-content-between align-items-center">
               <a href="" class="logo">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
               </a>
              <ul class="main-menu d-flex align-items-center">
                  <li class="active">
@@ -233,8 +233,10 @@
           <div class="row">
             <div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
               <div class="footer-content">
-                <a href="#" class="footer-logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/01.png') }}" alt="logo"></a>
-                <p>World Business Conference one of the best famouse conference in 2020. Most of the speaker of this event ar business magnet. So its a great opportunitee to know the secrate of business success policies Policy.</p>
+                <a href="#" class="footer-logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 100px;width: 200px"></a>
+                 @foreach($chambre as $row)
+                <p>{!! Str::limit($row->description, 160) !!}.</p>
+                @endforeach
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
@@ -265,7 +267,7 @@
                    @foreach($chambre as $row)
                     
                       <div class="f-gellary-thumb">
-                        <a class="footer-img"  data-rel="lightcase"><img src="{{ asset('assests/images/chambre/'.$row->photo)}}" alt="blog-single" style="height:160px; width: 200px"></a>
+                        <a class="footer-img"  data-rel="lightcase"><img src="{{ asset('assests/images/chambre/'.$row->photo)}}" alt="blog-single" style="height:190px; width: 200px"></a>
                       
                   </div>
                   

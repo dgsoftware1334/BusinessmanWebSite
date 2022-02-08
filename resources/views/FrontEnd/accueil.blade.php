@@ -18,7 +18,7 @@
                             @endforeach
                         </select>
                     </div>
-						<input  type="text" name="nom" placeholder="{{trans('about_trans.Name')}}" >
+						<input  type="text" name="nom" placeholder="Recherche les hommes d'affaires par Nom" >
 						
                         
 						<button type="submit" class="btn-defult"> {{trans('about_trans.Search')}}</a>
