@@ -356,6 +356,16 @@ $status = true;
             <span class="text-danger">@error('email'){{ $message }} @enderror</span>  
           <textarea class="form-control" name="description" placeholder="{{trans('register_trans.Description')}}" value="{{ Auth::guard('web')->user()->description }}">{{ Auth::guard('web')->user()->description }}</textarea>
           <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+
+             <br>
+          <input id="password" type="password" class="form-control" name="current_password" autocomplete="current-password"  placeholder="{{trans('register_trans.Current password')}}">
+         
+          <input id="new_password" type="password" class="form-control" name="new_password" autocomplete="current-password" placeholder="{{trans('register_trans.Password')}}">
+                           
+          <input id="new_confirm_password" type="password" class="form-control" name="new_confirm_password" autocomplete="current-password" placeholder="{{trans('register_trans.Confirm Password')}}">
+   
+
+
 <br>
              
       
