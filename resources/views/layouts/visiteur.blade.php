@@ -72,13 +72,6 @@
                  </li>
                    <li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
                      <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
-                 <li><a href="#">{{trans('header_trans.Services')}}</a>
-                   <ul class="m-submenu">
-
-                     <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
-
-                     
-                     <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
                      @if(Route::has('user.login'))
 									   @auth
 									   <li><a href="{{ url('user/sujets') }}">{{trans('header_trans.Forum')}}</a></li>
@@ -86,6 +79,14 @@
 									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
 									 @endauth
 									  @endif
+                 <li><a href="#">{{trans('header_trans.Services')}}</a>
+                   <ul class="m-submenu">
+
+                     <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
+
+                     
+                     <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
+                 
                    
 
                     
@@ -152,8 +153,8 @@
           <div class="menu-area">
             <div class="row no-gutters justify-content-between align-items-center">
               <a href="" class="logo">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 80px;width: 120px">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 80px;width: 120px">
               </a>
              <ul class="main-menu d-flex align-items-center">
                  <li class="active">
@@ -162,13 +163,6 @@
                  </li>
                    <li><a href="{{ url('/businessmans') }}">{{trans('header_trans.Businessmans')}}</a></li>
                      <li><a href="{{ url('/secteurs') }}">{{trans('header_trans.Secteur')}}</a></li>
-                 <li><a href="#">{{trans('header_trans.Services')}}</a>
-                   <ul class="submenu">
-
-                     <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
-
-                     
-                     <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
                      @if(Route::has('user.login'))
 									   @auth
 									   <li><a href="{{ url('user/sujets') }}">{{trans('header_trans.Forum')}}</a></li>
@@ -176,6 +170,14 @@
 									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
 									 @endauth
 									  @endif
+                 <li><a href="#">{{trans('header_trans.Services')}}</a>
+                   <ul class="submenu">
+
+                     <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
+
+                     
+                     <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
+                
                    
 
                     
@@ -352,7 +354,7 @@
     <!-- footer section ending here -->
 
 
-<<<<<<< HEAD
+    </body>
   <script src="{{asset('assests/FrontEnd/assets/js/jquery.js')}}"></script>
    <script src="{{asset('assests/FrontEnd/assets/js/snap.svg-min.js')}}"></script>
     <script src="{{asset('assests/FrontEnd/assets/js/classie.js')}}"></script>
@@ -377,7 +379,7 @@
     <script src="{{asset('assests/FrontEnd/../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js') }}"></script>
 
  <script>
-=======
+
   <script src="{{ asset('assests/FrontEnd/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/snap.svg-min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/classie.js') }}"></script>
@@ -385,7 +387,7 @@
     <script src="{{ asset('assests/FrontEnd/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/fontawesome.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/jquery.counterup.min.js') }}"></script>
-  <script src='{{ asset('assests/FrontEnd/assets/js/jquery.easing.js') }}'></script> 
+  <script src="{{ asset('assests/FrontEnd/assets/js/jquery.easing.js') }}"></script> 
     <script src="{{ asset('assests/FrontEnd/assets/js/parallax.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/swiper.min.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/lightcase.js') }}"></script>
@@ -400,13 +402,13 @@
   <script src='../../../s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
   <script src="{{ asset('assests/FrontEnd/assets/js/mail.js') }}"></script>
     <script>
->>>>>>> b1d80baa0b7c3532f1168499d72659a27fb66454
+
       $(window).scroll(function() {
         var theta = $(window).scrollTop() / 300 % Math.PI;
         $('#leftgear').css({ transform: 'rotate(' + theta + 'rad)' });
       });
   </script>
-</body>
 
-<!-- Mirrored from labartisan.net/demo/unlimitcon/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Jan 2022 15:35:12 GMT -->
+
+
 </html>
