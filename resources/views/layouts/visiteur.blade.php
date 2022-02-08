@@ -8,7 +8,7 @@
   <meta name="description" content="Unlimitcon Template is a Creative Multipurpose HTML5 Template">
   <meta name="keywords" content="Unlimitcon, HTML5, Multipurpose, Template">
   <meta name="author" content="LabArtisan">
-  
+  @toastr_css
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" style="height: 60px;width: 100px" >
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/bootstrap.min.css') }}">
@@ -21,15 +21,18 @@
 </head>
 
 <body>
+@jquery
+    @toastr_js
+    @toastr_render
     <!-- preloader start here -->
-    <div class="preloader">
-        <div class="preloader-inner">
+    <!--div class="preloader">
+        <div-- class="preloader-inner">
             <div class="preloader-icon">
                 <span></span>
                 <span></span>
             </div>
-        </div>
-    </div>
+        </div-->
+    </!---->
   <!-- preloader ending here -->
   
   <!-- mobile-nav section start here -->
