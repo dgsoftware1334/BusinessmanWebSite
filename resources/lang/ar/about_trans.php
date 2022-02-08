@@ -36,6 +36,8 @@ return [
     'Type' => 'صنف',
     'Post' => 'منشور',
     'Posted on' => 'نشرت في',
+    'Search for businessmen by name'=> 'البحث عن رجال الأعمال بالاسم
+',
 
     
     

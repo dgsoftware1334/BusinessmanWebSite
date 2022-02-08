@@ -1,7 +1,7 @@
 @extends('layouts.visiteur')
 
 @section('content')
-<section class="banner-section style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/0002.jpg') }}); background-color: #f2f2f2">
+<section class="banner-section style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/0002.png') }}); background-color: #f2f2f2">
    <div class="banner-content-area">
 			<div class="container container-1310">
 				<div class="banner-content">
@@ -18,7 +18,7 @@
                             @endforeach
                         </select>
                     </div>
-						<input  type="text" name="nom" placeholder="Recherche les hommes d'affaires par Nom" >
+						<input  type="text" name="nom" placeholder="{{trans('about_trans.Search for businessmen by name')}}" >
 						
                         
 						<button type="submit" class="btn-defult"> {{trans('about_trans.Search')}}</a>
