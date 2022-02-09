@@ -13,7 +13,9 @@ return [
     'Posted on' => 'Posted on',
     'Posted by' => 'Posted by',
 
-
+    'Modify comment' => 'Modify comment',
+    'Modify' => 'Modify',
+    'Delete' => 'Delete',
 
  
 

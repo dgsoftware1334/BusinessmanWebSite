@@ -59,7 +59,8 @@
 
            <input type="text" class="form-control" name="email" placeholder="{{trans('register_trans.Email')}}" value="{{ old('email') }}">
             <span class="text-danger">@error('email'){{ $message }} @enderror</span>     
-      
+            <input type="text" class="form-control" name="cemail" placeholder="{{trans('register_trans.Confirm email')}}" value="{{ old('cemail') }}">
+            <span class="text-danger">@error('cemail'){{ $message }} @enderror</span>
 
             <input type="password" class="form-control" name="password" placeholder="{{trans('register_trans.Password')}}" value="{{ old('password') }}">
               <span class="text-danger">@error('password'){{ $message }} @enderror</span>

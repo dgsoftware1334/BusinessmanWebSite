@@ -13,6 +13,9 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
+use App\Http\Requests\UpdateChambreRequest;
+
+
 
 class ChambreController extends Controller
 {
@@ -57,7 +60,7 @@ function store_chambre(StroreChambreRequest $request){
     $save =$chambre->save();
     if( $save ){
         toastr()->success('Votre chambre a été ajouter avec succée');
-        return route('admin.show_chambre');
+        return view('dashboard.admin.dashboard');
 
        
     }else{
@@ -85,7 +88,7 @@ function store_chambre(StroreChambreRequest $request){
 
 
 
-public function update_chambre(StroreChambreRequest $request)
+public function update_chambre(UpdateChambreRequest $request)
 {
   try {
       $validated = $request->validated();

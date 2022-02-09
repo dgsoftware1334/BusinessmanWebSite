@@ -107,7 +107,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" id="editorar" placeholder="اكتب المحتوى بالعربي ..."></textarea>
+                      <textarea class="form-control" rows="3" name="contenu_ar" id="editorar" placeholder="اكتب المحتوى بالعربي ..."></textarea>
 
                     </div>
                   </div>
@@ -115,7 +115,7 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-2 col-form-label">The content</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" id="editoren" placeholder="Write the content in english ..."></textarea>
+                      <textarea class="form-control" rows="3" name="contenu_en" id="editoren" placeholder="Write the content in english ..."></textarea>
 
                     </div>
                   </div>

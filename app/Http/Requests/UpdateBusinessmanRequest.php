@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatUserRequest extends FormRequest
+class UpdateBusinessmanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,11 +31,6 @@ class CreatUserRequest extends FormRequest
             'description' => 'required',
             'address' => 'required',
             'email'=>'required|email|unique:users,email',
-            'cemail'=>'required|email|unique:users,email|same:email',
-            'password'=>'required|min:5|max:30',
-            'cpassword'=>'required|min:5|max:30|same:password',
-          
-            
         ];
     }
 
@@ -49,12 +44,9 @@ class CreatUserRequest extends FormRequest
             'description.required' => trans( key: 'validation.required'),
             'address.required' => trans( key: 'validation.required'),
             'email.required' => trans( key: 'validation.required'),
-            'password.required' => trans( key: 'validation.required'),
-            'cpassword.required' => trans( key: 'validation.required'),
-            'cemail.required' => trans( key: 'validation.required'),
+       
    
 
         ];
     }
-
 }

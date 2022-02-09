@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Fondateur;
 use App\Http\Requests\StoreFondRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateFondRequest;
+
 
 class FondateurController extends Controller
 {
@@ -57,9 +59,9 @@ class FondateurController extends Controller
  
 
 }*/
-public function store_fondateur(Request $request)
+public function store_fondateur(StoreFondRequest $request)
 {
-
+  $validated = $request->validated();
  
     $fondateur= new Fondateur();
    
@@ -103,7 +105,7 @@ public function store_fondateur(Request $request)
 
 }
 
-public function update_fondateur(Request $request, $id)
+public function update_fondateur(UpdateFondRequest $request, $id)
 {
  $fondateur=Fondateur::find($id);
 /* if($request->file('image')){
@@ -112,6 +114,7 @@ public function update_fondateur(Request $request, $id)
      $fondateur->image = $newImageName3;
  
        }*/
+       $validated = $request->validated();
         if($request->file('image')){
               $newImageName3 =time().'-'.$request->nom.'.'.$request->image->extension();
               $test3 =$request->image->move('assests/images/fondateurs/',$newImageName3);

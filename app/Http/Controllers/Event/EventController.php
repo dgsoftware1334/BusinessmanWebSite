@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -77,7 +78,7 @@ function createEven(StoreEventRequest $request){
     }
        
   }
-  public function updateEvent(StoreEventRequest $request)
+  public function updateEvent(UpdateEventRequest $request)
   {
       
     try {

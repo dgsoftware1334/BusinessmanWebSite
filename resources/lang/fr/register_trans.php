@@ -14,7 +14,8 @@ return [
     'Registration for the businessmen' => 'Inscription pour les hommes d\'affaires',
     'Your registration will allow you to have an overview in the national platform of Algerian businessmen' => 'Votre inscription vous permettra davoir un aperçu dans la plateforme nationnale des hommes d\'affaire Algériens ',
     'success' => 'success',
-            'Current password'=>'Mot de passe actuel',
+    'Current password'=>'Mot de passe actuel',
+    'Confirm email' => 'Confirmez email',
 
 
 ];

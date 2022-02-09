@@ -43,6 +43,15 @@ border-top: 1px solid blue;
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Créer la chambre</h1>
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -70,7 +79,7 @@ border-top: 1px solid blue;
                 <div class="card-body">
               
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le titre</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Le titre <span style="color:red">*</span></label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputEmail3" placeholder="Entrer le titre en (fr)" name="sujet" class="@error('sujet') is-invalid @enderror">
                       <span class="text-danger">@error('sujet'){{ $message }} @enderror</span>
@@ -95,10 +104,10 @@ border-top: 1px solid blue;
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Adresse</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Adresse <span style="color:red">*</span></label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputEmail3" placeholder="Entrer l'adresse de la chambre" name="adresse" class="@error('adresse') is-invalid @enderror">
-                      <span class="text-danger">@error('politique'){{ $adresse }} @enderror</span>
+                      <span class="text-danger">@error('adresse'){{ $message }} @enderror</span>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -108,10 +117,10 @@ border-top: 1px solid blue;
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Telephone</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Telephone <span style="color:red">*</span></label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputEmail3" placeholder="Entrer le numero de la chambre" name="telephone" class="@error('telephone') is-invalid @enderror">
-                      <span class="text-danger">@error('politique'){{ $telephone }} @enderror</span>
+                      <span class="text-danger">@error('telephone'){{ $message }} @enderror</span>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -139,7 +148,7 @@ border-top: 1px solid blue;
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Description<span style="color:red">*</span></label>
                     <div class="col-sm-10">
             
                       <textarea class="form-control" rows="3" name="description" id="fr" placeholder="Entrer une description sur la chambre" class="@error('description') is-invalid @enderror"></textarea>
@@ -163,11 +172,11 @@ border-top: 1px solid blue;
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Politique</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Politique <span style="color:red">*</span></label>
                     <div class="col-sm-10">
             
                       <textarea class="form-control" rows="3" id="pofr" name="politique" placeholder="Entrer la politique confidentielle de la chambre" class="@error('politique') is-invalid @enderror"></textarea>
-                      <span class="text-danger">@error('politique'){{ $politique }} @enderror</span>
+                      <span class="text-danger">@error('politique'){{ $message }} @enderror</span>
                     </div>
                   </div>
 
@@ -190,7 +199,7 @@ border-top: 1px solid blue;
                   
 
                  <div class="form-group row">
-                    <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Image</label>
+                    <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Image<span style="color:red">*</span></label>
                     <div class="input-group col-sm-10">
                       <div class="custom-file col-sm-10">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="photo"  class="@error('photo') is-invalid @enderror">

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StroreChambreRequest extends FormRequest
+class UpdateEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,24 +26,25 @@ class StroreChambreRequest extends FormRequest
         return [
             'sujet' => 'required',
             'description' => 'required',
-            'adresse' => 'required',
-            'telephone' => 'required',
-            'politique' => 'required',
-            'photo' => 'required',
-            
+            'date_debut' => 'required|date|after:tomorrow',
+            'date_fin' => 'required|date|after:date_debut',
+            'dure' => 'required',
+            'type' => 'required',
+           
+           
         ];
     }
 
-    
     public function messages()
     {
         return [
-            'sujet.required' => 'Le champs titre (fr) est obligatoire',
+            'sujet.required' => 'Le champs sujet (fr) est obligatoire',
             'description.required' => 'Le champs description (fr) est obligatoire',
-            'adresse.required' => 'Le champs adresse  est obligatoire',
-            'telephone.required' => 'Le champs telephone  est obligatoire',
-            'photo.required' => 'Le champs image  est obligatoire',
-            
+            'date_debut.required' => 'La date de debut est obligatoire et doit etre aprés demain',
+            'date_fin.required' => 'La date de fin est obligatoire et doit etre aprés la date debut',
+            'dure.required' => 'La duré est obligatoire',
+            'type.required' => 'Le type est obligatoire',
+           
    
    
 

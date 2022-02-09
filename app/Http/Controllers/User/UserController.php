@@ -232,6 +232,7 @@ return redirect()->back();
 
 public function update_informationPar(Request $request, $id)
 {
+  
         $user=User::find($id);
         $user->name = $request->name;
         $user->lastname = $request->lastname;

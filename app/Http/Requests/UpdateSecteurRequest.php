@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFondRequest extends FormRequest
+class UpdateSecteurRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,24 +24,21 @@ class StoreFondRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => 'required',
-            'prenom' => 'required',
+            'libelle' => 'required',
             'description' => 'required',
-            'image' => 'required',
         ];
     }
+
 
     public function messages()
     {
         return [
-            'nom.required' => 'Le champs nom est obligatoire',
-            'prenom.required' => 'Le champs preom (fr) est obligatoire',
+            'libelle.required' => 'Le champs libelle (fr) est obligatoire',
             'description.required' => 'Le champs description (fr) est obligatoire',
-            'image.required' => 'Le champs image est obligatoire',
+           
    
    
 
         ];
     }
-
 }

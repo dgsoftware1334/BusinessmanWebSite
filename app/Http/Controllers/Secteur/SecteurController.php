@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Secteur;
 use App\Http\Requests\StoreSecteurRequest;
+use App\Http\Requests\UpdateSecteurRequest;
 use Illuminate\Support\Facades\Auth;
 
 class SecteurController extends Controller
@@ -61,7 +62,7 @@ function store(StoreSecteurRequest $request){
     }
        
   }
-  public function update(StoreSecteurRequest $request)
+  public function update(UpdateSecteurRequest $request)
   {
     try {
         $validated = $request->validated();
