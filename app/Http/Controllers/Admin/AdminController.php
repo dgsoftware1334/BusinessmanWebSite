@@ -13,6 +13,7 @@ use App\Models\Event;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Validation;
 use DB;
+use App\Http\Requests\CreatAdminRequest;
 
 class AdminController extends Controller
 
@@ -25,13 +26,9 @@ class AdminController extends Controller
     else {
     return view ('dashboard.admin.register');
   }}
-  function create_admin(Request $request){
+  function create_admin(CreatAdminRequest $request){
       
-    $request->validate([
-      'name' =>'required',
-      'email'=>'required|email',
-      'password'=>'required|min:5|max:30'
-   ]);
+    $validated = $request->validated();
 
     $admin = new Admin();
     $admin->name = $request->name;
@@ -44,7 +41,7 @@ class AdminController extends Controller
     if( $save ){
         toastr()->success(trans(key: 'msg_trans.success'));
 
-        return redirect()->back();
+        return view ('dashboard.admin.login');
     }else{
        
     toastr()->error(trans(key: 'msg_trans.fail'));

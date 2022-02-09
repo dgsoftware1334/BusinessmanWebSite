@@ -107,6 +107,7 @@ Auth::routes();
            Route::get('sujet/show/{id}',[SujetController::class, 'show_sujet']);
           // Route::view('/profile','FrontEnd.user.profile')->name('home');
             Route::get('/profile',[UserController::class, 'profile'])->name('home');
+            Route::get('/download/{file}',[UserController::class,'download'])->name('down');
            
         
           Route::get('/show/{id}',[UserController::class, 'show']);

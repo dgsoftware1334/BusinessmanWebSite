@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->longText('description');
             $table->string('address');
             $table->string('diplome')->nullable();
+            $table->string('file')->nullable();
             $table->string('lienfb')->nullable();
             $table->string('lieninsta')->nullable();
             $table->string('lientwit')->nullable();

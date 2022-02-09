@@ -18,7 +18,7 @@
             <div class="register-border">
             <div class="register-form">
               <div class="form-title">
-                <h5>Se connecter  maintenant</h5>
+                <h5>S'inscrire  maintenant</h5>
                 <!--p>Complete Our Registration Process and Join This Event</p-->
               </div>
                <form action="{{ route('admin.create_admin') }}" method="post">
@@ -33,9 +33,14 @@
                          <span class="text-danger">@error('name'){{ $message }}@enderror</span>
            <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
                          <span class="text-danger">@error('email'){{ $message }}@enderror</span>
+                         <input type="text" class="form-control" name="cemail" placeholder="{{trans('register_trans.Confirm email')}}" value="{{ old('cemail') }}">
+            <span class="text-danger">@error('cemail'){{ $message }} @enderror</span>
+
            <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
                          <span class="text-danger">@error('password'){{ $message }}@enderror</span>
-           <button type="submit"  name="submit">Se connecter</button>
+                         <input type="password" class="form-control" name="cpassword" placeholder="{{trans('register_trans.Confirm Password')}}" value="{{ old('cpassword') }}">
+            <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
+           <button type="submit"  name="submit">S'inscrire</button>
                 </div>
               </form>
             </div>

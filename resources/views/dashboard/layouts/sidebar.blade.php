@@ -126,7 +126,7 @@
 
          </li>
          <li class="nav-header">
-            <a href="{{ route('admin.sujets')}}" ><i class="far fa-calendar-alt"></i>
+            <a href="{{ route('admin.sujets')}}" ><i class="fa-brands fa-rocketchat"></i>
 &ensp; Sujets</a>
 
          </li>

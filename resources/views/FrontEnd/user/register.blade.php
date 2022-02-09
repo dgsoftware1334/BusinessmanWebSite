@@ -2,7 +2,7 @@
 
 @section('content')
  
- <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/pageheader-3.jpg') }})">
+ <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/pageheader-3.jpg') }}); height:1000px;">
 
   
         <div class="page-header-content">
@@ -14,14 +14,14 @@
               <h4 style="color:#1B0135 ;border-radius: 15px; align:center;">{{trans('register_trans.Your registration will allow you to have an overview in the national platform of Algerian businessmen')}} </h4>
             </div>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-6">
             <div class="register-border">
             <div class="register-form">
               <div class="form-title">
                 <h5>{{trans('register_trans.Registration')}}</h5>
                 <!--p>Complete Our Registration Process and Join This Event</p-->
               </div>
-            <form action="{{ route('user.create') }}" method="post" autocomplete="off">
+            <form action="{{ route('user.create') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                @if (Session::get('success'))
                          <div class="alert alert-success">
                              {{ Session::get('success') }}
@@ -54,7 +54,9 @@
 
           <input type="text" class="form-control" name="address" placeholder="{{trans('register_trans.Address')}}" value="{{ old('address') }}">
           <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-
+          <span style="color:white;">Ici vous pouvez ajouter un ficher (cv)</span>
+          <input type="file" class="form-control" name="file" placeholder="{{trans('register_trans.File')}}" value="{{ old('file') }}">
+         
           
 
            <input type="text" class="form-control" name="email" placeholder="{{trans('register_trans.Email')}}" value="{{ old('email') }}">

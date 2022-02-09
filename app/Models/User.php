@@ -31,6 +31,7 @@ class User   extends Authenticatable
         'description',
         'address',
         'diplome',
+        'file',
         'lienfb',
         'lieninsta',
         'lientwit',

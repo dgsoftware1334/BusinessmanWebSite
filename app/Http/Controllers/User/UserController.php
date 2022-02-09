@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatUserRequest;
 use App\Http\Requests\CheckUserRequest;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -15,16 +14,14 @@ use App\Models\Secteur;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Chambre;
-
 use App\Models\Event;
-
-
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -45,6 +42,11 @@ class UserController extends Controller
         $user->email = $request->email;
        // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
+        if($request->file('file')){
+        $file=$request->file; 
+	      $filename=time().'.'.$file->getClientOriginalExtension();
+		    $request->file->move('assests/images/files/',$filename);
+		    $user->file=$filename; }
         $save = $user->save();
 
         if( $save ){
@@ -80,7 +82,14 @@ function logout(){
     Auth::guard('web')->logout();
     return redirect('/');
 }
+public function download(Request $request,$file)
+{
 
+
+  
+return response()->download(public_path('assests/images/files/'.$file));
+
+}
 
 
 public function Accueil()
