@@ -154,6 +154,25 @@
          </li>
         
         @endif
+
+        <?php   $cond =DB::table('conditions')->get();  ?>  
+         <?php  $condition=$cond->count()  ?>
+         
+         @if($condition==0)
+         <li class="nav-header">
+         <a href="{{ route('admin.create_condition')}}" ><i class="fas fa-home"></i>
+&ensp; Ajouter les conditions</a>
+
+      </li>
+      @else
+
+      <li class="nav-header">
+            <a href="{{ route('admin.show_condition')}}" ><i class="fas fa-home"></i>
+&ensp;Modifier les conditions</a>
+
+         </li>
+        
+        @endif
          
 
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Chambre\ChambreController;
 use App\Http\Controllers\Fondateur\FondateurController;
 use App\Http\Controllers\Businessmans\BusinessmansController;
 use App\Http\Controllers\Sujet\SujetController;
+use App\Http\Controllers\Condition\ConditionController;
 
 
 /*
@@ -253,8 +254,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/chambre/index',[ChambreController::class, 'index_chambre'])->name('index_chambre');
        Route::get('/chambre/show/{id}',[ChambreController::class, 'show_chambre'])->name('show_chambre');
        Route::post('/chambre/update',[ChambreController::class, 'update_chambre'])->name('update_chambre');
-
-
+       //----------------------------------condition d utilisation ------------------
+       Route::get('/condition/create',[ConditionController::class, 'create_condition'])->name('create_condition');
+       Route::post('/condition/store',[ConditionController::class, 'store_condition'])->name('store.condition');
+       Route::get('/condition/show',[ConditionController::class, 'show_condition'])->name('show_condition');
+       Route::post('/condition/update',[ConditionController::class, 'update_condition'])->name('update_condition');
 
        
 

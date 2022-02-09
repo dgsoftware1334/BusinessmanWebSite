@@ -34,6 +34,8 @@ class CreatUserRequest extends FormRequest
             'cemail'=>'required|email|unique:users,email|same:email',
             'password'=>'required|min:5|max:30',
             'cpassword'=>'required|min:5|max:30|same:password',
+            'g-recaptcha-response' => 'required|captcha',
+            'term' =>'accepted'
           
             
         ];
@@ -52,6 +54,13 @@ class CreatUserRequest extends FormRequest
             'password.required' => trans( key: 'validation.required'),
             'cpassword.required' => trans( key: 'validation.required'),
             'cemail.required' => trans( key: 'validation.required'),
+            'term.required' => trans( key: 'validation.required'),
+            'custom' => [
+                'g-recaptcha-response' => [
+                    'required' => 'Please verify that you are not a robot.',
+                    'captcha' => 'Captcha error! try again later or contact site admin.',
+                ],
+            ],
    
 
         ];

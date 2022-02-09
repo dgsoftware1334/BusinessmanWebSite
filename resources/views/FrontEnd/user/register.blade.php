@@ -2,7 +2,7 @@
 
 @section('content')
  
- <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/pageheader-3.jpg') }}); height:1000px;">
+ <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/pageheader-3.jpg') }}); height:1200px;">
 
   
         <div class="page-header-content">
@@ -66,10 +66,22 @@
 
             <input type="password" class="form-control" name="password" placeholder="{{trans('register_trans.Password')}}" value="{{ old('password') }}">
               <span class="text-danger">@error('password'){{ $message }} @enderror</span>
-
+             
             <input type="password" class="form-control" name="cpassword" placeholder="{{trans('register_trans.Confirm Password')}}" value="{{ old('cpassword') }}">
             <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
-                 
+            &nbsp;  &nbsp;  &nbsp;
+              <div class="row">
+              <input type="checkbox" id="scales" name="term">
+              <label for="term" style="color:white;">I read and i accept the term of use</label>
+             <br> <span class="text-danger">@error('term'){{ $message }} @enderror</span>
+              </div>
+            {!! NoCaptcha::renderJs() !!}
+            {!! NoCaptcha::display() !!}
+            @if ($errors->has('g-recaptcha-response'))
+    <span class="help-block" style="color:red;">
+        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+    </span>
+@endif 
            <button type="submit"  name="submit">{{trans('register_trans.Registration')}}</button>
                 </div>
              
