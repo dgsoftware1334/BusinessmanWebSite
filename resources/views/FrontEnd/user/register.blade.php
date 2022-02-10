@@ -72,7 +72,7 @@
             &nbsp;  &nbsp;  &nbsp;
               <div class="row">
               <input type="checkbox" id="scales" name="term">
-              <label for="term" style="color:white;">I read and i accept the term of use</label>
+              <label for="term" style="color:white;">{{trans('header_trans.I read and I accept')}} <a href="{{url('condition/show')}}" style="color:white;" target="_blank"> <strong>{{trans('header_trans.Term of use')}}</strong></a></label>
              <br> <span class="text-danger">@error('term'){{ $message }} @enderror</span>
               </div>
             {!! NoCaptcha::renderJs() !!}

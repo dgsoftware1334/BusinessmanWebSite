@@ -90,9 +90,10 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description<span style="color:red">*</span></label>
                     <div class="col-sm-10">
-            
+           
                       <textarea class="form-control" rows="3" name="description" id="fr" placeholder="Entrer les conditions général de votre site" class="@error('description') is-invalid @enderror">{{$row->getTranslation('description', 'fr')}}</textarea>
                       <span class="text-danger">@error('description'){{ $message }} @enderror</span>
+                      <input id="id" type="hidden" name="id" class="form-control"  value="{{ $row->id }}">
                     </div>
                   </div>
                   <div class="form-group row">

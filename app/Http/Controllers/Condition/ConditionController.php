@@ -50,6 +50,12 @@ class ConditionController extends Controller
         
          return view ('dashboard.condition.show',compact(['condition']));  
       }
+      public function show_condition_front()
+      {
+        $condition= Condition::all();
+        
+         return view ('FrontEnd.show_condition',compact(['condition']));  
+      }
 
 
       public function update_condition(StoreConditionRequest $request)

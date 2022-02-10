@@ -14,9 +14,11 @@ return [
     'Login' => 'Login',
     'Logout' => 'Logout',
     'Forum' => 'Forum',
+    'I read and I accept' => 'I read and I accept',
+    'Term of use' => 'Term of use',
 
     
-
+    
 
     
 

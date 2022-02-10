@@ -14,5 +14,7 @@ return [
     'Logout' => 'Déconnexion',
     'Secteur' => ' Secteur d\'activité',
     'Forum' => 'Forum',
+    'I read and I accept' => 'J\'ai lu et j\'accepte',
+    'Term of use' => 'Les conditions générales d\'utilisation',
 
 ];

@@ -74,7 +74,7 @@ Auth::routes();
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
 
     Route::get('/contectUs/',[UserController::class, 'contact_us'])->name('contactus');
-
+    Route::get('/condition/show',[ConditionController::class, 'show_condition_front'])->name('show_condition_front');
    Route::get('/secteur/{id}',[UserController::class, 'show_secteur'])->name('show.secteur');
 
 
@@ -109,7 +109,7 @@ Auth::routes();
           // Route::view('/profile','FrontEnd.user.profile')->name('home');
             Route::get('/profile',[UserController::class, 'profile'])->name('home');
             Route::get('/download/{file}',[UserController::class,'download'])->name('down');
-           
+          
         
           Route::get('/show/{id}',[UserController::class, 'show']);
            Route::get('/businessmans',[UserController::class, 'index'])->name('index.user');
@@ -190,7 +190,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // Route::view('/user/create','dashboard.user.create')->name('user.create');
         Route::get('/user/create',[BusinessmansController::class,'index'])->name('user');
-
+        Route::get('/download/{file}',[UserController::class,'download'])->name('down');
         Route::post('/user/store',[BusinessmansController::class,'create'])->name('user.store');
         Route::get('/user/delete/{id}',[BusinessmansController::class,'delete'])->name('user.delete');
         Route::get('/sujet/show/{id}',[SujetController::class,'show_com'])->name('sujet.show');
@@ -258,6 +258,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/condition/create',[ConditionController::class, 'create_condition'])->name('create_condition');
        Route::post('/condition/store',[ConditionController::class, 'store_condition'])->name('store.condition');
        Route::get('/condition/show',[ConditionController::class, 'show_condition'])->name('show_condition');
+       
        Route::post('/condition/update',[ConditionController::class, 'update_condition'])->name('update_condition');
 
        
