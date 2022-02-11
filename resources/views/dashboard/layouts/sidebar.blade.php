@@ -125,6 +125,11 @@
 &ensp; Evenements</a>
 
          </li>
+         <li class="nav-header">
+            <a href="{{ route('admin.sujets')}}" ><i class="fa-brands fa-rocketchat"></i>
+&ensp; Sujets</a>
+
+         </li>
 
          <li class="nav-header">
             <a href="{{ route('admin.index.fondateur')}}" ><i class="fas fa-sitemap"></i>
@@ -145,6 +150,25 @@
       <li class="nav-header">
             <a href="{{ route('admin.index_chambre')}}" ><i class="fas fa-home"></i>
 &ensp;Chambre</a>
+
+         </li>
+        
+        @endif
+
+        <?php   $cond =DB::table('conditions')->get();  ?>  
+         <?php  $condition=$cond->count()  ?>
+         
+         @if($condition==0)
+         <li class="nav-header">
+         <a href="{{ route('admin.create_condition')}}" ><i class="fas fa-home"></i>
+&ensp; Ajouter les conditions</a>
+
+      </li>
+      @else
+
+      <li class="nav-header">
+            <a href="{{ route('admin.show_condition')}}" ><i class="fas fa-home"></i>
+&ensp;Modifier les conditions</a>
 
          </li>
         

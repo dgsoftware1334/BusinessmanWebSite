@@ -27,6 +27,7 @@ class StoreSecteurRequest extends FormRequest
 
             'libelle' => 'required',
             'description' => 'required',
+            'image' => 'required',
             
         ];
     }
@@ -35,7 +36,8 @@ class StoreSecteurRequest extends FormRequest
     {
         return [
             'libelle.required' => 'Le champs libelle (fr) est obligatoire',
-            'description.required' => 'Le champs description (fr) est obligatoire'
+            'description.required' => 'Le champs description (fr) est obligatoire',
+            'image.required' => 'Le champs image est obligatoire'
    
    
 

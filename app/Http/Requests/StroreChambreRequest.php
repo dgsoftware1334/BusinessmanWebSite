@@ -29,6 +29,7 @@ class StroreChambreRequest extends FormRequest
             'adresse' => 'required',
             'telephone' => 'required',
             'politique' => 'required',
+            'photo' => 'required',
             
         ];
     }
@@ -41,6 +42,7 @@ class StroreChambreRequest extends FormRequest
             'description.required' => 'Le champs description (fr) est obligatoire',
             'adresse.required' => 'Le champs adresse  est obligatoire',
             'telephone.required' => 'Le champs telephone  est obligatoire',
+            'photo.required' => 'Le champs image  est obligatoire',
             
    
    

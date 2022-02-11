@@ -15,5 +15,8 @@ return [
     'Login' => 'تسجيل الدخول',
     'Logout' => 'خروج',
     'Secteur' => 'مجال العمل',
+    'Forum' => 'المنتدى',
+    'I read and I accept' => 'قرأت و أقبل',
+    'Term of use' => 'الشروط العامة للموقع',
 
 ];

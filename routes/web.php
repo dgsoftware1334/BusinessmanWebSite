@@ -9,6 +9,8 @@ use App\Http\Controllers\Pub\PublicationController;
 use App\Http\Controllers\Chambre\ChambreController;
 use App\Http\Controllers\Fondateur\FondateurController;
 use App\Http\Controllers\Businessmans\BusinessmansController;
+use App\Http\Controllers\Sujet\SujetController;
+use App\Http\Controllers\Condition\ConditionController;
 
 
 /*
@@ -56,7 +58,8 @@ Auth::routes();
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
       Route::get('about',[ChambreController::class, 'about'])->name('about');
-
+      Route::get('/sujets/visiteur',[SujetController::class, 'index_visit'])->name('sujet');
+      Route::get('/sujets/details/visiteur/{id}',[SujetController::class, 'show_sujet_visit'])->name('show_sujet_visit');
      Route::get('/publications/',[UserController::class, 'list_publicaiton'])->name('list.publicaiton');
        
 
@@ -71,7 +74,7 @@ Auth::routes();
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
 
     Route::get('/contectUs/',[UserController::class, 'contact_us'])->name('contactus');
-
+    Route::get('/condition/show',[ConditionController::class, 'show_condition_front'])->name('show_condition_front');
    Route::get('/secteur/{id}',[UserController::class, 'show_secteur'])->name('show.secteur');
 
 
@@ -92,15 +95,21 @@ Auth::routes();
               Route::view('/register','FrontEnd.user.register')->name('register');
               Route::post('create',[UserController::class,'create'])->name('create');
               Route::post('/check',[UserController::class,'check'])->name('check');
+              //Route::get('/sujets',[SujetController::class, 'index'])->name('sujet');
 
           });
           route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
+            Route::post('/sujet/commentaire/{sujet}/{user}',[SujetController::class, 'commentaire'])->name('commentaire.sujet');
+            Route::get('/commentaire/delete/{idp}/{ids}/{idu}',[SujetController::class, 'delete_com'])->name('delete_com');
+            Route::post('/commentaire/update/{idp}/{idu}/{ids}',[SujetController::class, 'updatecom'])->name('updatecom');
            Route::get('/',[UserController::class, 'Accueil'])->name('home');
-
-
+           Route::get('/sujets',[SujetController::class, 'index'])->name('sujet');
+           Route::post('/sujet/create',[SujetController::class, 'store'])->name('store_sujet');
+           Route::get('sujet/show/{id}',[SujetController::class, 'show_sujet']);
           // Route::view('/profile','FrontEnd.user.profile')->name('home');
             Route::get('/profile',[UserController::class, 'profile'])->name('home');
-
+            Route::get('/download/{file}',[UserController::class,'download'])->name('down');
+          
         
           Route::get('/show/{id}',[UserController::class, 'show']);
            Route::get('/businessmans',[UserController::class, 'index'])->name('index.user');
@@ -121,6 +130,7 @@ Auth::routes();
             Route::get('/publication/{id}',[UserController::class, 'page_publicaiton'])->name('publicaiton');
         
             Route::post('/publication/commentair/{publication}/{user}',[UserController::class, 'commentair'])->name('review.publication');
+          
           
 
             Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
@@ -163,12 +173,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::view('/home','dashboard.admin.dashboard')->name('home');
        Route::post('/logout',[AdminController::class,'logout'])->name('logout');
        Route::get('/index',[AdminController::class, 'index'])->name('index');
+       Route::get('/commentaire/delete/{idp}/{ids}/{idu}',[SujetController::class, 'delete_com'])->name('delete_com');
        //------------------gestion des secteurs --------------
        Route::get('/secteur',[SecteurController::class, 'index'])->name('secteur');
        Route::post('/store',[SecteurController::class, 'store'])->name('store');
        Route::post('/update',[SecteurController::class, 'update'])->name('update');
        //Route::delete('/destroy',[SecteurController::class, 'destroy'])->name('destroy');
        Route::get('/destroy/{id}',[SecteurController::class, 'destroy'])->name('destroy');
+      // --------------------------------- gestion des sujets------------------------
+      Route::get('/sujet',[SujetController::class, 'index_admin'])->name('sujets');
+      Route::get('/sujet/destroy/{id}',[SujetController::class, 'destroy'])->name('destroy');
        
        //----- mise à jours et desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
@@ -176,9 +190,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // Route::view('/user/create','dashboard.user.create')->name('user.create');
         Route::get('/user/create',[BusinessmansController::class,'index'])->name('user');
-
+        Route::get('/download/{file}',[UserController::class,'download'])->name('down');
         Route::post('/user/store',[BusinessmansController::class,'create'])->name('user.store');
         Route::get('/user/delete/{id}',[BusinessmansController::class,'delete'])->name('user.delete');
+        Route::get('/sujet/show/{id}',[SujetController::class,'show_com'])->name('sujet.show');
       Route::get('/user/show/{id}',[BusinessmansController::class,'show'])->name('user.show');
       Route::get('/user/edit/{id}',[BusinessmansController::class,'edit'])->name('user.edit');
       Route::post('/user/update/{id}',[BusinessmansController::class,'update'])->name('user.update');
@@ -239,8 +254,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/chambre/index',[ChambreController::class, 'index_chambre'])->name('index_chambre');
        Route::get('/chambre/show/{id}',[ChambreController::class, 'show_chambre'])->name('show_chambre');
        Route::post('/chambre/update',[ChambreController::class, 'update_chambre'])->name('update_chambre');
-
-
+       //----------------------------------condition d utilisation ------------------
+       Route::get('/condition/create',[ConditionController::class, 'create_condition'])->name('create_condition');
+       Route::post('/condition/store',[ConditionController::class, 'store_condition'])->name('store.condition');
+       Route::get('/condition/show',[ConditionController::class, 'show_condition'])->name('show_condition');
+       
+       Route::post('/condition/update',[ConditionController::class, 'update_condition'])->name('update_condition');
 
        
 

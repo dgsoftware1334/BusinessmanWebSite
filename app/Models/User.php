@@ -31,6 +31,7 @@ class User   extends Authenticatable
         'description',
         'address',
         'diplome',
+        'file',
         'lienfb',
         'lieninsta',
         'lientwit',
@@ -85,6 +86,15 @@ class User   extends Authenticatable
       
     }
 
+    public function subjects(){
+
+      return $this->belongsToMany(Sujet::class)->withPivot(['id','contenu'
+])->withTimestamps();
+      
+    }
+    public function sujets(){
+        return $this->hasMany(App\Models\Sujet ::class);
+      }
 
 
 }

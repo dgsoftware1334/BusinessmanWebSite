@@ -43,6 +43,15 @@ border-top: 1px solid blue;
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Les publication</h1>
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -216,7 +225,7 @@ Modifier La publication</h4>
                     <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" placeholder="اكتب المحتوى بالعربي ..." id="upar<?=$row->id; ?>"> {{$row->getTranslation('contenu', 'ar')}}</textarea>
+                      <textarea class="form-control" rows="3" name="contenu_ar" placeholder="اكتب المحتوى بالعربي ..." id="upar<?=$row->id; ?>"> {{$row->getTranslation('contenu', 'ar')}}</textarea>
                        @error('contenu')
                       <div class="alert alert-danger">{{ $message }}</div>
                        @enderror
@@ -226,7 +235,7 @@ Modifier La publication</h4>
                     <label for="inputEmail3" class="col-sm-2 col-form-label">The content</label>
                     <div class="col-sm-10">
             
-                      <textarea class="form-control" rows="3" name="contenu" placeholder="Write the content in english ..." id="upen<?=$row->id; ?>"> {{$row->getTranslation('contenu', 'en')}}</textarea>
+                      <textarea class="form-control" rows="3" name="contenu_en" placeholder="Write the content in english ..." id="upen<?=$row->id; ?>"> {{$row->getTranslation('contenu', 'en')}}</textarea>
 
                     </div>
                   </div>

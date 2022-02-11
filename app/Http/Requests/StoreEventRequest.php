@@ -30,6 +30,7 @@ class StoreEventRequest extends FormRequest
             'date_fin' => 'required|date|after:date_debut',
             'dure' => 'required',
             'type' => 'required',
+            'image' => 'required',
            
         ];
     }
@@ -43,6 +44,7 @@ class StoreEventRequest extends FormRequest
             'date_fin.required' => 'La date de fin est obligatoire et doit etre aprés la date debut',
             'dure.required' => 'La duré est obligatoire',
             'type.required' => 'Le type est obligatoire',
+            'image.required' => 'Le champs image est obligatoire',
    
    
 

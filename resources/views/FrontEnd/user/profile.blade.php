@@ -174,6 +174,14 @@
         
         <p> {{ Auth::guard('web')->user()->description}}</p><br>
       </div>
+      <hr>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Fichier (cv) </b></h5>
+       
+       <?php $user=Auth::guard('web')->user()?>
+        <a href=" {{url('user/download',$user->file)}}"><i class="fas fa-download"></i>&ensp;Cliquer ici pour télécharger le Cv</a>
+      </div>
+      <hr>
     </div>
 
   <!-- End Right Column -->
@@ -230,6 +238,9 @@
             <input type="text" class="form-control" name="diplome" placeholder="Diploma">
             <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
             <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience">
+            <span>Ici vous pouvez ajouter un ficher (cv)</span>
+            <input type="file" class="form-control" name="file" placeholder="{{trans('register_trans.File')}}" value="{{ old('file') }}">
+
              <br>
            
             <select name="sacteur_id" id="department" class="form-control">

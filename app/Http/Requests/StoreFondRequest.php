@@ -25,8 +25,9 @@ class StoreFondRequest extends FormRequest
     {
         return [
             'nom' => 'required',
-            'preom' => 'required',
-            'description' => 'required|max:255',
+            'prenom' => 'required',
+            'description' => 'required',
+            'image' => 'required',
         ];
     }
 
@@ -34,8 +35,9 @@ class StoreFondRequest extends FormRequest
     {
         return [
             'nom.required' => 'Le champs nom est obligatoire',
-            'preom.required' => 'Le champs preom (fr) est obligatoire',
+            'prenom.required' => 'Le champs preom (fr) est obligatoire',
             'description.required' => 'Le champs description (fr) est obligatoire',
+            'image.required' => 'Le champs image est obligatoire',
    
    
 

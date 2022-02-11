@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Http\Requests\StrorePubRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdatePubRequest;
 
 use App\Models\Admin;
 
@@ -71,7 +72,7 @@ public function create_publication()
       }
 
 
-      public function update_publication(StrorePubRequest $request)
+      public function update_publication(UpdatePubRequest $request)
       {
         try {
             $validated = $request->validated();
@@ -80,16 +81,16 @@ public function create_publication()
              
        $file_extension = $request->image->getClientOriginalExtension();
        $file_name =time().'.'.$file_extension;
-         $path = 'assests/images/poblication';
-    $request->image->move($path,$file_name);
-     $publication->image= $file_name;
+       $path = 'assests/images/poblication';
+       $request->image->move($path,$file_name);
+       $publication->image= $file_name;
  
            
                  }
             $publication->update([
                 $publication->context = ['fr' => $request->context, 'ar' => $request->context_ar, 'en' => $request->context_en],
                 $publication->contenu = ['fr' => $request->contenu, 'ar' => $request->contenu_ar, 'en' => $request->contenu_en],
-                $publication->image= $file_name,
+             
             ]);
             toastr()->success('Les changement ont été bien apporté');
             return redirect()->back();

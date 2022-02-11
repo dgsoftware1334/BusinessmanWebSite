@@ -9,8 +9,12 @@ use App\Models\Admin;
 use App\Models\Publication;
 use App\Models\Secteur;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateBusinessmanRequest;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+
+
+
 class BusinessmansController extends Controller
 {
  
@@ -135,7 +139,7 @@ class BusinessmansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBusinessmanRequest $request, $id)
     {
         //
 

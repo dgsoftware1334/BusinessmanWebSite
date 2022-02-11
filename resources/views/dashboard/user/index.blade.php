@@ -92,6 +92,7 @@ border-top: 1px solid blue;
                       <th>Date de naissance</th>
                       <th>Email</th>
                       <th>Sacteur d'activité</th>
+                      <th>Fichier</th>
                       <th>Etat</th>
                       <th style="width: 15%;">Action</th>
                     </tr>
@@ -109,6 +110,17 @@ border-top: 1px solid blue;
                          @endif
                      @if(!is_null($row->sacteur_id))
                        {{ $row->secteur->libelle}}
+                         @endif
+                     
+                      
+                   </td>
+                   <td>
+                    @if(is_null($row->file))
+                     vide
+                         @endif
+                     @if(!is_null($row->file))
+                     <a href=" {{url('admin/download',$row->file)}}"><i class="fas fa-download"></i></a>
+
                          @endif
                      
                       
