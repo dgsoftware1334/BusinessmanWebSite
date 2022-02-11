@@ -148,7 +148,7 @@ border-top: 1px solid blue;
                   </div>
 
 
-          <div class="form-group row">
+                      <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-3 col-form-label" >Current Password</label>
   
                             <div class="col-md-9">
