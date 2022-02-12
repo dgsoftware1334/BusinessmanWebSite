@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="item-content">
-                            <a href="#" class="name">{{$row->name}}  {{$row->lastname}}</a>
+                            <a  class="name">{{$row->name}}  {{$row->lastname}}</a>
                             <p>  <a href="{{url('/show',$row->id)}}">{{trans('about_trans.Visit the profil')}}</a></p>
                         </div>
                     </div>
