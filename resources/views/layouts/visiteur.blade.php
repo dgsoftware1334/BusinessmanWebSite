@@ -74,7 +74,7 @@
 									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
 									 @endauth
 									  @endif
-                 <li><a href="#">{{trans('header_trans.Services')}}</a>
+                 <li><a>{{trans('header_trans.Services')}}</a>
                    <ul class="m-submenu">
 
                      <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
@@ -118,18 +118,33 @@
                  <li></li>
                  <li></li>
                  <!------------------------------------------------Language selector----------------------------------------------------------->
-                 <li><img src="https://img.icons8.com/wired/30/000000/translation.png"/>
-                   <ul class="submenu">
-                   @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-     <li>
-       <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+               
+                 <li><a><img src="https://img.icons8.com/wired/30/000000/translation.png"/></a>
+                   <ul class="m-submenu">
+                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                     <li> <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
          {{ $properties['native'] }}
-       </a>
-     </li>
-   @endforeach
+       </a></li>
+                        @endforeach
+
+                     
+                   
+
                     
                    </ul>
                  </li>
+
+
+
+
+
+
+
+
+
+
+
                   </ul>
                    
               </div>
@@ -146,10 +161,10 @@
       <nav class="primary-menu">
         <div class="container container-1310">
           <div class="menu-area">
-            <div class="row no-gutters justify-content-between align-items-center">
-              <a href="" class="logo">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 90px;width: 190px">
+            <div class="row no-gutters justify-content-between align-items-left">
+              <a href="" class="logo" align="left" style="align-items: left;">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 96px;width: 126px;align-items: left" align="left">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 96px;width: 126px;align-items: left" align="left">
               </a>
              <ul class="main-menu d-flex align-items-center">
                  <li class="active">
@@ -165,7 +180,7 @@
 									 <li><a href="{{ url('/sujets/visiteur') }}">{{trans('header_trans.Forum')}}</a></li>
 									 @endauth
 									  @endif
-                 <li><a href="#">{{trans('header_trans.Services')}}</a>
+                 <li><a >{{trans('header_trans.Services')}}</a>
                    <ul class="submenu">
 
                      <li><a href="{{ url('/publications') }}">{{trans('header_trans.Publications')}}</a></li>
@@ -244,13 +259,13 @@
  $chambre=App\Models\Chambre::all();
  ?>
  <section class="footer-section">
-      <div class="top"><a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a></div>
+      <div class="top"><a  class="scrollToTop"><i class="fas fa-angle-up"></i></a></div>
       <div class="footer-top padding-tb">
         <div class="container container-1310">
           <div class="row">
             <div class="col-12 col-md-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
               <div class="footer-content">
-                <a href="#" class="footer-logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 100px;width: 200px"></a>
+                <a href="url('/')" class="footer-logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 100px;width: 200px"></a>
                  @foreach($chambre as $row)
                 <p>{!! Str::limit($row->description, 160) !!}.</p>
                 @endforeach
@@ -322,8 +337,8 @@
 
                      <li><a href="<?= $row->insta?>" class="icon instagram"><i class="fab fa-instagram"></i></a></li>
 
-                     <li><a href="#<?= $row->twit?>" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-                     <li><a href="#<?= $row->linked?>" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                     <li><a href="<?= $row->twit?>" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
+                     <li><a href="<?= $row->linked?>" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                           </ul>
 
                          
@@ -342,10 +357,10 @@
             </div>
             <div class="footer-social">
               <ul class="social-media d-flex flex-wrap mb-0">
-                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><a href="<?='https://www.facebook.com/DGSoftware'?>"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s"><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s"><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s"><a href=""><i class="fab fa-google-plus-g"></i></a></li>
               </ul>
             </div>
           </div>

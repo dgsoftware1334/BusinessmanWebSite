@@ -82,7 +82,7 @@
 															{{$row->context}}</a></h5>
 													<p>{!!$row->contenu!!}.  </p>
 													<div class="meta-post">
-							                            <span class="by"><i class="fas fa-clock"></i> <a class="date" href="#">{{$row->updated_at}}</a></span>
+							                            <span class="by"><i class="fas fa-clock"></i> <a class="date" >{{$row->updated_at}}</a></span>
 							                             <span class="by"><i class="fas fa-comment-alt"></i> 
 
 							                             	 <?php
@@ -152,8 +152,8 @@
 
 						                            <li><a href="<?= $chambre->insta?>" class="icon instagram"><i class="fab fa-instagram"></i></a></li>
 
-						                            <li><a href="#<?= $chambre->twit?>" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
-						                            <li><a href="#<?= $chambre->linked?>" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+						                            <li><a href="<?= $chambre->twit?>" class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
+						                            <li><a href="<?= $chambre->linked?>" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
 						                            
 						                        </ul>
 						    				</div>
