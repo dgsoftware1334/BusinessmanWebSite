@@ -30,7 +30,7 @@ class UpdateBusinessmanRequest extends FormRequest
             'phone' => 'required',
             'description' => 'required',
             'address' => 'required',
-            'email'=>'required|email|unique:users,email',
+            'email'=>'required|email',
         ];
     }
 

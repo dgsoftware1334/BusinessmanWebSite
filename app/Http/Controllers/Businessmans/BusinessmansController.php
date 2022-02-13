@@ -142,7 +142,7 @@ class BusinessmansController extends Controller
     public function update(UpdateBusinessmanRequest $request, $id)
     {
         //
-
+        $validated = $request->validated();
         $user= User::find($id);
  
 

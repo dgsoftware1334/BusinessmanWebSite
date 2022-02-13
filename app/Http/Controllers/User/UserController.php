@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatUserRequest;
 use App\Http\Requests\CheckUserRequest;
+use App\Http\Requests\UpdateBusinessmanRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -239,9 +240,9 @@ return redirect()->back();
 
 
 
-public function update_informationPar(Request $request, $id)
+public function update_informationPar(UpdateBusinessmanRequest $request, $id)
 {
-  
+  $validated = $request->validated();
         $user=User::find($id);
         $user->name = $request->name;
         $user->lastname = $request->lastname;

@@ -17,15 +17,15 @@ class CreateChambresTable extends Migration
             $table->id();
             $table->text('sujet');
             $table->longtext('description');
-            $table->string('lien');
+            $table->string('lien')->nullable();
             $table->text('adresse'); 
             $table->string('telephone');
             $table->longtext('politique');
             $table->string('photo');
-            $table->string('fb');
-            $table->string('insta');
-            $table->string('linked');
-            $table->string('twit');
+            $table->string('fb')->nullable();
+            $table->string('insta')->nullable();
+            $table->string('linked')->nullable();
+            $table->string('twit')->nullable();
 
           
 
