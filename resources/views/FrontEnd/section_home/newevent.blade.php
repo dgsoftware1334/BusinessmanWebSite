@@ -28,15 +28,15 @@
 						                <p>Days</p>
 						            </li>
 
-						            <li><span class="count-number hours "id="hours" >0</span>
+						            <li><span class="count-number" id="hours" >0</span>
 						                <p>Hours</p>
 						            </li>
 
-						            <li><span class="count-number minutes" id="minutes">0</span>
+						            <li><span class="count-number " id="minutes">0</span>
 						                <p>Minite</p>
 						            </li>
 
-						            <li><span class="count-number seconds" id="seconds">0</span>
+						            <li><span class="count-number" id="seconds">0</span>
 						                <p>Seconds</p>
 
 
