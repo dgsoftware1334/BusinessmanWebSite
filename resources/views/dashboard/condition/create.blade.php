@@ -42,7 +42,7 @@ border-top: 1px solid blue;
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Créer la chambre</h1>
+            <h1 class="m-0">Créer les conditions</h1>
             @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

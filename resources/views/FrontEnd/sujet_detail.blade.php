@@ -63,7 +63,7 @@
                @endif
 
               @if(!is_null($sujet->user->photo))
-             <img alt="comments" src="{{ asset('assests/imgUser/'.$row->photo)  }}"width="90" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
+             <img alt="comments" src="{{ asset('assests/imgUser/'.$sujet->user->photo)  }}"width="90" style="border-radius: 100px;border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"  class="img-circle">
               @endif
                                 </div>
                                 <div class="post-content">
