@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('status')->default(1);
+         
             $table->unsignedBigInteger('sacteur_id')->nullable();
             $table->foreign('sacteur_id')->references('id')->on('secteurs')->onDelete ('cascade');
             $table->unsignedBigInteger('admin_id')->nullable();

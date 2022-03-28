@@ -326,6 +326,7 @@ public function commentair(Publication $publication,Request $request,User $user 
      
 }
 
+
 public function contact(){
      $chambres= Chambre::all();
   return  view ('FrontEnd.contact_us',compact('chambres'));
@@ -371,6 +372,14 @@ return view ('FrontEnd.detail_secteur',compact('secteur','chambres','users'));
 
 
 }
+}
+/********************** espace vip******************************************* */
+public function vip(){
+  //if(Auth::check() && Auth::guard('web')->user()->paye ==1)
+  return view('frontend.vip_cards');
+ // else
+ // return redirect()->back();
+
 }
 
 }

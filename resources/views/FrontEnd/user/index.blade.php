@@ -24,27 +24,6 @@
 
     </style>
 
-<style>
-        input,
-        select{
-            width: 200px;
-            height: 50px;
-            margin: 2px;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-        button {
-            width: 150px;
-            height: 50px;
-            margin: 2px;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            background-color: #fd3d6b;
-        }
-
-    </style>
 
   <div class="page-header-section post-title style-1"  style="background-image: url({{ asset('assests/FrontEnd/assets/images/banner/3.jpg') }})">
 

@@ -3343,7 +3343,7 @@
 }
 @media (min-width: 992px) {
   .pricing-section.style-1 .section-wrapper .pricing-item {
-    width: calc(100% / 3);
+    width: calc(100% / 2);
     float: left;
   }
 }

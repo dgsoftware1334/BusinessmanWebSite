@@ -208,4 +208,17 @@ class BusinessmansController extends Controller
     {
         //
     }
+    public function autoriser($id){
+      $user=User::find($id);
+      if($user->paye ==0){
+        $user->paye=1;
+        $user->save();
+        return redirect()->back();
+      }
+      else{
+        $user->paye=0;
+        $user->save();
+        return redirect()->back();
+      }
+    }
 }

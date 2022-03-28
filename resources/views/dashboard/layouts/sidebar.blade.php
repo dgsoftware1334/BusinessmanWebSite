@@ -136,6 +136,20 @@
 &ensp; Fondateurs</a>
 
          </li>
+
+         <li class="nav-header">
+            <a href="{{ route('admin.tender.index')}}" ><i class="fas fa-sitemap"></i>
+&ensp; Appel d'offre</a>
+
+         </li>
+
+         <li class="nav-header">
+            <a href="{{ route('admin.code.index')}}" ><i class="fas fa-sitemap"></i>
+&ensp; Code commerciaux</a>
+
+         </li>
+
+
          <?php   $c =DB::table('chambres')->get();  ?>  
          <?php  $result=$c->count()  ?>
          
@@ -221,6 +235,7 @@
     @toastr_js
     @toastr_render
 <!-- jQuery -->
+<script src="https://kit.fontawesome.com/09ee636c06.js" crossorigin="anonymous"></script>
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>

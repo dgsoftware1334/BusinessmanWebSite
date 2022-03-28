@@ -23,4 +23,7 @@ class Secteur extends Model
         public function users(){
         return $this->hasMany('App\Models\User', 'sacteur_id', 'id');
       }
+      public function offres(){
+        return $this->hasMany('App\Models\Tender', 'sacteur_id', 'id');
+      }
 }

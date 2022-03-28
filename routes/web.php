@@ -11,6 +11,8 @@ use App\Http\Controllers\Fondateur\FondateurController;
 use App\Http\Controllers\Businessmans\BusinessmansController;
 use App\Http\Controllers\Sujet\SujetController;
 use App\Http\Controllers\Condition\ConditionController;
+use App\Http\Controllers\Tender\TenderController;
+use App\Http\Controllers\Code\CodeController;
 
 
 /*
@@ -55,6 +57,7 @@ Auth::routes();
       //-----------------------route pour visiteur------------
 
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
+      Route::get('/vip',[UserController::class, 'vip'])->name('vip');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
       Route::get('about',[ChambreController::class, 'about'])->name('about');
@@ -109,6 +112,11 @@ Auth::routes();
           // Route::view('/profile','FrontEnd.user.profile')->name('home');
             Route::get('/profile',[UserController::class, 'profile'])->name('home');
             Route::get('/download/{file}',[UserController::class,'download'])->name('down');
+            Route::get('/tenders',[TenderController::class, 'index_front'])->name('tenders');
+            Route::get('/codes',[CodeController::class, 'index_front'])->name('codes');
+            Route::get('/tender/download/{doc}',[TenderController::class,'download'])->name('tender.download');
+            Route::get('/search/offer', [TenderController::class, 'rechercher'])->name('search.offer');
+            Route::get('/search/code', [CodeController::class, 'rechercher'])->name('search.code');
           
         
           Route::get('/show/{id}',[UserController::class, 'show']);
@@ -197,7 +205,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
       Route::get('/user/show/{id}',[BusinessmansController::class,'show'])->name('user.show');
       Route::get('/user/edit/{id}',[BusinessmansController::class,'edit'])->name('user.edit');
       Route::post('/user/update/{id}',[BusinessmansController::class,'update'])->name('user.update');
-
+      Route::get('/user/autorize/{id}',[BusinessmansController::class,'autoriser'])->name('user.autorize');
 
 
        //----------Gestion des publication-------------------------------
@@ -260,6 +268,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::get('/condition/show',[ConditionController::class, 'show_condition'])->name('show_condition');
        
        Route::post('/condition/update',[ConditionController::class, 'update_condition'])->name('update_condition');
+       //-----------------------------------gestion des appel doffre----------------------
+       Route::get('/tender/index',[TenderController::class, 'index'])->name('tender.index');
+       Route::get('/tender/create',[TenderController::class, 'create'])->name('tender.create');
+       Route::post('/tender/store',[TenderController::class, 'store'])->name('tender.store');
+       Route::get('/tender/download/{doc}',[TenderController::class,'download'])->name('tender.download');
+       Route::get('/tender/edit/{id}',[TenderController::class,'edit'])->name('tender.edit');
+       Route::post('/tender/update/{id}',[TenderController::class,'update'])->name('tender.update');
+       Route::get('/tender/show/{id}',[TenderController::class,'show'])->name('tender.show');
+       Route::get('/tender/delete/{id}',[TenderController::class,'delete'])->name('tender.delete');
+       //--------------------------------------gestion des codes commerciaux de la chambre------------
+       Route::get('/code/index',[CodeController::class, 'index'])->name('code.index');
+       Route::post('/code/store',[CodeController::class, 'store'])->name('code.store');
+       Route::post('/code/update',[CodeController::class, 'update'])->name('code.update');
+       Route::get('/code/delete/{id}',[CodeController::class,'delete'])->name('code.delete');
 
        
 

@@ -94,6 +94,7 @@ border-top: 1px solid blue;
                       <th>Sacteur d'activité</th>
                       <th>Fichier</th>
                       <th>Etat</th>
+                      <th>Vip</th>
                       <th style="width: 15%;">Action</th>
                     </tr>
                   </thead>
@@ -130,6 +131,14 @@ border-top: 1px solid blue;
                       <span class="badge badge-danger">Déactive</span>
                       @elseif($row->status == '0')
                        <span class="badge badge-success">Active</span>
+                     @endif
+
+                     </td>
+                     <td>
+                     @if($row->paye == '1')
+                     <a href="{{ url('admin/user/autorize', $row->id) }}"><acronym title="Limiter l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock-open"></i></acronym> </a>
+                      @elseif($row->paye == '0')
+                       <a href="{{ url('admin/user/autorize', $row->id) }}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
 
                      </td>

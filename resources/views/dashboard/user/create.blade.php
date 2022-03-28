@@ -262,10 +262,10 @@ border-top: 1px solid blue;
                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Secteur</label>
                     <div class="col-sm-9">
                    <select name="sacteur_id" id="department" class="form-control">
-            <option value=""> -- Select One --</option>
-              @foreach ($secteurs as $secteur)
-            <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? :"" }}>{{ $secteur->libelle }}</option>
-               @endforeach 
+                  <option value=""> -- Select One --</option>
+                  @foreach ($secteurs as $secteur)
+                  <option value="{{ $secteur->id }}"  {{ (isset($secteur->id) || old('id'))? :"" }}>{{ $secteur->libelle }}</option>
+                    @endforeach 
             </select>
 
                     </div>
