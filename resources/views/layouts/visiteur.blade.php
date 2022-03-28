@@ -197,7 +197,7 @@
                  <li><a href="{{ url('/about') }}">{{trans('header_trans.About')}}</a></li>
                 
                  <li><a href="{{url('/contact')}}">{{trans('header_trans.Contact us')}}</a></li>
-               
+                 <li><a href="{{ url('/vip') }}" style="color:#DAA520;"><i class="fa-solid fa-crown">&nbsp;<span>Vip</span></i></a></li>
                
                  <li>
                  @if (Route::has('user.login'))
@@ -235,7 +235,7 @@
                     
                    </ul>
                  </li>
-                 <li><a href="{{ url('/vip') }}" style="color:#DAA520;"><i class="fa-solid fa-crown">&nbsp;<span>Vip</span></i></a></li>
+              
                </ul>
             </div>
           </div>
