@@ -125,7 +125,7 @@ border-top: 1px solid blue;
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label" >Wilaya <span style="color:red">*</span></label>
                     <div class="col-sm-9">
-                    <select class="form-control search-slt" size="4"  name="wilaya" id="mySelect">
+                    <select class="form-control search-slt" size="1"  name="wilaya" id="mySelect">
 					   <option value=""> -- Wilaya --</option>
                                <option value="01">Adrar</option>
                                <option value="02">Chlef</option>

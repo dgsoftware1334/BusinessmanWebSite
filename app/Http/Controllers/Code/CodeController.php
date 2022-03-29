@@ -16,7 +16,7 @@ class CodeController extends Controller
     }
     public function index_front()
     {
-      $codes= Code::all();
+      $codes= Code::paginate(10);
        return view ('FrontEnd.codes_commerce',compact('codes'));  
     }
 
@@ -92,7 +92,7 @@ class CodeController extends Controller
     ->where('codes.description', 'LIKE', '%' .$description. '%')
     
     
-  ->get();
+  ->paginate(10);
   
     
       if (count($codes) > 0) {

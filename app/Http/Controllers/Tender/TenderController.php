@@ -30,7 +30,7 @@ class TenderController extends Controller
 
     public function index_front()
     {
-      $tenders= Tender::all();
+      $tenders= Tender::paginate(10);
       $secteurs= Secteur::all();
 
     
@@ -184,7 +184,7 @@ $secteurs=Secteur::all();
   ->where('tenders.wilaya', 'LIKE', '%' .$wilaya. '%')
   ->where('tenders.date_parution', 'LIKE', '%' .$date. '%')
   
-->paginate(4);
+->paginate(10);
 
   
     if (count($tenders) > 0) {

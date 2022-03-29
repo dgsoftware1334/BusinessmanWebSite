@@ -9,7 +9,7 @@ return [
     'Businessmans' => 'Businessmans',
     'About' => 'About',
     'Contact us' => 'Contact',
-    'Secteur' => 'Activity area',
+    'Secteur' => 'Sectors',
     'Register' => 'Register',
     'Login' => 'Login',
     'Logout' => 'Logout',

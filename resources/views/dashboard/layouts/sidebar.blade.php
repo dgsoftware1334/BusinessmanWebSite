@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Algerian Businessman | Dashboard</title>
   @toastr_css
 
   <!-- Google Font: Source Sans Pro -->
@@ -138,15 +138,14 @@
          </li>
 
          <li class="nav-header">
-            <a href="{{ route('admin.tender.index')}}" ><i class="fas fa-sitemap"></i>
+            <a href="{{ route('admin.tender.index')}}" ><i class="fa-solid fa-volume-off"></i>
 &ensp; Appel d'offre</a>
 
          </li>
 
          <li class="nav-header">
-            <a href="{{ route('admin.code.index')}}" ><i class="fas fa-sitemap"></i>
+            <a href="{{ route('admin.code.index')}}" ><i class="fa-solid fa-shield"></i>
 &ensp; Code commerciaux</a>
-
          </li>
 
 

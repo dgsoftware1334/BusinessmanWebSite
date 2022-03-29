@@ -221,6 +221,11 @@ public function update_informationPro(Request $request, $id)
          $user->photo = $newImageName3;
 
            }
+           if($request->file('file')){
+            $file=$request->file; 
+            $filename=time().'.'.$file->getClientOriginalExtension();
+            $request->file->move('assests/images/files/',$filename);
+            $user->file=$filename; }
 
     $user->lienfb=$request->lienfb;
    
@@ -231,6 +236,7 @@ public function update_informationPro(Request $request, $id)
    $user->siteweb=$request->siteweb;
    $user->anneexp=$request->anneexp;
    $user->sacteur_id=$request->sacteur_id;
+   
    //
 
    $user->save();

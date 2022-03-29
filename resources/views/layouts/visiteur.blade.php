@@ -153,7 +153,46 @@
     </div>
   </div>
   <!-- mobile-nav section ending here -->
+	<div class="header-section style-2 d-none d-lg-block">
+		<div class="header-top">
+			<div class="container container-1310">
+				<div class="htop-area row no-gutters">
+					<ul class="htop-left">
+          <?php
+ $chambre=App\Models\Chambre::get();
+ ?>
+ @foreach($chambre as $c)
+				
+						<li><a href="#"><i class="fa-solid fa-phone"></i>&nbsp;{{$c->telephone}}</a></li>
+            <li><a href="#"><i class="fa-solid fa-location-dot"></i>&nbsp;{{$c->adresse}}</a></li>
+			@endforeach
+					</ul>
+					<ul class="htop-right">
+          <li>
+                 @if (Route::has('user.login'))
+         
+           @auth
+           <li>  <a href="{{ url('/user/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><i class="fa-solid fa-user-check"></i>&nbsp;{{ Auth::guard('web')->user()->name }}</a>
+          
+                     <li><a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket"></i> {{trans('header_trans.Logout')}}</a>
+                  <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form></li>
+                     
+                   </li>
+           @else
+          @if (Route::has('register'))
+               <a href="{{ route('user.register') }}" ><i class="fa-solid fa-user-plus"></i>&nbsp;<!--i class="fas fa-key"></i--> {{trans('header_trans.Register')}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             @endif
+             <a href="{{ route('user.login') }}" > <!--i class="fas fa-sign-in-alt"></i--> <i class="fa-solid fa-right-to-bracket"></i>&nbsp; {{trans('header_trans.Login')}} </a>
 
+            
+           @endauth
+         
+       @endif
+                 </li>
+					</ul>
+				</div>
+			</div>
+		</div>
   <!-- header section start here -->
   <div class="header-section style-2 d-none d-lg-block">
 
@@ -199,27 +238,7 @@
                  <li><a href="{{url('/contact')}}">{{trans('header_trans.Contact us')}}</a></li>
                  <li><a href="{{ url('/vip') }}" style="color:#DAA520;"><i class="fa-solid fa-crown">&nbsp;<span>Vip</span></i></a></li>
                
-                 <li>
-                 @if (Route::has('user.login'))
-         
-           @auth
-           <li>  <a href="{{ url('/user/profile') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ Auth::guard('web')->user()->name }}</a>
-           <ul >
-                     <li><a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> <img src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"/> {{trans('header_trans.Logout')}}</a>
-                  <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form></li>
-                     
-                   </ul></li>
-           @else
-          @if (Route::has('register'))
-               <a href="{{ route('user.register') }}" ><img src="https://img.icons8.com/windows/32/000000/manager.png" sizes="30px" /><!--i class="fas fa-key"></i--> {{trans('header_trans.Register')}}</a>
-             @endif
-             <a href="{{ route('user.login') }}" > <!--i class="fas fa-sign-in-alt"></i--> <img src="https://img.icons8.com/ios-glyphs/30/000000/login-rounded-right--v1.png"/>  {{trans('header_trans.Login')}} </a>
 
-            
-           @endauth
-         
-       @endif
-                 </li>
                  <li></li>
                  <li></li>
                  <!------------------------------------------------Language selector----------------------------------------------------------->

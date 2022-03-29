@@ -199,7 +199,26 @@
 
                                    @endforeach
                              	</tbody>
+								
                       		</table>
+							  <div class="pagination-area d-flex flex-wrap justify-content-center">
+                                @if ($tenders->lastPage() > 1)
+
+                            <ul class="pagination d-flex flex-wrap m-0">
+                                <li class="prev"> <a ref="{{ $tenders->url(1) }}" class="{{ ($tenders->currentPage() == 1) ? ' disabled' : '' }} page-link" aria-label="Previous">
+                                    <span>« Précédent</span></a></li>
+                                @for ($i = 1; $i <= $tenders->lastPage(); $i++)
+                                <li class="{{ ($tenders->currentPage() == $i) ? ' active' : '' }} page-item">
+                                       <a href="{{ $tenders->url($i) }}" class="page-link">{{ $i }}</a>
+                                </li>
+                                @endfor
+                                
+                                <li class="dot">....</li>
+                               
+                                <li  class="{{ ($tenders->currentPage() == $tenders->lastPage()) ? ' disabled' : '' }} page-item"> <a href="{{ $tenders->url($tenders->currentPage()+1) }}" class="page-link" aria-label="Next"><span>Suivant »</span></a></li>
+                            </ul>
+                                @endif
+                        </div>
                    		</div>
                   	</div>
 				</div>

@@ -50,7 +50,7 @@
 .file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
 .file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
  </style>
-
+  
   <div class="page-header-section post-title style-2"  style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/17.jpg') }})">
         <div class="page-header-content">
             <div class="container container-1310">
@@ -87,122 +87,17 @@
         </div>
     </div>
 
-  
-    <!-- speaker profile or cv section ending here -->
-    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <section class="personal-schedule padding-tb">
-      <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <!--------------------------------------------------------------------modal1---------------------------------->
 
-<!-- The Grid -->
-<div class="w3-row-padding">
-
-  <!-- Left Column -->
-  <div class="w3-third">
-  
-    <div class="w3-white w3-text-grey w3-card-4">
-      <div class="w3-display-container">
-      @if(is_null(Auth::guard('web')->user()->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
-               @endif
-
-              @if(!is_null(Auth::guard('web')->user()->photo))
-              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
-              @endif
-              <br> <br> <br> <br> 
-        <div class="w3-display-bottomleft w3-container w3-text-black">
-          <h2>{{Auth::guard('web')->user()->name}} &nbsp; {{Auth::guard('web')->user()->lastname}} </h2>
-        </div>
-      </div>
-      <div class="w3-container">
-      <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->datenaissance}}
-        <?php $dob=Auth::guard('web')->user()->datenaissance?>
-       
-        <span class="tag  w3-round" style="color:#fd3d6b">( {{ \Carbon\Carbon::parse($dob)->diff(\Carbon\Carbon::now())->format('%y years') }})</p>
-
-        <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->address}}</p>
-        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large "style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->email}}</p>
-        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->phone}}</p>
-           <p><i class="fas fa-globe fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>
-         @if(!is_null(Auth::guard('web')->user()->siteweb))
-
-          {{Auth::guard('web')->user()->siteweb}}
-          @endif
-
-            @if(is_null(Auth::guard('web')->user()->siteweb))
-          (vide)</p>
-          @endif
-        
-
-      
-    
-      
-     
-      </div>
-    </div><br>
-
-  <!-- End Left Column -->
-  </div>
-
-  <!-- Right Column -->
-  <div class="w3-twothird">
-  
-  
-
-    <div class="w3-container w3-card w3-white">
-      <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-briefcase" style="color:#fd3d6b"></i>&ensp;{{trans('profil_trans.Professional information')}}</h2>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>{{trans('profil_trans.Diploma')}}</b></h5>
-        <h6 style="color:#fd3d6b"><i class="fas fa-user-graduate"></i>&ensp;
-          {{ Auth::guard('web')->user()->diplome ?? '(vide)' }}
-        </h6>
-        
-        <hr>
-      </div>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
-        <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
-        {{ Auth::guard('web')->user()->secteur->libelle ?? '(vide)' }}  ( {{ Auth::guard('web')->user()->anneexp->anneexp ?? '0' }} anneé exprience )
-      </h6>
-        <p> 
-
-            </p>
-        <hr>
-      </div>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>{{trans('profil_trans.Description')}}</b></h5>
-        
-        <p> {{ Auth::guard('web')->user()->description}}</p><br>
-      </div>
-      <hr>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>Fichier (cv) </b></h5>
-       
-       <?php $user=Auth::guard('web')->user()?>
-        <a href=" {{url('user/download',$user->file)}}"><i class="fas fa-download"></i>&ensp;Cliquer ici pour télécharger le Cv</a>
-      </div>
-      <hr>
-    </div>
-
-  <!-- End Right Column -->
-  </div>
-  
-<!-- End Grid -->
-</div>
-
-<!-- End Page Container -->
-</div>
-
-    </section> 
-    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-    <!-- mise a jour les information pro -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
     <section class="personal-schedule padding-tb">
         <div class="container container-`1310">
           
             <div class="section-header">
                
-                <h2>{{trans('profil_trans.Updates personal information')}}</h2>
+                <h2>{{trans('profil_trans.Updates professional information')}}</h2>
              
             </div>
 
@@ -231,19 +126,7 @@
                     @csrf
           <div class="form-inner">
            <!----input type="text" class="form-control"  placeholder="Enter lien facebook"-->
-            <input type="text" class="form-control" name="lienfb" placeholder="https//www.facebook.com" value="{{ old('lienfb') }}">
-            <input type="text" class="form-control" name="lieninsta" placeholder="https//www.instagram.com">
-            <input type="text" class="form-control" name="lientwit" placeholder=" https//www.twiter.com">
-            <input type="text" class="form-control" name="linked" placeholder="  https//www.linkedin.com">
-            <input type="text" class="form-control" name="diplome" placeholder="Diploma">
-            <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
-            <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience">
-            <span>Ici vous pouvez ajouter un ficher (cv)</span>
-            <input type="file" class="form-control" name="file" placeholder="{{trans('register_trans.File')}}" value="{{ old('file') }}">
-
-             <br>
-           
-            <select name="sacteur_id" id="department" class="form-control">
+           <select name="sacteur_id" id="department" class="form-control" style="width:500px;">
             <option value=""> -- Select One --</option>
 <?php
 $status = true;
@@ -269,12 +152,18 @@ $status = true;
 
 
             </select>
-
-
-
-
-
-    
+            <br>
+           <input type="text" class="form-control" name="diplome" placeholder="Diplome">
+         
+           <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience"><br>
+           <span>Ici vous pouvez ajouter un ficher (cv)</span>
+            <input type="file" class="form-control" name="file" placeholder="{{trans('register_trans.File')}}" value="{{ old('file') }}">
+           
+            <input type="text" class="form-control" name="lienfb" placeholder="https//www.facebook.com" value="{{ old('lienfb') }}">
+            <input type="text" class="form-control" name="lieninsta" placeholder="https//www.instagram.com">
+            <input type="text" class="form-control" name="lientwit" placeholder=" https//www.twiter.com">
+            <input type="text" class="form-control" name="linked" placeholder="  https//www.linkedin.com">
+            <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
             <br>
            <div class="file-upload">
               <div class="file-select">
@@ -302,20 +191,25 @@ $status = true;
             </div>
         </div>
     </section>
-    <!-- personal shedul section ending here -->
+    </div>
+  </div>
+</div>
+  <!-------------------------------------------------------------------------end modal--------------------------------------->
+    <!-- speaker profile or cv section ending here -->
+    <!---------------------------------------------------------------------modal2-------------------------------------------------------------------------------------------->
+    <!-- Button trigger modal -->
+ 
 
-   
-
-
-
-    <!-- mise a jour les information personnel -->
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
     <section class="personal-schedule padding-tb">
         <div class="container container-`1310">
            
 
             <div class="section-header">
                
-                <h2>{{trans('profil_trans.Updates professional information')}}</h2>
+                <h2>{{trans('profil_trans.Updates personal information')}}</h2>
              
             </div>
 
@@ -398,6 +292,129 @@ $status = true;
             </div>
         </div>
     </section>
+    </div>
+  </div>
+</div>
+<!----------------------------------------------------------------end modal2----------------------------------->
+    <section class="personal-schedule padding-tb">
+      <!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+<!-- The Grid -->
+<div class="w3-row-padding">
+
+  <!-- Left Column -->
+  <div class="w3-third">
+  
+    <div class="w3-white w3-text-grey w3-card-4">
+      <div class="w3-display-container">
+      @if(is_null(Auth::guard('web')->user()->photo))
+                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
+               @endif
+
+              @if(!is_null(Auth::guard('web')->user()->photo))
+              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
+              @endif
+              <br> <br> <br> <br> 
+        <div class="w3-display-bottomleft w3-container w3-text-black">
+          <h2>{{Auth::guard('web')->user()->name}} &nbsp; {{Auth::guard('web')->user()->lastname}} </h2>
+        </div>
+      </div>
+      <div class="w3-container">
+      <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->datenaissance}}
+        <?php $dob=Auth::guard('web')->user()->datenaissance?>
+       
+        <span class="tag  w3-round" style="color:#fd3d6b">( {{ \Carbon\Carbon::parse($dob)->diff(\Carbon\Carbon::now())->format('%y years') }})</p>
+
+        <p><i class="fa fa-home fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->address}}</p>
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large "style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->email}}</p>
+        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>{{Auth::guard('web')->user()->phone}}</p>
+           <p><i class="fas fa-globe fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>
+         @if(!is_null(Auth::guard('web')->user()->siteweb))
+
+          {{Auth::guard('web')->user()->siteweb}}
+          @endif
+
+            @if(is_null(Auth::guard('web')->user()->siteweb))
+          (vide)</p>
+          @endif
+        
+
+      
+    
+      
+     
+      </div>
+    </div><br>
+
+  <!-- End Left Column -->
+  </div>
+
+  <!-- Right Column -->
+  <div class="w3-twothird">
+  
+  
+
+    <div class="w3-container w3-card w3-white">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-briefcase" style="color:#fd3d6b"></i>&ensp;{{trans('profil_trans.Professional information')}}</h2>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{trans('profil_trans.Diploma')}}</b></h5>
+        <h6 style="color:#fd3d6b"><i class="fas fa-user-graduate"></i>&ensp;
+          {{ Auth::guard('web')->user()->diplome ?? '(vide)' }}
+        </h6>
+        
+        <hr>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{trans('profil_trans.Activity area')}}</b></h5>
+        <h6 style="color:#fd3d6b"><i class="fas fa-globe-africa" style="color:#fd3d6b"></i>
+        {{ Auth::guard('web')->user()->secteur->libelle ?? '(vide)' }}  ( {{ Auth::guard('web')->user()->anneexp ?? '0' }} anneé exprience )
+      </h6>
+        <p> 
+
+            </p>
+        <hr>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{trans('profil_trans.Description')}}</b></h5>
+        
+        <p> {{ Auth::guard('web')->user()->description}}</p><br>
+      </div>
+      <hr>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Fichier (cv) </b></h5>
+       
+       <?php $user=Auth::guard('web')->user()?>
+        <a href=" {{url('user/download',$user->file)}}"><i class="fas fa-download"></i>&ensp;Cliquer ici pour télécharger le Cv</a>
+      </div>
+      <hr>
+      <div class="w3-container">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="button" data-toggle="modal" data-target=".bd-example-modal-lg" style="width:360px;height:50px;background-color:#F73087">Modifier vos informations professionnelles &nbsp; <i class="fa-solid fa-pen-to-square"></i></button>
+      &nbsp;&nbsp;&nbsp; <button type="button" class="button" data-toggle="modal" data-target=".bd-example-modal-lg2" style="width:350px;height:50px;background-color:#F73087">Modifier vos informations personnelles &nbsp;  <i class="fa-solid fa-user-pen"></i></button>
+      </div><hr>
+    </div>
+    <br><br>
+  <!-- End Right Column -->
+  </div>
+  <br><br><hr>
+<!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+
+    </section> 
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- mise a jour les information pro -->
+    <!-- personal shedul section ending here -->
+
+   
+
+
+
+    <!-- mise a jour les information personnel -->
+   
     <!-- personal shedul section ending here -->
 
  
