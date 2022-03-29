@@ -376,7 +376,7 @@ return view ('FrontEnd.detail_secteur',compact('secteur','chambres','users'));
 /********************** espace vip******************************************* */
 public function vip(){
   //if(Auth::check() && Auth::guard('web')->user()->paye ==1)
-  return view('frontend.vip_cards');
+  return view('FrontEnd.vip_cards');
  // else
  // return redirect()->back();
 
