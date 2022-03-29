@@ -73,13 +73,17 @@
           <div class="page-social">
             <ul class="social-link-list d-flex flex-wrap">
             
-              <li><a href="<?=Auth::guard('web')->user()->lienfb?>" class="facebook"  target="_blank" ><i class=" fab fa-facebook-f"></i></a>
+              <li><a href="<?=Auth::guard('web')->user()->lienfb?>" class="facebook"  target="_blank" style="width:50px;height:50px; border-radius : 50%;
+    position: relative;" ><i class=" fab fa-facebook-f" ></i></a>
 
               </li>
-              <li><a href="<?=Auth::guard('web')->user()->lientwit?>"target="_blank"  class="twitter-sm"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="<?=Auth::guard('web')->user()->lientwit?>"target="_blank"  class="twitter-sm" style="width:50px;height:50px; border-radius : 50%;
+    position: relative;"><i class="fab fa-twitter"></i></a></li>
             
-              <li><a href="<?=Auth::guard('web')->user()->lieninsta ?>" target="_blank" class="facebook" style="background-color: #FF1493;"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="<?=Auth::guard('web')->user()->linked ?>" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="<?=Auth::guard('web')->user()->lieninsta ?>" target="_blank" class="facebook" style="background-color: #FF1493; width:50px;height:50px; border-radius : 50%;
+    position: relative;"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="<?=Auth::guard('web')->user()->linked ?>" target="_blank" class="linkedin" style="width:50px;height:50px; border-radius : 50%;
+    position: relative;"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
           </div>
         </div>
@@ -153,23 +157,23 @@ $status = true;
 
             </select>
             <br>
-           <input type="text" class="form-control" name="diplome" placeholder="Diplome">
+           <input type="text" class="form-control" name="diplome" placeholder="Diplome" value="{{Auth::guard('web')->user()->diplome}}">
          
-           <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience"><br>
+           <input type="integer" class="form-control" name="anneexp" placeholder="Année exprience" value="{{Auth::guard('web')->user()->anneexp}}"><br>
            <span>Ici vous pouvez ajouter un ficher (cv)</span>
             <input type="file" class="form-control" name="file" placeholder="{{trans('register_trans.File')}}" value="{{ old('file') }}">
            
-            <input type="text" class="form-control" name="lienfb" placeholder="https//www.facebook.com" value="{{ old('lienfb') }}">
-            <input type="text" class="form-control" name="lieninsta" placeholder="https//www.instagram.com">
-            <input type="text" class="form-control" name="lientwit" placeholder=" https//www.twiter.com">
-            <input type="text" class="form-control" name="linked" placeholder="  https//www.linkedin.com">
-            <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com">
+            <input type="text" class="form-control" name="lienfb" placeholder="https//www.facebook.com" value="{{Auth::guard('web')->user()->lienfb}}">
+            <input type="text" class="form-control" name="lieninsta" placeholder="https//www.instagram.com" value="{{Auth::guard('web')->user()->lieninsta}}">
+            <input type="text" class="form-control" name="lientwit" placeholder=" https//www.twiter.com" value="{{Auth::guard('web')->user()->lientwit}}">
+            <input type="text" class="form-control" name="linked" placeholder="  https//www.linkedin.com" value="{{Auth::guard('web')->user()->linked}}">
+            <input type="text" class="form-control" name="siteweb" placeholder="https//www.votreSiteWeb.com" value="{{Auth::guard('web')->user()->siteweb}}">
             <br>
            <div class="file-upload">
               <div class="file-select">
                 <div class="file-select-button" id="fileName">Choisis une image</div>
                 <div class="file-select-name" id="noFile">Image...</div> 
-                <input type="file" name="photo" id="chooseFile">
+                <input type="file" name="photo" id="chooseFile" value="{{Auth::guard('web')->user()->photo}}">
               </div>
             </div>
                       <br>
@@ -332,7 +336,7 @@ $status = true;
            <p><i class="fas fa-globe fa-fw w3-margin-right w3-large " style="color:#fd3d6b"></i>
          @if(!is_null(Auth::guard('web')->user()->siteweb))
 
-          {{Auth::guard('web')->user()->siteweb}}
+         <a href="<?=Auth::guard('web')->user()->siteweb?>">{{Auth::guard('web')->user()->siteweb}}</a> 
           @endif
 
             @if(is_null(Auth::guard('web')->user()->siteweb))
