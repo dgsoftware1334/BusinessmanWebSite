@@ -36,6 +36,8 @@
            <button type="submit"  name="submit">Se connecter</button>
                 </div>
               </form>
+              &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;
+             <a href="{{route('admin.forgot.password.form')}}" style="color:white;">{{trans('login_trans.Forgot password')}}</a>
             </div>
             </div>
           </div>

@@ -99,7 +99,11 @@ Auth::routes();
               Route::post('create',[UserController::class,'create'])->name('create');
               Route::post('/check',[UserController::class,'check'])->name('check');
               //Route::get('/sujets',[SujetController::class, 'index'])->name('sujet');
-
+              //--------------------------------------partie mot de passe oublier---------------------
+              Route::get('/password/forgot',[UserController::class,'showForgotForm'])->name('forgot.password.form');
+              Route::post('/password/forgot',[UserController::class,'SendResetLink'])->name('forgot.password.link');
+              Route::get('/password/reset/{token}',[UserController::class,'showResetForm'])->name('reset.password.form');
+              Route::post('/password/reset',[UserController::class,'resetPassword'])->name('reset.password');
           });
           route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
             Route::post('/sujet/commentaire/{sujet}/{user}',[SujetController::class, 'commentaire'])->name('commentaire.sujet');
@@ -174,6 +178,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
       Route::post('/create_admin',[AdminController::class,'create_admin'])->name('create_admin');
         Route::view('/login','dashboard.admin.login')->name('login');
         Route::post('/check',[AdminController::class,'check'])->name('check');
+          //------------------------------------------mot de passe oublier------------------------
+       Route::get('/password/forgot',[AdminController::class,'showForgotForm'])->name('forgot.password.form');
+       Route::post('/password/forgot',[AdminController::class,'SendResetLink'])->name('forgot.password.link');
+       Route::get('/password/reset/{token}',[AdminController::class,'showResetForm'])->name('reset.password.form');
+       Route::post('/password/reset',[AdminController::class,'resetPassword'])->name('reset.password');
     });
 
 
@@ -282,6 +291,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::post('/code/store',[CodeController::class, 'store'])->name('code.store');
        Route::post('/code/update',[CodeController::class, 'update'])->name('code.update');
        Route::get('/code/delete/{id}',[CodeController::class,'delete'])->name('code.delete');
+     
 
        
 

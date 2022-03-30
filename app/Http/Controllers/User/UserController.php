@@ -387,5 +387,62 @@ public function vip(){
  // return redirect()->back();
 
 }
-
+public function showForgotForm(){
+  
+  return view('FrontEnd.user.forgot');
 }
+public function SendResetLink(Request $request){
+  $request->validate([
+    'email'=>'required|email|exists:users,email']);
+
+    $token = \Str::random(64);
+    \DB::table('password_resets')->insert([
+      'email'=>$request ->email,
+      'token' =>$token,
+      'created_at'=>Carbon::now(),
+    ]);
+ $action_link =route('user.reset.password.form',['token' =>$token,'email'=>$request->email]);
+ $body="We are received a request to reset the password for your <b>Algerian businessman web site</b>account with".$request->email.".you can reset your password by clicking the link below";
+ \Mail::send('layouts.email-forgot',['action_link'=>$action_link,'body'=>$body],function($message) use($request){
+   $message->from('eurlnewrezzagbusiness@gmail.com','algerian businnessman');
+   $message->to($request->email,'eurlnewrezzagbusiness@gmail.com')
+   ->subject('Reset password');
+ });
+ toastr()->success('Vérifier votre adresse email');
+ return back()->with('success',"On vous a envoyé le lien de réinitialiser de mot de passe,vérifier votre email");
+}
+public function showResetForm(Request $request, $token = null){
+ 
+  return view('FrontEnd.user.reset')->with(['token'=>$token,'email'=>$request->email]);
+}
+
+public function resetPassword(Request $request){
+  $request->validate([
+      'email'=>'required|email|exists:users,email',
+      'password'=>'required|min:5|max:30',
+      'cpassword'=>'required|min:5|max:30|same:password',
+  ]);
+
+  $check_token = \DB::table('password_resets')->where([
+      'email'=>$request->email,
+      'token'=>$request->token,
+  ])->first();
+
+  if(!$check_token){
+      return back()->withInput()->with('fail', 'Invalid token');
+  }else{
+
+      User::where('email', $request->email)->update([
+          'password'=>\Hash::make($request->password)
+      ]);
+
+      \DB::table('password_resets')->where([
+          'email'=>$request->email
+      ])->delete();
+      toastr()->success('Votre mot de passe à été modifié');
+      return redirect()->route('user.login')->with('info', 'Your password has been changed! You can login with new password')->with('verifiedEmail', $request->email);
+  }
+}
+}
+
+
