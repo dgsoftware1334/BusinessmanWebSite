@@ -266,7 +266,7 @@ public function SendResetLink(Request $request){
       'created_at'=>Carbon::now(),
     ]);
  $action_link =route('admin.reset.password.form',['token' =>$token,'email'=>$request->email]);
- $body="We are received a request to reset the password for your <b>Algerian businessman web site</b>account with".$request->email.".you can reset your password by clicking the link below";
+ $body="Nous avons reçu votre demande de réinitialisation de mot de passe pour votre compte <b>Algerian businessman web site</b> attaché à l'email ".$request->email.".Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien ci-dessous ";
  \Mail::send('layouts.email-forgot',['action_link'=>$action_link,'body'=>$body],function($message) use($request){
    $message->from('eurlnewrezzagbusiness@gmail.com','algerian businnessman');
    $message->to($request->email,'eurlnewrezzagbusiness@gmail.com')

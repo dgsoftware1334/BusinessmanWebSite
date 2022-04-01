@@ -34,7 +34,7 @@
         </div-->
    
   <!-- preloader ending here -->
-  
+
   <!-- mobile-nav section start here -->
   <div class="mobile-menu">
     <nav class="mobile-header primary-menu d-lg-none">
@@ -153,19 +153,19 @@
     </div>
   </div>
   <!-- mobile-nav section ending here -->
-	<div class="header-section style-2 d-none d-lg-block">
+  <div class="header-section style-2 d-none d-lg-block">
 		<div class="header-top">
 			<div class="container container-1310">
 				<div class="htop-area row no-gutters">
 					<ul class="htop-left">
           <?php
- $chambre=App\Models\Chambre::get();
- ?>
- @foreach($chambre as $c)
+           $chambre=App\Models\Chambre::get();
+                     ?>
+                      @foreach($chambre as $c)
 				
 						<li><a href="#"><i class="fa-solid fa-phone"></i>&nbsp;{{$c->telephone}}</a></li>
             <li><a href="#"><i class="fa-solid fa-location-dot"></i>&nbsp;{{$c->adresse}}</a></li>
-			@endforeach
+		              	@endforeach
 					</ul>
 					<ul class="htop-right">
           <li>
@@ -192,7 +192,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div>	</div>
   <!-- header section start here -->
   <div class="header-section style-2 d-none d-lg-block">
 

@@ -311,13 +311,13 @@ $status = true;
   <div class="w3-third">
   
     <div class="w3-white w3-text-grey w3-card-4">
-      <div class="w3-display-container">
+      <div class="w3-display-container img-responsive">
       @if(is_null(Auth::guard('web')->user()->photo))
-                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
+                <img src="{{ asset('assests/FrontEnd/assets/images/3.png')  }}" alt="speaker"  style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 300px;  margin-top: 50px;margin-bottom: 50px;margin-right: 150px;margin-left: 80px;">
                @endif
 
               @if(!is_null(Auth::guard('web')->user()->photo))
-              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker" width="190" style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width: 600px"  >
+              <img src="{{ asset('assests/imgUser/'.Auth::guard('web')->user()->photo)  }}" alt="speaker"  style="border:none;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 240px;width:300px; margin-top: 50px;margin-bottom: 50px;margin-right: 150px;margin-left: 80px;"  >
               @endif
               <br> <br> <br> <br> 
         <div class="w3-display-bottomleft w3-container w3-text-black">

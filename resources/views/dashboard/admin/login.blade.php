@@ -35,7 +35,7 @@
                          <span class="text-danger">@error('password'){{ $message }}@enderror</span>
            <button type="submit"  name="submit">Se connecter</button>
                 </div>
-              </form>
+              </form><br>
               &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;
              <a href="{{route('admin.forgot.password.form')}}" style="color:white;">{{trans('login_trans.Forgot password')}}</a>
             </div>

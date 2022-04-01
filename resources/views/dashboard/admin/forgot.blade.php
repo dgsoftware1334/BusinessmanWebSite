@@ -38,9 +38,9 @@
            <input type="text" class="form-control" name="email" placeholder="{{trans('login_trans.Enter email address')}}" value="{{ old('email') }}">
                           <span class="text-danger">@error('email'){{ $message }}@enderror</span>
 
-           <button type="submit"  name="submit">Send reset password</button>
+           <button type="submit"  name="submit">Réinitialiser mot de passe</button>
                 </div>
-              </form>
+              </form><br>
               &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;
               <a href="{{route('admin.login')}}" style="color:white;">Se connecter</a>
             </div>
