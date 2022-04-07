@@ -8,6 +8,7 @@ return [
     'Name' => 'Name',
     'Message' => 'Message',
     'Send your message' => 'Send your message',
+    'Contact us for all kinds of help' => 'Contact us for all kinds of help'
     
 
     

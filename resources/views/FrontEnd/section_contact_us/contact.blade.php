@@ -30,8 +30,9 @@
 	                <textarea name="message" rows="8" id="message" placeholder="{{trans('contact_trans.Message')}}" ></textarea>
                       
                      <div class="col-lg-12"> 
+					 <div class="d-flex justify-content-center">
                      <input name="submit" type="submit" id="submit" class="submit" value="{{trans('contact_trans.Send your message')}}" style="background-color:  #fd3d6b;width: 700px" >
-                  </div>  </div>
+                  </div>  </div></div>
                 </div>
               </form>
 
@@ -43,7 +44,7 @@
 	    				<div class="address-info">
 	    					<div class="address-title">
 	    						<h4></h4>
-	    						<p>Contactez-nous pour tout type d'aide</p>
+	    						<p>{{trans('contact_trans.Contact us for all kinds of help')}}</p>
 	    					</div>
 	    					<div class="contact-address">
 	    						@foreach($chambres as $chambre)

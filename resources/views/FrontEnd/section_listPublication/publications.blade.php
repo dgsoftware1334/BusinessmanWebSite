@@ -139,12 +139,14 @@
 						    		<div class="row">
 						    			<div class="col-lg-12">
 						    				@foreach($chambres as $chambre)
-						    				<div class="gmap-widget">
+						    				<div class="gmap-widget d-flex flex-wrap">
 						    					<h5>{{trans('about_trans.Contact us')}}</h5>
 						    					<ul class="widget-list">
 						    						<li><i class="fas fa-home"></i>{{ $chambre->adresse}}</li>
 						    						<li><i class="fas fa-phone-square"></i> {{ $chambre->telephone}}</li>
-						    						<li><i class="fas fa-globe"></i><a  href="<?= $chambre->lien?>"  target="_blank">{{ $chambre->lien}}</a></li>
+													
+						    						<li><i class="fas fa-globe"></i><a  href="<?= $chambre->lien?>"  target="_blank" >
+													{{ Str::limit($chambre->lien,22)}}</a></li>
 
 						    					</ul>
 						    					<ul class="social-link-list d-flex flex-wrap">
