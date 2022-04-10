@@ -193,20 +193,20 @@ border-top: 1px solid blue;
                        @endif
                        @if($tender->type=="national_restreint")
                        <option value="national_restreint" selected> Appel d'offre national restreint </option>
-                       <option value="national_ouvert" selected> Appel d'offre national ouvert </option>
+                       <option value="national_ouvert"> Appel d'offre national ouvert </option>
                        <option value="international_ouvert"> Appel d'offre international ouvert </option>
                        <option value="international_restreint"> Appel d'offre international restreint </option>
                        @endif
                        @if($tender->type=="international_ouvert")
                        <option value="international_ouvert" selected> Appel d'offre international ouvert </option>
-                       <option value="national_restreint" selected> Appel d'offre national restreint </option>
-                       <option value="national_ouvert" selected> Appel d'offre national ouvert </option>
+                       <option value="national_restreint" > Appel d'offre national restreint </option>
+                       <option value="national_ouvert" > Appel d'offre national ouvert </option>
                        <option value="international_restreint"> Appel d'offre international restreint </option>
                        @endif
                        @if($tender->type=="international_restreint")
-                       <option value="international_restreint"> Appel d'offre international restreint </option>
-                       <option value="national_restreint" selected> Appel d'offre national restreint </option>
-                       <option value="national_ouvert" selected> Appel d'offre national ouvert </option>
+                       <option value="international_restreint" selected> Appel d'offre international restreint </option>
+                       <option value="national_restreint" > Appel d'offre national restreint </option>
+                       <option value="national_ouvert"> Appel d'offre national ouvert </option>
                        <option value="international_ouvert"> Appel d'offre international ouvert </option>
                        @endif
             

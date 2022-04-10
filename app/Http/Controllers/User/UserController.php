@@ -51,7 +51,7 @@ class UserController extends Controller
         $save = $user->save();
 
         if( $save ){
-            toastr()->success(trans(key: 'msg_trans.success'));
+            toastr()->success(trans(key: 'msg_trans.success1'));
 
             return redirect()->back();
             //return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');

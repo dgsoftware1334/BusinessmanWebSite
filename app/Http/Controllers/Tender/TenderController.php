@@ -190,11 +190,12 @@ $secteurs=Secteur::all();
     if (count($tenders) > 0) {
   
      
-      return view('frontend.appel_offre',compact('tenders','secteurs'));
+      return view('FrontEnd.appel_offre',compact('tenders','secteurs'));
         }
         else {
+          toastr()->error('Erreur!Aucun resultat correspondant à votre recherche');
           //$tenders=Tender::paginate(6);
-          return view('frontend.appel_offre',compact('tenders','secteurs'))->with('message','Incorrect credentials');
+          return view('FrontEnd.appel_offre',compact('tenders','secteurs'))->with('message','Aucun resultat correspondant à votre recherche');
         }
       
       }
