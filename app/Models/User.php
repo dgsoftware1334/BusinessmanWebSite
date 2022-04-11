@@ -43,7 +43,9 @@ class User   extends Authenticatable
         'status',
         'photo',
       // 'admin_id',
-        'sacteur_id'
+        'sacteur_id',
+        'paye',
+        'email_verified',
     ];
 
     /**

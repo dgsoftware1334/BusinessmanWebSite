@@ -98,6 +98,7 @@ Auth::routes();
               Route::view('/register','FrontEnd.user.register')->name('register');
               Route::post('create',[UserController::class,'create'])->name('create');
               Route::post('/check',[UserController::class,'check'])->name('check');
+              Route::get('/verify',[UserController::class,'verify'])->name('verify');
               //Route::get('/sujets',[SujetController::class, 'index'])->name('sujet');
               //--------------------------------------partie mot de passe oublier---------------------
               Route::get('/password/forgot',[UserController::class,'showForgotForm'])->name('forgot.password.form');
@@ -105,7 +106,7 @@ Auth::routes();
               Route::get('/password/reset/{token}',[UserController::class,'showResetForm'])->name('reset.password.form');
               Route::post('/password/reset',[UserController::class,'resetPassword'])->name('reset.password');
           });
-          route::middleware(['auth:web','PreventBackHistory','isUser'])->group(function(){
+          route::middleware(['auth:web','is_user_verify_email','PreventBackHistory','isUser'])->group(function(){
             Route::post('/sujet/commentaire/{sujet}/{user}',[SujetController::class, 'commentaire'])->name('commentaire.sujet');
             Route::get('/commentaire/delete/{idp}/{ids}/{idu}',[SujetController::class, 'delete_com'])->name('delete_com');
             Route::post('/commentaire/update/{idp}/{idu}/{ids}',[SujetController::class, 'updatecom'])->name('updatecom');

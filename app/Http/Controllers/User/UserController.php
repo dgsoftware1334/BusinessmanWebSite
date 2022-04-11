@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Models\VerifyUser;
 
 
 
@@ -43,12 +44,36 @@ class UserController extends Controller
         $user->email = $request->email;
        // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
+
+
         if($request->file('file')){
         $file=$request->file; 
 	      $filename=time().'.'.$file->getClientOriginalExtension();
 		    $request->file->move('assests/images/files/',$filename);
 		    $user->file=$filename; }
         $save = $user->save();
+        $last_id = $user->id;
+        $token = $last_id.hash('sha256',\Str::random(120));
+        $verifyURL = route('user.verify',['token'=>$token, 'service'=>'Email_verification']);
+        VerifyUser::create([
+          'user_id' =>$last_id,
+          'token' => $token,
+        ]);
+        $message ='Monsieur <b>'.$request->name.'</b>';
+        $message.='Merci pour votre inscription, nous avons juste besoin de vérifier votre adresse mail pour compléter votre création de compte.';
+        $mail_data = [ 
+          'recipient'=>$request->email,
+          'fromEmail' =>$request->email,
+          'fromName' =>$request ->name,
+          'subject' =>'Email Verification',
+          'body' =>$message,
+          'actionLink' =>$verifyURL,
+        ];
+        \Mail::send('layouts.emailtemplate', $mail_data, function($message) use ($mail_data){
+          $message->to($mail_data['recipient'])
+                  ->from($mail_data['fromEmail'], $mail_data['fromName'])
+                  ->subject($mail_data['subject']);
+        });
 
         if( $save ){
             toastr()->success(trans(key: 'msg_trans.success1'));
@@ -442,6 +467,24 @@ public function resetPassword(Request $request){
       toastr()->success('Votre mot de passe à été modifié');
       return redirect()->route('user.login')->with('info', 'Your password has been changed! You can login with new password')->with('verifiedEmail', $request->email);
   }
+}
+
+
+function verify(Request $request){
+  $token = $request->token;
+  $verifyUser = VerifyUser::where('token',$token)->first();
+  if(!is_null($verifyUser)){
+    $user = $verifyUser->user;
+
+     if(!$user->email_verified){
+       $verifyUser->user->email_verified = 1;
+       $verifyUser->user->save();
+       return redirect()->route('user.login')->with('info','Votre email a été vérifié correctement,Vous devez attendre la confirmation de l\'administrateur pour pouvoir vous connecter')->with('verifiedEmail',$user->email);
+     } else{
+       return redirect()->route('user.login')->with('info','Votre email est deja vérifier vous pouvez vous connectez')->with('verifiedEmail',$user->email);
+     }
+  }
+
 }
 }
 
