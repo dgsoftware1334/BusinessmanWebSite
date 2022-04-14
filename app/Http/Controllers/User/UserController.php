@@ -219,10 +219,12 @@ public function barrerecherche() {
   
   ->select('users.*')
   ->get();*/
-  $users = User::where('users.name',$nom)
-  ->orwhere('name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
+  $users = User::where('users.name',$nom)->
+  orwhere('users.name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
     $query->where('libelle', 'LIKE', '%' . $secteur . '%');
-})->get();
+})
+->
+get();
 
   $secteurs= Secteur::all();
   $chambres= Chambre::all();

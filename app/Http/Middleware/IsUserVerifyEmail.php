@@ -18,9 +18,9 @@ class IsUserVerifyEmail
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::guard('web')->user()->email_verified)
+        if(!Auth::guard('web')->user()->email_verified){
             Auth::guard('web')->logout();
-            return redirect()->route('user.login')->with('fail','Vous devez confirmer votre adresse email,Nous avons envoyer un lien d\'activation,Vérifiez votre email s\'il vous plait')->withInput();
+            return redirect()->route('user.login')->with('fail','Vous devez confirmer votre adresse email,Nous avons envoyer un lien d\'activation,Vérifiez votre email s\'il vous plait')->withInput();}
         return $next($request);
     }
 }
