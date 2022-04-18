@@ -8,7 +8,10 @@ return [
     'Name' => 'الاسم',
     'Message' => 'الرسالة',
     'Send your message' => 'أرسل رسالتك',
-    'Contact us for all kinds of help' => 'تواصل معنا من اجل المساعدة'
+    'Contact us for all kinds of help' => 'تواصل معنا من اجل المساعدة',
+    'Address' => 'العنوان',
+    'Phone' => 'الهاتف',
+    'Website' => 'الموقع',
 
     
 

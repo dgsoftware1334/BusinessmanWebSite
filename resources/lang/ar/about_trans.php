@@ -36,8 +36,9 @@ return [
     'Type' => 'صنف',
     'Post' => 'منشور',
     'Posted on' => 'نشرت في',
-    'Search for businessmen by name'=> 'البحث عن رجال الأعمال بالاسم
-',
+    'Search for businessmen by name'=> 'البحث عن رجال الأعمال بالاسم',
+    'Search by name OR last name' => 'البحث عن رجال الأعمال بالاسم اواللقب',
+    'No result about your search' => 'لا توجد اي نتيجة موافقة لبحثكم',
 
     
     

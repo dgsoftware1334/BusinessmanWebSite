@@ -83,8 +83,8 @@ border-top: 1px solid blue;
    
 
    <div class="modal fade" id="modal-lg">
-       <div class="modal-dialog"style="width: 900px" >
-<div class="modal-content"style="width: 900px">
+       <div class="modal-dialog"style="width: 800px" >
+<div class="modal-content"style="width: 800px">
 <div class="modal-header" style="background-color: #4682B4;">
 <h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; Ajouter un secteur d'activité </h4>
@@ -242,10 +242,10 @@ border-top: 1px solid blue;
 
 
       <!------------------------------------------update modal------------------------------------->
-     
+      <div class="d-flex justify-content-center">  
  <div class="modal fade" id="edit{{$row->id}}">
-         <div class="modal-dialog"style="width: 900px" >
-<div class="modal-content"style="width: 900px">
+         <div class="modal-dialog"style="width: 800px" >
+<div class="modal-content"style="width: 800px">
 <div class="modal-header" style="background-color: #4682B4;">
 <h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; Modifie un secteur d'activité </h4>
@@ -411,7 +411,7 @@ border-top: 1px solid blue;
         </div>
         <!-- /.modal-dialog -->
       </div>
-
+      </div>
 
 <script>
    

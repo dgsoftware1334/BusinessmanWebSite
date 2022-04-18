@@ -36,9 +36,9 @@
 
                 
 			   
-              
-               <a href="{{url('user/login')}}" class="reg-head d-none d-xl-block">{{trans('forum_trans.Add a topic')}}</a>
-    
+                <div class="d-flex justify-content-center">
+               <a href="{{url('user/login')}}" class="btn-defult">{{trans('forum_trans.Add a topic')}}</a>
+               </div>
                
            
      

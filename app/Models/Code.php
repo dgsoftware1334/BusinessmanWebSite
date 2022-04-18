@@ -9,6 +9,6 @@ class Code extends Model
 {
     use HasFactory;
     use HasTranslations;
-    public $translatable = ['description','title'];
+    public $translatable = ['description','title','code'];
     protected $guarded = [];
 }

@@ -58,21 +58,22 @@ function store(StoreTenderRequest $request){
             $tender->doc=$filename;
 		    }
 
-    $tender->intitule =  $request->intitule;
-    $tender->description = $request->description;
+    $tender->intitule =['fr' => $request->intitule, 'ar' => $request->intitule_ar, 'en' => $request->intitule_en];
+    $tender->description =['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en] ;
     $tender->image= $file_name;
     $tender->date_parution = $request->date_parution;
     $tender->date_limite = $request->date_limite;
     $tender->sacteur_id=$request->sacteur_id;
-    $tender->wilaya = $request->wilaya;
-    $tender->adresse = $request->adresse;
+    $tender->wilaya = ['fr' => $request->wilaya, 'ar' => $request->wilaya_ar,'en' => $request->wilaya];
+    $tender->adresse =  ['fr' => $request->adresse, 'ar' => $request->adresse_ar ,'en' => $request->adresse];
     $tender->genre = $request->genre;
-    $tender->type = $request->type;
-    $tender->societe = $request->societe;
+    $tender->type =['fr' => $request->type, 'ar' => $request->type_ar, 'en' => $request->type_en] ;
+    $tender->societe = ['fr' => $request->societe, 'ar' => $request->societe_ar,'en' => $request->societe];
+    $tender->prix_cahier =$request->prix_cahier;
 
     $save =$tender->save();
     if( $save ){
-        toastr()->success('Votre publication a été ajouter avec succée');
+        toastr()->success('Votre appel d offre a été ajouter avec succée');
         return redirect()->back();
    
     }else{
@@ -120,18 +121,18 @@ public function update(UpdateTenderRequest $request, $id)
             $tender->doc=$filename;
 		    }
 
-    $tender->intitule =  $request->intitule;
-    $tender->description = $request->description;
+    $tender->intitule =  ['fr' => $request->intitule, 'ar' => $request->intitule_ar, 'en' => $request->intitule_en];
+    $tender->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en] ;
   
     $tender->date_parution = $request->date_parution;
     $tender->date_limite = $request->date_limite;
     $tender->sacteur_id=$request->sacteur_id;
-    $tender->wilaya = $request->wilaya;
-    $tender->adresse = $request->adresse;
+    $tender->wilaya = ['fr' => $request->wilaya, 'ar' => $request->wilaya_ar,'en' => $request->wilaya];
+    $tender->adresse =['fr' => $request->adresse, 'ar' => $request->adresse_ar ,'en' => $request->adresse];
     $tender->genre = $request->genre;
-    $tender->type = $request->type;
-    $tender->societe = $request->societe;
-
+    $tender->type = ['fr' => $request->type, 'ar' => $request->type_ar, 'en' => $request->type_en];
+    $tender->societe =['fr' => $request->societe, 'ar' => $request->societe_ar,'en' => $request->societe];
+    $tender->prix_cahier =$request->prix_cahier;
     $save =$tender->save();
 
     if( $save ){

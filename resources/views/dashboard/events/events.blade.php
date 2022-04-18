@@ -118,17 +118,17 @@ function yesnoCheckupdate() {
 </div>
 
     <div class="modal fade" id="modal-lg">
-        <div class="modal-dialog modal-lg" style="width: 1200px">
-          <div class="modal-content" style="width: 1200px">
+        <div class="modal-dialog modal-lg" style="width: 800px">
+          <div class="modal-content" style="width: 800px">
             <div class="modal-header"  style="background-color: #4682B4;">
 <h4 class="modal-title" style="color: white" >&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
-&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+&ensp; &ensp; 
 &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;Ajouter un événement</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" style="width:1200px">
+            <div class="modal-body" style="width:800px">
 
               
             <!-- general form elements disabled -->
@@ -366,19 +366,19 @@ function yesnoCheckupdate() {
  
       <!------------------------------------------update modal------------------------------------->
           <div class="modal fade" id="edit{{$event->id}}">
-        <div class="modal-dialog modal-lg" style="width:1200px">
-          <div class="modal-content" style="width:1200px">
+        <div class="modal-dialog modal-lg" style="width:800px">
+          <div class="modal-content" style="width:800px">
             <div class="modal-header" style="background-color: #4682B4;">
               <h4 class="modal-title" style="color: white">
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+             
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
               &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
                 Modifier l'evenement </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" style="width:1200px">
+            <div class="modal-body" style="width:800px">
 
               
             <!-- general form elements disabled -->
@@ -721,161 +721,7 @@ function yesnoCheckupdate() {
 
 
  
-      <!------------------------------------------update modal------------------------------------->
-          <div class="modal fade" id="edit{{$event->id}}">
-        <div class="modal-dialog modal-lg" style="width:1200px">
-          <div class="modal-content" style="width:1200px">
-            <div class="modal-header" style="background-color: #4682B4;">
-              <h4 class="modal-title" style="color: white">
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                Modifier l'evenement </h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" style="width:1200px">
-
-              
-            <!-- general form elements disabled -->
-             <form action="{{ url('admin/updateEvent')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-           
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Sujet (fr)</label>
-                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('sujet') is-invalid @enderror" value="{{$event->getTranslation('sujet', 'fr')}}">
-                        
-                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <!-- textarea -->
-                      <div class="form-group">
-                        <label>Description (fr))</label>
-                     
-                        <textarea class="form-control" rows="3"   placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$event->id; ?>">
-                        
-                        {{$event->getTranslation('description', 'fr')}}
-                        
-                        </textarea>
-                        
-                      </div>
-                    </div>
-                    </div>
-
-                    
-                 
-                  <div class="row">
-                  
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Sujet (ar)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_ar" value="{{$event->getTranslation('sujet', 'ar')}}">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Description(ar)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" id="upar<?=$event->id; ?>" >{{$event->getTranslation('description', 'ar')}}</textarea>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Sujet (en)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en"  value="{{$event->getTranslation('sujet', 'en')}}">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" id="upen<?=$event->id; ?>">{{$event->getTranslation('description', 'en')}}</textarea>
-                      </div>
-                    </div>
-                  
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-4">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Date de debut</label>
-                        <input type="date" class="form-control" name="date_debut" placeholder="Enter ..." value="{{$event->date_debut}}" >
-                        
-                        
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                      <label>Date de fin</label>
-                        <input type="date" class="form-control" name="date_fin" placeholder="Enter ..."   value="{{$event->date_fin}}">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Duré</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="dure"  value="{{$event->dure}}" >
-                      </div>
-                    </div>
-                  </div>
-              
-
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <!-- text input -->
-                      <div class="form-group">  
-                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="yesCheckup" value="1" @if(old('type')) checked @endif/> <b>En ligne </b></label>&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;
-                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="noCheckup"value="0" @if(!old('type')) checked @endif/> <b>Présentiel</b></label>
-                 <div id="ifYes" style="visibility:hidden">
-                        Lien: <input type='text'  class="form-control"placeholder="Entrer le lien vers l'evenement ..." id='ifYesup' name='lien' value="{{$event->lien}}"><br>
-        
-                  </div>
-        
-                 <div id="ifNo" style="visibility:hidden">
-                        lieu: <input type='text'  class="form-control"placeholder="Entrer le lieu de l'evenement ..."  id='ifNoup' name='lieu' value="{{$event->lieu}}"><br>
-        
-                  </div> 
-                      </div>
-                    </div> </div>
-
-
-                  
-                    
-                    <div class="col-sm-12">
-                            <label for="">Ajouter une image</label>
-                            <input type="file" name="image"  class="course form-control">
-                        </div>
-                  </div>
-
-                  <!-- input states -->
-                 
-                 
-
-                
-
-                 
-                  <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            </div>
-                  
-                </form>
-          
-            </div>
-          
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-                                   
-
+    
       <!------------------------------------------delete modal------------------------------------->
       <div class="modal fade" id="delete{{$event->id}}">
         <div class="modal-dialog modal-lg">
@@ -1077,160 +923,7 @@ function yesnoCheckupdate() {
 
 
  
-      <!------------------------------------------update modal------------------------------------->
-          <div class="modal fade" id="edit{{$event->id}}">
-        <div class="modal-dialog modal-lg" style="width:1200px">
-          <div class="modal-content" style="width:1200px">
-            <div class="modal-header" style="background-color: #4682B4;">
-              <h4 class="modal-title" style="color: white">
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                Modifier l'evenement </h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" style="width:1200px">
-
-              
-            <!-- general form elements disabled -->
-             <form action="{{ url('admin/updateEvent')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-           
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Sujet (fr)</label>
-                        <input type="text" class="form-control" name="sujet" placeholder="Enter ..." class="@error('sujet') is-invalid @enderror" value="{{$event->getTranslation('sujet', 'fr')}}">
-                        
-                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $event->id }}">
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <!-- textarea -->
-                      <div class="form-group">
-                        <label>Description (fr))</label>
-                     
-                        <textarea class="form-control" rows="3"   placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$event->id; ?>">
-                        
-                        {{$event->getTranslation('description', 'fr')}}
-                        
-                        </textarea>
-                        
-                      </div>
-                    </div>
-                    </div>
-
-                    
-                 
-                  <div class="row">
-                  
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Sujet (ar)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_ar" value="{{$event->getTranslation('sujet', 'ar')}}">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Description(ar)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_ar" id="upar<?=$event->id; ?>" >{{$event->getTranslation('description', 'ar')}}</textarea>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Sujet (en)</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="sujet_en"  value="{{$event->getTranslation('sujet', 'en')}}">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="description_en" id="upen<?=$event->id; ?>">{{$event->getTranslation('description', 'en')}}</textarea>
-                      </div>
-                    </div>
-                  
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-4">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Date de debut</label>
-                        <input type="date" class="form-control" name="date_debut" placeholder="Enter ..." value="{{$event->date_debut}}" >
-                        
-                        
-                       
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                      <label>Date de fin</label>
-                        <input type="date" class="form-control" name="date_fin" placeholder="Enter ..."   value="{{$event->date_fin}}">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Duré</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="dure"  value="{{$event->dure}}" >
-                      </div>
-                    </div>
-                  </div>
-              
-
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <!-- text input -->
-                      <div class="form-group">  
-                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="yesCheckup" value="1" @if(old('type')) checked @endif/> <b>En ligne </b></label>&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;
-                            <label class="col-sm-4 control-label"><input type="radio" onclick="javascript:yesnoCheckupdate();" name="type" id="noCheckup"value="0" @if(!old('type')) checked @endif/> <b>Présentiel</b></label>
-                 <div id="ifYes" style="visibility:hidden">
-                        Lien: <input type='text'  class="form-control"placeholder="Entrer le lien vers l'evenement ..." id='ifYesup' name='lien' value="{{$event->lien}}"><br>
-        
-                  </div>
-        
-                 <div id="ifNo" style="visibility:hidden">
-                        lieu: <input type='text'  class="form-control"placeholder="Entrer le lieu de l'evenement ..."  id='ifNoup' name='lieu' value="{{$event->lieu}}"><br>
-        
-                  </div> 
-                      </div>
-                    </div> </div>
-
-
-                  
-                    
-                    <div class="col-sm-12">
-                            <label for="">Ajouter une image</label>
-                            <input type="file" name="image"  class="course form-control">
-                        </div>
-                  </div>
-
-                  <!-- input states -->
-                 
-                 
-
-                
-
-                 
-                  <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            </div>
-                  
-                </form>
-          
-            </div>
-          
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-                                   
+                           
 
       <!------------------------------------------delete modal------------------------------------->
       <div class="modal fade" id="delete{{$event->id}}">

@@ -36,7 +36,9 @@ return [
     'Type' => 'Type',
     'Post' => 'Publication',
     'Posted on' => 'Publié le',
-    'Search for businessmen by name'=> 'recherche les hommes d\'affaires par Nom '
+    'Search for businessmen by name'=> 'recherche les hommes d\'affaires par Nom ',
+    'Search by name OR last name' => 'Rechercher par nom OU prénom',
+    'No result about your search' => 'Aucun résultat correspondant à votre recherche',
 
     
 

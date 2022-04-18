@@ -27,8 +27,8 @@ class CodeController extends Controller
         $validated = $request->validated();
      
         $code= new Code();
-        $code->code =$request->code;
-        $code->title = ['fr' => $request->title, 'ar' => $request->title_ar];
+        $code->code =['fr' => $request->code, 'ar' => $request->code_ar, 'en' => $request->code];
+        $code->title = ['fr' => $request->title, 'ar' => $request->title_ar, 'en' => $request->title_en];
 
         $code->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en];
 
@@ -57,10 +57,11 @@ class CodeController extends Controller
           
         try {
             $validated = $request->validated();
-            $code = Code::findOrFail($request->id);
+            $code = Code::find($request->id);
    
          
-              $code->code = $request->code;
+              $code->code = ['fr' => $request->code, 'ar' => $request->code_ar, 'en' => $request->code];
+              $code->title = ['fr' => $request->title, 'ar' => $request->title_ar, 'en' => $request->title_en];
               $code->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en];
 
             $save=$code->save();

@@ -36,9 +36,9 @@
 
                 
 			   
-              
-               <a href="#" class="reg-head d-none d-xl-block" data-toggle="modal" data-target="#exampleModalCenter">{{trans('forum_trans.Add a topic')}}</a>
-    
+                <div class="d-flex justify-content-center">
+               <a href="#" class="btn-defult" data-toggle="modal" data-target="#exampleModalCenter">{{trans('forum_trans.Add a topic')}}</a>
+               </div>
                
            
      

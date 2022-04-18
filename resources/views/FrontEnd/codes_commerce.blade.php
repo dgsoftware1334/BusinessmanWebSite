@@ -9,12 +9,12 @@
                 <div class="container container-1310">
 					<div class="page-header-content-inner">
 						<div class="page-title">
-							<span class="title-text">Les codes <span>Commerciaux</span></span>
+							<span class="title-text">{{trans('vip.Commercial codes')}}</span>
 						</div>
 						<ol class="breadcrumb">
 							
-							<li><a href="">Accueil</a></li>
-							<li class="active">Les codes commerciaux</li>
+							<li><a href="">{{trans('vip.Home')}}</a></li>
+							<li class="active">{{trans('vip.Commercial codes')}}</li>
 						</ol>
 					</div>
                 </div>
@@ -34,22 +34,27 @@
                     <div class="row">
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <input type="text" name="title" placeholder="Rechercher par titre" id="text" class="px-2 py-2 w-full">
+                        <input type="text" name="title" placeholder="{{trans('vip.Search with the title')}}" id="text" class="px-2 py-2 w-full">
                         </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
 							
 					   <div class="col-lg-3 col-md-3 col-sm-12 p-0"> 
-                       <input type="text" name="code" placeholder="Rechercher par code" id="text" class="px-2 py-2 w-full">
+                       <input type="text" name="code" placeholder="{{trans('vip.Search with the code')}}" id="text" class="px-2 py-2 w-full">
 
 					   </div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 						&nbsp; &nbsp; &nbsp;
 						<div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <input type="text" name="description" placeholder="Rechercher par description"  id="text" class="px-2 py-2 w-full">
+                        <input type="text" name="description" placeholder="{{trans('vip.Search with the description')}}"  id="text" class="px-2 py-2 w-full">
                         </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-                        
-
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="submit" class="button" style="width:280px;height:45px;background-color:#F73087">Rechercher</button>
+                        
+                            <button type="submit" class="button" style="width:280px;height:45px;background-color:#F73087">{{trans('vip.Search')}}</button>
+                       
                         </div>
                     </div>
                 </div>
@@ -72,12 +77,13 @@
                       		<table>
                          		<thead>
                             		<tr>
-                                       <th class="time">Code</th>
-                                       <th class="session">Titre</th>
-                                       <th class="spekers">Date de publication</th>
+                                       <th class="time">{{trans('vip.Code')}}</th>
+                                       <th class="session">{{trans('vip.Title')}}</th>
+                                       <th class="spekers">{{trans('vip.Release date')}}</th>
                             		</tr>
                          		</thead>
                          		<tbody>
+                                     @if(count($codes) > 0)
                                      @foreach($codes as $code)
                                     <tr>
                                        	<td class="time" data-title="Time">{{$code->code}}</td>
@@ -91,8 +97,8 @@
 		                                       	<div class="row align-items-center">
 		                                       		<div class="col-lg-8 col-12">
 			                                       		<div class="tdc-ls">
-			                                       			<h4>Le contenu du {{$code->code}} :</h4>
-			                                       			<p>{{$code->description}}</p>
+			                                       			<h4>{{trans('vip.The content of the')}} {{$code->code}} </h4>
+			                                       			<p>{!!$code->description!!}</p>
 			                                       		</div>
 		                                       		</div>
 		                                       	
@@ -103,6 +109,22 @@
 
 
                                    @endforeach
+                                   @else
+                        <div class="alert alert-danger" role="alert">
+                        {{trans('about_trans.No result about your search')}}
+                         </div>
+                        <div class="d-flex justify-content-center">
+                             <a href="">
+
+                             
+                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
+                            
+
+
+
+                            </a>
+                            </div>
+                         @endif
                              	</tbody>
                       		</table>
 							  <div class="pagination-area d-flex flex-wrap justify-content-center">

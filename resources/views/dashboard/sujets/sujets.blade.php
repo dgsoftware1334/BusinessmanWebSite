@@ -52,6 +52,10 @@ border-top: 1px solid blue;
         </ul>
     </div>
 @endif
+@php 
+$sujetts =App\Models\Sujet::All();
+@endphp
+
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -67,6 +71,7 @@ border-top: 1px solid blue;
  {{ session('supprimer') }}
 </div>
 @endif
+
  <div class="animated fadeInUp infinite" alt="Transparent MDB Logo" >      
      <div class="card card-primary card-outline">
         <div class="card-body">
@@ -184,6 +189,11 @@ border-top: 1px solid blue;
 
 <div class="col-lg-12 bg-white">
 <div class="tab-content mt-4" id="myTabContent">
+@if(isset($sujets))
+<div class="alert alert-danger">
+ Le forum est vide
+</div>
+@endif
 
 <table class="table table-bordered">
                   <thead>

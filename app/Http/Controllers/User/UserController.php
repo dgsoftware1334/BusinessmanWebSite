@@ -212,18 +212,21 @@ $publication= Publication::find(1);
 public function barrerecherche() {
   $nom=$_GET['nom'];
   $secteur=$_GET['secteur'];
- 
-  /*$users = DB::table('users')->join('secteurs', 'users.sacteur_id', '=', 'secteurs.id')
-  ->where('users.name',$nom)
-  ->orWhere('secteurs.libelle',$secteur)
-  
-  ->select('users.*')
-  ->get();*/
-  $users = User::where('users.name',$nom)->
+
+  /*$users = User::where('users.name',$nom)->
   orwhere('users.name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
     $query->where('libelle', 'LIKE', '%' . $secteur . '%');
 })
-->
+->orwhere('users.lastname', 'LIKE', '%' . $nom . '%')->
+get();*/
+
+
+
+$users = User::where('users.name',$nom)->orwhere('name', 'LIKE', '%' . $nom . '%')
+->orwhere('lastname', 'LIKE', '%' . $nom . '%')->orwhere('name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
+  $query->where('libelle', 'LIKE', '%' . $secteur . '%');
+})->orwhere(DB::raw("CONCAT(users.name,' ',users.lastname)"), 'LIKE', '%' . $nom . '%')
+->orwhere(DB::raw("CONCAT(users.lastname,' ',users.name)"), 'LIKE', '%' . $nom . '%')->
 get();
 
   $secteurs= Secteur::all();

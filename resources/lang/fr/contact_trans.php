@@ -8,7 +8,10 @@ return [
     'Name' => 'Nom',
     'Message' => 'Message',
     'Send your message' => 'Envoyer votre message',
-    'Contact us for all kinds of help' => 'Contactez nous pour tous types d\'aide'
+    'Contact us for all kinds of help' => 'Contactez nous pour tous types d\'aide',
+    'Address' => 'Adresse',
+    'Phone' => 'Téléphone',
+    'Website' => 'Siteweb',
     
     
 

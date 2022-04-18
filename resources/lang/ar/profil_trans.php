@@ -18,6 +18,13 @@ return [
     'Updates personal information' => 'تحديث المعلومات الشخصية',
     'Updates professional information' => 'تحديث المعلومات المهنية',
     'Confirm' => 'ثبت',
+    'Click here if you want to download the CV' =>'اضغط هنا اذا كنت تريد تحميل السيرة الذاتية',
+    'File (CV)' => 'ملف السيرة الذاتية',
+    'Years of experience' => 'سنوات الخبرة',
+    'Empty' => 'فارغ',
+    'Update your professional data' => 'غير البيانات العملية',
+    'Update your personnal data' => 'غير البيانات الشخصية',
+    'Years' => 'سنة',
 
 
 ];

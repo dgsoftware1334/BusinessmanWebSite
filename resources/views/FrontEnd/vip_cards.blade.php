@@ -9,12 +9,12 @@
                 <div class="container container-1310">
 					<div class="page-header-content-inner">
 						<div class="page-title">
-							<span class="title-text">Espace  <span>VIP</span></span>
+							<span class="title-text">{{trans('vip.Space')}}  <span>{{trans('vip.VIP')}}</span></span>
 						</div>
 						<ol class="breadcrumb">
 							
-							<li><a href="{{url('/')}}">Accueil</a></li>
-							<li class="active">VIP</li>
+							<li><a href="{{url('/')}}">{{trans('vip.Home')}}</a></li>
+							<li class="active">{{trans('vip.Space')}} &nbsp; {{trans('vip.VIP')}} </li>
 						</ol>
 					</div>
                 </div>
@@ -27,29 +27,29 @@
 	<section class="pricing-section style-1 padding-tb">
 		<div class="container container-1310">
 			<div class="section-header wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
-                <h2>Nos services VIP</h2>
-                <p>Cet espace est premium, Pour payer contacter l'administration</p>
+                <h2>{{trans('vip.Our VIP services')}}</h2>
+                <p>{{trans('vip.This is a premium space, If you want to access please contact the administrator to pay')}}</p>
             </div>
 			<div class="section-wrapper">
 				<div class="pricing-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
 					<div class="pricing-item-inner">
 						<div class="pricing-head wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-							<h3>Appels d'offres</h3>
-							<span>Payer pour consulter nos appel d'offres</span>
+							<h3>{{trans('vip.Tenders')}}</h3>
+							<span>{{trans('vip.Pay to see our tenders')}}</span>
 						</div>
 						<ul class="pricing-body">
-							<li>Appels d'offres</li>
-							<li>Différents secteurs</li>
-							<li>Tous en détails</li>
-							<li>Possibilité de naviguer</li>
+							<li>{{trans('vip.Tenders')}}</li>
+							<li>{{trans('vip.Different sector')}}</li>
+							<li>{{trans('vip.All in details')}}</li>
+							<li>{{trans('vip.Possibility to navigate')}}</li>
 						</ul>
 						<div class="pricing-footer d-flex align-items-center">
 							
 							<div class="reg">
 							@if(auth()->check() && auth()->user()->paye)
-								<a href="{{route('user.tenders')}}"><span style="font-size:24px">Accéder</span></a>
+								<a href="{{route('user.tenders')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
 								@else
-								<a href="{{route('user.login')}}"><span style="font-size:24px">Accéder</span></a>
+								<a href="{{route('user.login')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
 								@endif
 							</div>
 						</div>
@@ -59,22 +59,22 @@
 				<div class="pricing-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
 					<div class="pricing-item-inner">
 						<div class="pricing-head wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-							<h3>Codes Commerciaux</h3>
-							<span>Payer pour voir les codes commerciaux de la chambre</span>
+							<h3>{{trans('vip.Commercial codes')}}</h3>
+							<span>{{trans('vip.Pay to see our commercial codes')}}</span>
 						</div>
 						<ul class="pricing-body">
-							<li>Liste des codes de commerces</li>
-							<li>Avec tous les détails</li>
-							<li>Possibilité de naviguer</li>
-							<li>Espace payant</li>
+							<li>{{trans('vip.List of commercial codes')}}</li>
+							<li>{{trans('vip.With all details')}}</li>
+							<li>{{trans('vip.Possibility to navigate')}}</li>
+							<li>{{trans('vip.Premium space')}}</li>
 						</ul>
 						<div class="pricing-footer d-flex align-items-center">
 						
 							<div class="reg">
 								@if(auth()->check() && auth()->user()->paye)
-								<a href="{{route('user.codes')}}"><span style="font-size:24px">Accéder</span></a>
+								<a href="{{route('user.codes')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
 								@else
-								<a href="{{route('user.login')}}"><span style="font-size:24px">Accéder</span></a>
+								<a href="{{route('user.login')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
 								@endif
 							</div>
 						</div>

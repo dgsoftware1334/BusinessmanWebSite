@@ -88,7 +88,7 @@
 
                     <div style="float:left;">
 
-                        <input type="text" name="nom" placeholder="{{trans('about_trans.Name')}}" id="text" class="px-2 py-2 w-full">
+                        <input type="text" name="nom" placeholder="{{trans('about_trans.Search by name OR last name')}}" id="text" class="px-2 py-2 w-full">
                     </div>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div style="float:left;">
@@ -106,7 +106,7 @@
 
               
               
-                <h2>{{trans('about_trans.The results of your search')}}:</h2>
+                <h2>{{trans('about_trans.The results of your search')}}</h2>
 
                 <section class="event-schedule style-4 padding-tb" ><p> </p>
                 <div class="container container-1310 p-0 p-md-auto" >
@@ -116,6 +116,7 @@
                   
                     <div id="1st-Day" class="tabcontent active">
                       <div class="d-flex flex-wrap justify-content-center">
+                        @if(count($users) >0)
                         @foreach($users as  $row)
                        
 
@@ -147,6 +148,22 @@
                         </div>
                          
                         @endforeach
+                        @else
+                        <div class="alert alert-danger" role="alert">
+                        {{trans('about_trans.No result about your search')}}
+                         </div>
+                        <div class="d-flex justify-content-center">
+                             <a href="">
+
+                             
+                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
+                            
+
+
+
+                            </a>
+                            </div>
+                         @endif
                       </div>
                     </div>
 

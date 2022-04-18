@@ -147,17 +147,17 @@ border-top: 1px solid blue;
 
 
 <div class="modal fade" id="edite{{$row->id}}" >
-<div class="modal-dialog"style="width: 1000px" >
-<div class="modal-content"style="width: 1000px">
+<div class="modal-dialog"style="width: 800px" >
+<div class="modal-content"style="width: 800px">
 <div class="modal-header" style="background-color: #4682B4;">
-<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
+<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; 
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
 Modifier un fondateur </h4>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
-<div class="modal-body" style="width: 1000px">
+<div class="modal-body" style="width: 800px">
 
 <form class="form-horizontal" method="POST" action="{{ route('admin.update.fondateur',[$row->id]) }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
 @csrf
@@ -351,8 +351,8 @@ Modifier un fondateur </h4>
 
 
 <div class="modal fade" id="ajoute" >
-<div class="modal-dialog" style="width: 1000px" >
-<div class="modal-content" style="width: 1000px">
+<div class="modal-dialog" style="width: 800px" >
+<div class="modal-content" style="width: 800px">
 <div class="modal-header"  style="background-color: #4682B4;">
 <h4 class="modal-title" style="color: white" >&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
@@ -362,7 +362,7 @@ Ajouter un fondateur</h4>
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
-<div class="modal-body" style="width: 1000px">
+<div class="modal-body" style="width: 800px">
 
 <form class="form-horizontal" method="POST" action="{{ route('admin.store.fondateur') }}" autocomplete="off" enctype="multipart/form-data" id="myForm">
 @csrf

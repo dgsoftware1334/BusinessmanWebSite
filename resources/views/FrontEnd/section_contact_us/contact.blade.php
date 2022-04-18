@@ -50,13 +50,13 @@
 	    						@foreach($chambres as $chambre)
 	                            <ul>
 	                                <li>
-	                                    <p>Address:</p><span>{{ $chambre->adresse}}</span>
+	                                    <p>{{trans('contact_trans.Address')}}:</p><span>{{ $chambre->adresse}}</span>
 	                                </li>
 	                                <li>
-	                                    <p>Mobile:</p><span>+231 {{ $chambre->telephone}}</span>
+	                                    <p>{{trans('contact_trans.Phone')}}:</p><span>+231 {{ $chambre->telephone}}</span>
 	                                </li>
 	                                <li>
-	                                    <p>Site:</p><span>{{ $chambre->lien}}</span>
+	                                    <p>{{trans('contact_trans.Website')}}:</p><span>{{ $chambre->lien}}</span>
 	                                </li>
 	                               
 	                            </ul>

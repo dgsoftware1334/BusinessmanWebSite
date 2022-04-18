@@ -37,7 +37,9 @@ return [
     'Type' => 'Type',
     'Post' => 'Post',
     'Posted on' => 'Posted on',
-    'Search for businessmen by name'=> 'Search for businessmen by name'
+    'Search for businessmen by name'=> 'Search for businessmen by name',
+    'Search by name OR last name' => 'Search by name OR last name',
+    'No result about your search' => 'No result about your search',
 
     
 

@@ -114,17 +114,17 @@ function yesnoCheckupdate() {
 </div>
 
     <div class="modal fade" id="modal-lg">
-        <div class="modal-dialog modal-lg" style="width: 1200px">
-          <div class="modal-content" style="width: 1200px">
+        <div class="modal-dialog modal-lg" style="width: 800px">
+          <div class="modal-content" style="width: 800px">
             <div class="modal-header"  style="background-color: #4682B4;">
-<h4 class="modal-title" style="color: white" >&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
-&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+<h4 class="modal-title" style="color: white" >
+&ensp; &ensp; &ensp; &ensp; 
 &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;Ajouter un nouveau code commercial</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" style="width:1200px">
+            <div class="modal-body" style="width:800px">
 
               
             <!-- general form elements disabled -->
@@ -142,6 +142,13 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
+                        <label>الكود<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="code_ar" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror"  >
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
                         <label>Titre<span style="color:red">*</span></label>
                         <input type="text" class="form-control" name="title" placeholder="Entrer le titre du code commercial" class="@error('code') is-invalid @enderror"  >
                       </div>
@@ -149,10 +156,21 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Titre (ar)</label>
-                        <input type="text" class="form-control" name="code_ar" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror"  >
+                        <label>العنوان<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="title_ar" placeholder="Entrer le titre du code commercial" class="@error('code') is-invalid @enderror"  >
                       </div>
                     </div>
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>The title<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="title_en" placeholder="Entrer le titre du code commercial" class="@error('code') is-invalid @enderror"  >
+                      </div>
+                    </div>
+              
+                </div>
+                    <hr class="solid">
+                    <div class="row">
                     <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
@@ -160,28 +178,24 @@ function yesnoCheckupdate() {
                         <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="fr"></textarea>
                         
                       </div>
-                    </div></div>
-                    <hr class="solid">
-                    <div class="row">
+                    </div>
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>اوصف</label>
                         <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="ar"></textarea>
                       </div>
-                    </div></div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>The description</label>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_en" id="en"></textarea>
+                      </div>
+                    </div>
+                  </div>
 
                    
                
-                  <div class="row">
-                
-                  <hr/>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter the description ..." name="description_en" id="en"></textarea>
-                      </div>
-                    </div>
-                    </div>
+              
                   </div>
                 
                   <div class="modal-footer justify-content-between">
@@ -253,19 +267,19 @@ function yesnoCheckupdate() {
  
       <!------------------------------------------update modal------------------------------------->
           <div class="modal fade" id="edit{{$code->id}}">
-        <div class="modal-dialog modal-lg" style="width:1200px">
-          <div class="modal-content" style="width:1200px">
+        <div class="modal-dialog modal-lg" style="width:800px">
+          <div class="modal-content" style="width:800px">
             <div class="modal-header" style="background-color: #4682B4;">
               <h4 class="modal-title" style="color: white">
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+              
+              &ensp;&ensp;&ensp;&ensp;&ensp;
               &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
                 Modifier le code commercial </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" style="width:1200px">
+            <div class="modal-body" style="width:800px">
 
               
             <!-- general form elements disabled -->
@@ -277,60 +291,68 @@ function yesnoCheckupdate() {
                       <!-- text input -->
                       <div class="form-group">
                         <label>Code<span style="color:red">*</span></label>
-                     
-                        <input type="text" class="form-control" name="code" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror"  value="{{$code->code}}">
-                        <input id="id" type="hidden" name="id" class="form-control"  value="{{ $code->id }}">
+                        <input type="text" class="form-control" name="code" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror" value="{{$code->getTranslation('code', 'fr')}}" >
+                        <input type="hidden" class="form-control" name="id" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror" value="{{$code->id}}" >
+
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>الكود<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="code_ar" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror" value="{{$code->getTranslation('code', 'ar')}}"  >
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Titre<span style="color:red">*</span></label>
-                     
-                        <input type="text" class="form-control" name="title" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror"  value="{{$code->title}}">
-                      
+                        <input type="text" class="form-control" name="title" placeholder="Entrer le titre du code commercial" class="@error('code') is-invalid @enderror" value="{{$code->getTranslation('title', 'fr')}}"  >
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Titre (ar)</label>
-                     
-                        <input type="text" class="form-control" name="title_ar" placeholder="Entrer le code commercial" class="@error('code') is-invalid @enderror"  value="{!!$code->getTranslation('title', 'ar')!!}">
-                       
+                        <label>العنوان<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="title_ar" placeholder="Entrer le titre du code commercial" class="@error('code') is-invalid @enderror"  value="{{$code->getTranslation('title', 'ar')}}">
                       </div>
                     </div>
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>The title<span style="color:red">*</span></label>
+                        <input type="text" class="form-control" name="title_en" placeholder="Entrer le titre du code commercial" class="@error('code') is-invalid @enderror" value="{{$code->getTranslation('title', 'en')}}"  >
+                      </div>
+                    </div>
+              
+                </div>
+                    <hr class="solid">
+                    <div class="row">
                     <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Description (fr))<span style="color:red">*</span></label>
-                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$code->id; ?>">
-                        {!!$code->getTranslation('description', 'fr')!!}
-                    </textarea>
+                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="fr">{{$code->getTranslation('description', 'fr')}}</textarea>
                         
                       </div>
-                    </div></div>
-                    <hr class="solid">
-                    <div class="row">
+                    </div>
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>اوصف</label>
-                        <textarea class="form-control" rows="3" placeholder="اوصف  ..." name="description_ar" id="upar<?=$code->id; ?>" >{!!$code->getTranslation('description', 'ar')!!}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="ar">{{$code->getTranslation('description', 'ar')}}</textarea>
                       </div>
-                    </div></div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>The description</label>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_en" id="en">{{$code->getTranslation('description', 'en')}}</textarea>
+                      </div>
+                    </div>
+                  </div>
 
                    
                
-                  <div class="row">
-                
-                  <hr/>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Description (en)</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter the description ..." name="description_en" id="upen<?=$code->id; ?>">{!!$code->getTranslation('description', 'en')!!}</textarea>
-                      </div>
-                    </div>
-                    </div>
+              
                   </div>
                 
                   <div class="modal-footer justify-content-between">
