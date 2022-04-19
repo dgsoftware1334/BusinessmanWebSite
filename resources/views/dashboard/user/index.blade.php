@@ -95,6 +95,7 @@ border-top: 1px solid blue;
                       <th>Fichier</th>
                       <th>Etat</th>
                       <th>Vip</th>
+                      <th>Date d'autorisation</th>
                       <th style="width: 15%;">Action</th>
                     </tr>
                   </thead>
@@ -137,11 +138,26 @@ border-top: 1px solid blue;
                      <td>
                      @if($row->paye == '1')
                      <a href="{{ url('admin/user/autorize', $row->id) }}"><acronym title="Limiter l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock-open"></i></acronym> </a>
+                     
                       @elseif($row->paye == '0')
                        <a href="{{ url('admin/user/autorize', $row->id) }}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
 
                      </td>
+                     <td>
+                       @if($row->paye == '1')
+                       <?php
+                        
+                       $date=$row->date;
+                       $now = Carbon\Carbon::now();
+                       $difference =$now->diffInDays($date);
+                       ?>
+                       <h6 style="color:red;">( {{$row->date}} )</h6>
+                       <span class="badge badge-info"> {{ $difference }} Jours</span>
+                       @else
+                       <h6 style="color:red;">(----/--/--)</h6>
+                       @endif
+                      </td>
                      <td >
 
                      
@@ -325,7 +341,7 @@ border-top: 1px solid blue;
 </div>
 
 <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-<<script>
+<script>
 $('.delete-confirm').on('click', function (event) {
     event.preventDefault();
     const url = $(this).attr('href');

@@ -12,6 +12,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateBusinessmanRequest;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 
 
@@ -212,11 +213,13 @@ class BusinessmansController extends Controller
       $user=User::find($id);
       if($user->paye ==0){
         $user->paye=1;
+        $user->date =Carbon::now();
         $user->save();
         return redirect()->back();
       }
       else{
         $user->paye=0;
+        $user->date = NULL;
         $user->save();
         return redirect()->back();
       }
