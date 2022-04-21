@@ -39,6 +39,7 @@ return [
     'Search for businessmen by name'=> 'recherche les hommes d\'affaires par Nom ',
     'Search by name OR last name' => 'Rechercher par nom OU prénom',
     'No result about your search' => 'Aucun résultat correspondant à votre recherche',
+    'No tender available' => 'Aucun appel d\'offre n\'est disponible',
 
     
 

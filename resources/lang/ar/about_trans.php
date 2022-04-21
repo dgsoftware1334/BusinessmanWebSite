@@ -39,6 +39,7 @@ return [
     'Search for businessmen by name'=> 'البحث عن رجال الأعمال بالاسم',
     'Search by name OR last name' => 'البحث عن رجال الأعمال بالاسم اواللقب',
     'No result about your search' => 'لا توجد اي نتيجة موافقة لبحثكم',
+    'No tender available' => 'لا توجد مناقصات الان',
 
     
     

@@ -10,6 +10,7 @@ use App\Models\Publication;
 use App\Models\Secteur;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateBusinessmanRequest;
+use App\Http\Requests\VipRequest;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -211,17 +212,35 @@ class BusinessmansController extends Controller
     }
     public function autoriser($id){
       $user=User::find($id);
-      if($user->paye ==0){
-        $user->paye=1;
-        $user->date =Carbon::now();
-        $user->save();
-        return redirect()->back();
-      }
-      else{
+      if($user->paye ==1){
         $user->paye=0;
         $user->date = NULL;
+        $user->date_limite = NULL;
         $user->save();
         return redirect()->back();
       }
+    }
+    function vip(VipRequest $request){
+       
+      $validated = $request->validated();
+      $user=User::find($request->id);
+      $user->date_limite = $request->date_limite;
+      $user->paye = $request->paye;
+      $user->date= Carbon::now();
+  
+     
+    
+      $save =$user->save();
+      if( $save ){
+          toastr()->success('Vous avez donnez l\'accées à l\espace VIP pour cet utilisateur');
+          return redirect()->back();
+     
+      }else{
+     
+      toastr()->error('Erreur! Un probleme s est survenue');
+      return redirect()->back();
+    
+      }
+         
     }
 }

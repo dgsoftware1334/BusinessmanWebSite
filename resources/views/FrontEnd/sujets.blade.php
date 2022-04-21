@@ -29,7 +29,15 @@
                 <h2>{{trans('forum_trans.Discussion forum')}}</h2>
                 <p>{{trans('forum_trans.Here you can find topics in which you discuss between businessmen')}}</p>
           
-			   
+                @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
               
 
                 
@@ -57,24 +65,28 @@
       <div class="modal-body">
       <form action="{{ route('user.store_sujet')}}" method="POST" enctype="multipart/form-data" >
           @csrf
+          
   <div class="form-group">
-    
+    <div class="row">
+  <label for="exampleInputEmail1"> &nbsp;{{trans('forum_trans.Topic')}} <span style="color:red">*</span></label>
     <input type="text" class="form-control" name="titre" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{trans('forum_trans.Enter your topic')}}">
   
-  </div>
+  </div></div>
   <div class="form-group">
-  
+  <div class="row">
+  <label for="exampleInputEmail1"> &nbsp;{{trans('forum_trans.Description')}}  <span style="color:red">*</span></label>
     <textarea name="details" rows="8" id="message" placeholder="{{trans('forum_trans.Add subject details')}}" required ></textarea>
 
-  </div>
+  </div></div>
   <div class="col-sm-12">
-                            
+  <div class="row">
+  <label for="exampleInputEmail1"> &nbsp;{{trans('forum_trans.Picture')}} <span style="color:red">*</span></label>
                             <input type="file" name="image"  class="course form-control">
                         </div>
                         <div class="modal-footer justify-content-between">
-                        <button type="button"  style="background-color: #fffff;width: 70px;" data-dismiss="modal">{{trans('forum_trans.Close')}}</button>
-              <button type="submit" style="background-color: #008CBA;width: 70px;" name="submit">{{trans('forum_trans.Add')}}</button>
-</div>
+                        <button type="button" class="btn-defult"  style="background-color: blue;" data-dismiss="modal">{{trans('forum_trans.Close')}}</button>
+              <button type="submit" class="btn-defult"  name="submit">{{trans('forum_trans.Add')}}</button>
+</div></div>
 </form>
       </div>
       <div class="modal-footer">
@@ -97,6 +109,8 @@
                             <a href="{{url('user/sujet/show',$sujet->id)}}">
                                 <h6>{{$sujet->titre}}</h6></a>
                                 <p> &nbsp; &nbsp; &nbsp;{{Str::limit($sujet->details, 100) }}</p>
+                                <div class="d-flex justify-content-end"> <a href="{{url('user/sujet/show',$sujet->id)}}">
+                                <h6>{{trans('forum_trans.See more')}} &nbsp; <i class="fa-solid fa-arrow-right"></i>&nbsp; </h6></a></div>
                             </div>
                         </div>
                     </div>

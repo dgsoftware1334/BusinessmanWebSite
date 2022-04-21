@@ -33,8 +33,10 @@ class TenderController extends Controller
       $tenders= Tender::paginate(10);
       $secteurs= Secteur::all();
 
-    
+    if(count($tenders) > 0)
        return view ('FrontEnd.appel_offre',compact('tenders','secteurs'));  
+       else
+       return view ('FrontEnd.appel_offre',compact('tenders','secteurs'))->with('message','Aucun appel d\'offre n\'est disponible');  
     }
 
     public function create()

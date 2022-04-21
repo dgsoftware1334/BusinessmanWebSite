@@ -95,14 +95,19 @@ border-top: 1px solid blue;
                       <th>Fichier</th>
                       <th>Etat</th>
                       <th>Vip</th>
-                      <th>Date d'autorisation</th>
+                      <th>Date de limite d'autorisation</th>
+                      <th>Email verifié</th>
                       <th style="width: 15%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
+                    
+                 
                      @foreach ($users as $row)
+                     
+                     
                     <tr>
-                      <td>{{$row->id}}</td>
+                      <td>{{$loop->iteration}}</td>
                       <td>{{$row->name }}&ensp;{{$row->lastname}}</td>
                       <td>{{$row->datenaissance }}</td>
                      <td>{{$row->email }}</td>
@@ -137,10 +142,10 @@ border-top: 1px solid blue;
                      </td>
                      <td>
                      @if($row->paye == '1')
-                     <a href="{{ url('admin/user/autorize', $row->id) }}"><acronym title="Limiter l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock-open"></i></acronym> </a>
+                     <a href="{{ url('admin/user/autorize', $row->id) }}"  ><acronym title="Limiter l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock-open"></i></acronym> </a>
                      
                       @elseif($row->paye == '0')
-                       <a href="{{ url('admin/user/autorize', $row->id) }}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
+                       <a href="" data-toggle="modal" data-target="#vip{{$row->id}}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
 
                      </td>
@@ -149,14 +154,28 @@ border-top: 1px solid blue;
                        <?php
                         
                        $date=$row->date;
+                       $date_limite =$row->date_limite;
+                       
+                      // $dure =$date_limite->diffInDays($date);
                        $now = Carbon\Carbon::now();
-                       $difference =$now->diffInDays($date);
                        ?>
-                       <h6 style="color:red;">( {{$row->date}} )</h6>
-                       <span class="badge badge-info"> {{ $difference }} Jours</span>
+                       <h6 style="color:red;">( {{$row->date_limite}} )</h6>
+                            @if($date_limite < $now)
+                       <span class="badge badge-warning"> dépassé</span>
+                            @else
+                            <span class="badge badge-info"> autorisé</span>
+                            @endif
                        @else
                        <h6 style="color:red;">(----/--/--)</h6>
                        @endif
+                      </td>
+                      
+                      <td>
+                      @if($row->email_verified == 0)
+                      <span class="badge badge-danger">Non</span>
+                      @else
+                      <span class="badge badge-success">Oui</span>
+                      @endif
                       </td>
                      <td >
 
@@ -184,7 +203,43 @@ border-top: 1px solid blue;
                          @endif
                      </td>
                    </tr>
+                     <!------------------------------------------modal vip -------------------------------------->
+  <div class="modal fade" id="vip{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Donner l'accées à l'espace VIP</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="{{ route('admin.vip') }}" method="post">
+              @csrf 
+              
+             <div class="form-group">
+               <label for="exampleInputEmail1">Date limite</label>
+               <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="date_limite">
+               <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="paye" value="1">
+               <input id="id" type="hidden" name="id" class="form-control"  value="{{ $row->id }}">
+               <small id="emailHelp" class="form-text text-muted">Cette date permet de limite l'accées à l'espace VIP.</small>
+             </div>
+           
+            
+             <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+  <!------------------------------------------ End modal vip -------------------------------------->
+                   
                     @endforeach
+                    
                     
                     
                     
@@ -209,7 +264,7 @@ border-top: 1px solid blue;
                      @foreach ($users as $row)
                        @if($row->status == '0')
                     <tr>
-                      <td>{{$row->id}}</td>
+                      <td>{{$loop->iteration}}</td>
                       <td>{{$row->name }}&ensp;{{$row->lastname}}</td>
                       <td>{{$row->datenaissance }}</td>
                      <td>{{$row->email }}</td>
@@ -279,7 +334,7 @@ border-top: 1px solid blue;
                      @foreach ($users as $row)
                        @if($row->status == '1')
                     <tr>
-                      <td>{{$row->id}}</td>
+                      <td>{{$loop->iteration}}</td>
                       <td>{{$row->name }}&ensp;{{$row->lastname}}</td>
                       <td>{{$row->datenaissance }}</td>
                      <td>{{$row->email }}</td>
@@ -359,4 +414,5 @@ $('.delete-confirm').on('click', function (event) {
 </script>
     
   <!-- /.content-wrapper -->
+
 @endsection

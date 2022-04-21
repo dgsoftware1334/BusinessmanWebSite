@@ -178,15 +178,15 @@ $status = true;
 
             <div class='form-row'>
             <div class="col-xs-12 form-group">
-            <input type="url"  style="width:300px;" class="form-control" name="lienfb" placeholder="https//www.facebook.com" value="{{Auth::guard('web')->user()->lienfb}}">
+            <input type="url"  style="width:300px;" class="form-control" id="FacebookUrl" name="lienfb" placeholder="https//www.facebook.com" value="{{Auth::guard('web')->user()->lienfb}}">
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
-            <input type="url" style="width:300px;" class="form-control" name="lieninsta" placeholder="https//www.instagram.com" value="{{Auth::guard('web')->user()->lieninsta}}">
+            <input type="url" style="width:300px;" class="form-control" id="InstaUrl" name="lieninsta" placeholder="https//www.instagram.com" value="{{Auth::guard('web')->user()->lieninsta}}">
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
-            <input type="url" style="width:300px;" class="form-control" name="lientwit" placeholder=" https//www.twiter.com" value="{{Auth::guard('web')->user()->lientwit}}">
+            <input type="url" style="width:300px;" class="form-control" id="TwitUrl" name="lientwit" placeholder=" https//www.twiter.com" value="{{Auth::guard('web')->user()->lientwit}}">
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
@@ -205,7 +205,7 @@ $status = true;
               </div>
             </div>
                       <br>
-           <button type="submit" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>
+           <button type="submit" id="SendBtn" onclick="return validateUrl();" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>
            
 
                 </div>
@@ -499,4 +499,43 @@ $status = true;
     }
 }
     </script>
+    <script>
+   function validateUrl() {
+  url = $("#FacebookUrl").val();
+  urlinsta = $("#InstaUrl").val();
+  urltwit = $("#TwitUrl").val();
+  var pattern =/^(http|https)\:\/\/www.facebook.com\/.*/i;
+  var patterninsta =/^\s*(http\:\/\/)?instagram\.com\/[a-z\d-_]{1,255}\s*$/i;
+  //var patterntwit =/^http:\/\/)?(www\.)?twitter\.com\/(\w+)/;
+  if(pattern.test(url) && patterninsta.test(urlinsta)) {
+    alert("Url facebook est correcte");
+    return true;
+   
+  }
+  else {
+    alert("Veillez vérifié vos urls ");
+   return false;
+  }
+  /*if(patterninsta.test(urlinsta)) {
+    alert(" url insta est correcte");
+   
+  }
+  else {
+    alert("Veillez vérifié  url insta");
+    $("#InstaUrl").val()= NULL;
+  }
+  if(patterntwit.test(urltwit)) {
+    alert("Url twit est correcte");
+   
+  }
+  else {
+    alert("Veillez vérifié url twiter");
+    $("#TwitUrl").val()=NULL;
+  }*/
+  
+  return pattern.test(url,urlinsta,urltwit);
+  
+}
+    </script>
     @endsection
+    

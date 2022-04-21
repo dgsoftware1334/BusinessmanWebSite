@@ -118,6 +118,7 @@
                       <div class="d-flex flex-wrap justify-content-center">
                         @if(count($users) >0)
                         @foreach($users as  $row)
+                        @if($row->status == 0)
                        
 
 
@@ -146,7 +147,22 @@
                             </div>
                                     </div>
                         </div>
-                         
+                         @else
+                         <div class="alert alert-danger" role="alert">
+                        {{trans('about_trans.No result about your search')}}
+                         </div>
+                        <div class="d-flex justify-content-center">
+                             <a href="">
+
+                             
+                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
+                            
+
+
+
+                            </a>
+                            </div>
+                            @endif
                         @endforeach
                         @else
                         <div class="alert alert-danger" role="alert">

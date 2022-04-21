@@ -17,6 +17,10 @@ return [
     'Modify comment' => 'Modifier commentaire',
     'Modify' => 'Modifier',
     'Delete' => 'Supprimer',
+    'Topic' => 'Sujet',
+    'Description' => 'Description',
+    'Picture' => 'Image',
+    'See more' => 'Voir plus',
 
 
     

@@ -16,6 +16,10 @@ return [
     'Modify comment' => 'تعديل التعليق',
     'Modify' => 'تغيير',
     'Delete' => 'مسح',
+    'Topic' => 'الموضوع',
+    'Description' => 'وصف',
+    'Picture' => 'صورة',
+    'See more' => 'اطلع',
 
 
     

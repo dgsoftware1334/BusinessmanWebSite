@@ -98,7 +98,7 @@ function store(SujetRrequest $request){
     $save =$sujet->save();
     if( $save ){
         toastr()->success('Le sujet a été ajouter avec succée');
-        return redirect()->back();
+        return redirect()->back()->with('success','Le sujet à été correctement ajouter');
 
        
     }else{
@@ -158,5 +158,9 @@ function store(SujetRrequest $request){
    
 }
 */
-
+public function destroy_sub($id){
+  $sujet = Sujet::find($id)->delete();
+    toastr()->error('Vous avez supprimer votre sujet');
+      return redirect()->route('user.sujet')->with('success','Le sujet est supprimer correctement');
+}
 }

@@ -31,6 +31,15 @@
     				<div class="post-item-wrapper">
     					<div class="post-item">
                             <div class="post-content-header entry-header">
+                            <div class="d-flex justify-content-end">
+                                @if(Auth::check())
+                                @if($sujet->user->id == Auth::user()->id)
+                                    <a href="{{url('user/sujet/destroy',$sujet->id)}}" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-trash" ></i>&nbsp;Supprimer</a>
+                                @else
+                                <a href="#" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-bell"></i>&nbsp;Signaler</a>
+                                @endif
+                                @endif
+                                    </div>
                                 <ul class="post-catagory">
                                     <li><a href="#">{{trans('forum_trans.Posted on')}} : {{$sujet->created_at}}</a></li>
                                    

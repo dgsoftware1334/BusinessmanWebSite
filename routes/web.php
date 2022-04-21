@@ -110,6 +110,7 @@ Auth::routes();
             Route::post('/sujet/commentaire/{sujet}/{user}',[SujetController::class, 'commentaire'])->name('commentaire.sujet');
             Route::get('/commentaire/delete/{idp}/{ids}/{idu}',[SujetController::class, 'delete_com'])->name('delete_com');
             Route::post('/commentaire/update/{idp}/{idu}/{ids}',[SujetController::class, 'updatecom'])->name('updatecom');
+            Route::get('/sujet/destroy/{id}',[SujetController::class, 'destroy_sub'])->name('destroy');
            Route::get('/',[UserController::class, 'Accueil'])->name('home');
            Route::get('/sujets',[SujetController::class, 'index'])->name('sujet');
            Route::post('/sujet/create',[SujetController::class, 'store'])->name('store_sujet');
@@ -208,6 +209,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // Route::view('/user/create','dashboard.user.create')->name('user.create');
         Route::get('/user/create',[BusinessmansController::class,'index'])->name('user');
+        Route::post('/vip',[BusinessmansController::class,'vip'])->name('vip');
         Route::get('/download/{file}',[UserController::class,'download'])->name('down');
         Route::post('/user/store',[BusinessmansController::class,'create'])->name('user.store');
         Route::get('/user/delete/{id}',[BusinessmansController::class,'delete'])->name('user.delete');

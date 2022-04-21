@@ -50,7 +50,7 @@
 					<div class="col-lg-6 col-12">
 						<div class="newevent-right">
 							<div class="acive-content wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-								<span>PROCHAIN ​​ÉVÉNEMENT</span>
+								<span>{{trans('header_trans.Next event')}}</span>
 								<h2>{{$row->sujet}}</h2>
 								<p>{!!$row->description!!}.</p>
 								<ul class="newevent-right-list">

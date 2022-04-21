@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 </head>
 
-<body>
+<body dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
 @jquery
     @toastr_js
     @toastr_render

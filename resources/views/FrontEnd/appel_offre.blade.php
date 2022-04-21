@@ -154,8 +154,25 @@
                             		</tr>
                          		</thead>
                          		<tbody>
+									 <?php $isset = isset($message) ?>
+								 @if($isset)
+                                      <div class="alert alert-danger">
+                                             <ul>
+                                                           
+                                                     <li>{{ $message }}</li>
+                                                        
+                                             </ul>
+                                         </div>
+		                                    <div class="d-flex justify-content-center">
+                                              <a href="">
+                                                             <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
+                                              </a>
+                                            </div> 
+                                  @endif           
+												
 								 @if(count($tenders) >0)
                                      @foreach($tenders as $tender)
+									
                                     <tr>
                                        	<td class="time" data-title="Time">{{trans('vip.Release')}} :{{$tender->date_parution}} <br> {{trans('vip.Deadline')}} :{{$tender->date_limite}}</td>
                                        	<td class="session" data-title="Session">{{$tender->intitule}}</td>
@@ -177,7 +194,7 @@
 													   <div class="col-lg-8 col-12">
 			                                       		<div class="tdc-ls">
 			                                       			<h4>{{trans('vip.Public or private')}} </h4>
-															   @if($tender->type == 0)
+															   @if($tender->genre == 0)
 			                                       			<p>{{trans('vip.Private')}}</p>
 															 @else
 			                                       			<p>{{trans('vip.Public')}}</p>
@@ -219,21 +236,8 @@
 
 
                                    @endforeach
-								   @else
-                        <div class="alert alert-danger" role="alert">
-                        {{trans('about_trans.No result about your search')}}
-                         </div>
-                        <div class="d-flex justify-content-center">
-                             <a href="">
+								
 
-                             
-                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
-                            
-
-
-
-                            </a>
-                            </div>
                          @endif
                              	</tbody>
 								

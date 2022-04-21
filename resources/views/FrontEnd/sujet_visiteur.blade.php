@@ -97,6 +97,8 @@
                             <a href="{{url('/sujets/details/visiteur',$sujet->id)}}">
                                 <h6>{{$sujet->titre}}</h6></a>
                                 <p> &nbsp; &nbsp; &nbsp;{{Str::limit($sujet->details, 100) }}</p>
+                                <div class="d-flex justify-content-end"> <a href="{{url('/sujets/details/visiteur',$sujet->id)}}">
+                                <h6>{{trans('forum_trans.See more')}} &nbsp; <i class="fa-solid fa-arrow-right"></i>&nbsp; </h6></a></div>
                             </div>
                         </div>
                     </div>

@@ -33,9 +33,9 @@ class SujetRrequest extends FormRequest
     public function messages()
     {
         return [
-            'titre.required' => 'Le champs titre est obligatoire',
-            'details.required' => 'Le champs details est obligatoire',
-            'image.required' => 'L image est obligatoire'
+            'titre.required' =>  trans( key: 'validation.required'),
+            'details.required' =>  trans( key: 'validation.required'),
+            'image.required' =>  trans( key: 'validation.required')
    
    
 

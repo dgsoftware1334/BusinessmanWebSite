@@ -16,6 +16,12 @@ return [
     'Modify comment' => 'Modify comment',
     'Modify' => 'Modify',
     'Delete' => 'Delete',
+    'Topic' => 'Topic',
+    'Description' => 'Description',
+    'Picture' => 'Picture',
+    'See more' => 'See more',
+    
+
 
  
 

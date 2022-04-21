@@ -83,6 +83,21 @@
                             		</tr>
                          		</thead>
                          		<tbody>
+                                 <?php $isset = isset($message) ?>
+                                 @if($isset)
+                                      <div class="alert alert-danger">
+                                             <ul>
+                                                           
+                                                     <li>{{ $message }}</li>
+                                                        
+                                             </ul>
+                                         </div>
+		                                    <div class="d-flex justify-content-center">
+                                              <a href="">
+                                                             <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
+                                              </a>
+                                            </div> 
+                                  @endif  
                                      @if(count($codes) > 0)
                                      @foreach($codes as $code)
                                     <tr>
@@ -109,21 +124,7 @@
 
 
                                    @endforeach
-                                   @else
-                        <div class="alert alert-danger" role="alert">
-                        {{trans('about_trans.No result about your search')}}
-                         </div>
-                        <div class="d-flex justify-content-center">
-                             <a href="">
-
-                             
-                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
                             
-
-
-
-                            </a>
-                            </div>
                          @endif
                              	</tbody>
                       		</table>

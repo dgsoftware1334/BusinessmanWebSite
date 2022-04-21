@@ -16,5 +16,6 @@ return [
     'Forum' => 'Forum',
     'I read and I accept' => 'J\'ai lu et j\'accepte',
     'Term of use' => 'Les conditions générales d\'utilisation',
+    'Next event' => 'Le prochain évenement',
 
 ];
