@@ -186,15 +186,7 @@
                         La liste est vide
                          </div>
                         <div class="d-flex justify-content-center">
-                             <a href="">
-
-                             
-                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
-                            
-
-
-
-                            </a>
+                      
                             </div>
                        @endif
                       </div>
