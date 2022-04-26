@@ -189,7 +189,8 @@ $sujetts =App\Models\Sujet::All();
 
 <div class="col-lg-12 bg-white">
 <div class="tab-content mt-4" id="myTabContent">
-@if(isset($sujets))
+  <?php $nb = count($sujets)?>
+@if($nb == 0)
 <div class="alert alert-danger">
  Le forum est vide
 </div>

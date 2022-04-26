@@ -109,7 +109,7 @@ border-top: 1px solid blue;
                     <tr>
              @foreach ($publications as $row)
                     <tr>
-                      <td>{{$row->id}}</td>
+                      <td>{{$loop->iteration}}</td>
                       <td>
                         @if(is_null($row->image))
                          ( Image n'existe ) 

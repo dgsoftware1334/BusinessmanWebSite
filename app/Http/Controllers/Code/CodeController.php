@@ -17,7 +17,7 @@ class CodeController extends Controller
     public function index_front()
     {
       $codes= Code::paginate(10);
-      if(count($code))
+      if(count($codes))
             return view ('FrontEnd.codes_commerce',compact('codes'));
       else
        return view ('FrontEnd.codes_commerce',compact('codes'))->with('message','Aucun code de commerce n\'est disponible');  

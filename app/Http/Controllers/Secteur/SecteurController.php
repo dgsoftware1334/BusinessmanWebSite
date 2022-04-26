@@ -13,7 +13,7 @@ class SecteurController extends Controller
 {
     function index(){
        
-        $secteurs = Secteur::all();
+        $secteurs = Secteur::orderBy('id', 'ASC')->get();
       return view ('dashboard.secteur.index',compact('secteurs'));
      
            
@@ -21,7 +21,7 @@ class SecteurController extends Controller
 
       function liste(){
        
-        $secteurs = Secteur::paginate(4);
+        $secteurs = Secteur::orderBy('libelle', 'ASC')->paginate(4);
       return view ('FrontEnd.secteur',compact('secteurs'));
      
            
@@ -101,4 +101,23 @@ function store(StoreSecteurRequest $request){
   toastr()->error('Vous avez supprimer le secteur');
     return back()->with('success','Sector deleted successfully');
 }
+public function rechercher() {
+  $libelle=$_GET['libelle'];
+ 
+
+  $secteurs = Secteur::where('secteurs.libelle', 'LIKE', '%' .$libelle. '%')
+->paginate(10);
+
+
+  if (count($secteurs) > 0) {
+
+   
+    return view('FrontEnd.secteur',compact('secteurs'));
+      }
+      else {
+       
+        return view('FrontEnd.secteur',compact('secteurs'))->with('message','Aucun secteur correspondant à votre recherche');
+      }
+    
+    }
 }

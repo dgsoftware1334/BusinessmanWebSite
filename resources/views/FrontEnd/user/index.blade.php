@@ -164,7 +164,8 @@
                             </div>
                             @endif
                         @endforeach
-                        @else
+                        @endif
+                        @if($aucun)
                         <div class="alert alert-danger" role="alert">
                         {{trans('about_trans.No result about your search')}}
                          </div>
@@ -179,7 +180,23 @@
 
                             </a>
                             </div>
-                         @endif
+                       @endif
+                       @if($vide)
+                        <div class="alert alert-danger" role="alert">
+                        La liste est vide
+                         </div>
+                        <div class="d-flex justify-content-center">
+                             <a href="">
+
+                             
+                                <img src="{{ asset('assests/images/noresult.png')  }}" alt="speaker"  style="height: 500px;width: 1000px">
+                            
+
+
+
+                            </a>
+                            </div>
+                       @endif
                       </div>
                     </div>
 

@@ -56,64 +56,64 @@
 					   <div class="col-lg-3 col-md-3 col-sm-12 p-0"> 
 					   <select class="form-control search-slt" size="1"  name="wilaya" id="mySelect">
 					   <option value=""> -- {{trans('vip.City')}} --</option>
-                               <option value="01">{{trans('vip.Adrar')}}</option>
-                               <option value="02">{{trans('vip.Chlef')}}</option>
-                               <option value="03">{{trans('vip.Laghouat')}}</option>
-                               <option value="04">{{trans('vip.Oum El Bouaghi')}}</option>
-                               <option value="05"> {{trans('vip.Batna')}}</option>
-                               <option value="06">{{trans('vip.Bejaia')}} </option>
-							   <option value="07">{{trans('vip.Biskra')}}  </option>Biskra Béchar Blida Bouira Tamanrasset Tébessa Tlemcen
-							   <option value="08">{{trans('vip.Béchar')}} </option>
-							   <option value="09">{{trans('vip.Blida')}} </option>
-							   <option value="10">{{trans('vip.Bouira')}} </option>
-							   <option value="11">{{trans('vip.Tamanrasset')}} </option>
-							   <option value="12">{{trans('vip.Tébessa')}} </option>
-							   <option value="13">{{trans('vip.Tlemcen')}} </option>
-							   <option value="14">{{trans('vip.Tiaret')}}</option> 
-							   <option value="15">{{trans('vip.Tizi Ouzou')}}</option>
-							   <option value="16">{{trans('vip.Alger')}}</option>
-							   <option value="17">{{trans('vip.Djelfa')}}</option>
-							   <option value="18">{{trans('vip.Jijel')}}</option>
-							   <option value="19">{{trans('vip.Sétif')}}</option>
-							   <option value="20">{{trans('vip.Saïda')}}</option>
-							   <option value="21">{{trans('vip.Skikda')}}</option>
-							   <option value="22">{{trans('vip.Sidi Bel Abbès')}}</option>
-							   <option value="23">{{trans('vip.Annaba')}}</option>
-							   <option value="24">{{trans('vip.Guelma')}}</option>
-							   <option value="25">{{trans('vip.Constantine')}}</option>
-							   <option value="26">{{trans('vip.Médéa')}}</option>
-							   <option value="27">{{trans('vip.Mostaganem')}}</option>
-							   <option value="28">{{trans('vip.MSila')}}</option>
-							   <option value="29">{{trans('vip.Mascara')}}</option> 
-							   <option value="30">{{trans('vip.Ouargla')}} </option>
-							   <option value="31">{{trans('vip.Oran')}}</option>
-							   <option value="32">{{trans('vip.Bayadh')}}</option>
-							   <option value="33">{{trans('vip.Illizi')}}</option>
-							   <option value="34">{{trans('vip.Bordj Bou Arreridj')}}</option>
-							   <option value="35">{{trans('vip.Boumerdès')}}</option>
-							   <option value="36">{{trans('vip.El Tarf')}}</option>
-							   <option value="37">{{trans('vip.Tindouf')}}</option>
-							   <option value="38">{{trans('vip.Tissemsilt')}}</option>
-							   <option value="39">{{trans('vip.El Oued')}}</option>
-							   <option value="40">{{trans('vip.Khenchela')}}</option> 
-							   <option value="41">{{trans('vip.Souk Ahras')}}</option>
-							   <option value="42">{{trans('vip.Tipaza')}}</option>
-							   <option value="43">{{trans('vip.Mila')}}</option>
-							   <option value="44">{{trans('vip.Aïn Defla')}}</option>
-							   <option value="45">{{trans('vip.Naâma')}}</option>
-							   <option value="46">{{trans('vip.Aïn Témouchent')}}</option>
-							   <option value="47">{{trans('vip.Ghardaïa')}} </option>
-							   <option value="48">{{trans('vip.Relizane')}}</option>
-							   <option value="49">{{trans('vip.Timimoun')}}</option>
-							   <option value="50">{{trans('vip.Bordj Badji Mokhtar')}}</option>
-							   <option value="51">{{trans('vip.Ouled Djellal')}} </option>
-							   <option value="52">{{trans('vip.Béni Abbès')}} </option>
-							   <option value="53">{{trans('vip.In Salah')}}</option>
-							   <option value="54">{{trans('vip.In Guezzam')}}</option>
-							   <option value="55">{{trans('vip.Touggourt')}}</option>
-							   <option value="56">{{trans('vip.Djanet')}}</option>
-							   <option value="57">{{trans('vip.MGhair')}} </option>
-							   <option value="58">{{trans('vip.El Meniaa')}}</option>
+                               <option value="Adrar">{{trans('vip.Adrar')}}</option>
+                               <option value="Chlef">{{trans('vip.Chlef')}}</option>
+                               <option value="Laghouat">{{trans('vip.Laghouat')}}</option>
+                               <option value="Oum El Bouaghi">{{trans('vip.Oum El Bouaghi')}}</option>
+                               <option value="Batna"> {{trans('vip.Batna')}}</option>
+                               <option value="Bejaia">{{trans('vip.Bejaia')}} </option>
+							   <option value="Biskra">{{trans('vip.Biskra')}}  </option>
+							   <option value="Béchar">{{trans('vip.Béchar')}} </option>
+							   <option value="Blida">{{trans('vip.Blida')}} </option>
+							   <option value="Bouira">{{trans('vip.Bouira')}} </option>
+							   <option value="Tamanrasset">{{trans('vip.Tamanrasset')}} </option>
+							   <option value="Tébessa">{{trans('vip.Tébessa')}} </option>
+							   <option value="Tlemcen">{{trans('vip.Tlemcen')}} </option>
+							   <option value="Tiaret">{{trans('vip.Tiaret')}}</option> 
+							   <option value="Tizi Ouzou">{{trans('vip.Tizi Ouzou')}}</option>
+							   <option value="Alger">{{trans('vip.Alger')}}</option>
+							   <option value="Djelfa">{{trans('vip.Djelfa')}}</option>
+							   <option value="Jijel">{{trans('vip.Jijel')}}</option>
+							   <option value="Sétif">{{trans('vip.Sétif')}}</option>
+							   <option value="Saïda">{{trans('vip.Saïda')}}</option>
+							   <option value="Skikda">{{trans('vip.Skikda')}}</option>
+							   <option value="Sidi Bel Abbès">{{trans('vip.Sidi Bel Abbès')}}</option>
+							   <option value="Annaba">{{trans('vip.Annaba')}}</option>
+							   <option value="Guelma">{{trans('vip.Guelma')}}</option>
+							   <option value="Constantine">{{trans('vip.Constantine')}}</option>
+							   <option value="Médéa">{{trans('vip.Médéa')}}</option>
+							   <option value="Mostaganem">{{trans('vip.Mostaganem')}}</option>
+							   <option value="MSila">{{trans('vip.MSila')}}</option>
+							   <option value="Mascara">{{trans('vip.Mascara')}}</option> 
+							   <option value="Ouargla">{{trans('vip.Ouargla')}} </option>
+							   <option value="Oran">{{trans('vip.Oran')}}</option>
+							   <option value="Bayadh">{{trans('vip.Bayadh')}}</option>
+							   <option value="Illizi">{{trans('vip.Illizi')}}</option>
+							   <option value="Bordj Bou Arreridj">{{trans('vip.Bordj Bou Arreridj')}}</option>
+							   <option value="Boumerdès">{{trans('vip.Boumerdès')}}</option>
+							   <option value="El Tarf">{{trans('vip.El Tarf')}}</option>
+							   <option value="Tindouf">{{trans('vip.Tindouf')}}</option>
+							   <option value="Tissemsilt">{{trans('vip.Tissemsilt')}}</option>
+							   <option value="El Oued">{{trans('vip.El Oued')}}</option>
+							   <option value="Khenchela">{{trans('vip.Khenchela')}}</option> 
+							   <option value="Souk Ahras">{{trans('vip.Souk Ahras')}}</option>
+							   <option value="Tipaza">{{trans('vip.Tipaza')}}</option>
+							   <option value="Mila">{{trans('vip.Mila')}}</option>
+							   <option value="Aïn Defla">{{trans('vip.Aïn Defla')}}</option>
+							   <option value="Naâma">{{trans('vip.Naâma')}}</option>
+							   <option value="Aïn Témouchent">{{trans('vip.Aïn Témouchent')}}</option>
+							   <option value="Ghardaïa">{{trans('vip.Ghardaïa')}} </option>
+							   <option value="Relizane">{{trans('vip.Relizane')}}</option>
+							   <option value="Timimoun">{{trans('vip.Timimoun')}}</option>
+							   <option value="Bordj Badji Mokhtar">{{trans('vip.Bordj Badji Mokhtar')}}</option>
+							   <option value="Ouled Djellal">{{trans('vip.Ouled Djellal')}} </option>
+							   <option value="Béni Abbès">{{trans('vip.Béni Abbès')}} </option>
+							   <option value="In Salah">{{trans('vip.In Salah')}}</option>
+							   <option value="In Guezzam">{{trans('vip.In Guezzam')}}</option>
+							   <option value="Touggourt">{{trans('vip.Touggourt')}}</option>
+							   <option value="Djanet">{{trans('vip.Djanet')}}</option>
+							   <option value="MGhair">{{trans('vip.MGhair')}} </option>
+							   <option value="El Meniaa">{{trans('vip.El Meniaa')}}</option>
 
 
                         </select></div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -124,7 +124,7 @@
                         
 
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="submit" class="button" style="width:280px;height:45px;background-color:#F73087">{{trans('vip.Search')}}</button>
+                            <button type="submit" class="button px-2 py-2 w-full" style="width:280px;height:45px;background-color:#F73087">{{trans('vip.Search')}}</button>
                         </div>
                     </div>
                 </div>

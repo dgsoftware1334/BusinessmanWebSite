@@ -31,7 +31,27 @@
 								<div class="container container-1310 p-0 p-md-auto">
 									<div class="section-header">
 										<br>
-										<h3>{{trans('listpub_trans.All posts')}} </h3>
+										<?php $isset = isset($message) ?>
+								 @if($isset)
+                                      <div class="alert alert-danger">
+                                             <ul>
+                                                           
+                                                     <li>{{ $message }}</li>
+                                                        
+                                             </ul>
+                                         </div>
+		                                  
+                                  @endif  
+										<form action="{{route('search.publication')}}" method="GET" novalidate="novalidate" autocomplete="off">
+                                       <div class="d-flex p-2">
+                                            <div class="col-lg-8 col-md-8 col-sm-12 p-0">
+						                          <input type="text" name="sujet" placeholder="{{trans('secteur_trans.Search by subject')}}">
+						                   </div>
+                                           <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                               <button type="submit" class="button px-2 py-2 w-full" style="width:280px;height:45px;background-color:#F73087">{{trans('vip.Search')}}</button>
+                                            </div>
+                                        </div>
+                                       </form>
 									</div>
 									<div class="section-wrapper">
 										@foreach($publications as $row)
@@ -137,6 +157,7 @@
 						    <section id="gmaps" class="gmap-section style-3 padding-tb">
 						    	<div class="container container-1310">
 						    		<div class="row">
+								
 						    			<div class="col-lg-12">
 						    				@foreach($chambres as $chambre)
 						    				<div class="gmap-widget d-flex flex-wrap">

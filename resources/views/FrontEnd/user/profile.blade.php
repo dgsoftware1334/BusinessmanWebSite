@@ -132,8 +132,8 @@
                     <div class="d-flex justify-content-center">
           <div class="form-inner">
            <!----input type="text" class="form-control"  placeholder="Enter lien facebook"-->
-           <div class='form-row'>
-            <div class="col-xs-12 form-group">
+           <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
            <select name="sacteur_id" id="department" class="form-control" style="width:300px;">
             <option value=""> -- Select One --</option>
 <?php
@@ -164,6 +164,7 @@ $status = true;
             <div class='form-row'>
             <div class="col-xs-12 form-group">
            <input type="text" style="width:300px;" class="form-control" name="diplome" placeholder="Diplome" value="{{Auth::guard('web')->user()->diplome}}">
+           <span class="text-danger">@error('diplome'){{ $message }} @enderror</span>
            </div> </div>
 
            <div class='form-row'>
@@ -179,18 +180,21 @@ $status = true;
             <div class='form-row'>
             <div class="col-xs-12 form-group">
             <input type="url"  style="width:300px;" class="form-control" id="FacebookUrl" name="lienfb" placeholder="https//www.facebook.com" value="{{Auth::guard('web')->user()->lienfb}}">
+            <span class="text-danger">@error('lienfb'){{ $message }} @enderror</span>
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
             <input type="url" style="width:300px;" class="form-control" id="InstaUrl" name="lieninsta" placeholder="https//www.instagram.com" value="{{Auth::guard('web')->user()->lieninsta}}">
+            <span class="text-danger">@error('lieninsta'){{ $message }} @enderror</span>
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
             <input type="url" style="width:300px;" class="form-control" id="TwitUrl" name="lientwit" placeholder=" https//www.twiter.com" value="{{Auth::guard('web')->user()->lientwit}}">
+            <span class="text-danger">@error('lientwit'){{ $message }} @enderror</span>
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
-            <input type="url" style="width:300px;" class="form-control" name="linked" placeholder="  https//www.linkedin.com" value="{{Auth::guard('web')->user()->linked}}">
+            <input type="url" style="width:300px;" class="form-control" id="linkedUrl" name="linked" placeholder="  https//www.linkedin.com" value="{{Auth::guard('web')->user()->linked}}">
             </div> </div>
             <div class='form-row'>
             <div class="col-xs-12 form-group">
@@ -205,7 +209,7 @@ $status = true;
               </div>
             </div>
                       <br>
-           <button type="submit" id="SendBtn" onclick="return validateUrl();" class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>
+           <button type="submit"  class="button  btn-lg btn-block"  name="submit" style="background-color: #fd3d6b">{{trans('profil_trans.Confirm')}}</button>
            
 
                 </div>
@@ -413,6 +417,15 @@ $status = true;
   
 
     <div class="w3-container w3-card w3-white">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
       <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-briefcase" style="color:#fd3d6b"></i>&ensp;{{trans('profil_trans.Professional information')}}</h2>
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{trans('profil_trans.Diploma')}}</b></h5>
@@ -483,59 +496,7 @@ $status = true;
    
     <!-- personal shedul section ending here -->
 
-    <script>
-          function urlLocate() {
-    var url = document.getElementById("url").value;
-    var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-    if (url != "") {
-        if (!regexp.test(url)) {
-            alert("Please enter valid url.");
-        } else {
-            window.location.assign(url);
-        }
-    }
-    else {
-        alert("Please upload an image.");
-    }
-}
-    </script>
-    <script>
-   function validateUrl() {
-  url = $("#FacebookUrl").val();
-  urlinsta = $("#InstaUrl").val();
-  urltwit = $("#TwitUrl").val();
-  var pattern =/^(http|https)\:\/\/www.facebook.com\/.*/i;
-  var patterninsta =/^\s*(http\:\/\/)?instagram\.com\/[a-z\d-_]{1,255}\s*$/i;
-  //var patterntwit =/^http:\/\/)?(www\.)?twitter\.com\/(\w+)/;
-  if(pattern.test(url) && patterninsta.test(urlinsta)) {
-    alert("Url facebook est correcte");
-    return true;
-   
-  }
-  else {
-    alert("Veillez vérifié vos urls ");
-   return false;
-  }
-  /*if(patterninsta.test(urlinsta)) {
-    alert(" url insta est correcte");
-   
-  }
-  else {
-    alert("Veillez vérifié  url insta");
-    $("#InstaUrl").val()= NULL;
-  }
-  if(patterntwit.test(urltwit)) {
-    alert("Url twit est correcte");
-   
-  }
-  else {
-    alert("Veillez vérifié url twiter");
-    $("#TwitUrl").val()=NULL;
-  }*/
-  
-  return pattern.test(url,urlinsta,urltwit);
-  
-}
-    </script>
+
+
     @endsection
     

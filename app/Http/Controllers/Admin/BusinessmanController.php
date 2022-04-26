@@ -28,6 +28,7 @@ class BusinessmanController extends Controller
         $user->description = $request->description;
         $user->address = $request->address;
         $user->email = $request->email;
+        $user->sacteur_id = 40;
        // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
         $save = $user->save();

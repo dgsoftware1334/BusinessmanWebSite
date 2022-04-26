@@ -59,11 +59,13 @@ Auth::routes();
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/vip',[UserController::class, 'vip'])->name('vip');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
+      Route::get('/search/secteur', [SecteurController::class, 'rechercher'])->name('search.secteur');
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');
       Route::get('about',[ChambreController::class, 'about'])->name('about');
       Route::get('/sujets/visiteur',[SujetController::class, 'index_visit'])->name('sujet');
       Route::get('/sujets/details/visiteur/{id}',[SujetController::class, 'show_sujet_visit'])->name('show_sujet_visit');
-     Route::get('/publications/',[UserController::class, 'list_publicaiton'])->name('list.publicaiton');
+     Route::get('/publications/',[PublicationController::class, 'list_publicaiton'])->name('list.publicaiton');
+     Route::get('/search/publications/',[PublicationController::class, 'rechercher'])->name('search.publication');
        
 
 
@@ -122,6 +124,7 @@ Auth::routes();
             Route::get('/codes',[CodeController::class, 'index_front'])->name('codes');
             Route::get('/tender/download/{doc}',[TenderController::class,'download'])->name('tender.download');
             Route::get('/search/offer', [TenderController::class, 'rechercher'])->name('search.offer');
+          
             Route::get('/search/code', [CodeController::class, 'rechercher'])->name('search.code');
           
         

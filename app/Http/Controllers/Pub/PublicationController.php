@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdatePubRequest;
 
 use App\Models\Admin;
+use App\Models\Chambre;
 
 
 class PublicationController extends Controller
@@ -114,4 +115,35 @@ public function create_publication()
       toastr()->error('Vous avez supprimer cette publication');
         return back()->with('success','La publication a été bien supprimé');
       }
+
+      public function list_publicaiton(){
+        $chambres= Chambre::all();
+    
+      $publications= Publication::orderBy('updated_at','desc')->where('status',1)->paginate(4);
+      return view('FrontEnd.listPublication',compact('publications','chambres'));
+    } 
+
+      public function rechercher() {
+        $sujet=$_GET['sujet'];
+
+        $chambres= Chambre::all();
+        $publications = Publication::where('publications.context', 'LIKE', '%' .$sujet. '%')
+        ->orwhere('publications.contenu', 'LIKE', '%' .$sujet. '%')
+    
+      
+      
+    ->paginate(10);
+    
+      
+        if (count($publications) > 0) {
+      
+         
+          return view('FrontEnd.listPublication',compact('publications','chambres'));
+            }
+            else {
+             
+              return view('FrontEnd.listPublication',compact('publications','chambres'))->with('message','Aucune publication  correspondant à votre recherche');
+            }
+          
+          }
 }

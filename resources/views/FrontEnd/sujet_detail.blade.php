@@ -35,8 +35,8 @@
                                 @if(Auth::check())
                                 @if($sujet->user->id == Auth::user()->id)
                                     <a href="{{url('user/sujet/destroy',$sujet->id)}}" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-trash" ></i>&nbsp;Supprimer</a>
-                                @else
-                                <a href="#" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-bell"></i>&nbsp;Signaler</a>
+                                
+                                <!--a href="#" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-bell"></i>&nbsp;Signaler</!--a-->
                                 @endif
                                 @endif
                                     </div>

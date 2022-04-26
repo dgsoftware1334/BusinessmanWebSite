@@ -92,7 +92,7 @@ return [
     'Release' => 'Parution',
     'Deadline' => 'Limite',
     'Detail of the tender' => 'Détails de l\'appel d\'offre',
-    'Published by the company' => 'Publié par l\entreprise',
+    'Published by the company' => 'Publié par l\'entreprise',
     'Search with the title' => 'Rechercher par le titre',
     'Search with the code' => 'Rechercher par le code',
     'Search with the description' => 'Rechercher par description',

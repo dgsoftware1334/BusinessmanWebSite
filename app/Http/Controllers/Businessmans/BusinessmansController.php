@@ -65,7 +65,10 @@ class BusinessmansController extends Controller
         $user->diplome=$request->diplome;
         $user->siteweb=$request->siteweb;
         $user->anneexp=$request->anneexp;
+        if($request->sacteur_id)
         $user->sacteur_id=$request->sacteur_id;
+        else
+        $user->sacteur_id=40;
    //  
        
             $save = $user->save();
@@ -179,7 +182,10 @@ class BusinessmansController extends Controller
         $user->diplome=$request->diplome;
         $user->siteweb=$request->siteweb;
         $user->anneexp=$request->anneexp;
+        if($request->sacteur_id)
         $user->sacteur_id=$request->sacteur_id;
+        else
+        $user->sacteur_id=40;
    //
     $user->password=Hash::make($request->new_password);
         

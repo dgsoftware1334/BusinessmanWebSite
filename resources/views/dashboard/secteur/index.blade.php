@@ -190,8 +190,8 @@ border-top: 1px solid blue;
 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Libelle</th>
+                      <th>Image</th>
+                      <th>Libellé</th>
                       <th>Description</th>
                       <th >Action</th>
                     </tr>
@@ -211,6 +211,7 @@ border-top: 1px solid blue;
                       </td>
                       <td> {{$row->libelle}}</td>
                       <td> {!! Str::limit($row->description, 100) !!}</td>
+                      @if($row->id != 40)
                       <td>
 
                      
@@ -236,6 +237,9 @@ border-top: 1px solid blue;
                        <!--deactive-->
 
                       </td>
+                      @else
+                      <td></td>
+                      @endif
                     </tr>
 
 

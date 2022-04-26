@@ -24,8 +24,9 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\VerifyUser;
+use Validator;
 
-
+use App\Http\Requests\Validateurl;
 
 
 class UserController extends Controller
@@ -42,6 +43,7 @@ class UserController extends Controller
         $user->description = $request->description;
         $user->address = $request->address;
         $user->email = $request->email;
+        $user->sacteur_id = 40;
        // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
 
@@ -97,6 +99,35 @@ class UserController extends Controller
 
     $creds = $request->only('email','password');
     if(Auth::guard('web')->attempt($creds)){
+         if(Auth::guard('web')->user()->email_verified == 0){
+      $login_user_id =Auth::guard('web')->user()->id;
+      //token from table verify user
+      $token = $login_user_id.hash('sha256',\Str::random(120));
+      
+      
+      
+      $verifyURL = route('user.verify',['token'=>$token, 'service'=>'Email_verification']);
+      VerifyUser::create([
+        'user_id' =>$login_user_id,
+        'token' => $token,
+      ]);
+      $message ='Monsieur <b>'.$request->email.'</b>';
+      $message.='Merci pour votre inscription, nous avons juste besoin de vérifier votre adresse mail pour compléter votre création de compte.';
+      $mail_data = [ 
+        'recipient'=>$request->email,
+        'fromEmail' =>$request->email,
+        'fromName' =>$request ->email,
+        'subject' =>'Email Verification',
+        'body' =>$message,
+        'actionLink' =>$verifyURL,
+      ];
+      \Mail::send('layouts.emailtemplate', $mail_data, function($message) use ($mail_data){
+        $message->to($mail_data['recipient'])
+                ->from($mail_data['fromEmail'], $mail_data['fromName'])
+                ->subject($mail_data['subject']);
+      });
+      return redirect()->route('user.login')->with('fail','verifié votre addresse mail');}
+
         return redirect()->route('user.home');
     }else{
         toastr()->error(trans(key: 'msg_trans.fail'));
@@ -124,7 +155,7 @@ public function Accueil()
  //$users = User::where('status',0)->get();
  //$users= User::orderBy('created_at','desc')->get();
 
- $secteurs = Secteur::all()->take(4);
+ $secteurs = Secteur::orderBy('libelle', 'ASC')->get()->take(4);
 $event= Event::orderBy('created_at','desc')->where('status',1)->take(1)->get();
 
   //->orderBy('created_at','desc')
@@ -163,14 +194,24 @@ public function show($id){
 public function index(){
 
    $chambres= Chambre::all();
-  $secteurs= Secteur::all();
+  $secteurs= Secteur::orderBy('libelle', 'ASC')->get();
 $publication= Publication::find(1);
   $users= User::orderBy('created_at','desc')->where('status',0)->get();
 
-                   
+      if(count($users)> 0)  {
+        $vide="";
+        $aucun="";
+        return view ('FrontEnd.user.index',compact('users','secteurs','publication','chambres','vide','aucun'));
+
+      }   
+      else{
+        $vide="La liste des hommes d'affaires est vide";
+        $aucun="";
+        return view ('FrontEnd.user.index',compact('users','secteurs','publication','chambres','vide','aucun'));
+      }        
                        
 
-  return view ('FrontEnd.user.index',compact('users','secteurs','publication','chambres'));
+
 }
 
 
@@ -221,30 +262,85 @@ public function barrerecherche() {
 get();*/
 
 
+ /* $users = User::where('name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
+    $query->where('libelle', $secteur);
+})*/
 
-$users = User::where('users.name',$nom)->orwhere('name', 'LIKE', '%' . $nom . '%')
-->orwhere('lastname', 'LIKE', '%' . $nom . '%')->orwhere('name', 'LIKE', '%' . $nom . '%')->whereHas('secteur', function (Builder $query) use ($secteur) {
-  $query->where('libelle', 'LIKE', '%' . $secteur . '%');
-})->orwhere(DB::raw("CONCAT(users.name,' ',users.lastname)"), 'LIKE', '%' . $nom . '%')
-->orwhere(DB::raw("CONCAT(users.lastname,' ',users.name)"), 'LIKE', '%' . $nom . '%')->
+
+$users = User::
+Where([
+  ['name', 'LIKE', '%' . $nom . '%']])
+->whereHas('secteur', function (Builder $query) use ($secteur,$nom) {
+  $query->where('libelle', 'LIKE', '%' . $secteur . '%'); 
+
+  
+})
+
+
+
+->orWhere([
+  ['lastname', 'LIKE', '%' . $nom . '%']])
+  ->whereHas('secteur', function (Builder $query) use ($secteur,$nom) {
+    $query->where('libelle', 'LIKE', '%' . $secteur . '%');
+    $query = User::where('lastname', 'LIKE', '%' . $nom . '%')->doesntHave('secteur');
+  })
+
+    
+
+->orWhere([
+  [DB::raw("CONCAT(users.lastname,' ',users.name)"), 'LIKE', '%' . $nom . '%']])
+  ->whereHas('secteur', function (Builder $query) use ($secteur) {
+    $query->where('libelle', 'LIKE', '%' . $secteur . '%');
+
+})
+->orWhere([
+  [DB::raw("CONCAT(users.name,' ',users.lastname)"), 'LIKE', '%' . $nom . '%']])
+  ->whereHas('secteur', function (Builder $query) use ($secteur) {
+    $query->where('libelle', 'LIKE', '%' . $secteur . '%');
+    
+    
+})
+
+    
+    
+
+
+//->Where([['lastname', 'LIKE', '%' . $nom . '%']])
+//->Where([['name', 'LIKE', '%' . $nom . '%']])
+//->Where([[DB::raw("CONCAT(users.name,' ',users.lastname)"), 'LIKE', '%' . $nom . '%']])
+//->Where([[DB::raw("CONCAT(users.lastname,' ',users.name)"), 'LIKE', '%' . $nom . '%']])
+
+
+
+->
+//->where('users.name',$nom)
+//->orwhere('name', 'LIKE', '%' . $nom . '%')
+//->orwhere('lastname', 'LIKE', '%' . $nom . '%')
+//->orwhere(DB::raw("CONCAT(users.name,' ',users.lastname)"), 'LIKE', '%' . $nom . '%')
+//->orwhere(DB::raw("CONCAT(users.lastname,' ',users.name)"), 'LIKE', '%' . $nom . '%')->
 get();
 
   $secteurs= Secteur::all();
   $chambres= Chambre::all();
   if (count($users) > 0) {
 
-   
-    return view('FrontEnd.user.index',compact('secteurs','users','chambres'));
+    $aucun ="";
+    $vide ="";
+    return view('FrontEnd.user.index',compact('secteurs','users','chambres','aucun','vide'));
       }
       else {
-        return view('FrontEnd.user.index',compact('secteurs','users','chambres'));
+        $aucun ="Aucun Résultat correspondant à votre recherche";
+        $vide ="";
+        return view('FrontEnd.user.index',compact('secteurs','users','chambres','aucun','vide'));
       }
     
     }
 //------------------------------------------------------------------------------------
-public function update_informationPro(Request $request, $id)
+public function update_informationPro(Validateurl $request, $id)
 {
  $user=User::find($id);
+ $validated = $request->validated();
+
   if($request->file('photo')){
                $newImageName3 =time().'-'.$request->name.'.'.$request->photo->extension();
         $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
@@ -265,8 +361,10 @@ public function update_informationPro(Request $request, $id)
    $user->diplome=$request->diplome;
    $user->siteweb=$request->siteweb;
    $user->anneexp=$request->anneexp;
+   if($request->sacteur_id)
    $user->sacteur_id=$request->sacteur_id;
-   
+   else
+   $user->sacteur_id=40;
    //
 
    $user->save();
@@ -296,12 +394,7 @@ return redirect()->back();
 
 
 /////////////////publicaiton/////////////////////////////////////////
-public function list_publicaiton(){
-    $chambres= Chambre::all();
 
-  $publications= Publication::orderBy('updated_at','desc')->where('status',1)->paginate(4);
-  return view('FrontEnd.listPublication',compact('publications','chambres'));
-}
 
 public function page_publicaiton($id)
 {
@@ -491,6 +584,22 @@ function verify(Request $request){
   }
 
 }
+/*function verify_login(Request $request){
+  $token = $request->token;
+  $verifyUser = VerifyUser::where('token',$token)->get();
+  if(!is_null($verifyUser)){
+    $user = $verifyUser->user;
+
+     if(!$user->email_verified){
+       $verifyUser->user->email_verified = 1;
+       $verifyUser->user->save();
+       return redirect()->route('user.login')->with('info','Votre email a été vérifié correctement,Vous devez attendre la confirmation de l\'administrateur pour pouvoir vous connecter')->with('verifiedEmail',$user->email);
+     } else{
+       return redirect()->route('user.login')->with('info','Votre email est deja vérifier vous pouvez vous connectez')->with('verifiedEmail',$user->email);
+     }
+  }
+
+}*/
 }
 
 

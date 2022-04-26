@@ -59,8 +59,8 @@
                  <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  Secteur: &ensp; {{$tender->secteur->libelle}}</a></h5></p></li>
                  <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  Wilaya: &ensp; {{$tender->wilaya}}</a></h5></p></li>
                  <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  adresse: &ensp; {{$tender->adresse}}</a></h5></p></li>
-                 <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  Secteur: &ensp; @if($tender->genre==1) Public @else Privé @endif </a></h5></p></li>
-                 <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  Secteur: &ensp; {{$tender->prix_cahier}}</a></h5></p></li>
+                 <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  Privé/Public: &ensp; @if($tender->genre==1) Public @else Privé @endif </a></h5></p></li>
+                 <li class="nav-item"><p> <h5  class="my-3" style="color: gray;">  Prix cahier de charge: &ensp; {{$tender->prix_cahier}} &nbsp; DA</a></h5></p></li>
                  <li> <p >
                   <br>
                

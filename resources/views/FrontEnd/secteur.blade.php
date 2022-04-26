@@ -25,8 +25,30 @@
     <!-- event venues section start here  -->
     <section class="event-venue padding-tb bg-ash">
         <div class="container container-1310">
-       
+        <?php $isset = isset($message) ?>
+								 @if($isset)
+                                      <div class="alert alert-danger">
+                                             <ul>
+                                                           
+                                                     <li>{{ $message }}</li>
+                                                        
+                                             </ul>
+                                         </div>
+		                                  
+                                  @endif  
+            <form action="{{route('search.secteur')}}" method="GET" novalidate="novalidate" autocomplete="off">
+            <div class="d-flex p-2">
+            <div class="col-lg-9 col-md-9 col-sm-12 p-0">
+						<input type="text" name="libelle" placeholder="{{trans('secteur_trans.Search by libelle')}}">
+						</div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <button type="submit" class="button px-2 py-2 w-full" style="width:280px;height:45px;background-color:#F73087">{{trans('vip.Search')}}</button>
+                        </div>
+                        </div>
+                        </form>
+				
             <div class="row my-15">
+        
             @foreach ($secteurs  as $row)
                 <div class="col-md-6">
                     <div class="venue-item">

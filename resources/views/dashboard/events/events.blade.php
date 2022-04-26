@@ -146,7 +146,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
-                        <label>Description (fr))<span style="color:red">*</span></label>
+                        <label>Description (fr)<span style="color:red">*</span></label>
                         <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="fr"></textarea>
                         
                       </div>
@@ -399,7 +399,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
-                        <label>Description (fr))</label>
+                        <label>Description (fr)</label>
                      
                         <textarea class="form-control" rows="3"   placeholder="Enter ..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$event->id; ?>">
                         
