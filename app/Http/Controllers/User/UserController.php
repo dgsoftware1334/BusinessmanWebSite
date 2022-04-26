@@ -98,42 +98,52 @@ class UserController extends Controller
     $validated = $request->validated();
 
     $creds = $request->only('email','password');
-    if(Auth::guard('web')->attempt($creds)){
-         if(Auth::guard('web')->user()->email_verified == 0){
-      $login_user_id =Auth::guard('web')->user()->id;
-      //token from table verify user
-      $token = $login_user_id.hash('sha256',\Str::random(120));
-      
-      
-      
-      $verifyURL = route('user.verify',['token'=>$token, 'service'=>'Email_verification']);
-      VerifyUser::create([
-        'user_id' =>$login_user_id,
-        'token' => $token,
-      ]);
-      $message ='Monsieur <b>'.$request->email.'</b>';
-      $message.='Merci pour votre inscription, nous avons juste besoin de vérifier votre adresse mail pour compléter votre création de compte.';
-      $mail_data = [ 
-        'recipient'=>$request->email,
-        'fromEmail' =>$request->email,
-        'fromName' =>$request ->email,
-        'subject' =>'Email Verification',
-        'body' =>$message,
-        'actionLink' =>$verifyURL,
-      ];
-      \Mail::send('layouts.emailtemplate', $mail_data, function($message) use ($mail_data){
-        $message->to($mail_data['recipient'])
-                ->from($mail_data['fromEmail'], $mail_data['fromName'])
-                ->subject($mail_data['subject']);
-      });
-      return redirect()->route('user.login')->with('fail','verifié votre addresse mail');}
 
-        return redirect()->route('user.home');
-    }else{
+
+    if(Auth::guard('web')->attempt($creds)){
+         if(Auth::guard('web')->user()->email_verified == 1)
+         {
+               return redirect()->route('user.home');
+         }
+         else{
+          $login_user_id =Auth::guard('web')->user()->id;
+          //token from table verify user
+          $token = $login_user_id.hash('sha256',\Str::random(120));
+          
+          
+          
+          $verifyURL = route('user.verify',['token'=>$token, 'service'=>'Email_verification']);
+          VerifyUser::create([
+            'user_id' =>$login_user_id,
+            'token' => $token,
+          ]);
+          $message ='Monsieur <b>'.$request->email.'</b>';
+          $message.='Merci pour votre inscription, nous avons juste besoin de vérifier votre adresse mail pour compléter votre création de compte.';
+          $mail_data = [ 
+            'recipient'=>$request->email,
+            'fromEmail' =>$request->email,
+            'fromName' =>$request ->email,
+            'subject' =>'Email Verification',
+            'body' =>$message,
+            'actionLink' =>$verifyURL,
+          ];
+          \Mail::send('layouts.emailtemplate', $mail_data, function($message) use ($mail_data){
+            $message->to($mail_data['recipient'])
+                    ->from($mail_data['fromEmail'], $mail_data['fromName'])
+                    ->subject($mail_data['subject']);
+          });
+          return redirect()->route('user.login')->with('fail','verifié votre addresse mail');
+
+         }
+    }
+    
+    
+    else{
         toastr()->error(trans(key: 'msg_trans.fail'));
         return redirect()->route('user.login');
         //return redirect()->route('user.login')->with('fail','Incorrect credentials');
     }
+
 }
 function logout(){
     Auth::guard('web')->logout();
