@@ -41,6 +41,7 @@
   @include('FrontEnd.section_home.publication')
   @include('FrontEnd.section_home.users')
   @include('FrontEnd.section_home.newevent')
+  @include('FrontEnd.section_home.logo')
 
    
   <!-- newevent section ending here -->
