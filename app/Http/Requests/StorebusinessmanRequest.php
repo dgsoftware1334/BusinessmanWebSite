@@ -24,6 +24,10 @@ public function rules()
             'password'=>'required|min:5|max:30',
             'cpassword'=>'required|min:5|max:30|same:password',
             'photo'=>'required',
+            'lienfb' => ['regex:/^(http|https)\:\/\/www.facebook.com\/.*/i'],
+            'lieninsta' => ['regex:/(?:(?:http|https):\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/([A-Za-z0-9-_\.]+)/'],
+            'lientwit' => ['regex:/http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/'],
+            'linked' => ['regex:/(https?:\/\/(www.)|(www.))?linkedin.com\/(mwlite\/|m\/)?in\/[a-zA-Z0-9_.-]+\/?/'],
           
             
         ];
@@ -42,6 +46,10 @@ public function rules()
             'password.required' => trans( key: 'validation.required'),
             'cpassword.required' => trans( key: 'validation.required'),
              'photo.required'=> trans( key: 'validation.required'),
+             'lienfb' => 'Le lien que vous avez saisi ne correspond pas à un compte facebook',
+             'lieninsta' => 'Le lien que vous avez saisi ne correspond pas à un compte instagram',
+             'lientwit' => 'Le lien que vous avez saisi ne correspond pas à un compte twitter',
+             'linked' => 'Le lien que vous avez saisi ne correspond pas à un compte linkedin',
 
         ];
     }

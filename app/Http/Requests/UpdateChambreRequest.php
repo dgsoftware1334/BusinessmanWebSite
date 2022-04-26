@@ -29,6 +29,10 @@ class UpdateChambreRequest extends FormRequest
             'adresse' => 'required',
             'telephone' => 'required',
             'politique' => 'required',
+            'fb' => ['regex:/^(http|https)\:\/\/www.facebook.com\/.*/i'],
+            'insta' => ['regex:/(?:(?:http|https):\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/([A-Za-z0-9-_\.]+)/'],
+            'twit' => ['regex:/http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/'],
+            'linked' => ['regex:/(https?:\/\/(www.)|(www.))?linkedin.com\/(mwlite\/|m\/)?in\/[a-zA-Z0-9_.-]+\/?/'],
           
         ];
     }
@@ -41,6 +45,10 @@ class UpdateChambreRequest extends FormRequest
             'description.required' => 'Le champs description (fr) est obligatoire',
             'adresse.required' => 'Le champs adresse  est obligatoire',
             'telephone.required' => 'Le champs telephone  est obligatoire',
+            'fb' => 'Le lien que vous avez saisi ne correspond pas à un compte facebook',
+            'insta' => 'Le lien que vous avez saisi ne correspond pas à un compte instagram',
+            'twit' => 'Le lien que vous avez saisi ne correspond pas à un compte twitter',
+            'linked' => 'Le lien que vous avez saisi ne correspond pas à un compte linkedin',
             
             
    

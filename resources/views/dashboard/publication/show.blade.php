@@ -99,7 +99,7 @@ border-top: 1px solid blue;
 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
+                      
                     
                       <th>Homme d'affaire</th>
                       <th>Commentaire</th>
@@ -112,7 +112,7 @@ border-top: 1px solid blue;
                     <tr>
              @foreach ($publications->users as $row)
                     <tr>
-                       <td>{{$row->pivot->id}} </td>
+                      
                         <td>{{$row->name}} </td>
                        <td>
                        

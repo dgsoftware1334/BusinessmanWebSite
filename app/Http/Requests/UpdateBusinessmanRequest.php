@@ -31,6 +31,10 @@ class UpdateBusinessmanRequest extends FormRequest
             'description' => 'required',
             'address' => 'required',
             'email'=>'required|email',
+            'lienfb' => ['regex:/^(http|https)\:\/\/www.facebook.com\/.*/i'],
+            'lieninsta' => ['regex:/(?:(?:http|https):\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/([A-Za-z0-9-_\.]+)/'],
+            'lientwit' => ['regex:/http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/'],
+            'linked' => ['regex:/(https?:\/\/(www.)|(www.))?linkedin.com\/(mwlite\/|m\/)?in\/[a-zA-Z0-9_.-]+\/?/'],
         ];
     }
 
@@ -44,6 +48,10 @@ class UpdateBusinessmanRequest extends FormRequest
             'description.required' => trans( key: 'validation.required'),
             'address.required' => trans( key: 'validation.required'),
             'email.required' => trans( key: 'validation.required'),
+            'lienfb' => 'Le lien que vous avez saisi ne correspond pas à un compte facebook',
+            'lieninsta' => 'Le lien que vous avez saisi ne correspond pas à un compte instagram',
+            'lientwit' => 'Le lien que vous avez saisi ne correspond pas à un compte twitter',
+            'linked' => 'Le lien que vous avez saisi ne correspond pas à un compte linkedin',
        
    
 

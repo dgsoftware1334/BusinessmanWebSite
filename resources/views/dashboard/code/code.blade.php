@@ -174,7 +174,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
-                        <label>Description (fr))<span style="color:red">*</span></label>
+                        <label>Description (fr)<span style="color:red">*</span></label>
                         <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="fr"></textarea>
                         
                       </div>
@@ -188,7 +188,7 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>The description</label>
-                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_en" id="en"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Give a description" name="description_en" id="en"></textarea>
                       </div>
                     </div>
                   </div>
@@ -331,21 +331,21 @@ function yesnoCheckupdate() {
                     <div class="col-sm-12">
                       <!-- textarea -->
                       <div class="form-group">
-                        <label>Description (fr))<span style="color:red">*</span></label>
-                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="fr">{{$code->getTranslation('description', 'fr')}}</textarea>
+                        <label>Description (fr)<span style="color:red">*</span></label>
+                        <textarea class="form-control" rows="3" placeholder="Donner une description sur l'evenement..." name="description"  class="@error('description') is-invalid @enderror" id="upfr<?=$code->id; ?>">{{$code->getTranslation('description', 'fr')}}</textarea>
                         
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>اوصف</label>
-                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="ar">{{$code->getTranslation('description', 'ar')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_ar" id="upar<?=$code->id; ?>">{{$code->getTranslation('description', 'ar')}}</textarea>
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>The description</label>
-                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_en" id="en">{{$code->getTranslation('description', 'en')}}</textarea>
+                        <textarea class="form-control" rows="3" placeholder="اوصف الحدث ..." name="description_en" id="upen<?=$code->id; ?>">{{$code->getTranslation('description', 'en')}}</textarea>
                       </div>
                     </div>
                   </div>
@@ -394,7 +394,7 @@ function yesnoCheckupdate() {
   </div>
   <div class="card-body">
     <h5 class="card-title">Description du code</h5>
-    <p class="card-text"> {{$code->description}}</p>
+    <p class="card-text"> {!!$code->description!!}</p>
   
   </div>
 </div>

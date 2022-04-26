@@ -397,7 +397,7 @@ $status = true;
           @endif
 
             @if(is_null(Auth::guard('web')->user()->siteweb))
-          (vide)</p>
+          (----)</p>
           @endif
         
 

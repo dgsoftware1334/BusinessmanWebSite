@@ -169,9 +169,10 @@
                                               </a>
                                             </div> 
                                   @endif           
-												
+								  <?php  $mytime = Carbon\Carbon::now();?>			
 								 @if(count($tenders) >0)
                                      @foreach($tenders as $tender)
+									 @if($tender->date_limite <= $mytime)
 									
                                     <tr>
                                        	<td class="time" data-title="Time">{{trans('vip.Release')}} :{{$tender->date_parution}} <br> {{trans('vip.Deadline')}} :{{$tender->date_limite}}</td>
@@ -234,7 +235,7 @@
 	                                    </td>
                                     </tr>
 
-
+@endif
                                    @endforeach
 								
 

@@ -39,7 +39,7 @@
   <div class="mobile-menu">
     <nav class="mobile-header primary-menu d-lg-none">
       <div class="header-logo">
-        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 60px;width: 160px"></a>
+        <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height:60px;width:160px;"></a>
       </div>
       <div class="header-bar" id="open-button">
               <span></span>
@@ -202,8 +202,8 @@
           <div class="menu-area">
             <div class="row no-gutters justify-content-between align-items-left">
               <a href="" class="logo" align="left" style="align-items: left;">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 96px;width: 126px;align-items: left" align="left">
-                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 96px;width: 126px;align-items: left" align="left">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 120px;width: 126px;align-items: left" align="left">
+                <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 120px;width: 126px;align-items: left" align="left">
               </a>
              <ul class="main-menu d-flex align-items-center">
                  <li class="active">
