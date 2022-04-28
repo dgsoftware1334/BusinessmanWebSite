@@ -41,6 +41,8 @@ return [
     'Search by name OR last name' => 'Search by name OR last name',
     'No result about your search' => 'No result about your search',
     'No tender available' => 'No tender available',
+    'The list is empty' => 'The list is empty',
+    
 
     
 

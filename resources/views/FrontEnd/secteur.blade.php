@@ -30,7 +30,7 @@
                                       <div class="alert alert-danger">
                                              <ul>
                                                            
-                                                     <li>{{ $message }}</li>
+                                                     <li> {{trans('about_trans.No result about your search')}}</li>
                                                         
                                              </ul>
                                          </div>

@@ -40,7 +40,7 @@ return [
     'Search by name OR last name' => 'البحث عن رجال الأعمال بالاسم اواللقب',
     'No result about your search' => 'لا توجد اي نتيجة موافقة لبحثكم',
     'No tender available' => 'لا توجد مناقصات الان',
-
+    'The list is empty' => 'القائمة فارغة',
     
     
     

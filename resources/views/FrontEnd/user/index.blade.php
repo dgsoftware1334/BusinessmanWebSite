@@ -183,7 +183,7 @@
                        @endif
                        @if($vide)
                         <div class="alert alert-danger" role="alert">
-                        La liste est vide
+                        {{trans('about_trans.The list is empty')}}
                          </div>
                         <div class="d-flex justify-content-center">
                       
