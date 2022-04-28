@@ -20,6 +20,7 @@ return [
     'Description' => 'Description',
     'Picture' => 'Picture',
     'See more' => 'See more',
+    'Topic details' => 'Topic details',
     
 
 
