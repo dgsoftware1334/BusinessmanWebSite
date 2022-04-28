@@ -58,6 +58,7 @@ Auth::routes();
 
       Route::get('/',[UserController::class, 'Accueil'])->name('home');
       Route::get('/vip',[UserController::class, 'vip'])->name('vip');
+      Route::view('/not/subscribed','FrontEnd.payer')->name('not.subscribed');
       Route::get('/secteurs',[SecteurController::class, 'liste'])->name('liste');
       Route::get('/search/secteur', [SecteurController::class, 'rechercher'])->name('search.secteur');
       Route::get('/listEvent',[EventController::class, 'liste_event'])->name('listEvent');

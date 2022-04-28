@@ -104,6 +104,9 @@ return [
     'Public' => 'Public',
     'Private' => 'Private',
     'Adress' => 'Adress',
+    'Sorry you have to subscribe to access to VIP space' => 'Sorry you have to subscribe to access to VIP space',
+    'If you want to subscribe, please contact the administrator' => 'If you want to subscribe, please contact the administrator',
+    
     
     
 

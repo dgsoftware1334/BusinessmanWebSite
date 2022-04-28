@@ -104,6 +104,8 @@ return [
     'Public' => 'Public',
     'Private' => 'Privé',
     'Adress' => 'Adresse',
+    'Sorry you have to subscribe to access to VIP space' => 'Désolé! Vous devez etre abonné pour pouvoir accéder à l\'espace VIP',
+    'If you want to subscribe, please contact the administrator' => 'Si vous voulez vous abonnez! Contactez l\'administrateur du site',
     
 
    

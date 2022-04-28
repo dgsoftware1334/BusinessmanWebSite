@@ -104,6 +104,8 @@ return [
     'Public' => 'عام',
     'Private' => 'خاص',
     'Adress' => 'العنوان',
+    'Sorry you have to subscribe to access to VIP space' => 'آسف عليك الاشتراك للوصول إلى مساحة VIP',
+    'If you want to subscribe, please contact the administrator' => 'إذا كنت ترغب في الاشتراك ، يرجى الاتصال بالمسؤول',
 
     
 

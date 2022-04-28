@@ -46,8 +46,12 @@
 						<div class="pricing-footer d-flex align-items-center">
 							
 							<div class="reg">
-							@if(auth()->check() && auth()->user()->paye)
+							@if(auth()->check())
+							         @if(auth()->user()->paye)
 								<a href="{{route('user.tenders')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
+								     @else
+								<a href="{{route('not.subscribed')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
+								     @endif 
 								@else
 								<a href="{{route('user.login')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
 								@endif
@@ -71,8 +75,12 @@
 						<div class="pricing-footer d-flex align-items-center">
 						
 							<div class="reg">
-								@if(auth()->check() && auth()->user()->paye)
-								<a href="{{route('user.codes')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
+								@if(auth()->check())
+								        @if(auth()->user()->paye)
+								               <a href="{{route('user.codes')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
+								        @else
+								               <a href="{{route('not.subscribed')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
+								        @endif 
 								@else
 								<a href="{{route('user.login')}}"><span style="font-size:24px">{{trans('vip.Access')}}</span></a>
 								@endif
