@@ -11,7 +11,7 @@
           <div class="col-lg-7">
             <div class="register-title" >
               <h2 style="color:#2A0C49 ">{{trans('register_trans.Registration for the businessmen')}}</h2>
-              <h4 style="color:#1B0135 ;border-radius: 15px; align:center;">{{trans('register_trans.Your registration will allow you to have an overview in the national platform of Algerian businessmen')}} </h4>
+              <h4 style="color:#C70039 ;border-radius: 15px; align:center;">{{trans('register_trans.Your registration will allow you to have an overview in the national platform of Algerian businessmen')}} </h4>
             </div>
           </div>
           <div class="col-lg-6">
