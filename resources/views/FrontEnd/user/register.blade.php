@@ -2,7 +2,7 @@
 
 @section('content')
  
- <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/pageheader-3.jpg') }}); height:1200px;">
+ <section class="page-header-section post-title style-2 style-3" style="background-image: url({{ asset('assests/FrontEnd/assets/images/pageheader/pageheader-3.jpg') }}); height:1300px;">
 
   
         <div class="page-header-content">
