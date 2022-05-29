@@ -17,7 +17,11 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/swiper.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assests/FrontEnd/assets/css/style.css') }}">
    <script src="https://kit.fontawesome.com/91eb611da5.js" crossorigin="anonymous"></script>
+   <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <link href="vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/plyr.css" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
 </head>
 
 <body dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
@@ -82,7 +86,7 @@
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
 
-                   
+                     <li><a href="{{ url('/videos') }}">{{trans('header_trans.Videos')}}</a></li>
 
                     
                    </ul>
@@ -226,6 +230,7 @@
 
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
+                     <li><a href="{{ url('/videos') }}">{{trans('header_trans.Videos')}}</a></li>
 
               
 
@@ -390,7 +395,7 @@
       
     </section>
     <!-- footer section ending here -->
-
+    <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>
     <script src="https://kit.fontawesome.com/09ee636c06.js" crossorigin="anonymous"></script>
   <script src="{{ asset('assests/FrontEnd/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assests/FrontEnd/assets/js/snap.svg-min.js') }}"></script>

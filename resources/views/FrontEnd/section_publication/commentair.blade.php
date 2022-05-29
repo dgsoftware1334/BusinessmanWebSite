@@ -35,6 +35,7 @@
             <div class="post-item-wrapper">
               <div class="post-item">
                             <div class="post-content-header entry-header">
+
                                 <ul class="post-catagory">
                                     <li><a >{{trans('about_trans.Posted on')}}</a></li>
                                     <li class="date">{{$publication->updated_at}}</li>
@@ -204,6 +205,7 @@
         </div>
       </div>
     </section>
+
 
 
 

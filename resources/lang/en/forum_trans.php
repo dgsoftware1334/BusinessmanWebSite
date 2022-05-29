@@ -21,7 +21,14 @@ return [
     'Picture' => 'Picture',
     'See more' => 'See more',
     'Topic details' => 'Topic details',
+    'Report' => 'Report',
+    'Why do you want to report this topic' => 'Why do you want to report this topic',
+    'Reason of report' => 'Reason of report',
+    'Close' => 'Close',
+    'Save changes' => 'Save changes',
     
+
+
 
 
  

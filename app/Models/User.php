@@ -92,6 +92,14 @@ class User   extends Authenticatable
 
       return $this->belongsToMany(Sujet::class)->withPivot(['id','contenu'
 ])->withTimestamps();
+
+}
+
+public function signaled_subjects(){
+
+  return $this->belongsToMany(Sujet::class)->withPivot(['id','motif'
+])->withTimestamps();
+
       
     }
     public function sujets(){
@@ -99,4 +107,5 @@ class User   extends Authenticatable
       }
 
 
-}
+    }
+

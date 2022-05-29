@@ -21,6 +21,11 @@ return [
     'Description' => 'Description',
     'Picture' => 'Image',
     'See more' => 'Voir plus',
+    'Report' => 'Signaler',
+    'Why do you want to report this topic' => 'Pourquoi voulez vous signaler ce sujet',
+    'Reason of report' => 'Motif de signal',
+    'Close' => 'Fermer',
+    'Save changes' => 'Enregistrer',
 
 
     

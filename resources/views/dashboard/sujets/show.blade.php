@@ -78,14 +78,12 @@ border-top: 1px solid blue;
 <div class="col-lg-11 bg-white rounded-top tab-head">
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 <li class="nav-item1">
-<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">tous</a>
+<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Commentaires</a>
 </li>
 <li class="nav-item1">
-<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Publie</a>
+<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Signal</a>
 </li>
-<li class="nav-item1">
-<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Prive</a>
-</li>
+
 </ul>
 
 
@@ -112,7 +110,7 @@ border-top: 1px solid blue;
                     <tr>
              @foreach ($sujet->users as $row)
                     <tr>
-                       <td>{{$row->pivot->id}} </td>
+                       <td>{{$loop->iteration}}</td>
                         <td>{{$row->name}} </td>
                        <td>
                        
@@ -146,7 +144,61 @@ border-top: 1px solid blue;
 
 </div>
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <?php
+  use App\Models\Signal;
+  use App\Models\User;
+  $sujet_courant = $sujet->id;
+  $signals = Signal::where('sujet_id','=',$sujet_courant)->get();
 
+  ?>
+<table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                    
+                      <th>Homme d'affaire</th>
+                      <th>Motif de signal</th>
+                     
+                      <th >Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    <tr>
+             @foreach ($signals as $signal)
+                    <tr>
+                       <td>{{$loop->iteration}} </td>
+                       <?php 
+                        
+                        $user_courant = $signal->user_id;
+                        $user = User::where('id','=',$user_courant)->first();
+                       ?>
+                        <td>{{$user->name}}&nbsp;{{$user->lastname}}</td>
+                       <td>
+                       
+                        {{$signal->motif}}
+                      </td>
+
+                                   
+                       <td>
+                    
+                       <!--delete user-->
+                      <a  href="{{url('admin/sujet/destroy/motif',$signal->id)}}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+
+                     </td>
+                   </tr>
+
+
+   
+ 
+                   @endforeach
+              </tr>
+             
+                    
+                    
+                    
+                  </tbody>
+                </table>
 
 </div>
 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">

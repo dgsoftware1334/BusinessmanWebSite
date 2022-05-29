@@ -53,6 +53,7 @@ border-top: 1px solid blue;
     </div>
 @endif
 @php 
+use App\Models\Signal;
 $sujetts =App\Models\Sujet::All();
 @endphp
 
@@ -236,6 +237,16 @@ $sujetts =App\Models\Sujet::All();
                         <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete{{$row->id}}">
                          <i class="far fa-trash-alt" style="color: red"></i>
                         </button>-->
+                        <?php
+            
+            $nbr_signal =Signal::where('notify','=','0')->where('sujet_id','=',$row->id)
+            ->get()->count();
+            ?>
+            @if($nbr_signal > 0)
+           <a href="{{ url('admin/sujet/show', $row->id) }}">
+             <span class="badge badge-pill badge-danger">{{$nbr_signal}}</span>
+            </a>
+            @endif
                         <a href="{{url('admin/sujet/destroy',$row->id)}}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
                      
                         <a  href="{{ url('admin/sujet/show', $row->id) }}">

@@ -1,6 +1,18 @@
 @extends('layouts.visiteur')
 
 @section('content')
+<?php
+use App\Models\Signal;
+$deja=0;
+$authenticated = Auth::guard('web')->user()->id;
+$signalers = Signal::all();
+foreach($signalers as $signaler){
+  if($signaler->user_id == $authenticated){$deja=1;}
+  else{$deja=0;}
+}
+
+
+?>
 
 	<!-- page header section -->
     <div class="page-header-section post-title style-1" style="background-image: url(assets/images/pageheader/pageheader.png)">
@@ -31,19 +43,28 @@
     				<div class="post-item-wrapper">
     					<div class="post-item">
                             <div class="post-content-header entry-header">
-                            <div class="d-flex justify-content-end">
-                                @if(Auth::check())
-                                @if($sujet->user->id == Auth::user()->id)
-                                    <a href="{{url('user/sujet/destroy',$sujet->id)}}" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-trash" ></i>&nbsp;Supprimer</a>
-                                
-                                <!--a href="#" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-bell"></i>&nbsp;Signaler</!--a-->
-                                @endif
-                                @endif
-                                    </div>
-                                <ul class="post-catagory">
+                            <div class="d-flex justify-content-start">
+                             <ul class="post-catagory">
                                     <li><a href="#">{{trans('forum_trans.Posted on')}}: {{$sujet->created_at}}</a></li>
                                    
                                 </ul>
+                             </div>
+                            <div class="d-flex justify-content-end">
+                         
+                                @if(Auth::check())
+                                @if($deja == 0 && $sujet->user->id != Auth::user()->id)
+                                    <a href=""  data-toggle="modal" data-target="#exampleModalLong">
+                                        <span style="color:red;"><i class="fa-solid fa-bell"></i> &nbsp;{{trans('forum_trans.Report')}}</span>
+                                        </a>
+                                        @endif
+                                @if($sujet->user->id == Auth::user()->id)
+                                    <a href="{{url('user/sujet/destroy',$sujet->id)}}" style="color:red; width:150px; height:150px;"><i class="fa-solid fa-trash" ></i>&nbsp;Supprimer</a>
+                               
+                      
+                                @endif
+                                @endif
+                                    </div>
+                              
                               
                                 <h2>{{$sujet->titre}}</h2>
                                 <div class="meta-post entry-meta">
@@ -259,6 +280,34 @@
     		</div>
     	</div>
     </section>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{trans('forum_trans.Why do you want to report this topic')}}?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url('user/sujet/signal')}}"  method="POST" autocomplete="off" >
+          @csrf
+          <div class="form-control">
+          <label for="">{{trans('forum_trans.Reason of report')}}</label>
+          <input type="hidden" name="user_id" value="{{Auth::guard('web')->user()->id}}">
+          <input type="hidden" name="sujet_id" value="{{$sujet->id}}">
+          <textarea name="motif" id="" cols="30" rows="10"></textarea>
+          </div>
+          <button type="button" class="btn-defult" data-dismiss="modal">{{trans('forum_trans.Close')}}</button>
+        <button type="submit" class="btn-defult">{{trans('forum_trans.Save changes')}}</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+    
+      </div>
+    </div>
+  </div>
+</div>
     <!-- main blog sectiom ending here -->
 
     <!-- footer section start here -->

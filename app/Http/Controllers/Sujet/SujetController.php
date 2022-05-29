@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sujet;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Sujet;
+use App\Models\Signal;
 use App\Models\User;
 use App\Http\Requests\SujetRrequest;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,7 @@ class SujetController extends Controller
       function index_admin(){
        
         $sujets = Sujet::all();
+       
       return view ('dashboard.sujets.sujets',compact('sujets'));
      
            
@@ -55,6 +57,13 @@ class SujetController extends Controller
       function show_com($id){
        
         $sujet = Sujet::find($id);
+       
+        $signals =Signal ::where('sujet_id','=',$sujet->id)->get();
+       
+          foreach($signals as $signal){
+          $signal->notify=1;
+          $signal->save();
+        }
     
       return view ('dashboard.sujets.show',compact('sujet'));
      
@@ -119,6 +128,12 @@ function store(SujetRrequest $request){
     toastr()->error('Vous avez supprimer le sujet');
       return back()->with('success','Le sujet est supprimer correctement');
   }
+  public function destroy_motif($id)
+  {
+    $signal = Signal::findOrFail($id)->delete();
+    toastr()->error('Vous avez supprimer ce motif de signal');
+      return back()->with('success','Le motif de signal est supprimer correctement');
+  }
 
   public function delete_com($idp,$ids,$idu){
     //return $id3;
@@ -148,6 +163,18 @@ function store(SujetRrequest $request){
      
        
   }
+  public function signal(Sujet $sujet,Request $request,User $user ){
+    $signal = new Signal();
+    $signal->user_id= $request->user_id;
+    $signal->sujet_id= $request->sujet_id;
+    $signal->motif= $request->motif;
+     $save=$signal->save();
+
+     toastr()->success('Le motif de signal à été envoyé!');
+      return redirect()->back();
+ 
+   
+}
 
   /*public function updatecom(Sujet $sujet,Request $request,User $user ){
 

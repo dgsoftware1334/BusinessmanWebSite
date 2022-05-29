@@ -126,8 +126,22 @@
 
          </li>
          <li class="nav-header">
+            <a href="{{ route('admin.video.index')}}" ><i class="fa fa-video-camera" aria-hidden="true"></i>
+&ensp; Vidéos publicitaires</a>
+
+         </li>
+         <li class="nav-header">
             <a href="{{ route('admin.sujets')}}" ><i class="fa-brands fa-rocketchat"></i>
-&ensp; Sujets</a>
+            <?php
+            use App\Models\Signal;
+            $nbr_signal =Signal::where('notify','=','0')->get()->count();
+            ?>
+          
+&ensp; Sujets &nbsp;
+@if($nbr_signal > 0)
+ <span class="badge badge-pill badge-danger">{{$nbr_signal}}</span>
+           @endif
+</a>
 
          </li>
 

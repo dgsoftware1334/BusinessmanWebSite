@@ -13,6 +13,7 @@ use App\Http\Controllers\Sujet\SujetController;
 use App\Http\Controllers\Condition\ConditionController;
 use App\Http\Controllers\Tender\TenderController;
 use App\Http\Controllers\Code\CodeController;
+use App\Http\Controllers\Video\VideoController;
 
 
 /*
@@ -78,7 +79,7 @@ Auth::routes();
     //Route::post('/search', [UserController::class, 'search'])->name('search');
     Route::get('/search', [UserController::class, 'barrerecherche'])->name('search');
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
-
+    Route::get('/videos',[VideoController::class, 'index_front'])->name('videos');
     Route::get('/contectUs/',[UserController::class, 'contact_us'])->name('contactus');
     Route::get('/condition/show',[ConditionController::class, 'show_condition_front'])->name('show_condition_front');
    Route::get('/secteur/{id}',[UserController::class, 'show_secteur'])->name('show.secteur');
@@ -111,6 +112,7 @@ Auth::routes();
           });
           route::middleware(['auth:web','is_user_verify_email','PreventBackHistory','isUser'])->group(function(){
             Route::post('/sujet/commentaire/{sujet}/{user}',[SujetController::class, 'commentaire'])->name('commentaire.sujet');
+            Route::post('/sujet/signal',[SujetController::class, 'signal'])->name('signal.sujet');
             Route::get('/commentaire/delete/{idp}/{ids}/{idu}',[SujetController::class, 'delete_com'])->name('delete_com');
             Route::post('/commentaire/update/{idp}/{idu}/{ids}',[SujetController::class, 'updatecom'])->name('updatecom');
             Route::get('/sujet/destroy/{id}',[SujetController::class, 'destroy_sub'])->name('destroy');
@@ -206,6 +208,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
       // --------------------------------- gestion des sujets------------------------
       Route::get('/sujet',[SujetController::class, 'index_admin'])->name('sujets');
       Route::get('/sujet/destroy/{id}',[SujetController::class, 'destroy'])->name('destroy');
+      Route::get('/sujet/destroy/motif/{id}',[SujetController::class, 'destroy_motif'])->name('destroy_motif');
        
        //----- mise à jours et desactive et active user dans la partir de l'administrateur-------
        Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
@@ -298,7 +301,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
        Route::post('/code/store',[CodeController::class, 'store'])->name('code.store');
        Route::post('/code/update',[CodeController::class, 'update'])->name('code.update');
        Route::get('/code/delete/{id}',[CodeController::class,'delete'])->name('code.delete');
-     
+     //----------------------------------------------gestion des videos publicitaires -----------------
+     Route::get('/video/create',[VideoController::class, 'create'])->name('video.create');
+     Route::get('/video/index',[VideoController::class, 'index'])->name('video.index');
+     Route::post('/video/store',[VideoController::class, 'store'])->name('video.store');
+     Route::get('/video/autorize/{id}',[VideoController::class, 'afficher_accueil'])->name('video.autorize');
+     Route::get('/video/inautorize/{id}',[VideoController::class, 'enlever_accueil'])->name('video.inautorize');
 
        
 

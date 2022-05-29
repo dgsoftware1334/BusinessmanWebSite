@@ -20,6 +20,11 @@ return [
     'Description' => 'وصف',
     'Picture' => 'صورة',
     'See more' => 'اطلع',
+    'Report' => 'ابلاغ',
+    'Why do you want to report this topic' => 'لماذا تريد الابلاغ عن الموضوع',
+    'Reason of report' => 'اسباب الابلاغ',
+    'Close' => 'غلق',
+    'Save changes' => 'حفظ',
 
 
     

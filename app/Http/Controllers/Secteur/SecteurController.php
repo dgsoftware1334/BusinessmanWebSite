@@ -75,7 +75,7 @@ function store(StoreSecteurRequest $request){
              }
         $secteurs->update([
           $secteurs->libelle = ['fr' => $request->libelle, 'ar' => $request->libelle_ar, 'en' => $request->libelle_en],
-          $secteurs->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->libelle_en],
+          $secteurs->description = ['fr' => $request->description, 'ar' => $request->description_ar, 'en' => $request->description_en],
         ]);
         toastr()->success('Les changement ont été bien apporté');
         return redirect()->back();

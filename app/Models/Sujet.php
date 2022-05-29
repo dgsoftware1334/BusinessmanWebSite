@@ -25,4 +25,10 @@ public function user() {
 ])->withTimestamps();
 
    }
+
+   public function signalers(){
+
+    return $this->belongsToMany(User::class,'motif')->withPivot(['id','motif'])->withTimestamps();
+
+   }
 }

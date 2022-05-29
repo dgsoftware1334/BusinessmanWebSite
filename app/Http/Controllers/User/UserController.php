@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Chambre;
 use App\Models\Event;
+use App\Models\Video;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
 use Carbon\Carbon;
@@ -167,11 +168,11 @@ public function Accueil()
 
  $secteurs = Secteur::orderBy('libelle', 'ASC')->get()->take(4);
 $event= Event::orderBy('created_at','desc')->where('status',1)->take(1)->get();
-
+$video = Video::where('show', '1')->get();
   //->orderBy('created_at','desc')
 
 
-   return view ('FrontEnd.accueil',compact('publications','secteurs','event'));  
+   return view ('FrontEnd.accueil',compact('publications','secteurs','event','video'));  
 }
 
 //////////information profile////

@@ -19,5 +19,6 @@ return [
     'I read and I accept' => 'قرأت و أقبل',
     'Term of use' => 'الشروط العامة للموقع',
     'Next event' => 'الحدث القادم',
+    'Videos' =>'اعلانات',
 
 ];
