@@ -18,6 +18,7 @@ return [
     'Term of use' => 'Term of use',
     'Next event' => 'Next event',
     'Videos' =>'Videos',
+    'Advertising' =>'Advertising',
 
     
     

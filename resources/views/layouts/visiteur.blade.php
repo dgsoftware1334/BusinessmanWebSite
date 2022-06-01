@@ -64,7 +64,11 @@
                         <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 60px;width: 160px"></a>
                         <div class="close-button" id="close-button"></div>
                     </div>
+                    
                   <ul class="m-menu">
+                  <div class="d-flex justify-content-between">
+              <a href="{{ url('/videos') }}" class="btn-defult" style="align-items: left" align="left"><i class="fa-solid fa-star" style="color:#EECC0F;"></i>{{trans('header_trans.Advertising')}}</a> 
+              </div>
                        <li class="active">
                    <a href="{{ url('/') }}">{{trans('header_trans.Home')}}</a>
                    
@@ -208,8 +212,16 @@
               <a href="" class="logo" align="left" style="align-items: left;">
                 <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 120px;width: 126px;align-items: left" align="left">
                 <img src="{{ asset('assests/FrontEnd/assets/images/logo/04.png') }}" alt="logo" style="height: 120px;width: 126px;align-items: left" align="left">
+             
               </a>
+              
+               
+             
+           
              <ul class="main-menu d-flex align-items-center">
+             <div class="d-flex justify-content-between">
+              <a href="{{ url('/videos') }}" class="btn-defult" style="align-items: left" align="left"><i class="fa-solid fa-star" style="color:#EECC0F;"></i>{{trans('header_trans.Advertising')}}</a> 
+              </div>   
                  <li class="active">
                    <a href="{{ url('/') }}">{{trans('header_trans.Home')}}</a>
                    
@@ -230,7 +242,7 @@
 
                      
                      <li><a href="{{ url('/listEvent') }}">{{trans('header_trans.Events')}}</a></li>
-                     <li><a href="{{ url('/videos') }}">{{trans('header_trans.Videos')}}</a></li>
+                     
 
               
 

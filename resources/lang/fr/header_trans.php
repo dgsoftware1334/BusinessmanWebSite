@@ -18,5 +18,6 @@ return [
     'Term of use' => 'Les conditions générales d\'utilisation',
     'Next event' => 'Le prochain évenement',
     'Videos' =>'Vidéos publicitaires',
+    'Advertising' =>'Publicité',
 
 ];

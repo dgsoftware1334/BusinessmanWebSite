@@ -20,5 +20,6 @@ return [
     'Term of use' => 'الشروط العامة للموقع',
     'Next event' => 'الحدث القادم',
     'Videos' =>'اعلانات',
+    'Advertising' =>'اعلانات',
 
 ];

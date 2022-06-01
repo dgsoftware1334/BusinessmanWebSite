@@ -38,6 +38,12 @@ border-left: 4px solid blue;
 .tab-pane p{
 border-top: 1px solid blue;
 }
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
  </style>
  <div class="container-fluid">
         <div class="row mb-2">
@@ -164,16 +170,16 @@ border-top: 1px solid blue;
           
                   <br/>
                   <div class="form-group row">
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
                     <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Vidéo<span style="color:red">*</span></label>
                     <div class="input-group col-sm-10">
                       <div class="custom-file col-sm-10">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="file"  class="@error('photo') is-invalid @enderror">
+                        <input type="file" class="custom-file-input" id="file" name="file"  class="@error('photo') is-invalid @enderror">
                        
-                        <label class="custom-file-label" for="exampleInputFile">Choisis une video</label>
+                        <label class="custom-file-label" for="file">Choisis une video</label>
                       </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                   
                       <span class="text-danger">@error('photo'){{ $message }} @enderror</span>
                     </div>
                   </div>
@@ -241,6 +247,13 @@ border-top: 1px solid blue;
         .catch( error => {
             console.error( error );
         } );
+</script>
+<script>
+  $('#file').change(function() {
+  var i = $(this).prev('label').clone();
+  var file = $('#file')[0].files[0].name;
+  $(this).prev('label').text(file);
+});
 </script>
 
     
