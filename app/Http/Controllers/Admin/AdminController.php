@@ -15,6 +15,7 @@ use App\Mail\Validation;
 use DB;
 use Carbon\Carbon;
 use App\Http\Requests\CreatAdminRequest;
+use App\Models\Video;
 
 class AdminController extends Controller
 
@@ -64,6 +65,23 @@ class AdminController extends Controller
         $creds = $request->only('email','password');
 
         if( Auth::guard('admin')->attempt($creds) ){
+          $videos = Video::all();
+          $hommes =User ::all();
+          $today = Carbon::now();
+        
+          foreach($videos as $video){
+  
+            if($video->date_expiration < $today){
+              $video->delete();
+            }
+          }
+          foreach($hommes as $homme){
+  
+            if($homme->date_limite < $today){
+              $homme->paye =0;
+              $homme->save();
+            }
+          }
             return redirect()->route('admin.home');
         }else{
             return redirect()->route('admin.login')->with('fail','Incorrect credentials');

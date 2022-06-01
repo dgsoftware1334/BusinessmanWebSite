@@ -60,14 +60,8 @@ class VideoController extends Controller
 
 
     function index(){
-        $today = Carbon\Carbon::now();
-        $videos = Video::all();
-        foreach($videos as $video){
+      $videos = Video::all();
 
-          if($video->date_expiration < $today){
-            $video->delete();
-          }
-        }
       return view ('dashboard.videos.index',compact('videos'));
      
            
