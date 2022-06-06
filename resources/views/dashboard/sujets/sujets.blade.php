@@ -239,7 +239,7 @@ $sujetts =App\Models\Sujet::All();
                         </button>-->
                         <?php
             
-            $nbr_signal =Signal::where('notify','=','0')->where('sujet_id','=',$row->id)
+            $nbr_signal =Signal::where('sujet_id','=',$row->id)
             ->get()->count();
             ?>
             @if($nbr_signal > 0)
