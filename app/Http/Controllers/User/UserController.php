@@ -115,7 +115,9 @@ class UserController extends Controller
                   
                   $user= User::where('id','=',Auth::guard('web')->user()->id)->first();
                   if($user->period > 0){
-                    $user->period =Carbon::parse($user->dateInscription)->diffInDays(Carbon::parse($user->finEssai), false);
+                    $now= Carbon::now();
+                    $user->period =Carbon::parse($now)->diffInDays(Carbon::parse($user->finEssai), false);
+                   
                     $user->save();}
                     if($user->period == 0){
                   $user->paye=0;
