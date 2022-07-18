@@ -174,7 +174,17 @@
 						<li><a href="#"><i class="fa-solid fa-phone"></i>&nbsp;{{$c->telephone}}</a></li>
             <li><a href="#"><i class="fa-solid fa-location-dot"></i>&nbsp;{{$c->adresse}}</a></li>
 		              	@endforeach
+                    
 					</ul>
+          
+          
+          <ul class="htop-right">
+          @if(Auth::check() && Auth::guard('web')->user()->period > 0)
+            <li style="color:#FFC300"><i class="fa-solid fa-bell"></i>&nbsp;&nbsp;<b>({{ Auth::guard('web')->user()->period ?? ''}}) {{trans('header_trans.Days free trial')}}</b></li>
+            @endif
+          </ul>
+        
+        
 					<ul class="htop-right">
           <li>
                  @if (Route::has('user.login'))

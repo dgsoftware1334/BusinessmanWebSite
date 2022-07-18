@@ -247,6 +247,7 @@
 @jquery
     @toastr_js
     @toastr_render
+    @livewireScripts
 <!-- jQuery -->
 <script src="https://kit.fontawesome.com/09ee636c06.js" crossorigin="anonymous"></script>
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>

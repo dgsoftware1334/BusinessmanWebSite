@@ -35,7 +35,8 @@ class CreatUserRequest extends FormRequest
             'password'=>'required|min:5|max:30',
             'cpassword'=>'required|min:5|max:30|same:password',
             'g-recaptcha-response' => 'required|captcha',
-            'term' =>'accepted'
+            'term' =>'accepted',
+            'dateInscription'=>'date_format:Y-m-d'
           
             
         ];

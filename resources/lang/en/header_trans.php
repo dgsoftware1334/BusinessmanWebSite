@@ -19,6 +19,7 @@ return [
     'Next event' => 'Next event',
     'Videos' =>'Videos',
     'Advertising' =>'Advertising',
+    'Days free trial' => 'Days free trial to VIP space',
 
     
     

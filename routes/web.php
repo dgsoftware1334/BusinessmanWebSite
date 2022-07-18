@@ -211,16 +211,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
       Route::get('/sujet/destroy/motif/{id}',[SujetController::class, 'destroy_motif'])->name('destroy_motif');
        
        //----- mise à jours et desactive et active user dans la partir de l'administrateur-------
-       Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
-       Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
+      Route::get('/user/desactive/{id}',[AdminController::class, 'deactive'])->name('deactive');
+      Route::get('/user/active/{id}',[AdminController::class, 'active'])->name('deactive');
 
         // Route::view('/user/create','dashboard.user.create')->name('user.create');
-        Route::get('/user/create',[BusinessmansController::class,'index'])->name('user');
-        Route::post('/vip',[BusinessmansController::class,'vip'])->name('vip');
-        Route::get('/download/{file}',[UserController::class,'download'])->name('down');
-        Route::post('/user/store',[BusinessmansController::class,'create'])->name('user.store');
-        Route::get('/user/delete/{id}',[BusinessmansController::class,'delete'])->name('user.delete');
-        Route::get('/sujet/show/{id}',[SujetController::class,'show_com'])->name('sujet.show');
+      Route::get('/user/create',[BusinessmansController::class,'index'])->name('user');
+      Route::post('/vip',[BusinessmansController::class,'vip'])->name('vip');
+      Route::get('/download/{file}',[UserController::class,'download'])->name('down');
+      Route::post('/user/store',[BusinessmansController::class,'create'])->name('user.store');
+      Route::get('/user/delete/{id}',[BusinessmansController::class,'delete'])->name('user.delete');
+      Route::get('/sujet/show/{id}',[SujetController::class,'show_com'])->name('sujet.show');
       Route::get('/user/show/{id}',[BusinessmansController::class,'show'])->name('user.show');
       Route::get('/user/edit/{id}',[BusinessmansController::class,'edit'])->name('user.edit');
       Route::post('/user/update/{id}',[BusinessmansController::class,'update'])->name('user.update');

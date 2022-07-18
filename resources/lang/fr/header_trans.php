@@ -19,5 +19,6 @@ return [
     'Next event' => 'Le prochain évenement',
     'Videos' =>'Vidéos publicitaires',
     'Advertising' =>'Publicité',
+    'Days free trial' => 'Jours d\'accées à l\'espace VIP',
 
 ];

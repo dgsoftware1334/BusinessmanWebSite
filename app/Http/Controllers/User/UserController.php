@@ -44,6 +44,13 @@ class UserController extends Controller
         $user->description = $request->description;
         $user->address = $request->address;
         $user->email = $request->email;
+        $user->dateInscription = Carbon::now();
+        $old_date=Carbon::now();
+        $daysToAdd = 15;
+        $user->finEssai = $old_date->addDays($daysToAdd);
+        $user->paye = 1;
+        $user->period = $user->finEssai->diffInDays($user->dateInscription);
+       
         $user->sacteur_id = 40;
        // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
@@ -104,6 +111,17 @@ class UserController extends Controller
     if(Auth::guard('web')->attempt($creds)){
          if(Auth::guard('web')->user()->email_verified == 1)
          {
+          
+                  
+                  $user= User::where('id','=',Auth::guard('web')->user()->id)->first();
+                  if($user->period > 0){
+                    $user->period =Carbon::parse($user->dateInscription)->diffInDays(Carbon::parse($user->finEssai), false);
+                    $user->save();}
+                    if($user->period == 0){
+                  $user->paye=0;
+                  $user->save();}
+                
+                
                return redirect()->route('user.home');
          }
          else{

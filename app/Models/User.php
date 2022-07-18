@@ -42,6 +42,8 @@ class User   extends Authenticatable
         'password',
         'status',
         'photo',
+        'date_limite',
+        'dateInscription',
       // 'admin_id',
         'sacteur_id',
         'paye',
