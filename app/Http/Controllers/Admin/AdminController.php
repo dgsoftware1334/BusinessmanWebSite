@@ -76,12 +76,13 @@ class AdminController extends Controller
             }
           }
           foreach($hommes as $homme){
+            if($homme->period ==0){
   
             if($homme->date_limite < $today){
               $homme->paye =0;
               $homme->save();
             }
-          }
+          }}
             return redirect()->route('admin.home');
         }else{
             return redirect()->route('admin.login')->with('fail','Incorrect credentials');
