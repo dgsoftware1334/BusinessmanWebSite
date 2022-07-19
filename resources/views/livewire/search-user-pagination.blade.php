@@ -254,9 +254,10 @@
                        $now = Carbon\Carbon::now();
                        ?>
                        <h6 style="color:red;">( {{$row->date_limite}} )</h6>
-                            @if($date_limite < $now)
+                            @if($date_limite < $now && user->paye == 1)
                        <span class="badge badge-warning"> dépassé</span>
-                            @else
+                            @endif
+                            @if(user->paye == 1)
                             <span class="badge badge-info"> autorisé</span>
                             @endif
                        @else
