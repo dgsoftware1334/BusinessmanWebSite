@@ -99,7 +99,7 @@
 
                      </td>
                      <td>
-                       @if($row->paye == '1')
+                       @if($row->paye == '1' && !is_null($row->date_limite))
                        <?php
                         
                        $date=$row->date;
@@ -109,9 +109,8 @@
                        $now = Carbon\Carbon::now();
                        ?>
                        <h6 style="color:red;">( {{$row->date_limite}} )</h6>
-                            @if($date_limite < $now)
-                       <span class="badge badge-warning"> dépassé</span>
-                            @else
+                           
+                            @if($row->paye == 1)
                             <span class="badge badge-info"> autorisé</span>
                             @endif
                        @else
@@ -353,7 +352,7 @@
 
                      </td>
                      <td>
-                       @if($row->paye == '1')
+                       @if($row->paye == '1' && !is_null($row->date_limite))
                        <?php
                         
                        $date=$row->date;
@@ -363,9 +362,8 @@
                        $now = Carbon\Carbon::now();
                        ?>
                        <h6 style="color:red;">( {{$row->date_limite}} )</h6>
-                            @if($date_limite < $now)
-                       <span class="badge badge-warning"> dépassé</span>
-                            @else
+                           
+                            @if($row->paye == 1)
                             <span class="badge badge-info"> autorisé</span>
                             @endif
                        @else
