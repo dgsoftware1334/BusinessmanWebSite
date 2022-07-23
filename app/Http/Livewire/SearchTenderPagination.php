@@ -15,8 +15,18 @@ class SearchTenderPagination extends Component
         $searchTerm = '%'.$this->searchTerm.'%';
  
         return view('livewire.search-tender-pagination',[
-            'tenders' => Tender::where('intitule','like','%' .$searchTerm. '%')
+            
+            'tenders' => Tender::where(function($query) use($searchTerm){
+                $query->Where([['intitule', 'LIKE', '%' . $searchTerm . '%']]);
+                $query->orWhereHas('secteur', function($q) use ($searchTerm) {
+                  $q->where('libelle', 'LIKE', '%' . $searchTerm . '%');
+                });
+            })
             ->orwhere('description','like','%' .$searchTerm. '%')
+           
+            
+
+
             ->paginate(10)
         ]);
     }

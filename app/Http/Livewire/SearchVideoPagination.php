@@ -17,6 +17,9 @@ class SearchVideoPagination extends Component
         return view('livewire.search-video-pagination',[
             'videos' => Video::where('title','like','%' .$searchTerm. '%')
             ->orwhere('description','like','%' .$searchTerm. '%')
+            ->orwhere('categorie','like','%' .$searchTerm. '%')
+            ->orwhere('date_expiration','like','%' .$searchTerm. '%')
+
             ->paginate(10)
         ]);
     }

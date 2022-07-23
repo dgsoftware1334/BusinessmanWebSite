@@ -15,6 +15,14 @@ class SearchEventPagination extends Component
         return view('livewire.search-event-pagination',[
             'events' => Event::where('sujet','like','%' .$searchTerm. '%')
             ->orwhere('description','like','%' .$searchTerm. '%')
+            ->orwhere('date_debut','like','%' .$searchTerm. '%')
+            ->orwhere('date_fin','like','%' .$searchTerm. '%')
+            ->orwhere('dure','like','%' .$searchTerm. '%')
+            ->orwhere('lien','like','%' .$searchTerm. '%')
+            ->orwhere('lieu','like','%' .$searchTerm. '%')
+
+
+
             
             ->paginate(10)
         ]);
