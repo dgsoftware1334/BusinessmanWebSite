@@ -13,7 +13,7 @@ class SearchVideoPagination extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
- 
+
         return view('livewire.search-video-pagination',[
             'videos' => Video::where('title','like','%' .$searchTerm. '%')
             ->orwhere('description','like','%' .$searchTerm. '%')

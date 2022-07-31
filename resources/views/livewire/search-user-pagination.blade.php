@@ -1,4 +1,4 @@
-<div> 
+<div>
 <div class="row">
 
           <div class="form-group col-lg-8">
@@ -11,12 +11,50 @@
               </a>
           </div>
 </div>
+<!-- filtrage par activation email -->
+<div class="row">
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"  wire:model="etat" value="all" />
+    <label class="form-check-label" for="flexRadioDefault1"> <b>Tous</b> </label>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"  wire:model="etat" value="actif"/>
+    <label class="form-check-label" for="flexRadioDefault1"> <b>Email actif</b>  </label>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- Default checked radio -->
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  wire:model="etat" value="desactif"/>
+    <label class="form-check-label" for="flexRadioDefault2"> <b> Email desactif</b> </label>
+  </div>
+</div>
+<!-- filtrage par accés à l'espace vip -->
+<!-- Default unchecked -->
+<div class="row">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault11"  wire:model="vip" value="tous" />
+        <label class="form-check-label" for="flexRadioDefault1"> <b>Tous</b> </label>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault11"  wire:model="vip" value="oui"/>
+        <label class="form-check-label" for="flexRadioDefault1"> <b>Vip accessible</b>  </label>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- Default checked radio -->
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault21"  wire:model="vip" value="non"/>
+        <label class="form-check-label" for="flexRadioDefault2"> <b> Vip inaccessible</b> </label>
+      </div>
+    </div>
+
 
 <div class="row">
 <div class="col-lg-11 bg-white rounded-top tab-head">
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 <li class="nav-item1">
-<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">tous</a>
+<a class="nav-link active" id="home-tab"S data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">tous</a>
 </li>
 <li class="nav-item1">
 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">active</a>
@@ -28,6 +66,7 @@
 
 
 </div>
+
 
 
 <div class="col-lg-12 bg-white">
@@ -51,11 +90,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    
-                 
+
+
                      @foreach ($users as $row)
-                     
-                     
+
+
                     <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$row->name }}&ensp;{{$row->lastname}}</td>
@@ -68,8 +107,8 @@
                      @if(!is_null($row->sacteur_id))
                        {{ $row->secteur->libelle}}
                          @endif
-                     
-                      
+
+
                    </td>
                    <td>
                     @if(is_null($row->file))
@@ -79,8 +118,8 @@
                      <a href=" {{url('admin/download',$row->file)}}"><i class="fas fa-download"></i></a>
 
                          @endif
-                     
-                      
+
+
                    </td>
                      <td>
                      @if($row->status == '1')
@@ -92,7 +131,7 @@
                      </td>
                      <td>
                      @if($row->paye == '1')
-                     <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>                     
+                     <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>
                       @elseif($row->paye == '0')
                        <a href="" data-toggle="modal" data-target="#vip{{$row->id}}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
@@ -101,15 +140,15 @@
                      <td>
                        @if($row->paye == '1' && !is_null($row->date_limite))
                        <?php
-                        
+
                        $date=$row->date;
                        $date_limite =$row->date_limite;
-                       
+
                       // $dure =$date_limite->diffInDays($date);
                        $now = Carbon\Carbon::now();
                        ?>
                        <h6 style="color:red;">( {{$row->date_limite}} )</h6>
-                           
+
                             @if($row->paye == 1)
                             <span class="badge badge-info"> autorisé</span>
                             @endif
@@ -117,7 +156,7 @@
                        <h6 style="color:red;">(----/--/--)</h6>
                        @endif
                       </td>
-                      
+
                       <td>
                       @if($row->email_verified == 0)
                       <span class="badge badge-danger">Non</span>
@@ -127,20 +166,20 @@
                       </td>
                      <td >
 
-                     
-                     
+
+
                       <!---edit user-->
                        <a  href="{{ url('admin/user/edit', $row->id) }}">
-                      <i class="fas fa-user-edit" style="color: blue"></i></a>&ensp; 
+                      <i class="fas fa-user-edit" style="color: blue"></i></a>&ensp;
 
                       <!--read user-->
                          <a  href="{{ url('admin/user/show', $row->id) }}">
-                      <i class="fas fa-folder" style="color :green"></i>&ensp; 
+                      <i class="fas fa-folder" style="color :green"></i>&ensp;
                           </a>
                        <!--delete user-->
                     <!-- <a  href="{{ url('admin/user/delete', $row->id) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>-->
                     <a href="{{url('admin/user/delete',$row->id)}}" class="button delete-confirm"><i class="far fa-trash-alt" style="color: red"></i></a>
-&ensp; 
+&ensp;
                       <!--deactive-->
                        @if($row->status == '0')
                        <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
@@ -163,8 +202,8 @@
       </div>
       <div class="modal-body">
             <form action="{{ route('admin.vip') }}" method="post">
-              @csrf 
-              
+              @csrf
+
              <div class="form-group">
                <label for="exampleInputEmail1">Date limite</label>
                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="date_limite">
@@ -172,25 +211,25 @@
                <input id="id" type="hidden" name="id" class="form-control"  value="{{ $row->id }}">
                <small id="emailHelp" class="form-text text-muted">Cette date permet de limite l'accées à l'espace VIP.</small>
              </div>
-           
-            
+
+
              <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+
       </div>
     </div>
   </div>
 </div>
   <!------------------------------------------ End modal vip -------------------------------------->
-                   
+
                     @endforeach
-                    
-                    
-                    
-                    
+
+
+
+
                   </tbody>
                 </table>
                 {{$users->links('pagination::bootstrap-4')}}
@@ -228,15 +267,15 @@
                        vide
                    </td>
                      <td>
-                     
+
                        <span class="badge badge-success">Active</span>
-                    
+
 
                      </td>
                      <td>
                      @if($row->paye == '1')
                      <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>
-                     
+
                       @elseif($row->paye == '0')
                        <a href="" data-toggle="modal" data-target="#vip{{$row->id}}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
@@ -245,15 +284,15 @@
                      <td>
                        @if($row->paye == '1' && !is_null($row->date_limite))
                        <?php
-                        
+
                        $date=$row->date;
                        $date_limite =$row->date_limite;
-                       
+
                       // $dure =$date_limite->diffInDays($date);
                        $now = Carbon\Carbon::now();
                        ?>
                        <h6 style="color:red;">( {{$row->date_limite}} )</h6>
-                           
+
                             @if($row->paye == 1)
                             <span class="badge badge-info"> autorisé</span>
                             @endif
@@ -261,7 +300,7 @@
                        <h6 style="color:red;">(----/--/--)</h6>
                        @endif
                       </td>
-                      
+
                       <td>
                       @if($row->email_verified == 0)
                       <span class="badge badge-danger">Non</span>
@@ -271,20 +310,20 @@
                       </td>
                      <td>
 
-                     
-                     
+
+
                       <!---edit user-->
-                      <i class="fas fa-user-edit" style="color: blue"></i>&ensp; 
+                      <i class="fas fa-user-edit" style="color: blue"></i>&ensp;
 
                       <!--read user-->
-                   
+
 
                        <!--delete user-->
-                     <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+                     <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp;
                       <!--deactive-->
-                 
+
                       <!--active-->
-                      
+
                      <!--deactive-->
                        @if($row->status == '0')
                        <a  href="{{ url('admin/user/desactive', $row->id) }}"> <i class="fas fa-ban" style="color: orange"></i> </a>
@@ -293,15 +332,15 @@
                         @if($row->status == '1')
                         <a  href="{{ url('admin/user/active', $row->id) }}"> <i class="fas fa-check-circle"></i></a>
                          @endif
-                      
+
 
                      </td>
                    </tr>
                     @endif
                     @endforeach
-                    
-                    
-                    
+
+
+
                   </tbody>
                 </table>
 
@@ -338,14 +377,14 @@
                        vide
                    </td>
                      <td>
-                     
+
                        <span class="badge badge-danger">Déactive</span>
-                    
+
 
                      </td>
                      <td>
                      @if($row->paye == '1')
-                     <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>                     
+                     <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>
                       @elseif($row->paye == '0')
                        <a href="" data-toggle="modal" data-target="#vip{{$row->id}}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
@@ -354,15 +393,15 @@
                      <td>
                        @if($row->paye == '1' && !is_null($row->date_limite))
                        <?php
-                        
+
                        $date=$row->date;
                        $date_limite =$row->date_limite;
-                       
+
                       // $dure =$date_limite->diffInDays($date);
                        $now = Carbon\Carbon::now();
                        ?>
                        <h6 style="color:red;">( {{$row->date_limite}} )</h6>
-                           
+
                             @if($row->paye == 1)
                             <span class="badge badge-info"> autorisé</span>
                             @endif
@@ -370,7 +409,7 @@
                        <h6 style="color:red;">(----/--/--)</h6>
                        @endif
                       </td>
-                      
+
                       <td>
                       @if($row->email_verified == 0)
                       <span class="badge badge-danger">Non</span>
@@ -380,18 +419,18 @@
                       </td>
                      <td>
 
-                     
-                     
+
+
                       <!---edit user-->
-                      <i class="fas fa-user-edit" style="color: blue"></i>&ensp; 
+                      <i class="fas fa-user-edit" style="color: blue"></i>&ensp;
 
                       <!--read user-->
                        <a  href="{{ url('admin/user/show', $row->id) }}">
-                      <i class="fas fa-folder" style="color :green"></i>&ensp; 
+                      <i class="fas fa-folder" style="color :green"></i>&ensp;
                           </a>
-                         <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp; 
+                         <a  href="{{ route('admin.user.delete',[$row->id]) }}"> <i class="far fa-trash-alt" style="color: red"></i></a>&ensp;
                        <!--delete user-->
-                         
+
 
                      <!--deactive-->
                        @if($row->status == '0')
@@ -406,12 +445,12 @@
                    </tr>
                     @endif
                     @endforeach
-                    
-                    
-                    
+
+
+
                   </tbody>
                 </table>
-            
+
 </div>
 </div>
 </div>
