@@ -19,10 +19,10 @@ use Carbon\Carbon;
 
 class BusinessmansController extends Controller
 {
- 
+
     public function index(){
      $secteurs= Secteur::all();
-    
+
   return view ('dashboard.user.create',compact('secteurs'));
 }
     /**
@@ -31,19 +31,19 @@ class BusinessmansController extends Controller
      * @return \Illuminate\Http\Response
      */
    function create(StoreUserRequest $request){
-      
-        $validated = $request->validated();  
+
+        $validated = $request->validated();
         $user = new User();
-       
+
         if($request->file('photo')){
        $file_extension = $request->photo->getClientOriginalExtension();
        $file_name =time().'.'.$file_extension;
          $path = 'assests/imgUser';
     $request->photo->move($path,$file_name);
      $user->photo= $file_name;
- 
+
        // $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
-       
+
                                     }
 
 
@@ -56,9 +56,9 @@ class BusinessmansController extends Controller
         $user->email = $request->email;
        // $user->admin_id=1;
         $user->password = \Hash::make($request->password);
-    
+
         $user->lienfb=$request->lienfb;
-   
+
         $user->lieninsta=$request->lieninsta;
         $user->lientwit=$request->lientwit;
         $user->linked=$request->linked;
@@ -69,11 +69,11 @@ class BusinessmansController extends Controller
         $user->sacteur_id=$request->sacteur_id;
         else
         $user->sacteur_id=40;
-   //  
-       
+   //
+
             $save = $user->save();
 
-      
+
 
         if( $save ){
             toastr()->success(trans(key: 'msg_trans.success'));
@@ -82,7 +82,7 @@ class BusinessmansController extends Controller
             //return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
         }else{
            // return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
-           
+
         toastr()->error(trans(key: 'msg_trans.fail'));
 
         return back();
@@ -95,7 +95,7 @@ class BusinessmansController extends Controller
       $user = User::findOrFail($id)->delete();
       toastr()->error('Vous avez supprimer l homme d affaire');
         return back()->with('success','Businessman deleted successfully');
-          
+
 
 
     }
@@ -106,7 +106,7 @@ class BusinessmansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Display the specified resource.
@@ -135,7 +135,7 @@ class BusinessmansController extends Controller
         $user= User::find($id);
          return view ('dashboard.user.edit',compact('secteurs','user'));
     }
-     
+
 
     /**
      * Update the specified resource in storage.
@@ -149,18 +149,18 @@ class BusinessmansController extends Controller
         //
         $validated = $request->validated();
         $user= User::find($id);
- 
 
-       
+
+
         if($request->file('photo')){
        $file_extension = $request->photo->getClientOriginalExtension();
        $file_name =time().'.'.$file_extension;
          $path = 'assests/imgUser';
     $request->photo->move($path,$file_name);
      $user->photo= $file_name;
- 
+
        // $test3 =$request->photo->move('assests/imgUser/',$newImageName3);
-       
+
                                     }
 
 
@@ -173,9 +173,9 @@ class BusinessmansController extends Controller
         $user->email = $request->email;
        // $user->admin_id=1;
      //   $user->password = \Hash::make($request->password);
-    
+
         $user->lienfb=$request->lienfb;
-   
+
         $user->lieninsta=$request->lieninsta;
         $user->lientwit=$request->lientwit;
         $user->linked=$request->linked;
@@ -188,7 +188,7 @@ class BusinessmansController extends Controller
         $user->sacteur_id=40;
    //
     $user->password=Hash::make($request->new_password);
-        
+
 
         $save = $user->save();
 
@@ -199,7 +199,7 @@ class BusinessmansController extends Controller
             //return redirect()->back()->with('success','Vous êtes maintenant enregistré avec succès mais vous devez attendre la validation de votre compte');
         }else{
            // return redirect()->back()->with('fail','Quelque chose s est mal passé, échec de l enregistrement');
-           
+
         toastr()->error(trans(key: 'msg_trans.fail'));
 
         return back();
@@ -227,26 +227,26 @@ class BusinessmansController extends Controller
       }
     }
     function vip(VipRequest $request){
-       
+
       $validated = $request->validated();
       $user=User::find($request->id);
       $user->date_limite = $request->date_limite;
       $user->paye = $request->paye;
       $user->date= Carbon::now();
-  
-     
-    
+
+
+
       $save =$user->save();
       if( $save ){
           toastr()->success('Vous avez donnez l\'accées à l\espace VIP pour cet utilisateur');
           return redirect()->back();
-     
+
       }else{
-     
+
       toastr()->error('Erreur! Un probleme s est survenue');
       return redirect()->back();
-    
+
       }
-         
+
     }
 }

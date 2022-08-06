@@ -131,7 +131,7 @@
                      </td>
                      <td>
                      @if($row->paye == '1')
-                     <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>
+                     <a href="{{ url('admin/user/autorize', $row->id) }}"> <acronym title="limiter l'accées de cette personne a l'espace vip"> <i class="fa-solid fa-lock-open" style="color:blue;"></i></acronym> </a>
                       @elseif($row->paye == '0')
                        <a href="" data-toggle="modal" data-target="#vip{{$row->id}}"><acronym title="Autoriser l'accées de cette personne a l'espace vip"><i class="fa-solid fa-lock"></i></acronym> </a>
                      @endif
