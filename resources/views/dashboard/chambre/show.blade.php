@@ -41,7 +41,7 @@
                 <img src="{{ asset('assests/images/chambre/'.$chambre->photo)}}" class="product-image" alt="Product Image"  style="height: 400px">
               </div>
 
-               
+
               <div class="col-6 product-image-thumbs">
 
               <div class="mt-4 product-share">
@@ -60,11 +60,11 @@
                 <a href="<?=$chambre->lienfb?>" class="text-gray">
                   <i class="fas fa-rss-square fa-2x"></i>
                 </a>
-               
 
-                
+
+
               </div>
-               
+
               </div>
 
             </div>
@@ -83,12 +83,12 @@
                  <li> <p  align="left">
                   <br>
                   <button type="button" class="btn btn-gl btn-primary" data-toggle="modal" data-target="#edit{{$chambre->id}}" align="right">
-                      Modifier Chambre 
+                      Modifier Chambre
                         </button>
                 </p></li>
                </ul>
-             
-         
+
+
 
 
 
@@ -96,12 +96,12 @@
 
           </div>
           <div class="row mt-4">
-           
+
             <div class="tab-content p-3" id="nav-tabContent">
               <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
                 <div class="row">
-              
-          </div> 
+
+          </div>
               </div>
               <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab"> </div>
               <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> </div>
@@ -122,7 +122,7 @@
         <div class="modal-dialog modal-lg" style="width:1200px">
           <div class="modal-content" style="width:1200px">
             <div class="modal-header" style="background-color: #4682B4;">
-<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; 
+<h4 class="modal-title" style="color: white" align="center">&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;Modifier les Informations de La chambte </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -130,19 +130,19 @@
             </div>
             <div class="modal-body" style="width:1200px">
 
-              
+
             <!-- general form elements disabled -->
             <form class="form-horizontal" method="POST" action="{{route('admin.update_chambre')}}" autocomplete="off" enctype="multipart/form-data" id="myForm">
                   @csrf
                 <div class="card-body">
-              
+
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label" >Le titre<span style="color:red">*</span></label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3"  value="{{$chambre->getTranslation('sujet', 'fr')}}" placeholder="Entrer le titre en (fr)" name="sujet" class="@error('sujet') is-invalid @enderror"> 
+                      <input type="text" class="form-control" id="inputEmail3"  value="{{$chambre->getTranslation('sujet', 'fr')}}" placeholder="Entrer le titre en (fr)" name="sujet" class="@error('sujet') is-invalid @enderror">
                       <input id="id" type="hidden" name="id" class="form-control"  value="{{ $chambre->id }}">
                       <span class="text-danger">@error('sujet'){{ $message }} @enderror</span>
-                      
+
                     </div>
                   </div>
                   <div class="form-group row">
@@ -210,7 +210,7 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description<span style="color:red">*</span></label>
                     <div class="col-sm-10">
-            
+
                       <textarea class="form-control" rows="3" name="description" id="fr" placeholder="Entrer une description sur la chambre" class="@error('description') is-invalid @enderror">{{$chambre->getTranslation('description', 'fr')}}</textarea>
                       <span class="text-danger">@error('description'){{ $message }} @enderror</span>
                     </div>
@@ -218,7 +218,7 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوى </label>
                     <div class="col-sm-10">
-            
+
                       <textarea class="form-control" rows="3" id="ar" name="description_ar" placeholder="اكتب المحتوى بالعربي ...">{{$chambre->getTranslation('description', 'ar')}}</textarea>
 
                     </div>
@@ -226,7 +226,7 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-            
+
                       <textarea class="form-control" rows="3" id="en" name="description_en" placeholder="Write the description in english ...">{{$chambre->getTranslation('description', 'en')}}</textarea>
 
                     </div>
@@ -234,7 +234,7 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Politique<span style="color:red">*</span></label>
                     <div class="col-sm-10">
-            
+
                       <textarea class="form-control" id="pofr" rows="3" name="politique" placeholder="Entrer la politique de la chambre" class="@error('politique') is-invalid @enderror">{{$chambre->getTranslation('politique', 'fr')}}</textarea>
                       <span class="text-danger">@error('politique'){{ $message }} @enderror</span>
                     </div>
@@ -243,20 +243,20 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">السياسة</label>
                     <div class="col-sm-10">
-            
+
                       <textarea class="form-control" rows="3"  id="poar" name="politique_ar" placeholder="Entrer une description sur la chambre" >{{$chambre->getTranslation('politique', 'ar')}}</textarea>
-                      
+
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Politic</label>
                     <div class="col-sm-10">
-            
+
                       <textarea class="form-control" rows="3" id="poen" name="politique_en" placeholder="Entrer une description sur la chambre" >{{$chambre->getTranslation('politique', 'en')}}</textarea>
-                    
+
                     </div>
                   </div>
-                  
+
 
                  <div class="form-group row">
                     <label for="exampleInputFile" class="col-sm-2 col-form-label" name="image">Image<span style="color:red">*</span></label>
@@ -269,7 +269,7 @@
                       <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                       </div>
-                     
+
                     </div>
                   </div>
                   <br/>
@@ -285,13 +285,13 @@
                 </div>
                 <!-- /.card-body -->
                 <!--div class="card-footer">
-               
+
                   <button type="submit" class="btn btn-default float-right">Cancel</button>
                 </div-->
                 <!-- /.card-footer -->
               </form>
             </div>
-          
+
           </div>
           <!-- /.modal-content -->
         </div>
@@ -299,11 +299,11 @@
       </div>
 
              <!------------------------------------------update modal------------------------------------->
-    
+
 
 
  @endforeach
- 
+
 <script>
     ClassicEditor
         .create( document.querySelector( '#fr' ) )
